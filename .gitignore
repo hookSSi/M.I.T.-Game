@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# ExternalExecuter .gitignore start
+ExternalExecuter/
+!ExternalExecuter/HackerTyper.cpp
