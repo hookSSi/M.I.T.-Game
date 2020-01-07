@@ -15,6 +15,15 @@ namespace NPC
         LEFT,
         NONE
     }
+    /*
+    *   @desc NPC의 애니메이션 상태
+    */
+    public enum State
+    {
+        IDLE,
+        WALK
+    }
+
 
     [System.Serializable]
     public class Action

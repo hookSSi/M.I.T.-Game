@@ -60,4 +60,3 @@ crashlytics-build.properties
 
 # ExternalExecuter .gitignore start
 ExternalExecuter/
-!ExternalExecuter/HackerTyper.cpp
