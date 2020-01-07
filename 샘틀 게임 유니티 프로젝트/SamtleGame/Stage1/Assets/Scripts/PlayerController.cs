@@ -11,12 +11,13 @@ public class PlayerController : MonoBehaviour
     public Transform meleeTransform;
     public Vector2 attackSize;
     public GameObject playerHp;
+    public float playerForce = 5;
 
     private const int idle = 0;
-    private const int jump = 1;
-    private const int walk = 2;
+    private const int walk = 1;
+    private const int jump = 2;
     private const int attack = 3;
-    private const int immume = 4;
+    private const int attacked = 4;
     private int state = idle;
     private int playerHpCount = 5;
     private Animator playerAni;
@@ -59,17 +60,17 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.Z))     // 추후 콘솔의 공격로 변경
             {
                 // atk
+                state = attack;
                 Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(meleeTransform.position, attackSize, 0);
                 foreach(Collider2D collider in collider2Ds)
                 {
                     //Debug.Log(collider.tag);
                     if(collider.tag == "Enemy")
                     {
-                        collider.GetComponent<Enemy>().TakeDamage();
+                        collider.GetComponent<Enemy>().TakeDamage(transform, playerForce);
                         //Debug.Log("EEEEEEE");
                     }
                 }
-                state = attack;
                 playerAni.SetTrigger("idle_to_attack");
                 attackCurrentTime = attackCollTime;
             }
@@ -134,7 +135,7 @@ public class PlayerController : MonoBehaviour
             rigid.AddForce(direction, ForceMode2D.Impulse);
 
             immuneCurrentTime = immuneCollTime;
-            Debug.Log("Attacked!!");
+            //Debug.Log("Attacked!!");
         }
     }
 
