@@ -7,19 +7,25 @@ public class PlayerController : MonoBehaviour
     public int speed = 10;
     public float jumpPower = 1.0f;
     public float attackCollTime = 0.1f;
+    private float immuneCollTime = 1;
     public Transform meleeTransform;
     public Vector2 attackSize;
+    public GameObject playerHp;
 
     private const int idle = 0;
     private const int jump = 1;
     private const int walk = 2;
     private const int attack = 3;
+    private const int immume = 4;
     private int state = idle;
+    private int playerHpCount = 5;
     private Animator playerAni;
     private Rigidbody2D rigid;
     private bool isJumping = false;
-    private float currentTime;
+    private float attackCurrentTime;
+    private float immuneCurrentTime;
     
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -32,10 +38,11 @@ public class PlayerController : MonoBehaviour
     {
         InitState();
         Attack();
-        if(currentTime <= 0)
+        if(attackCurrentTime <= 0)
         {
             Move();
         }
+        CountingCollTime();
     }
 
     private void InitState()
@@ -47,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
-        if(currentTime <= 0)
+        if(attackCurrentTime <= 0)
         {
             if (Input.GetKey(KeyCode.Z))     // 추후 콘솔의 공격로 변경
             {
@@ -55,7 +62,7 @@ public class PlayerController : MonoBehaviour
                 Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(meleeTransform.position, attackSize, 0);
                 foreach(Collider2D collider in collider2Ds)
                 {
-                    Debug.Log(collider.tag);
+                    //Debug.Log(collider.tag);
                     if(collider.tag == "Enemy")
                     {
                         collider.GetComponent<Enemy>().TakeDamage();
@@ -64,12 +71,8 @@ public class PlayerController : MonoBehaviour
                 }
                 state = attack;
                 playerAni.SetTrigger("idle_to_attack");
-                currentTime = attackCollTime;
+                attackCurrentTime = attackCollTime;
             }
-        }
-        else
-        {
-            currentTime -= Time.deltaTime;
         }
     }
 
@@ -117,12 +120,45 @@ public class PlayerController : MonoBehaviour
         rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
     }
 
+    public void Attacked(Transform collisionObjectTransform, float enemyForce)
+    {
+        if(immuneCurrentTime <= 0)
+        {
+            playerHpCount--;
+            // attacked
+            playerHp.transform.GetChild(playerHpCount).gameObject.SetActive(false);
+            Vector2 direction = transform.position - collisionObjectTransform.position;
+            direction.y = 0.5f;
+            direction = direction.normalized * enemyForce;
+
+            rigid.AddForce(direction, ForceMode2D.Impulse);
+
+            immuneCurrentTime = immuneCollTime;
+            Debug.Log("Attacked!!");
+        }
+    }
+
+    private void CountingCollTime()
+    {
+        attackCurrentTime -= Time.deltaTime;
+        immuneCurrentTime -= Time.deltaTime;
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.transform.tag == "Ground")
         {
             playerAni.SetBool("idle_to_jump", false);
             isJumping = false;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "Ground")
+        {
+            playerAni.SetBool("idle_to_jump", true);
+            isJumping = true;
         }
     }
 }
