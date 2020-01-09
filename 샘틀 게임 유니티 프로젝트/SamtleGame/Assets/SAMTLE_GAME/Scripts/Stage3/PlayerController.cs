@@ -49,21 +49,19 @@ public class PlayerController : MonoBehaviour
     //마우스 좌우, 캐릭터와 함깨 돌아감
     private void CharacterRotation()
     {
-        float yRotation = Input.GetAxisRaw("Mouse X");
-        Vector3 characterRotationY = new Vector3(0f, yRotation, 0f) * lookSensitivity;
+        float _yRotation = Input.GetAxisRaw("Mouse X");
+        Vector3 _characterRotationY = new Vector3(0f, _yRotation, 0f) * lookSensitivity;
 
-        rigidbody.MoveRotation(rigidbody.rotation * Quaternion.Euler(characterRotationY));
-        Debug.Log(rigidbody.rotation);
-        Debug.Log(rigidbody.rotation.eulerAngles);
+        rigidbody.MoveRotation(rigidbody.rotation * Quaternion.Euler(_characterRotationY));
     }
 
     //마우스 상하, 카메라만 돌아감
     private void CameraRotation()
     {
-        float xRotation = Input.GetAxisRaw("Mouse Y");
-        float cameraRotationX = xRotation * lookSensitivity;
+        float _xRotation = Input.GetAxisRaw("Mouse Y");
+        float _cameraRotationX = _xRotation * lookSensitivity;
 
-        currentCameraRotationX -= cameraRotationX;
+        currentCameraRotationX -= _cameraRotationX;
         currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
 
         camera.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
