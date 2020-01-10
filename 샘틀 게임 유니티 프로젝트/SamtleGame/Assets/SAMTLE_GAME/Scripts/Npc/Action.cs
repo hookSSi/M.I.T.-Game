@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace NPC
+namespace MIT.SamtleGame.NPC
 {
     /*
     *   @desc NPC의 행동 목록들을 만들 수 있는 클래스

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using TMPro;
+using MIT.SamtleGame.Tools;
 
 public class DialogBox : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class DialogBox : MonoBehaviour
 	private void Start() 
 	{
 		StartCoroutine(RevealCharacters(_textComponent, _delay));
+	}
+
+	private void Update() {
+		if(Input.GetKeyDown(KeyCode.A))
+			LoadingSceneManager.LoadScene("TEST");
 	}
 
 	private void OnEnable() 
@@ -65,7 +71,7 @@ public class DialogBox : MonoBehaviour
 
 			if (visibleCount > totalVisibleCharacters)
 			{
-				yield break;
+				yield return null;
 			}
 
 			PlaySound();

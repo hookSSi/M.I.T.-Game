@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-namespace NPC
+namespace MIT.SamtleGame.NPC
 {
     /*
     *   @desc 할배 NPC 클래스
