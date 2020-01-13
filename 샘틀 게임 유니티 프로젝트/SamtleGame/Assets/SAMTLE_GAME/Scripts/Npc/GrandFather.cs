@@ -8,7 +8,7 @@ namespace MIT.SamtleGame.NPC
     /*
     *   @desc 할배 NPC 클래스
     */
-    public class GrandFather : MonoBehaviour
+    public class GrandFather : Npc
     {
         [SerializeField]
         [Header("NPC의 행동을 정의")]
