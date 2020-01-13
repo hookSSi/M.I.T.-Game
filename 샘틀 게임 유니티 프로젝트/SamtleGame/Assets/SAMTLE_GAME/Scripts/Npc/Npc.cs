@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace MIT.SamtleGame.NPC
 {
+    public enum NpcAnimState { Idle = 0, Walk = 1} 
+
     public class Npc : MonoBehaviour
     {
         [Header("Identification")]
