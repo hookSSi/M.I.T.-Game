@@ -12,25 +12,45 @@ namespace Pokemon
         [Tooltip("남은 갯수")]
         public string _count;
     }
+    [System.Serializable]
+    public class PokemonInfo
+    {
+        [Header("일반 정보")]
+        [Tooltip("전면 이미지")]
+        public Sprite _frontImage;
+        [Tooltip("후면 이미지")]
+        public Sprite _backImage;
+        [Tooltip("울음 소리")]
+        public AudioClip _cryingSound;
+        [Tooltip("포켓몬 이름")]
+        public string _name;
+        [Tooltip("체력")]
+        public float _health = 100f;
+
+        [Header("기술")]
+        [SerializeField]
+        public Skill[] _skills;
+
+    }
 
     public class Pokemon : MonoBehaviour
     {
-        [Header("기술")]
         [SerializeField]
-        private Skill[] _skills;
-
-        [Header("체력")]
-        [SerializeField]
-        private float _health = 100f;
+        private PokemonInfo _info;
 
         public Skill UseSkill(int n)
         {
-            return _skills[n];
+            return _info._skills[n];
         }
 
         public virtual void GetHitSkill(Skill skill)
         {
             Debug.Log(skill._name + "에 당했다!");
+        }
+
+        public AudioClip Cry()
+        {
+            return _info._cryingSound;
         }
     }
 }
