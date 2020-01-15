@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class InteractRange : MonoBehaviour
 {
-    List<GameObject> interactableObjectList;
+    List<GameObject> _interactableObjectList;
 
     void Start()
     {
-        interactableObjectList = new List<GameObject>();
+        _interactableObjectList = new List<GameObject>();
     }
    
     //Interactable 오브젝트가 범위에 들어오면 리스트에 넣음
     void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Interactable") && !interactableObjectList.Contains(col.gameObject))
+        if (col.CompareTag("Interactable") && !_interactableObjectList.Contains(col.gameObject))
         {
-            interactableObjectList.Add(col.gameObject);
+            _interactableObjectList.Add(col.gameObject);
 
             Debug.Log(col.gameObject + "in");
         }
@@ -25,9 +25,9 @@ public class InteractRange : MonoBehaviour
     //Interactable 오브젝트가 범위에서 나가면면 리스트에서 뺌
     void OnTriggerExit(Collider col)
     {
-        if (col.CompareTag("Interactable") && interactableObjectList.Contains(col.gameObject))
+        if (col.CompareTag("Interactable") && _interactableObjectList.Contains(col.gameObject))
         {
-            interactableObjectList.Remove(col.gameObject);
+            _interactableObjectList.Remove(col.gameObject);
 
             Debug.Log(col.gameObject + "out");
         }
@@ -36,18 +36,18 @@ public class InteractRange : MonoBehaviour
     //제일 가까운 Interactable 오브젝트를 찾음
     public GameObject findNearest(Transform player)
     {
-        if (interactableObjectList.Count == 0)
+        if (_interactableObjectList.Count == 0)
         {
             return null;
         }
 
-        GameObject _out = interactableObjectList[0];
+        GameObject _out = _interactableObjectList[0];
 
-        for(int i = 0; i < interactableObjectList.Count ;i++)
+        for(int i = 0; i < _interactableObjectList.Count ;i++)
         {
-            if (Vector3.Distance(interactableObjectList[i].transform.position, player.position) < Vector3.Distance(_out.transform.position, player.position))
+            if (Vector3.Distance(_interactableObjectList[i].transform.position, player.position) < Vector3.Distance(_out.transform.position, player.position))
             {
-                _out = interactableObjectList[i];
+                _out = _interactableObjectList[i];
             }
         }
 

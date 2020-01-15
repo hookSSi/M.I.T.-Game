@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
-    private GameObject nearestInteractable = null;
+    private GameObject _nearestInteractable = null;
 
-    private InteractRange InteractRange;
+    private InteractRange _InteractRange;
 
     void Start()
     {
-        InteractRange = gameObject.transform.Find("Main Camera").Find("InteractRange").GetComponent<InteractRange>();
-        Debug.Log(InteractRange);
+        _InteractRange = gameObject.transform.Find("Main Camera").Find("InteractRange").GetComponent<InteractRange>();
+        Debug.Log(_InteractRange);
     }
 
     void Update()
@@ -24,15 +24,15 @@ public class PlayerInteract : MonoBehaviour
     {
         if (Input.GetButtonDown("Interact"))
         {
-            if (nearestInteractable != null)
+            if (_nearestInteractable != null)
             {
-                Debug.Log(nearestInteractable.name);
+                Debug.Log(_nearestInteractable.name);
             }
         }
     }
 
     private void checkNearest()
     {
-        nearestInteractable = InteractRange.findNearest(gameObject.transform);
+        _nearestInteractable = _InteractRange.findNearest(gameObject.transform);
     }
 }
