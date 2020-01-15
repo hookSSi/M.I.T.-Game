@@ -80,7 +80,8 @@ namespace MIT.SamtleGame.NPC
             {
                 Talk();
             }
-            if (Input.GetKeyDown(KeyCode.R))
+
+            else if (Input.GetKeyDown(KeyCode.R))
             {
                 NextPage();
             }
