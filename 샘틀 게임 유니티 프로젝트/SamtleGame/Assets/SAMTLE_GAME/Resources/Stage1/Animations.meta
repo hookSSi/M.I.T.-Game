@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:샘틀 게임 유니티 프로젝트/SamtleGame/Assets/SAMTLE_GAME/Resources/Stage1/Animations.meta
 guid: e40199eaf230ad040afb9958ec060dbc
+=======
+guid: e9335668b26ee0e43bdaddb244f4eafd
+>>>>>>> origin/sih:샘틀 게임 유니티 프로젝트/SamtleGame/Assets/SAMTLE_GAME/Resources/Common/Animations.meta
+=======
+guid: e40199eaf230ad040afb9958ec060dbc
+>>>>>>> origin/sih
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
