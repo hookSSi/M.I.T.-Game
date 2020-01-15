@@ -75,7 +75,7 @@ public class AudioManager : Singleton<AudioManager>, EventListener<SoundEvent>
 {
     [SerializeField]
     private Sound[] _sounds;
-    private Dictionary<string, Sound> _soundDic;
+    private Dictionary<string, Sound> _soundDic = new Dictionary<string, Sound>();
 
     protected virtual void Initialization()
     {

@@ -64,17 +64,18 @@ public class Playermovement : MonoBehaviour
                 this.gameObject.transform.position = goalPos;
             }
 
+
             #region walk sound
+            /*
             theAudio.Play(walkSound);
 
             theAudio.SetVolume(walkSound, 0.5f);
-
+            */
             /*
             theAudio.Stop(walkSound);
             theAudio.SetLoop(walkSound);
             theAudio.SetLoopCencle(walkSound);
             */
-
             #endregion
         }
         #endregion

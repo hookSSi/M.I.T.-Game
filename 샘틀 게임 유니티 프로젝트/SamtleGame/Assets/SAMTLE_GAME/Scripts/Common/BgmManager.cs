@@ -4,6 +4,7 @@ using UnityEngine;
 
 using MIT.SamtleGame.DesignPattern;
 
+[RequireComponent(typeof(AudioSource))]
 public class BgmManager : Singleton<BgmManager>
 {
     public AudioClip[] _clips; //bgms
@@ -16,10 +17,6 @@ public class BgmManager : Singleton<BgmManager>
     {
         base.Awake();
         DontDestroyOnLoad(gameObject);
-    }
-
-    void Start()
-    {
         _source = GetComponent<AudioSource>();
     }
 
@@ -39,12 +36,15 @@ public class BgmManager : Singleton<BgmManager>
         _source.UnPause();
     }
 
-
     public void Stop()
     {
         _source.Stop();
     }
 
+    public void SetVolume(float _volume)
+    {
+        _source.volume = _volume;
+    }
 
     public void FadeOutBgm()
     {
@@ -72,11 +72,5 @@ public class BgmManager : Singleton<BgmManager>
             _source.volume = i;
             yield return _waitTime;
         }
-    }
-
-
-    public void SetVolume(float _volume)
-    {
-        _source.volume = _volume;
     }
 }

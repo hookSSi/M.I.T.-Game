@@ -37,26 +37,14 @@ namespace MIT.SamtleGame.NPC
             _textPages[index] = text;
         }
 
-        protected virtual void Talk()
+        public  virtual void Talk()
         {
             DialogueEvent.Trigger(_talkEvent._id);
         }
 
-        private void NextPage()
+        public  void NextPage()
         {
             DialogueEvent.Trigger(_id, DialogueStatus.Next);
-        }
-
-        protected virtual void Update() 
-        {
-            if(Input.GetKeyDown(KeyCode.A))
-            {
-                Talk();
-            }
-            if(Input.GetKeyDown(KeyCode.D))
-            {
-                NextPage();
-            }
         }
     }
 }
