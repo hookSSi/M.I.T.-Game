@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 224c16a871410b34e87ec8085dec193a
+=======
+<<<<<<< HEAD:샘틀 게임 유니티 프로젝트/SamtleGame/Assets/SAMTLE_GAME/Resources/Common/Animations.meta
+guid: e9335668b26ee0e43bdaddb244f4eafd
+=======
+guid: 03d83ad0ac221a54e8dd518b7df49a99
+>>>>>>> tak:샘틀 게임 유니티 프로젝트/SamtleGame/Assets/SAMTLE_GAME/Resources/Stage3.meta
+>>>>>>> tak
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
