@@ -72,7 +72,6 @@ public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
         _currentDialogueUI.transform.parent = this.gameObject.transform;
 
         _curretDialogue = _currentDialogueUI.GetComponentInChildren<DialogueBox>();
-        Debug.Log(_curretDialogue);
     }
 
     private void ShowDialogue(int id)
