@@ -2,138 +2,152 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using MIT.SamtleGame.Tools;
+using MIT.SamtleGame.DesignPattern;
+
+public enum SoundStatus { Play, Stop }
+
+public struct SoundEvent
+{
+    public string _name;
+    public SoundStatus _status;
+    public bool _isLoop;
+    public float _volume;
+
+    public SoundEvent(string name, SoundStatus status = SoundStatus.Play, bool isLoop = false, float volume = 0.5f)
+    {
+        _name = name;
+        _status = status;
+        _isLoop = isLoop;
+        _volume = volume;
+    }
+
+    public static SoundEvent _event;
+
+    public static void Trigger(string name, SoundStatus status = SoundStatus.Play, bool isLoop = false, float volume = 0.5f)
+    {
+        _event._name = name;
+        _event._status = status;
+        _event._isLoop = isLoop;
+        _event._volume = volume;
+        EventManager.TriggerEvent(_event);
+    }
+}
 
 [System.Serializable]
 public class Sound
 {
-    public string name; //이름
+    private AudioSource _source; //플레이어
 
-    public AudioClip clip; //파일
-    private AudioSource source; //플레이어
-
-    public float volume;
-    public bool loop;
+    public string _name; //이름
+    public AudioClip _clip; //파일
+    public float _volume;
+    public bool _isLoop;
 
     public void SetSource(AudioSource _source)
     {
-        source = _source;
-        source.clip = clip;
-        source.loop = loop;
+        this._source = _source;
+        this._source.clip = _clip;
+        this._source.loop = _isLoop;
     }
 
     public void Play()
     {
-        source.Play();
+        _source.Play();
     }
     public void Stop()
     {
-        source.Stop();
+        _source.Stop();
     }
-    public void SetLoop() //반복재생
+    public void SetLoop(bool isLoop) //반복재생
     {
-        source.loop = true;
+        _source.loop = isLoop;
+        _isLoop = isLoop;
     }
-    public void SetVolume()
+    public void SetVolume(float volume)
     {
-        source.volume = volume;
-    }
-
-    public void SetLoopCancel() //반복재생 취소
-    {
-        source.loop = false;
+        _source.volume = volume;
+        _volume = volume;
     }
 }
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>, EventListener<SoundEvent>
 {
-    static public AudioManager instance;
-
     [SerializeField]
-    public Sound[] sounds;
+    private Sound[] _sounds;
+    private Dictionary<string, Sound> _soundDic;
+
+    protected virtual void Initialization()
+    {
+        for ( int i = 0; i < _sounds.Length ; i++ )
+        {
+            GameObject soundObject = new GameObject("사운드 파일 이름 : " + i + "=" + _sounds[i]._name );
+            _sounds[i].SetSource( soundObject.AddComponent<AudioSource>() );
+            soundObject.transform.SetParent(this.transform);
+            _soundDic[_sounds[i]._name] = _sounds[i];
+        }
+    }
 
     void Start()
     {
-        for ( int i = 0; i < sounds.Length ; i++ )
+        Initialization();
+    }
+
+	protected override void Awake()
+    {
+        base.Awake();
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void Play (string name)
+    {
+        if(_soundDic.ContainsKey(name))
+            _soundDic[name].Play();
+    }
+
+    public void Stop(string name)
+    {
+        if(_soundDic.ContainsKey(name))
+            _soundDic[name].Stop();
+    }
+
+    public void SetLoop(string name, bool isLoop = false)
+    {
+        if(_soundDic.ContainsKey(name))
+            _soundDic[name].SetLoop(isLoop);
+        
+    }
+
+    public void SetVolume(string name , float volume)
+    {
+        if(_soundDic.ContainsKey(name))
         {
-            GameObject soundObject = new GameObject("사운드 파일 이름 : " + i + "=" + sounds[i].name );
-            sounds[i].SetSource( soundObject.AddComponent<AudioSource>() );
-            soundObject.transform.SetParent(this.transform);
+            _soundDic[name].SetVolume(volume);
         }
     }
 
-    private void Awake() //scene 이동 대비
+    public virtual void OnEvent(SoundEvent soundEvent)
     {
-        if(instance  != null)
+        switch(soundEvent._status)
         {
-            Destroy(this.gameObject);
-        }
-
-        else
-        {
-            DontDestroyOnLoad(this.gameObject);
-            instance = this;
+            case SoundStatus.Play:
+                SetLoop(soundEvent._name, soundEvent._isLoop);
+                SetVolume(soundEvent._name, soundEvent._volume);
+                Play(soundEvent._name);
+                break;
+            case SoundStatus.Stop:
+                Stop(soundEvent._name);
+                break;
         }
     }
 
-
-    public void Play (string _name)
+    private void OnEnable() 
     {
-        for(int i = 0; i < sounds.Length; i++)
-        {
-            if( _name == sounds[i].name )
-            {
-                sounds[i].Play();
-                return;
-            }
-        }
+        this.EventStartListening<SoundEvent>();
     }
 
-    public void Stop(string _name)
+    private void OnDisable() 
     {
-        for (int i = 0; i < sounds.Length; i++)
-        {
-            if (_name == sounds[i].name)
-            {
-                sounds[i].Stop();
-                return;
-            }
-        }
-    }
-
-    public void SetLoop(string _name)
-    {
-        for (int i = 0; i < sounds.Length; i++)
-        {
-            if (_name == sounds[i].name)
-            {
-                sounds[i].SetLoop();
-                return;
-            }
-        }
-    }
-
-    public void SetLoopCancel(string _name)
-    {
-        for (int i = 0; i < sounds.Length; i++)
-        {
-            if (_name == sounds[i].name)
-            {
-                sounds[i].SetLoopCancel();
-                return;
-            }
-        }
-    }
-
-    public void SetVolume(string _name , float _volume)
-    {
-        for (int i = 0; i < sounds.Length; i++)
-        {
-            if (_name == sounds[i].name)
-            {
-                sounds[i].volume = _volume;
-                sounds[i].SetVolume();
-                return;
-            }
-        }
+        this.EventStopListening<SoundEvent>();
     }
 }
