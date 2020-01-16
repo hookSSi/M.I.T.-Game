@@ -143,8 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e55ad9b6740528545a1151fd26ada120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 1.5
-  enemyForce: 5
+  _enemySpeed: 1.5
+  _state: 0
 --- !u!95 &1561989143
 Animator:
   serializedVersion: 3

@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
+using MIT.SamtleGame.DesignPattern;
+
 namespace MIT.SamtleGame.Stage1
 {
-    public class GameController : MonoBehaviour
+    public class GameController : Singleton<GameController>
     {
         [Header("스코어")]
         [SerializeField]
-        private static int _myScore = 0;
+        private int _myScore = 0;
         [Header("스폰 딜레이")]
         private float _spawnDelay = 0.8f;
-        
-        public static Text _textScore;
+        public Text _textScore;
         public GameObject _enemy;
         public Vector3 _spawnPosRight = new Vector3(10.55f, -1.724f, 0);
         public Vector3 _spawnPosLeft = new Vector3(-10.55f, -1.724f, 0);
@@ -53,7 +54,7 @@ namespace MIT.SamtleGame.Stage1
             StartCoroutine(SpawnEnemy());
         }
 
-        public static void RisingScore(int score)
+        public void RisingScore(int score)
         {
             _myScore += score;
             _textScore.text = "SCORE : " + _myScore.ToString();

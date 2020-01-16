@@ -2,10 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PlayerState { Idle, Walk, Jump, Attack, Attacked }
+public enum PlayerState { Idle = 0, Walk = 1, Jump = 2, Crouch = 3 }
 
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    private PlayerState _state = PlayerState.Idle;
+    private int _playerHpCount = 5;
+    private Animator _playerAnimator;
+    private Rigidbody2D _rigid;
+    private float _attackCurrentTime;
+    private float _immuneCurrentTime;
+    private bool _isGround = true;
     public int _speed = 10;
     public float _jumpPower = 1.0f;
     public float _attackCollTime = 0.1f;
@@ -14,62 +24,50 @@ public class PlayerController : MonoBehaviour
     public Vector2 _attackSize;
     public GameObject _playerHp;
     public float _playerForce = 5;
-
-    [SerializeField]
-    private PlayerState _state = PlayerState.Idle;
-    private int _playerHpCount = 5;
-    private Animator _playerAni;
-    private Rigidbody2D _rigid;
-    private bool _isJumping = false;
-    private float _attackCurrentTime;
-    private float _immuneCurrentTime;
     
 
     // Start is called before the first frame update
+    protected virtual void Initialization()
+    {
+        _playerAnimator = GetComponent<Animator>();
+        _rigid = GetComponent<Rigidbody2D>();
+    }
+
     private void Start()
     {
-        _playerAni = GetComponent<Animator>();
-        _rigid = GetComponent<Rigidbody2D>();
+        Initialization();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        InitState();
         Attack();
         if(_attackCurrentTime <= 0)
         {
-            Move();
+            InputHandle();
         }
-        CountingCollTime();
-    }
+        
+        _attackCurrentTime -= Time.deltaTime;
+        _immuneCurrentTime -= Time.deltaTime;
 
-    private void InitState()
-    {
-        _state = PlayerState.Idle;
-        _playerAni.SetBool("idle_to_walk", false);
-        _playerAni.SetBool("idle_to_bow", false);
+        _playerAnimator.SetInteger("PlayerState", (int)_state);
     }
 
     private void Attack()
     {
         if(_attackCurrentTime <= 0)
         {
-            if (Input.GetKey(KeyCode.Z))     // 추후 콘솔의 공격로 변경
+            if (Input.GetKeyDown(KeyCode.Z))     // 추후 콘솔의 공격로 변경
             {
-                // atk
-                _state = PlayerState.Attack;
                 Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(_meleeTransform.position, _attackSize, 0);
                 foreach(Collider2D collider in collider2Ds)
                 {
-                    //Debug.Log(collider.tag);
                     if(collider.tag == "Enemy")
                     {
                         collider.GetComponent<Enemy>().TakeDamage(transform, _playerForce);
-                        //Debug.Log("EEEEEEE");
                     }
                 }
-                _playerAni.SetTrigger("idle_to_attack");
+                _playerAnimator.SetTrigger("Attack");
                 _attackCurrentTime = _attackCollTime;
             }
         }
@@ -77,46 +75,58 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(_meleeTransform.position, _attackSize);
+        Gizmos.DrawIcon(_meleeTransform.position, "Punch.png", true);
     }
 
-   private void Move()
+    private void InputHandle()
     {
-        
+        if(_isGround)
+            _state = PlayerState.Idle;
+
+        if (Input.GetKey(KeyCode.DownArrow) && _isGround)     // 추후 콘솔의 앉기키로 변경
+        {
+            _state = PlayerState.Crouch;
+        }
+
+        Move();
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))     // 추후 콘솔의 이동키 또는 점프키로 변경
+        {
+            Jump();
+        }
+    }
+
+    private void Move()
+    {
         if (Input.GetKey(KeyCode.LeftArrow))     // 추후 콘솔의 이동키로 변경
         {
-            _state = PlayerState.Walk;
-            _playerAni.SetBool("idle_to_walk", true);
+            if(_isGround && _state != PlayerState.Crouch)
+                _state = PlayerState.Walk;
+
             transform.rotation = Quaternion.Euler(0, 180, 0);
-            transform.Translate(Vector2.right * _speed * Time.deltaTime);
+
+            if(_state != PlayerState.Crouch)
+                transform.Translate(Vector2.right * _speed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.RightArrow))     // 추후 콘솔의 이동키로 변경
         {
-            _state = PlayerState.Walk;
-            _playerAni.SetBool("idle_to_walk", true);
+            if(_isGround && _state != PlayerState.Crouch)
+                _state = PlayerState.Walk;
+
             transform.rotation = Quaternion.Euler(0, 0, 0);
-            transform.Translate(Vector2.right * _speed * Time.deltaTime);
+
+            if(_state != PlayerState.Crouch)
+                transform.Translate(Vector2.right * _speed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.UpArrow))     // 추후 콘솔의 이동키 또는 점프키로 변경
-        {
-            if (_isJumping == false)
-            {
-                Jump();
-            }
-        }
-        //if (Input.GetKey(KeyCode.DownArrow))     // 추후 콘솔의 앉기키로 변경
-        //{
-        //    playerAni.SetBool("idle_to_bow", true);
-        //}
     }
 
     private void Jump()
     {
-        _state = PlayerState.Jump;
-        _isJumping = true;
-        _playerAni.SetBool("idle_to_jump", true);
-        _rigid.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
+        if(_state != PlayerState.Jump)
+        {
+            _state = PlayerState.Jump;
+            _rigid.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
+        }
     }
 
     public void Attacked()
@@ -124,25 +134,15 @@ public class PlayerController : MonoBehaviour
         if(_immuneCurrentTime <= 0)
         {
             _playerHpCount--;
-            // attacked
-
             _immuneCurrentTime = _immuneCollTime;
-            //Debug.Log("Attacked!!");
         }
-    }
-
-    private void CountingCollTime()
-    {
-        _attackCurrentTime -= Time.deltaTime;
-        _immuneCurrentTime -= Time.deltaTime;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.transform.tag == "Ground")
         {
-            _playerAni.SetBool("idle_to_jump", false);
-            _isJumping = false;
+            _isGround = true;
         }
     }
 
@@ -150,8 +150,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.transform.tag == "Ground")
         {
-            _playerAni.SetBool("idle_to_jump", true);
-            _isJumping = true;
+            _state = PlayerState.Jump;
+            _isGround = false;
         }
     }
 }

@@ -8,6 +8,7 @@ public enum EnemyState { Walk, Attack }
 
 public class Enemy : MonoBehaviour
 {
+    private bool _isAlive = true;
     public float _enemySpeed = 1.5f;
 
     [SerializeField]
@@ -44,8 +45,6 @@ public class Enemy : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerController>().Attacked();
             _state = EnemyState.Attack;
-            
-            StartCoroutine(DestoyEnemy());
         }
     }
 
@@ -60,13 +59,15 @@ public class Enemy : MonoBehaviour
 
     public virtual void TakeDamage(Transform collisionObjectTransform, float playerForce)
     {
-        GameController.RisingScore(100);
+        if(_isAlive)
+            GameController.Instance.RisingScore(100);
 
         StartCoroutine(DestoyEnemy());
     }
 
     protected virtual IEnumerator DestoyEnemy()
     {
+        _isAlive = false;
         _boxColider.isTrigger = true;
 
         yield return new WaitForSeconds(2);
