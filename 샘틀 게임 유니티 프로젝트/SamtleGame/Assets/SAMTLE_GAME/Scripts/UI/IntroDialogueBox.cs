@@ -26,19 +26,28 @@ public class IntroDialogueBox : DialogueBox
 
 			if (visibleCount > totalVisibleCharacters)
 			{
+				yield return new WaitForSeconds(1);
 				FadeInEvent.Trigger(1);
+				
 				
 				NextPage();
                 visibleCount = 0;
 
 				ChangeImageEvent.Trigger(_currentPage);
+				
+				yield return new WaitForSeconds(1);
 				FadeOutEvent.Trigger(1);
 				yield return null;
 			}
 
-            PlaySound();
+			if(0 < visibleCount)
+			{
+				char ch = textComponent.text[visibleCount - 1];
+				PlaySound(ch);
+			}
+
 			textComponent.maxVisibleCharacters = visibleCount; // How many characters should TextMeshPro display?
-			
+
             yield return new WaitForSeconds(delay);
 
 			visibleCount += 1;

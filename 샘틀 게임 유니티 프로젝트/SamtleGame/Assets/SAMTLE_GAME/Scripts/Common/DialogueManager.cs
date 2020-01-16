@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using MIT.SamtleGame.Tools;
 using MIT.SamtleGame.NPC;
 using TMPro;
@@ -71,7 +72,6 @@ public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
         _currentDialogueUI.transform.parent = this.gameObject.transform;
 
         _curretDialogue = _currentDialogueUI.GetComponentInChildren<DialogueBox>();
-        Debug.Log(_curretDialogue);
     }
 
     private void ShowDialogue(int id)

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 
 using MIT.SamtleGame.Tools;
-
+[RequireComponent(typeof(TMP_Text))]
 public class DialogueBox : MonoBehaviour
 {
 	protected TMP_Text _textComponent;
@@ -15,7 +15,7 @@ public class DialogueBox : MonoBehaviour
 	public List<string> _textPages;
 
 	[Tooltip("텍스트 출력 효과음")]
-	public AudioClip _typingSound;
+	public string _typingSoundName;
 	[Tooltip("텍스트 출력 지연시간")]
 	public float _delay;
     public bool _isTextChanged;
@@ -62,9 +62,11 @@ public class DialogueBox : MonoBehaviour
 		_isNextPage = true;
 	}
 
-	protected virtual void PlaySound()
+	protected virtual void PlaySound(char ch)
 	{
 		
+		if(ch != ' ' && ch != '\n')
+			SoundEvent.Trigger(_typingSoundName);
 	}
 
 	/// <summary>
@@ -96,7 +98,12 @@ public class DialogueBox : MonoBehaviour
 				yield return null;
 			}
 
-			PlaySound();
+			if(0 < visibleCount && visibleCount < textComponent.text.Length)
+			{
+				char ch = textComponent.text[visibleCount - 1];
+				PlaySound(ch);
+			}
+
 			textComponent.maxVisibleCharacters = visibleCount; // How many characters should TextMeshPro display?
 			
 			yield return new WaitForSeconds(delay);
