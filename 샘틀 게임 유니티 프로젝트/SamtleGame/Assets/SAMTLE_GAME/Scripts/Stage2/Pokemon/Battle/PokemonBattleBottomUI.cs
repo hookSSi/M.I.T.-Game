@@ -4,10 +4,17 @@ using UnityEngine;
 
 namespace Pokemon
 {
-    public class PokemonBattleBottomUIManager : MonoBehaviour
+    public class PokemonBattleBottomUI : MonoBehaviour
     {
         [SerializeField] private GameObject _actionUI;
         [SerializeField] private GameObject _skillUI;
 
+        
+        /*
+        public void SetPokemon(Pokemon playerPokemon, Pokemon enemyPokemon)
+        {
+
+        }
+        */
     }
 }

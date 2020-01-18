@@ -14,10 +14,12 @@ public class GridLayoutGroupController : MonoBehaviour
         DynamicCell();
     }
 
+#if UNITY_EDITOR
     private void OnValidate()
     {
         DynamicCell();
     }
+#endif
 
     public void DynamicCell()
     {

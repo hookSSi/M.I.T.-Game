@@ -77,10 +77,10 @@ namespace Pokemon
             Debug.Log("아이템 선택하기...");
         }
 
-        public void UseSkill(int select)
+        public void UseSkill(int indexOfSkill)
         {
             _state = BattleState.Act;
-            _myPokemon.UseSkill(select);
+            _myPokemon.UseSkill(indexOfSkill);
         }
 
         private void UseItem()

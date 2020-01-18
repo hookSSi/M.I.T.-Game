@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Pokemon
 {
-    public class PokemonBattleMainUIManager : MonoBehaviour
+    public class PokemonBattleMainUI : MonoBehaviour
     {
         /*
          * 체력, 경험치 등을 갱신할 때 다른 창으로 넘어갈 수 없게 하기 위한 Flag

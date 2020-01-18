@@ -7,20 +7,26 @@ namespace Pokemon
 {
     public class PokemonBattleUIManager : MonoBehaviour
     {
-        public PokemonBattleMainUIManager _mainUI;
-        public PokemonBattleBottomUIManager _bottomUI;
+        public PokemonBattleMainUI _mainUI;
+        public PokemonBattleBottomUI _bottomUI;
 
         private void Awake()
         {
             if (!_mainUI)
             {
-                _mainUI = GetComponent<PokemonBattleMainUIManager>();
+                _mainUI = GetComponent<PokemonBattleMainUI>();
             }
 
             if (!_bottomUI)
             {
-                _bottomUI = GetComponent<PokemonBattleBottomUIManager>();
+                _bottomUI = GetComponent<PokemonBattleBottomUI>();
             }
+        }
+
+        private void SetPokemon(Pokemon playerPokemon, Pokemon enemyPokemon)
+        {
+            // _mainUI.SetPokemon(playerPokemon, enemyPokemon);
+            // _bottomUI.SetPokemon(playerPokemon, enemyPokemon);
         }
     }
 }
