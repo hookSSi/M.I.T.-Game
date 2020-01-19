@@ -9,6 +9,7 @@ namespace Pokemon
     {
         [SerializeField] private Pokemon _playerPokemon;
         [SerializeField] private GameObject[] _skills;
+
         private Text[] _skillTexts;
 
         private void Awake()

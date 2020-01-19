@@ -23,6 +23,12 @@ namespace Pokemon
             }
         }
 
+        private void OnEnable()
+        {
+            _mainUI?.gameObject.SetActive(true);
+            _bottomUI?.gameObject.SetActive(true);
+        }
+
         private void SetPokemon(Pokemon playerPokemon, Pokemon enemyPokemon)
         {
             // _mainUI.SetPokemon(playerPokemon, enemyPokemon);
