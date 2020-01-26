@@ -57,7 +57,9 @@ public class DialogueBox : MonoBehaviour
 			_textComponent.text = _textPages[_currentPage];
 		}
 		else
+		{
 			Debug.Log("페이지의 끝에 도달했습니다.");
+		}
 
 		_isNextPage = true;
 	}

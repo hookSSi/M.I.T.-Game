@@ -5,13 +5,22 @@ using UnityEngine;
 
 namespace MIT.SamtleGame.Stage1
 {
-    [System.Serializable]
     public enum EnemyType { Civil, Pegeon, Boss, None }
-    [System.Serializable]
     public enum Direction { Right, Left }
 
+    [System.Serializable]
+    public struct SpawnInfo
+    {
+        public EnemyType _spawnType;
+        public Direction _spawnDir;
+    }
+
+    [RequireComponent(typeof(Animator))]
     public class Spawner : MonoBehaviour
     {
+        /// 스폰 타이밍을 정의한 애니메이터
+        public Animator _spawnAnimator;
+
         [Header("스폰될 적 프리팹 설정")]
         public GameObject _civil;
         public GameObject _pegeon;
@@ -23,13 +32,31 @@ namespace MIT.SamtleGame.Stage1
         public Transform _left;
 
         [Header("현재 스폰 정보")]
+        public List<SpawnInfo> _spawnInfoList = new List<SpawnInfo>();
         [SerializeField]
         private EnemyType _currentSpawnType;
         [SerializeField]
         private Direction _currentSpawnDir;
 
+        public void PauseSpawn()
+        {
+            _spawnAnimator.enabled = false;
+        }
+
+        public void ReStartSpawn()
+        {
+            _spawnAnimator.enabled = true;
+            _spawnAnimator.Play("SpawnTest", -1, 0f);
+        }
         protected void Spawn()
         {
+            if(_spawnInfoList.Count > 0)
+            {
+                _currentSpawnType = _spawnInfoList[0]._spawnType;
+                _currentSpawnDir = _spawnInfoList[0]._spawnDir;
+                _spawnInfoList.RemoveAt(0);
+            }
+
             this.transform.position = new Vector3(_playerPos.transform.position.x, 0, 0);
 
             GameObject enemy = _civil;

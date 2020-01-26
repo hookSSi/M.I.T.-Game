@@ -110,8 +110,6 @@ namespace MIT.SamtleGame.Stage1
             _bossHpUI.value -= bossHittedEvent._damage;
         }
 
-
-
         private string IntToScoreFormat(int score)
         {
             string scoreText = "1-";

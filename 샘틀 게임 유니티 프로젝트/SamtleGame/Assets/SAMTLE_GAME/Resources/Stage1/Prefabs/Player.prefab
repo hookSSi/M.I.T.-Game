@@ -362,6 +362,8 @@ MonoBehaviour:
   _speed: 1
   _jumpPower: 3.5
   _attackCollTime: 0.33
+  _standCol: {fileID: 4595635469463658805}
+  _crouchCol: {fileID: 7195329718219918029}
   _idlePunchRange: {fileID: 1910432521}
   _crouchKickRange: {fileID: 211191371}
   _jumpKickRange: {fileID: 812750255}

@@ -22,6 +22,7 @@ namespace MIT.SamtleGame.Stage1
         public float _jumpPower = 1.0f;
         public float _attackCollTime = 0.1f;
         private float _immuneCollTime = 1;
+        public bool _isControllable = true;
 
         [Header("콜라이더")]
         public BoxCollider2D _standCol;
@@ -53,7 +54,7 @@ namespace MIT.SamtleGame.Stage1
         // Update is called once per frame
         private void Update()
         {   
-            if(_isAlive)
+            if(_isAlive && _isControllable)
             {
                 /// 깔끔함이 절실한 하드 코딩
                 if( _state == PlayerState.Crouch )
@@ -79,7 +80,8 @@ namespace MIT.SamtleGame.Stage1
                 else
                     _state = PlayerState.Jump;
             }
-            else
+            
+            if(!_isAlive)
             {
                 Dead();
             }
@@ -113,6 +115,7 @@ namespace MIT.SamtleGame.Stage1
             }
             _playerAnimator.SetTrigger("Attack");
             _attackCurrentTime = _attackCollTime;
+            SoundEvent.Trigger("Typing");
         }
 
         private void OnDrawGizmos()

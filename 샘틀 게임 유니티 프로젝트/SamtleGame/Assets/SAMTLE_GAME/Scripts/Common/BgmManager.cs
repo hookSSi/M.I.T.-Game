@@ -16,7 +16,6 @@ public class BgmManager : Singleton<BgmManager>
     protected override void Awake()
     {
         base.Awake();
-        DontDestroyOnLoad(gameObject);
         _source = GetComponent<AudioSource>();
     }
 

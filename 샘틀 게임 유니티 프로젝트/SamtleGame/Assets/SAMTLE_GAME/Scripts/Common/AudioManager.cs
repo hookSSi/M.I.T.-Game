@@ -96,7 +96,6 @@ public class AudioManager : Singleton<AudioManager>, EventListener<SoundEvent>
 	protected override void Awake()
     {
         base.Awake();
-        DontDestroyOnLoad(gameObject);
     }
 
     public void Play (string name)
