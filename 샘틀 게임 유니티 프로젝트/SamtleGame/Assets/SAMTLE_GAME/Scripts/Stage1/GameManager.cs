@@ -26,6 +26,8 @@ namespace MIT.SamtleGame.Stage1
 
     public class GameManager : MonoBehaviour, EventListener<PlayGameEvent>, EventListener<PasueGameEvent>
     {
+        public static int _totalEnemyCount = 0;
+        public static bool _isPlayable = false;
         public PlayerController _player;
 
         public GameObject _readyText;
@@ -41,39 +43,42 @@ namespace MIT.SamtleGame.Stage1
             StartCoroutine(ReadyAndStartRoutine());
         }
 
-        public void PauseGame()
+        public void Pause()
         {
-            Time.timeScale = 0;
+            SpawnerEvent.Trigger(SpawnerState.Pasue);
             _player._isControllable = false;
+            _isPlayable = false;
             Debug.Log("게임 멈춤");
         }
 
-        public void PlayGame()
+        public void Play()
         {
-            Time.timeScale = 1.0f;
+            SpawnerEvent.Trigger(SpawnerState.Play);
             _player._isControllable = true;
+            _isPlayable = true;
             Debug.Log("게임 재개");
         }
+
         /// 하드 코딩함 리팩토링 요구됨
         private IEnumerator ReadyAndStartRoutine()
         {
-            PauseGame();
+            Pause();
             _readyText.SetActive(true);
             yield return new WaitForSecondsRealtime(2.0f);
             _startText.SetActive(true);
             yield return new WaitForSecondsRealtime(2.0f);
             _readyText.SetActive(false);
             _startText.SetActive(false);
-            PlayGame();
+            Play();
         }
 
         public virtual void OnEvent(PlayGameEvent playGameEvent)
         {
-            PlayGame();
+            Play();
         }
         public virtual void OnEvent(PasueGameEvent pauseGameEvent)
         {
-            PauseGame();
+            Pause();
         }
 
         private void OnEnable() 

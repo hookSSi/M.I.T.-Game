@@ -7,6 +7,7 @@ namespace MIT.SamtleGame.Stage1
     public enum PlayerState { Idle = 0, Walk = 1, Jump = 2, Crouch = 3, Dead, Hitted }
 
     [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(Player))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField]
@@ -16,6 +17,8 @@ namespace MIT.SamtleGame.Stage1
         private Rigidbody2D _rigid;
         private float _attackCurrentTime;
         private float _immuneCurrentTime;
+        /// 애니메이션 관련 bool
+        private bool _isCrouch = false;
         private bool _isGround = true;
         private bool _isAlive = true;
         public int _speed = 10;
@@ -27,18 +30,19 @@ namespace MIT.SamtleGame.Stage1
         [Header("콜라이더")]
         public BoxCollider2D _standCol;
         public BoxCollider2D _crouchCol;
+        public Transform _groundCheker;
+        public Vector2 _groundSize;
 
         [Header("공격 범위")]
         public Transform _idlePunchRange;
         public Transform _crouchKickRange;
         public Transform _jumpKickRange;
         public Vector2 _attackSize;
-
+        
         [Header("이동 범위")]
         public Transform _camera;
         public float _width;
 
-        // Start is called before the first frame update
         protected virtual void Initialization()
         {
             _playerAnimator = GetComponent<Animator>();
@@ -54,10 +58,11 @@ namespace MIT.SamtleGame.Stage1
         // Update is called once per frame
         private void Update()
         {   
+            GroundCheck();
             if(_isAlive && _isControllable)
             {
                 /// 깔끔함이 절실한 하드 코딩
-                if( _state == PlayerState.Crouch )
+                if( _isCrouch )
                 {
                     _crouchCol.enabled = true;
                     _standCol.enabled = false;
@@ -72,15 +77,7 @@ namespace MIT.SamtleGame.Stage1
                 
                 _attackCurrentTime -= Time.deltaTime;
                 _immuneCurrentTime -= Time.deltaTime;
-                
-                _playerAnimator.SetInteger("PlayerState", (int)_state);
-                
-                if(_isGround)
-                    _state = PlayerState.Idle;
-                else
-                    _state = PlayerState.Jump;
             }
-            
             if(!_isAlive)
             {
                 Dead();
@@ -91,18 +88,11 @@ namespace MIT.SamtleGame.Stage1
         {
             /// 공격 범위 정하기
             Transform attackRange = _idlePunchRange;
-            switch(_state)
-            {
-                case PlayerState.Idle:
-                    attackRange = _idlePunchRange;
-                    break;
-                case PlayerState.Crouch:
-                    attackRange = _crouchKickRange;
-                    break;
-                case PlayerState.Jump:
-                    attackRange = _jumpKickRange;
-                    break;
-            }
+
+            if(_isCrouch)
+                attackRange = _crouchKickRange;
+            if(!_isGround)
+                attackRange = _jumpKickRange;
 
             Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(attackRange.position, _attackSize, 0);
 
@@ -131,7 +121,13 @@ namespace MIT.SamtleGame.Stage1
             {
                 if (Input.GetKey(KeyCode.DownArrow) && _isGround)     // 추후 콘솔의 앉기키로 변경
                 {
-                    _state = PlayerState.Crouch;
+                    _isCrouch = true;
+                    _playerAnimator.SetBool("IsCrouch", true);
+                }
+                else
+                {
+                    _isCrouch = false;
+                    _playerAnimator.SetBool("IsCrouch", false);
                 }
 
                 Move();
@@ -150,34 +146,52 @@ namespace MIT.SamtleGame.Stage1
 
         private void Move()
         {
+            _playerAnimator.SetFloat("horizontal", 0f);
+
             if (Input.GetKey(KeyCode.LeftArrow))     // 추후 콘솔의 이동키로 변경
             {
-                if(_isGround && _state != PlayerState.Crouch)
-                    _state = PlayerState.Walk;
-
                 this.gameObject.GetComponent<SpriteRenderer>().transform.rotation = Quaternion.Euler(0, 180, 0);
 
-                if(_state != PlayerState.Crouch)
+                if(!_isCrouch)
+                {
                     transform.Translate(Vector2.right * _speed * Time.deltaTime);
+                    _playerAnimator.SetFloat("horizontal", 1f);
+                }
             }
             if (Input.GetKey(KeyCode.RightArrow))     // 추후 콘솔의 이동키로 변경
             {
-                if(_isGround && _state != PlayerState.Crouch)
-                    _state = PlayerState.Walk;
-
                 this.gameObject.GetComponent<SpriteRenderer>().transform.rotation = Quaternion.Euler(0, 0, 0);
 
                 if(_camera.position.x + _width < this.transform.position.x)
                     return;
 
-                if(_state != PlayerState.Crouch)
+                if(!_isCrouch)
+                {
                     transform.Translate(Vector2.right * _speed * Time.deltaTime);
+                    _playerAnimator.SetFloat("horizontal", 1f);
+                }
             }
+        }
+
+        private void GroundCheck()
+        {
+            _isGround = false;
+
+            Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(_groundCheker.position, _groundSize, 0);
+        
+            foreach(Collider2D collider in collider2Ds)
+            {
+                if(collider.tag == "Ground")
+                {
+                    _isGround = true;
+                }
+            }
+
+            _playerAnimator.SetBool("IsGround", _isGround);
         }
 
         private void Jump()
         {
-            _state = PlayerState.Jump;
             _rigid.velocity = Vector2.up * _jumpPower;
         }
 
@@ -192,6 +206,7 @@ namespace MIT.SamtleGame.Stage1
                 if(_playerHpCount == 0)
                 {
                     _isAlive = false;
+                    Dead();
                 }
             }
         }
@@ -199,22 +214,6 @@ namespace MIT.SamtleGame.Stage1
         private void Dead()
         {
             _playerAnimator.SetBool("Dead", true);
-        }
-
-        private void OnCollisionStay2D(Collision2D collision)
-        {
-            if (collision.transform.tag == "Ground")
-            {
-                _isGround = true;
-            }
-        }
-
-        private void OnCollisionExit2D(Collision2D collision)
-        {
-            if (collision.transform.tag == "Ground")
-            {
-                _isGround = false;
-            }
         }
     }
 }

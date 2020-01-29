@@ -86,7 +86,8 @@ namespace MIT.SamtleGame.Stage1
 
         private void FixedUpdate() 
         {
-            TimeUpdate();
+            if(GameManager._isPlayable)
+                TimeUpdate();
         }
 
         private void TimeUpdate()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using MIT.SamtleGame.Tools;
 
 namespace MIT.SamtleGame.Stage1
 {
@@ -15,8 +16,31 @@ namespace MIT.SamtleGame.Stage1
         public Direction _spawnDir;
     }
 
+    public enum SpawnerState { Play, Pasue }
+
+    public struct SpawnerEvent
+    {
+        public SpawnerState _state;
+        public int _id;
+
+        SpawnerEvent(SpawnerState state = SpawnerState.Play, int id = 0)
+        {
+            _id = id;
+            _state = state;
+        }
+
+        public static SpawnerEvent _event;
+
+        public static void Trigger(SpawnerState state = SpawnerState.Play, int id = 0)
+        {
+            _event._id = id;
+            _event._state = state;
+            EventManager.TriggerEvent(_event);
+        }
+    }
+
     [RequireComponent(typeof(Animator))]
-    public class Spawner : MonoBehaviour
+    public class Spawner : MonoBehaviour, EventListener<SpawnerEvent>
     {
         /// 스폰 타이밍을 정의한 애니메이터
         public Animator _spawnAnimator;
@@ -43,11 +67,14 @@ namespace MIT.SamtleGame.Stage1
             _spawnAnimator.enabled = false;
         }
 
-        public void ReStartSpawn()
+        public void StartSpawn()
         {
             _spawnAnimator.enabled = true;
             _spawnAnimator.Play("SpawnTest", -1, 0f);
         }
+
+        public void Rest() {}
+
         protected void Spawn()
         {
             if(_spawnInfoList.Count > 0)
@@ -85,10 +112,12 @@ namespace MIT.SamtleGame.Stage1
                 case Direction.Right:
                     pos = _right.position;
                     Instantiate( enemy, pos, Quaternion.Euler( 0, 180, 0 ) );
+                    GameManager._totalEnemyCount += 1;
                     break;
                 case Direction.Left:
                     pos = _left.position;
                     Instantiate( enemy, pos, Quaternion.Euler( 0, 0, 0 ) );
+                    GameManager._totalEnemyCount += 1;
                     break;
             }
         }
@@ -97,6 +126,29 @@ namespace MIT.SamtleGame.Stage1
         {
             Gizmos.DrawIcon(_right.position, "Spawner.png");
             Gizmos.DrawIcon(_left.position, "Spawner.png");
+        }
+
+        public virtual void OnEvent(SpawnerEvent spawnerEvent)
+        {
+            switch(spawnerEvent._state)
+            {
+                case SpawnerState.Play:
+                    StartSpawn();
+                    break;
+                case SpawnerState.Pasue:
+                    PauseSpawn();
+                    break;
+            }
+        }
+
+        private void OnEnable() 
+        {
+            this.EventStartListening<SpawnerEvent>();
+        }
+
+        private void OnDisable() 
+        {
+            this.EventStopListening<SpawnerEvent>();
         }
     }
 }
