@@ -83,6 +83,20 @@ namespace MIT.SamtleGame.Stage1
                 _currentSpawnDir = _spawnInfoList[0]._spawnDir;
                 _spawnInfoList.RemoveAt(0);
             }
+            else
+            {
+                int rndNum = Random.Range(0, 100);
+
+                if(rndNum <= 60)
+                    _currentSpawnType = EnemyType.Civil;
+                else
+                    _currentSpawnType = EnemyType.Pegeon;
+                
+                if(rndNum <= 50)
+                    _currentSpawnDir = Direction.Right;
+                else
+                    _currentSpawnDir = Direction.Left;
+            }
 
             this.transform.position = new Vector3(_playerPos.transform.position.x, 0, 0);
 
@@ -106,20 +120,22 @@ namespace MIT.SamtleGame.Stage1
                     return;
             }
 
-            Vector3 pos = _right.position;
+            Enemy enemyObj = null;
             switch( _currentSpawnDir )
             {
+                /// 오른쪽에서 스폰 될 경우
                 case Direction.Right:
-                    pos = _right.position;
-                    Instantiate( enemy, pos, Quaternion.Euler( 0, 180, 0 ) );
-                    GameManager._totalEnemyCount += 1;
+                    enemyObj = Instantiate( enemy, _right.position, _right.rotation ).GetComponent<Enemy>();
+                    enemyObj.SetDirection(Vector2.left);
                     break;
+                /// 왼쪽에서 스폰 될 경우
                 case Direction.Left:
-                    pos = _left.position;
-                    Instantiate( enemy, pos, Quaternion.Euler( 0, 0, 0 ) );
-                    GameManager._totalEnemyCount += 1;
+                    enemyObj = Instantiate( enemy, _left.position, _left.rotation ).GetComponent<Enemy>();
+                    enemyObj.SetDirection(Vector2.right);
                     break;
             }
+
+            GameManager._totalEnemyCount += 1;
         }
 
         private void OnDrawGizmos() 

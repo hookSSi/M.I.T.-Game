@@ -17,10 +17,11 @@ namespace MIT.SamtleGame.Stage1
         private Rigidbody2D _rigid;
         private float _attackCurrentTime;
         private float _immuneCurrentTime;
+
         /// 애니메이션 관련 bool
         private bool _isCrouch = false;
         private bool _isGround = true;
-        private bool _isAlive = true;
+        public bool _isAlive = true;
         public int _speed = 10;
         public float _jumpPower = 1.0f;
         public float _attackCollTime = 0.1f;

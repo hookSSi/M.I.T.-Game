@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using TMPro;
 using MIT.SamtleGame.Stage1;
 
 public enum EnemyState { Stand, Crouch }
@@ -9,25 +10,40 @@ public enum EnemyDoing { Walk, Attack, Defense }
 
 public class Enemy : MonoBehaviour
 {
-
     [SerializeField]
     protected EnemyDoing _doingState = EnemyDoing.Walk;
     protected BoxCollider2D _boxColider;
     protected bool _isAlive = true;
+    protected Vector2 _dir = Vector2.right;
 
     [Header("적 정보")]
     public Transform _attackRange;
     public Vector2 _attackSize;
     [Tooltip("적의 데미지")]
     public float _damage = 0.1f;
+
+    [Header("스코어 관련 설정")]
     [Tooltip("잡으면 주는 스코어")]
     public int _score =  100;
     public float _enemySpeed = 1.5f;
     public GameObject _hittedEffect;
+    public TMP_Text _scoreText;
 
     protected virtual void Initialization()
     {
         _boxColider = GetComponent<BoxCollider2D>();
+        _scoreText.text = _score.ToString();
+    }
+
+    public void SetDirection(Vector2 dir)
+    {
+        _dir = dir;
+
+        if(_dir.x < 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
+            _attackRange.localPosition = new Vector3(_attackRange.localPosition.x * -1, _attackRange.localPosition.y, _attackRange.localPosition.z);
+        } 
     }
 
     private void Start()
@@ -39,8 +55,8 @@ public class Enemy : MonoBehaviour
     protected virtual void Move()
     {
         if(_doingState == EnemyDoing.Walk)
-        {
-            transform.Translate(Vector2.right * _enemySpeed * Time.deltaTime);
+        {   
+            transform.Translate(_dir * _enemySpeed * Time.deltaTime);
             _doingState = EnemyDoing.Walk;
         }
     }
@@ -58,7 +74,11 @@ public class Enemy : MonoBehaviour
         {
             if(collider.tag == "Player")
             {
-                collider.GetComponent<PlayerController>().Hitted(_damage);
+                PlayerController player = collider.GetComponent<PlayerController>();
+                if(player._isAlive)
+                {
+                    player.Hitted(_damage);
+                }
             }
         }
     }
@@ -69,15 +89,22 @@ public class Enemy : MonoBehaviour
         {
             ScoreUpEvent.Trigger(_score);
             Instantiate(_hittedEffect, collisionObjectTransform);
-            StartCoroutine(DestoyEnemy());
+            StartCoroutine(DestoySelf(true));
         }
     }
 
-    protected virtual IEnumerator DestoyEnemy()
+    protected virtual IEnumerator DestoySelf(bool isHitted = false, float duration = 1f)
     {
         _isAlive = false;
         _boxColider.isTrigger = true;
         this.GetComponent<SpriteRenderer>().enabled = false;
+
+        if(isHitted)
+        {
+            _scoreText.gameObject.SetActive(true);
+            yield return new WaitForSeconds(duration);
+            _scoreText.gameObject.SetActive(false);
+        }
 
         yield return new WaitForSeconds(2);
         Destroy(this.gameObject);

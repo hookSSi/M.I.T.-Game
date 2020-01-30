@@ -915,6 +915,10 @@ MonoBehaviour:
     _spawnDir: 0
   - _spawnType: 0
     _spawnDir: 1
+  - _spawnType: 1
+    _spawnDir: 0
+  - _spawnType: 0
+    _spawnDir: 1
   _currentSpawnType: 1
   _currentSpawnDir: 1
 --- !u!1 &1762652271
@@ -1065,21 +1069,6 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 346424822}
-    - target: {fileID: 4861881006860743739, guid: 392cc59c635edcf4ebf95894da747541,
-        type: 3}
-      propertyPath: _groundSize.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4861881006860743739, guid: 392cc59c635edcf4ebf95894da747541,
-        type: 3}
-      propertyPath: _groundSize.y
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 8225885602907114828, guid: 392cc59c635edcf4ebf95894da747541,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.358
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 392cc59c635edcf4ebf95894da747541, type: 3}
 --- !u!1001 &6724385572668079664
@@ -1096,6 +1085,14 @@ PrefabInstance:
     - target: {fileID: 93883773, guid: 569841445603a0d42bbab453a66f574c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 732535757, guid: 569841445603a0d42bbab453a66f574c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2125
+      objectReference: {fileID: 0}
+    - target: {fileID: 732535757, guid: 569841445603a0d42bbab453a66f574c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 732535760, guid: 569841445603a0d42bbab453a66f574c, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
