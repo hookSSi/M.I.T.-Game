@@ -61,13 +61,12 @@ public class InfiniteScroll : MonoBehaviour
                 if(GameManager._totalEnemyCount == 0)
                 {
                     PasueGameEvent.Trigger();
+                    SpawnEvent.Trigger(Direction.Left, EnemyType.Boss);
                     yield break;
                 }
             }
-            else
-            {
-                BackgroundUpdate();
-            }
+
+            BackgroundUpdate();
 
             yield return new WaitForFixedUpdate();
         }        

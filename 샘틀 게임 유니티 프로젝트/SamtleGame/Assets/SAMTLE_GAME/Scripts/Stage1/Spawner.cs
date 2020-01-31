@@ -39,16 +39,40 @@ namespace MIT.SamtleGame.Stage1
         }
     }
 
+    public struct SpawnEvent
+    {
+        public int _id;
+        public Direction _dir;
+        public EnemyType _type;
+
+        SpawnEvent(Direction dir, EnemyType type, int id = 0)
+        {
+            _dir = dir;
+            _type = type;
+            _id = id;
+        }
+
+        public static SpawnEvent _event;
+
+        public static void Trigger(Direction dir, EnemyType type, int id = 0)
+        {
+            _event._dir = dir;
+            _event._type = type;
+            _event._id = id;
+            EventManager.TriggerEvent(_event);
+        }
+    }
+
     [RequireComponent(typeof(Animator))]
-    public class Spawner : MonoBehaviour, EventListener<SpawnerEvent>
+    public class Spawner : MonoBehaviour, EventListener<SpawnerEvent>, EventListener<SpawnEvent>
     {
         /// 스폰 타이밍을 정의한 애니메이터
         public Animator _spawnAnimator;
 
         [Header("스폰될 적 프리팹 설정")]
-        public GameObject _civil;
-        public GameObject _pegeon;
-        public GameObject _boss;
+        public GameObject[] _civil;
+        public GameObject[] _pegeon;
+        public GameObject[] _boss;
 
         [Header("스폰 될 위치")]
         public Transform _playerPos;
@@ -83,43 +107,63 @@ namespace MIT.SamtleGame.Stage1
                 _currentSpawnDir = _spawnInfoList[0]._spawnDir;
                 _spawnInfoList.RemoveAt(0);
             }
+            else
+            {
+                int rndNum = Random.Range(0, 100);
 
+                if(rndNum <= 60)
+                    _currentSpawnType = EnemyType.Civil;
+                else
+                    _currentSpawnType = EnemyType.Pegeon;
+                
+                if(rndNum <= 50)
+                    _currentSpawnDir = Direction.Right;
+                else
+                    _currentSpawnDir = Direction.Left;
+            }
+
+            Spawn(_currentSpawnDir, _currentSpawnType);
+        }
+
+        public void Spawn(Direction dir, EnemyType type) 
+        {
             this.transform.position = new Vector3(_playerPos.transform.position.x, 0, 0);
 
-            GameObject enemy = _civil;
-            switch( _currentSpawnType )
+            GameObject enemy = null;
+            switch( type )
             {
                 case EnemyType.Civil:
-                    enemy = _civil;
+                    enemy = _civil[Random.Range(0, _civil.Length)];
                     Debug.Log("시민 나옴");
                     break;
                 case EnemyType.Pegeon:
-                    enemy = _pegeon;
+                    enemy = _pegeon[Random.Range(0, _pegeon.Length)];;
                     Debug.Log("비둘기 나옴");
                     break;
                 case EnemyType.Boss:
-                    enemy = _boss;
-                    Debug.Log("보스 나옴");
+                    enemy = _boss[Random.Range(0, _boss.Length)];
                     break;
                 case EnemyType.None:
                     Debug.Log("아무것도 안나옴");
                     return;
             }
 
-            Vector3 pos = _right.position;
-            switch( _currentSpawnDir )
+            Enemy enemyObj = null;
+            switch( dir )
             {
+                /// 오른쪽에서 스폰 될 경우
                 case Direction.Right:
-                    pos = _right.position;
-                    Instantiate( enemy, pos, Quaternion.Euler( 0, 180, 0 ) );
-                    GameManager._totalEnemyCount += 1;
+                    enemyObj = Instantiate( enemy, _right.position, _right.rotation ).GetComponent<Enemy>();
+                    enemyObj.SetDirection(Vector2.left);
                     break;
+                /// 왼쪽에서 스폰 될 경우
                 case Direction.Left:
-                    pos = _left.position;
-                    Instantiate( enemy, pos, Quaternion.Euler( 0, 0, 0 ) );
-                    GameManager._totalEnemyCount += 1;
+                    enemyObj = Instantiate( enemy, _left.position, _left.rotation ).GetComponent<Enemy>();
+                    enemyObj.SetDirection(Vector2.right);
                     break;
             }
+
+            GameManager._totalEnemyCount += 1;
         }
 
         private void OnDrawGizmos() 
@@ -140,15 +184,21 @@ namespace MIT.SamtleGame.Stage1
                     break;
             }
         }
+        public virtual void OnEvent(SpawnEvent spawnEvent)
+        {
+            Spawn(spawnEvent._dir, spawnEvent._type);
+        }
 
         private void OnEnable() 
         {
             this.EventStartListening<SpawnerEvent>();
+            this.EventStartListening<SpawnEvent>();
         }
 
         private void OnDisable() 
         {
             this.EventStopListening<SpawnerEvent>();
+            this.EventStopListening<SpawnEvent>();
         }
     }
 }

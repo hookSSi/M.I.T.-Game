@@ -5,16 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/SAMTLE_GAME/Scenes/Intro.unity
     guid: b804da3097c52034bb1d401d278270f2
-  - enabled: 1
+  - enabled: 0
     path: Assets/SAMTLE_GAME/Scenes/LoadingScreen.unity
     guid: 1ccef40e05fd3d745a0e0cbdde65fc74
-  - enabled: 1
+  - enabled: 0
     path: "Assets/SAMTLE_GAME/Scenes/\uAE30\uCC28\uC548.unity"
     guid: 1769eb979129e4a408a7afffc8585c47
-  - enabled: 1
+  - enabled: 0
     path: Assets/SAMTLE_GAME/Scenes/Stage1LoadingScreen.unity
     guid: a51d2429efbe6c94aa088b7bc724e17f
   - enabled: 1

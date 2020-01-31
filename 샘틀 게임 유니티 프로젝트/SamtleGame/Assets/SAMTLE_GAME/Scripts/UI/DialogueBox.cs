@@ -20,6 +20,7 @@ public class DialogueBox : MonoBehaviour
 	public float _delay;
     public bool _isTextChanged;
 	public bool _isNextPage = false;
+	public bool _isLoop = true;
 
 	protected virtual void Initialization()
 	{
@@ -58,6 +59,8 @@ public class DialogueBox : MonoBehaviour
 		}
 		else
 		{
+			if(!_isLoop)
+				this.gameObject.SetActive(false);
 			Debug.Log("페이지의 끝에 도달했습니다.");
 		}
 
