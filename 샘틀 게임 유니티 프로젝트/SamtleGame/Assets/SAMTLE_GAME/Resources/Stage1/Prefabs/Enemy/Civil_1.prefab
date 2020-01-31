@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 5475759493960699220}
   - component: {fileID: 8870594093499521501}
   m_Layer: 0
-  m_Name: Civil
+  m_Name: Civil_1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,10 +295,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doingState: 0
   _attackRange: {fileID: 1060458266047445224}
-  _attackSize: {x: 0.8, y: 0.05}
+  _attackSize: {x: 0.8, y: 0.3}
   _damage: 0.1
   _score: 100
-  _enemySpeed: 2
+  _enemySpeed: 5
   _hittedEffect: {fileID: 9047182929800484097, guid: f99414e0206f5594699d5a3749e23759,
     type: 3}
   _scoreText: {fileID: 4079624118945536688}

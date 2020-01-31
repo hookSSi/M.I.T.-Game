@@ -8,7 +8,7 @@ namespace MIT.SamtleGame.Stage1
     public class Player : MonoBehaviour
     {
         public PlayerController _controller;
-        private Vector3 _pos;
+        public static Vector3 _pos;
 
         private void Start() 
         {

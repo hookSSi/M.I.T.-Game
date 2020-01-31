@@ -60,7 +60,7 @@ namespace MIT.SamtleGame.Stage1
         private void Update()
         {   
             GroundCheck();
-            if(_isAlive && _isControllable)
+            if(_isAlive)
             {
                 /// 깔끔함이 절실한 하드 코딩
                 if( _isCrouch )
@@ -74,8 +74,11 @@ namespace MIT.SamtleGame.Stage1
                     _standCol.enabled = true;
                 }
 
-                InputHandle();
-                
+                if(_isControllable)
+                    InputHandle();
+                else
+                    _playerAnimator.SetFloat("horizontal", 0);
+
                 _attackCurrentTime -= Time.deltaTime;
                 _immuneCurrentTime -= Time.deltaTime;
             }

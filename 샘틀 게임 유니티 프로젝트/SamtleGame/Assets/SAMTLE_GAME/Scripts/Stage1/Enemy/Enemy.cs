@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
     }
 
     /// LookAt 플레이어를 보는 함수가 있으면 좋겠다.
-    protected virtual void Move()
+    public virtual void Move()
     {
         if(_doingState == EnemyDoing.Walk)
         {   
@@ -64,9 +64,14 @@ public class Enemy : MonoBehaviour
     protected virtual void Update()
     {
         Move();
+
+        if(Mathf.Abs(Player._pos.x - this.transform.position.x) > 34 || transform.position.y < -10)
+        {
+            StartCoroutine(DestoySelf());
+        }
     }
 
-    protected virtual void Attack()
+    public virtual void Attack()
     {
         Collider2D[] colliders = Physics2D.OverlapBoxAll(_attackRange.position, _attackSize, 0);
 

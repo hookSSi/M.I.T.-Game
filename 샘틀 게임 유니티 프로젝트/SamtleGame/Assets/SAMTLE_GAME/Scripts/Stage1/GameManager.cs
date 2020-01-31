@@ -53,7 +53,6 @@ namespace MIT.SamtleGame.Stage1
 
         public void Play()
         {
-            SpawnerEvent.Trigger(SpawnerState.Play);
             _player._isControllable = true;
             _isPlayable = true;
             Debug.Log("게임 재개");
@@ -69,6 +68,7 @@ namespace MIT.SamtleGame.Stage1
             yield return new WaitForSecondsRealtime(2.0f);
             _readyText.SetActive(false);
             _startText.SetActive(false);
+            SpawnerEvent.Trigger(SpawnerState.Play);
             Play();
         }
 

@@ -28,7 +28,7 @@ namespace MIT.SamtleGame.Stage1
                 }
                 if( Mathf.Abs(_player.Pos.x - this.transform.position.x) <= _attackSize.x )
                 {
-                    Attack();
+                    _animator.SetTrigger("Attack");
                 }
                 else
                 {
@@ -37,17 +37,8 @@ namespace MIT.SamtleGame.Stage1
             }
         }
 
-        protected override void Attack()
+        public override void Attack()
         {
-            StartCoroutine(AttackRoutine(0.66f));
-        }
-
-        protected virtual IEnumerator AttackRoutine(float duration = 0.33f)
-        {
-            _animator.SetTrigger("Attack");
-
-            yield return new WaitForSeconds(duration);
-
             Collider2D[] colliders = Physics2D.OverlapBoxAll(_attackRange.position, _attackSize, 0);
 
             foreach(Collider2D collider in colliders)
