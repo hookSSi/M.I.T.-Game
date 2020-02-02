@@ -19,8 +19,8 @@ namespace Pokemon
     {
         private PokemonBattleEventSystem _eventSystem;
 
-        private Pokemon _myPokemon;
-        private Pokemon _enemyPokemon;
+        public Pokemon _myPokemon { get; private set; }
+        public Pokemon _enemyPokemon { get; private set; }
 
         private PokemonBattleUIManager _uiManager;
 
@@ -72,6 +72,7 @@ namespace Pokemon
         {
             _state = BattleState.SelectAction;
 
+            _uiManager._mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Battle);
             _uiManager._bottomUI.UpdateActionUI();
 
             _eventSystem.InitializeUINavigation(BattleState.SelectAction);
@@ -96,6 +97,7 @@ namespace Pokemon
             // UI Update
             Debug.Log("아이템 선택하기...");
 
+            _uiManager._mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Bag);
             _uiManager._bottomUI.UpdateDialog();
 
             _eventSystem.InitializeUINavigation(BattleState.SelectItem);
@@ -112,11 +114,12 @@ namespace Pokemon
             _uiManager._bottomUI.UpdateDialog();
         }
 
-        private void UseItem()
+        public void UseItem(BattleEvent battleEvent)
         {
             _state = BattleState.Act;
 
             Debug.Log("아이템 사용!");
+            _uiManager._mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Battle);
             _uiManager._bottomUI.UpdateDialog();
         }
 
@@ -125,6 +128,7 @@ namespace Pokemon
         {
             Debug.Log("포켓몬 정보 보기...");
 
+            _uiManager._mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Information);
             _uiManager._bottomUI.UpdateDialog();
         }
 

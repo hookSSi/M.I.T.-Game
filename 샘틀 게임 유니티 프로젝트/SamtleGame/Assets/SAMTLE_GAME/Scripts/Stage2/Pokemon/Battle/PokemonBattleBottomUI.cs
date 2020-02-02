@@ -10,6 +10,11 @@ namespace Pokemon
         [SerializeField] private GameObject _actionUI;
         [SerializeField] private GameObject _skillUI;
 
+        public PokemonBattleAction ActionUI
+        {
+            get { return _actionUI.GetComponent<PokemonBattleAction>(); }
+        }
+        
         private void OnEnable()
         {
             _dialog.SetActive(true);

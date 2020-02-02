@@ -35,9 +35,11 @@ namespace Pokemon
             }
         }
 
-        public void InitializeUINavigation(BattleState battleState)
+        // 현재 상태에 따라 UI를 자동으로 탐색할 수 있게 First Select를 설정한다.
+        // (전투 메뉴, 기술 메뉴, 가방 메뉴 등에 들어갈 때마다 실행, 처음 선택될 오브젝트를 설정함)
+        public void InitializeUINavigation(BattleState currentState)
         {
-            switch (battleState)
+            switch (currentState)
             {
                 case BattleState.SelectAction:
                     if (_firstActionSelection)
@@ -53,6 +55,19 @@ namespace Pokemon
                 default:
                     break;
             }
+        }
+
+        // Event System의 First Select가 될 오브젝트를 정한다.
+        public void SetIndexObject(GameObject firstActionObject = null, GameObject firstItemObject = null, GameObject firstSkillObject = null)
+        {
+            if (firstActionObject != null)
+                _firstActionSelection = firstActionObject;
+
+            if (firstItemObject != null)
+                _firstItemSelection = firstItemObject;
+
+            if (firstSkillObject != null)
+                _firstSkillSelection = firstSkillObject;
         }
     }
 }

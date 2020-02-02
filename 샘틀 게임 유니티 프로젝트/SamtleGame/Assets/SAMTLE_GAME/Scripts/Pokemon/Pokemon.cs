@@ -38,6 +38,8 @@ namespace Pokemon
         [SerializeField]
         private PokemonInfo _info;
 
+        public PokemonInfo Info { get => _info; }
+
         public Skill UseSkill(int n)
         {
             return _info._skills[n];

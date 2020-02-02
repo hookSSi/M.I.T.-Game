@@ -7,29 +7,50 @@ namespace Pokemon
 {
     public class PokemonBattleAction : MonoBehaviour
     {
-        [SerializeField] private GameObject[] _actions;
-        [SerializeField] private string[] _actionStrings;
+        private Pokemon _playerPokemon;
 
-        private Text[] _actionTexts;
+        [SerializeField] private GameObject[] _actions = new GameObject[4];
+        [SerializeField] private string[] _actionStrings = new string[4];
+
+        private Text[] _actionTexts = new Text[4];
+
+        private void Update()
+        {
+            Initialize();
+        }
 
 #if UNITY_EDITOR
         private void OnValidate()
         {
-            _actionTexts = new Text[_actions.Length];
+            UpdateText();
+        }
+#endif
 
-            if (_actions != null && _actions.Length != 0)
+        private void Initialize()
+        {
+            for (int i = 0; i < 4; i++)
             {
-                for(int i = 0; i < _actions.Length; i++)
+                if (_actions[i] != null && _actionTexts[i] == null)
                 {
-                    if (_actions[i])
-                    {
-                        _actionTexts[i] = _actions[i].GetComponentInChildren<Text>();
-                        _actionTexts[i].text = _actionStrings[i];
-                    }
-                    
+                    _actionTexts[i] = _actions[i].GetComponent<Text>();
                 }
             }
         }
-#endif
+
+        public void SetPokemon(Pokemon playerPokemon)
+        {
+            _playerPokemon = playerPokemon;
+        }
+
+        public void UpdateText()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (_actions[i] != null && _actionTexts[i] != null)
+                {
+                    _actionTexts[i].text = _actionStrings[i];
+                }
+            }
+        }
     }
 }
