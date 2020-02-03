@@ -132,11 +132,11 @@ GameObject:
   - component: {fileID: 4770301768143477030}
   - component: {fileID: 7963733835767024811}
   - component: {fileID: 1177821323}
-  - component: {fileID: 4861881006860743739}
-  - component: {fileID: 3799542095878902140}
   - component: {fileID: 1177821325}
   - component: {fileID: 4595635469463658805}
   - component: {fileID: 7195329718219918029}
+  - component: {fileID: -1528624536504838434}
+  - component: {fileID: 6578357234054536924}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -232,47 +232,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &4861881006860743739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860064416969736078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 240441e33caadf04faa9b190e497cbab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _state: 0
-  _isAlive: 1
-  _speed: 2
-  _jumpPower: 3.5
-  _attackCollTime: 0.4
-  _isControllable: 1
-  _standCol: {fileID: 4595635469463658805}
-  _crouchCol: {fileID: 7195329718219918029}
-  _groundCheker: {fileID: 8225885602907114828}
-  _groundSize: {x: 0.01, y: 0.01}
-  _idlePunchRange: {fileID: 1910432521}
-  _crouchKickRange: {fileID: 211191371}
-  _jumpKickRange: {fileID: 812750255}
-  _attackSize: {x: 1, y: 0.3}
-  _camera: {fileID: 0}
-  _width: 9
---- !u!114 &3799542095878902140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860064416969736078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82d7fedc5ca99e7448017107dd6d07de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _controller: {fileID: 0}
 --- !u!95 &1177821325
 Animator:
   serializedVersion: 3
@@ -344,6 +303,48 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1594122, y: 0.44176096}
   m_EdgeRadius: 0
+--- !u!114 &-1528624536504838434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860064416969736078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d7fedc5ca99e7448017107dd6d07de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 6578357234054536924}
+--- !u!114 &6578357234054536924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860064416969736078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240441e33caadf04faa9b190e497cbab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _state: 0
+  _isControllable: 1
+  _speed: 3
+  _jumpPower: 3.5
+  _attackCollTime: 0.33
+  _groundCheker: {fileID: 8225885602907114828}
+  _groundColSize: {x: 0.1, y: 0.1}
+  _playerHpCount: 10
+  _isAlive: 1
+  _standCol: {fileID: 4595635469463658805}
+  _crouchCol: {fileID: 7195329718219918029}
+  _idlePunchRange: {fileID: 1910432521}
+  _crouchKickRange: {fileID: 211191371}
+  _jumpKickRange: {fileID: 812750255}
+  _attackSize: {x: 0.3, y: 0.5}
+  _camera: {fileID: 0}
+  _width: 9
 --- !u!1 &1008051116983804010
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +357,7 @@ GameObject:
   m_Layer: 0
   m_Name: GroundChecker
   m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

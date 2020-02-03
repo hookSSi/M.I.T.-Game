@@ -485,6 +485,53 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1280591209409648134, guid: 9f072800efe3b1849b11cccb0b16991f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 26e0761394c90984c81895330e746e75,
+        type: 2}
+    - target: {fileID: 1280591209409648134, guid: 9f072800efe3b1849b11cccb0b16991f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 9016516370057808912, guid: 26e0761394c90984c81895330e746e75,
+        type: 2}
+    - target: {fileID: 1280591209409648134, guid: 9f072800efe3b1849b11cccb0b16991f,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 19.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280591209409648134, guid: 9f072800efe3b1849b11cccb0b16991f,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280591209409648134, guid: 9f072800efe3b1849b11cccb0b16991f,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280591209409648134, guid: 9f072800efe3b1849b11cccb0b16991f,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280591209409648134, guid: 9f072800efe3b1849b11cccb0b16991f,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280591209409648134, guid: 9f072800efe3b1849b11cccb0b16991f,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280591209409648134, guid: 9f072800efe3b1849b11cccb0b16991f,
+        type: 3}
+      propertyPath: m_textInfo.materialCount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2078563648700794235, guid: 9f072800efe3b1849b11cccb0b16991f,
         type: 3}
       propertyPath: m_IsActive
@@ -538,12 +585,12 @@ PrefabInstance:
     - target: {fileID: 4348546354610076663, guid: 9f072800efe3b1849b11cccb0b16991f,
         type: 3}
       propertyPath: m_textInfo.materialCount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4348546354610076663, guid: 9f072800efe3b1849b11cccb0b16991f,
         type: 3}
       propertyPath: m_fontSize
-      value: 34.9
+      value: 33.3
       objectReference: {fileID: 0}
     - target: {fileID: 4348546354610076663, guid: 9f072800efe3b1849b11cccb0b16991f,
         type: 3}
@@ -554,13 +601,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 40eb9a2a5bef17c4896b93b78a185357,
+      objectReference: {fileID: 11400000, guid: 26e0761394c90984c81895330e746e75,
         type: 2}
     - target: {fileID: 4348546354610076663, guid: 9f072800efe3b1849b11cccb0b16991f,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -3959466346440412802, guid: 40eb9a2a5bef17c4896b93b78a185357,
+      objectReference: {fileID: 9016516370057808912, guid: 26e0761394c90984c81895330e746e75,
         type: 2}
     - target: {fileID: 4741182447531325980, guid: 9f072800efe3b1849b11cccb0b16991f,
         type: 3}
@@ -627,6 +674,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_margin.w
       value: -69.86093
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741182447531325980, guid: 9f072800efe3b1849b11cccb0b16991f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 26e0761394c90984c81895330e746e75,
+        type: 2}
+    - target: {fileID: 4741182447531325980, guid: 9f072800efe3b1849b11cccb0b16991f,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6987793037350123991, guid: 9f072800efe3b1849b11cccb0b16991f,
         type: 3}
@@ -1024,7 +1082,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &946319173
+--- !u!21 &1193160033
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0

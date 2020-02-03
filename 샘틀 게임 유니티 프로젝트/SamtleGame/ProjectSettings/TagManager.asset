@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - Door
   - Npc
+  - Interactable
   layers:
   - Default
   - TransparentFX

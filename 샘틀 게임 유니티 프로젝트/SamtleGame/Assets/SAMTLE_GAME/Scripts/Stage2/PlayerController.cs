@@ -4,15 +4,16 @@ using UnityEngine;
 using System;
 
 using MIT.SamtleGame.Stage2.NPC;
+using MIT.SamtleGame.Stage2.Tool;
 
 namespace MIT.SamtleGame.Stage2
 {
     public class PlayerController : MonoBehaviour
     {
         [SerializeField]
-        private Vector2 _currentDir = Vector2.down;
-        private int  _currentWalkCount = 0;
-        private bool _isControllable = true;
+        protected Vector2 _currentDir = Vector2.down;
+        protected int  _currentWalkCount = 0;
+        protected bool _isControllable = true;
 
         [Header("플레이어 이동 정보")]
         public float _walkSize = 1;
@@ -20,6 +21,9 @@ namespace MIT.SamtleGame.Stage2
         public float _walkTime = 0.1f;
         public float _speed = 1;
         public Vector2 _colSize;
+
+        [Header("충돌되는 태그")]
+        public Tag[] _obstacles;
         
         [Header("사운드 설정")]
         public string _walkSound;
@@ -33,7 +37,7 @@ namespace MIT.SamtleGame.Stage2
         }
 
         /// 입력처리
-        void HandleInput()
+        protected virtual void HandleInput()
         {
             if(_isControllable)
             {
@@ -103,7 +107,9 @@ namespace MIT.SamtleGame.Stage2
 
         void Move(Vector2 dir)
         {
-            if(!CheckCollider(dir, "Obstacle"))
+            Vector2 point = ((Vector2)transform.position + dir * _walkSize);
+
+            if(!ColliderChecker.CheckColliders(point, _colSize, _obstacles))
                 StartCoroutine(MoveRoutine(dir));
         }
 
@@ -128,7 +134,7 @@ namespace MIT.SamtleGame.Stage2
             }
         }
 
-        private void OnDrawGizmos() 
+        private void OnDrawGizmosSelected() 
         {
             Vector2 point = ((Vector2)transform.position + _currentDir * _walkSize);
             Gizmos.DrawCube(point, _colSize);

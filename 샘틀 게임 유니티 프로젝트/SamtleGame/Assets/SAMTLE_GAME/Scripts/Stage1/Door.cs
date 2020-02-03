@@ -4,13 +4,16 @@ using UnityEngine;
 
 using MIT.SamtleGame.Tools;
 
-public class Door : MonoBehaviour
+namespace MIT.SamtleGame.Stage1
 {
-    private void OnTriggerStay2D(Collider2D other) 
+    public class Door : MonoBehaviour
     {
-        if(Input.GetKeyDown(KeyCode.A))
+        private void OnTriggerStay2D(Collider2D other) 
         {
-            LoadingSceneManager.LoadScene("창원중앙역", "Stage1LoadingScreen");
+            if(Input.GetKeyDown(KeyCode.A))
+            {
+                LoadingSceneManager.LoadScene("창원중앙역", "Stage1LoadingScreen");
+            }
         }
     }
 }

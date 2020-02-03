@@ -169,8 +169,8 @@ MonoBehaviour:
   m_text: "\uC190\uB2D8, \uBB34\uC784\uC2B9\uCC28\uB294 \uCCA0\uB3C4\uC0AC\uC5C5\uBC95\uC5D0
     \uC758\uD558\uC5EC"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 40eb9a2a5bef17c4896b93b78a185357, type: 2}
-  m_sharedMaterial: {fileID: -3959466346440412802, guid: 40eb9a2a5bef17c4896b93b78a185357,
+  m_fontAsset: {fileID: 11400000, guid: 26e0761394c90984c81895330e746e75, type: 2}
+  m_sharedMaterial: {fileID: 9016516370057808912, guid: 26e0761394c90984c81895330e746e75,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 1
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: 2
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 5255199934643030242}
   - component: {fileID: 4079624118945536688}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -780,7 +780,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
