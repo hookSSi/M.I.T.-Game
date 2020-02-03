@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using MIT.SamtleGame.Tools;
-using MIT.SamtleGame.NPC;
+using MIT.SamtleGame.Stage2.NPC;
 using TMPro;
 
 public enum DialogueStatus { Start, End, Next }

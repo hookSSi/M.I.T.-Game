@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Obstacle
+  - Door
+  - Npc
   layers:
   - Default
   - TransparentFX
