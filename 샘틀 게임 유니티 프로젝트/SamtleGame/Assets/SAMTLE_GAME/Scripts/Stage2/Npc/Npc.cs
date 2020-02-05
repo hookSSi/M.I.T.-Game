@@ -9,14 +9,14 @@ namespace MIT.SamtleGame.Stage2.NPC
     public class Npc : InteracterbleObject
     {
         private int  _currentWalkCount = 0;
-        private bool _isTalking = false;
 
         [Header("Identification")]
         public int _id = 0;
         [Header("대사 UI 프리팹")]
         public GameObject _dialogueUIPrefab;
-        [Header("대사 목록")]
+        [Header("대사")]
         public List<string> _textPages;
+        public string _talkSound;
         [Header("Event")]
         [SerializeField]
         private DialogueEvent _talkEvent;
@@ -56,15 +56,8 @@ namespace MIT.SamtleGame.Stage2.NPC
 
         public virtual void Talk()
         {
-            if(!_isTalking)
-            {
-                DialogueEvent.Trigger(_talkEvent._id);
-                _isTalking = true;
-            }
-            else
-            {
-                DialogueEvent.Trigger(_id, DialogueStatus.Next);
-            }   
+            PlayerControllerEvent.Trigger(false);
+            DialogueEvent.Trigger(_talkEvent._id, _talkSound);  
         }
 
         protected void SetDirection(Direction dir)

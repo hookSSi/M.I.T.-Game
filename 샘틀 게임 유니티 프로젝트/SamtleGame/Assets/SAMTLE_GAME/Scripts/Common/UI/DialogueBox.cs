@@ -9,6 +9,7 @@ public class DialogueBox : MonoBehaviour
 {
 	protected TMP_Text _textComponent;
 	protected int _currentPage = 0;
+	protected int _id;
 
 	[Header("텍스트")]
 	[Multiline(3)]
@@ -17,7 +18,7 @@ public class DialogueBox : MonoBehaviour
 	[Tooltip("텍스트 출력 효과음")]
 	public string _typingSoundName;
 	[Tooltip("텍스트 출력 지연시간")]
-	public float _delay;
+	public float _delay = 0.33f;
     public bool _isTextChanged;
 	public bool _isNextPage = false;
 	public bool _isLoop = true;
@@ -31,23 +32,17 @@ public class DialogueBox : MonoBehaviour
 	private void Start() 
 	{
 		Initialization();
+	}
+
+	public virtual void Reset(int id, List<string> textPages, int page = 0, string sound = "")
+    {
+		_id = id;
+		_currentPage = page;
+		_typingSoundName = sound;
+		_textPages = textPages;
+		Initialization();
 		StartCoroutine(RevealCharacters(_textComponent, _delay));
-	}
-
-	protected virtual void OnEnable() 
-	{
-		TMPro_EventManager.TEXT_CHANGED_EVENT.Add(ON_TEXT_CHANGED);
-	}
-
-	protected virtual void OnDisable() 
-	{
-		TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(ON_TEXT_CHANGED);
-	}
-
-	protected void ON_TEXT_CHANGED(Object obj)
-	{
-		_isTextChanged = true;
-	}
+    } 
 
 	public virtual void NextPage()
 	{
@@ -74,10 +69,6 @@ public class DialogueBox : MonoBehaviour
 			SoundEvent.Trigger(_typingSoundName);
 	}
 
-	/// <summary>
-	/// Method revealing the text one character at a time.
-	/// </summary>
-	/// <returns></returns>
 	protected virtual IEnumerator RevealCharacters(TMP_Text textComponent, float delay)
 	{
 		textComponent.ForceMeshUpdate();
@@ -115,5 +106,20 @@ public class DialogueBox : MonoBehaviour
 
 			visibleCount += 1;
 		}
+	}
+
+	protected virtual void OnEnable() 
+	{
+		TMPro_EventManager.TEXT_CHANGED_EVENT.Add(ON_TEXT_CHANGED);
+	}
+
+	protected virtual void OnDisable() 
+	{
+		TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(ON_TEXT_CHANGED);
+	}
+
+	protected void ON_TEXT_CHANGED(Object obj)
+	{
+		_isTextChanged = true;
 	}
 }

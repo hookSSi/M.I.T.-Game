@@ -12,6 +12,7 @@ public struct SoundEvent
     public string _name;
     public SoundStatus _status;
     public bool _isLoop;
+    [Range(0, 1)]
     public float _volume;
 
     public SoundEvent(string name, SoundStatus status = SoundStatus.Play, bool isLoop = false, float volume = 0.5f)
@@ -41,6 +42,7 @@ public class Sound
 
     public string _name; //이름
     public AudioClip _clip; //파일
+    [Range(0, 1)]
     public float _volume;
     public bool _isLoop;
 

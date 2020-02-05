@@ -3,24 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+using MIT.SamtleGame.Tools;
+
 using MIT.SamtleGame.Stage2.NPC;
 using MIT.SamtleGame.Stage2.Tool;
 
 namespace MIT.SamtleGame.Stage2
 {
-    public class PlayerController : MonoBehaviour
+    public struct PlayerControllerEvent
+    {
+        public bool _isControllable;
+
+        public PlayerControllerEvent(bool isControllable)
+        {
+            _isControllable = isControllable;
+        }
+
+        static PlayerControllerEvent _event;
+
+        public static void Trigger(bool isControllable)
+        {
+            _event._isControllable = isControllable;
+            EventManager.TriggerEvent(_event);
+        }
+    }
+
+    public class PlayerController : MonoBehaviour, EventListener<PlayerControllerEvent>
     {
         [SerializeField]
         protected Vector2 _currentDir = Vector2.down;
         protected int  _currentWalkCount = 0;
         protected bool _isControllable = true;
 
-        [Header("플레이어 이동 정보")]
+        [Header("플레이어 정보")]
         public float _walkSize = 1;
         public int _walkCount = 10;
         public float _walkTime = 0.1f;
         public float _speed = 1;
         public Vector2 _colSize;
+        public float _jumpPower = 30f;
 
         [Header("충돌되는 태그")]
         public Tag[] _obstacles;
@@ -30,6 +51,9 @@ namespace MIT.SamtleGame.Stage2
 
         [Header("애니메이션")]
         public Animator _animator;
+
+        public Transform _test;
+        public Transform _test2;
 
         void Update()
         {
@@ -45,27 +69,32 @@ namespace MIT.SamtleGame.Stage2
                 if (Input.GetKey(KeyCode.W))
                 {
                     _currentDir = Vector2.up;
-                    Move(_currentDir);
+                    Move();
                 }
                 else if (Input.GetKey(KeyCode.A))
                 {
                     _currentDir = Vector2.left;
-                    Move(_currentDir);
+                    Move();
                 }
                 else if (Input.GetKey(KeyCode.S))
                 {
                     _currentDir = Vector2.down;
-                    Move(_currentDir);
+                    Move();
                 }
                 else if (Input.GetKey(KeyCode.D))
                 {
                     _currentDir = Vector2.right;
-                    Move(_currentDir);
+                    Move();
                 }
 
                 if(Input.GetKeyDown(KeyCode.E))
                 {
                     Interact();
+                }
+
+                if(Input.GetKeyDown(KeyCode.Space))
+                {
+                    //Jump();
                 }
                 #endregion
             }
@@ -84,7 +113,9 @@ namespace MIT.SamtleGame.Stage2
             {
                 if(col.tag == "Npc")
                 {
-                    col.GetComponent<Npc>().Talk();
+                    Npc npc = col.GetComponent<Npc>();
+                    Debug.LogFormat("Npc({0})와 대화 시작", npc._id);
+                    npc.Talk();
                 }
             }
         }
@@ -105,18 +136,21 @@ namespace MIT.SamtleGame.Stage2
             return false;
         }
 
-        void Move(Vector2 dir)
+        #region 이동
+        void Move()
         {
-            Vector2 point = ((Vector2)transform.position + dir * _walkSize);
+            Vector2 point = ((Vector2)transform.position + _currentDir * _walkSize);
 
             if(!ColliderChecker.CheckColliders(point, _colSize, _obstacles))
-                StartCoroutine(MoveRoutine(dir));
+            {
+                StartCoroutine(MoveRoutine());
+            }
         }
 
-        IEnumerator MoveRoutine(Vector2 dir)
+        IEnumerator MoveRoutine()
         {
             _isControllable = false;
-            Vector2 walkAmount = dir * ( _walkSize / _walkCount ) * _speed;
+            Vector2 walkAmount = _currentDir * ( _walkSize / _walkCount ) * _speed;
 
             while(true)
             {
@@ -133,11 +167,41 @@ namespace MIT.SamtleGame.Stage2
                 yield return new WaitForSeconds(_walkTime);
             }
         }
+        #endregion
+
+        #region 점프
+        void Jump()
+        {
+            StartCoroutine(JumpRoutine());
+        }
+
+        IEnumerator JumpRoutine()
+        {
+            yield return Tweens.MoveTransform(this, this.transform, this.transform, _test, new WaitForSeconds(0.1f), 0.1f, 1f, Tweens.TweenCurve.LinearTween);
+            yield return Tweens.MoveTransform(this, this.transform, this.transform, _test2, new WaitForSeconds(0.1f), 0.1f, 1f, Tweens.TweenCurve.LinearTween);
+        }
+        #endregion
 
         private void OnDrawGizmosSelected() 
         {
             Vector2 point = ((Vector2)transform.position + _currentDir * _walkSize);
             Gizmos.DrawCube(point, _colSize);
+        }
+
+        public virtual void OnEvent(PlayerControllerEvent playerControllerEvent)
+        {
+            Debug.LogFormat("플레이어 컨트롤 여부: {0}", playerControllerEvent._isControllable);
+            _isControllable = playerControllerEvent._isControllable;
+        }
+
+        private void OnEnable() 
+        {
+            this.EventStartListening<PlayerControllerEvent>();
+        }
+
+        private void OnDisable() 
+        {
+            this.EventStopListening<PlayerControllerEvent>();
         }
     }
 }

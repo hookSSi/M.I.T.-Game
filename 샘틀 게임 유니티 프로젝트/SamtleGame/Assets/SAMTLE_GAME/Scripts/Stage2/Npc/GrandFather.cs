@@ -17,7 +17,7 @@ namespace MIT.SamtleGame.Stage2.NPC
         {
             base.Initialization();
             _animator = GetComponent<Animator>();
-            StartMove();
+            //StartMove();
         }
 
         protected virtual void Update() 
