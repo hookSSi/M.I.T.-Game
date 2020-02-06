@@ -109,13 +109,13 @@ namespace MIT.SamtleGame.Stage2
             Vector2 origin = ((Vector2)transform.position);
             Vector2 dest = ((Vector2)transform.position + _currentDir * _walkSize);
             
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(origin, dest, 0);
+            RaycastHit2D[] hitted = Physics2D.LinecastAll(origin, dest);
 
-            foreach(var col in colliders)
+            foreach(var obj in hitted)
             {
-                if(col.tag == "Npc")
+                if(obj.collider.tag == "Npc")
                 {
-                    Npc npc = col.GetComponent<Npc>();
+                    Npc npc = obj.collider.GetComponent<Npc>();
                     Debug.LogFormat("Npc({0})와 대화 시작", npc._id);
                     npc.SetDirection(_currentDir * -1);
                     npc.Talk();
