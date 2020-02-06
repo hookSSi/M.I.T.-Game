@@ -72,7 +72,11 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
+<<<<<<< .merge_file_a12356
   m_SortingOrder: 0
+=======
+  m_SortingOrder: 1
+>>>>>>> .merge_file_a18796
   m_Sprite: {fileID: 21300000, guid: 07084c8f4295b794e89d5e06f819f27b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -143,8 +147,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e55ad9b6740528545a1151fd26ada120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< .merge_file_a12356
   enemySpeed: 1.5
   enemyForce: 5
+=======
+  _state: 0
+  _enemySpeed: 1.5
+  _hittedEffect: {fileID: 9047182929800484097, guid: f99414e0206f5594699d5a3749e23759,
+    type: 3}
+>>>>>>> .merge_file_a18796
 --- !u!95 &1561989143
 Animator:
   serializedVersion: 3

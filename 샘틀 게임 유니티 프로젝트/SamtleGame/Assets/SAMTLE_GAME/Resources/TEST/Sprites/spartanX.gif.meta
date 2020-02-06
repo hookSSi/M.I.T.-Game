@@ -1,0 +1,6019 @@
+fileFormatVersion: 2
+guid: 1d0cdbcbe65d0164a9ae9a4d8f645a1c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9135177329058829912
+    second: spartanX_0
+  - first:
+      213: -6246553492987934691
+    second: spartanX_1
+  - first:
+      213: -499402843058927846
+    second: spartanX_2
+  - first:
+      213: -4812050365984986617
+    second: spartanX_3
+  - first:
+      213: 7790194017146806456
+    second: spartanX_4
+  - first:
+      213: 4499475307771931306
+    second: spartanX_5
+  - first:
+      213: -468454198278746641
+    second: spartanX_6
+  - first:
+      213: 6760564918590806538
+    second: spartanX_7
+  - first:
+      213: -627267917711033154
+    second: spartanX_8
+  - first:
+      213: -1979547274917676678
+    second: spartanX_9
+  - first:
+      213: -5859116346831108498
+    second: spartanX_10
+  - first:
+      213: 8569034816524830710
+    second: spartanX_11
+  - first:
+      213: -524302100927552761
+    second: spartanX_12
+  - first:
+      213: -4488331922703465835
+    second: spartanX_13
+  - first:
+      213: -1440757016266148946
+    second: spartanX_14
+  - first:
+      213: -2001327718617902411
+    second: spartanX_15
+  - first:
+      213: -1679733030976347353
+    second: spartanX_16
+  - first:
+      213: 8934587108566990723
+    second: spartanX_17
+  - first:
+      213: -4713930858822812663
+    second: spartanX_18
+  - first:
+      213: 2444269532944184076
+    second: spartanX_19
+  - first:
+      213: -5081012560071610267
+    second: spartanX_20
+  - first:
+      213: -657140137877628641
+    second: spartanX_21
+  - first:
+      213: -4082787651967894939
+    second: spartanX_22
+  - first:
+      213: -6799190377588418976
+    second: spartanX_23
+  - first:
+      213: -1980991050158209031
+    second: spartanX_24
+  - first:
+      213: 9043918286424478713
+    second: spartanX_25
+  - first:
+      213: 6685599708424855302
+    second: spartanX_26
+  - first:
+      213: -9196627702546770162
+    second: spartanX_27
+  - first:
+      213: 2398439691110599835
+    second: spartanX_28
+  - first:
+      213: 3898562649269133994
+    second: spartanX_29
+  - first:
+      213: 4072676246602127894
+    second: spartanX_30
+  - first:
+      213: 2448744326833308827
+    second: spartanX_31
+  - first:
+      213: 2718352297412499445
+    second: spartanX_32
+  - first:
+      213: -1591900072435346225
+    second: spartanX_33
+  - first:
+      213: 7851785508279353202
+    second: spartanX_34
+  - first:
+      213: 5416589344869474811
+    second: spartanX_35
+  - first:
+      213: -2165400389284290593
+    second: spartanX_36
+  - first:
+      213: 3558691072735002421
+    second: spartanX_37
+  - first:
+      213: 4776714903762007356
+    second: spartanX_38
+  - first:
+      213: 6226175870672684880
+    second: spartanX_39
+  - first:
+      213: 260708795520356637
+    second: spartanX_40
+  - first:
+      213: 2790143978728101511
+    second: spartanX_41
+  - first:
+      213: -6657098182693729732
+    second: spartanX_42
+  - first:
+      213: -9050720335856908269
+    second: spartanX_43
+  - first:
+      213: 3444341353361572339
+    second: spartanX_44
+  - first:
+      213: -6436874858619667516
+    second: spartanX_45
+  - first:
+      213: 302904836175060486
+    second: spartanX_46
+  - first:
+      213: -2287295744134259751
+    second: spartanX_47
+  - first:
+      213: -6222018540578166691
+    second: spartanX_48
+  - first:
+      213: 2251147304902120641
+    second: spartanX_49
+  - first:
+      213: 5819521889098334515
+    second: spartanX_50
+  - first:
+      213: -2191618809957458891
+    second: spartanX_51
+  - first:
+      213: -5191845207926741574
+    second: spartanX_52
+  - first:
+      213: -2297251578499046937
+    second: spartanX_53
+  - first:
+      213: 1040328904100101571
+    second: spartanX_54
+  - first:
+      213: -4651129033645530208
+    second: spartanX_55
+  - first:
+      213: -8080441867693135695
+    second: spartanX_56
+  - first:
+      213: -959485507466603339
+    second: spartanX_57
+  - first:
+      213: 1102621382426200702
+    second: spartanX_58
+  - first:
+      213: 2711033364274340254
+    second: spartanX_59
+  - first:
+      213: -8399748096192285376
+    second: spartanX_60
+  - first:
+      213: 2639598001749883957
+    second: spartanX_61
+  - first:
+      213: -7745149055366243705
+    second: spartanX_62
+  - first:
+      213: 6410052145550964233
+    second: spartanX_63
+  - first:
+      213: -7526113524992319010
+    second: spartanX_64
+  - first:
+      213: -2612816485297148260
+    second: spartanX_65
+  - first:
+      213: 8014156956199501162
+    second: spartanX_66
+  - first:
+      213: -3286262773638700488
+    second: spartanX_67
+  - first:
+      213: -3906959769745260917
+    second: spartanX_68
+  - first:
+      213: -7537820357037660904
+    second: spartanX_69
+  - first:
+      213: -2020208424028596046
+    second: spartanX_70
+  - first:
+      213: -9012394095897492361
+    second: spartanX_71
+  - first:
+      213: 6209455874623563556
+    second: spartanX_72
+  - first:
+      213: 8538066448470034766
+    second: spartanX_73
+  - first:
+      213: 6167017155555564846
+    second: spartanX_74
+  - first:
+      213: 6867665094983811247
+    second: spartanX_75
+  - first:
+      213: 5383909233156033982
+    second: spartanX_76
+  - first:
+      213: 7627119948384075047
+    second: spartanX_77
+  - first:
+      213: -2902919414802430571
+    second: spartanX_78
+  - first:
+      213: 5042909293263879011
+    second: spartanX_79
+  - first:
+      213: 4578848501663151255
+    second: spartanX_80
+  - first:
+      213: 7049656337291887926
+    second: spartanX_81
+  - first:
+      213: -5449147709855328801
+    second: spartanX_82
+  - first:
+      213: 1358013665735860348
+    second: spartanX_83
+  - first:
+      213: -4313411539546727155
+    second: spartanX_84
+  - first:
+      213: -5452082118448893272
+    second: spartanX_85
+  - first:
+      213: -8984359446659878062
+    second: spartanX_86
+  - first:
+      213: -1007337506758158766
+    second: spartanX_87
+  - first:
+      213: -1677634721583214922
+    second: spartanX_88
+  - first:
+      213: 453485787078283858
+    second: spartanX_89
+  - first:
+      213: -5389754459486735258
+    second: spartanX_90
+  - first:
+      213: -1615024832890424843
+    second: spartanX_91
+  - first:
+      213: 1707465878821875388
+    second: spartanX_92
+  - first:
+      213: -2017065069917071757
+    second: spartanX_93
+  - first:
+      213: -6241679412330244325
+    second: spartanX_94
+  - first:
+      213: -7114613905693308026
+    second: spartanX_95
+  - first:
+      213: 3457686107571522972
+    second: spartanX_96
+  - first:
+      213: 5908353319676764508
+    second: spartanX_97
+  - first:
+      213: -1608365569506499453
+    second: spartanX_98
+  - first:
+      213: 541279902766379145
+    second: spartanX_99
+  - first:
+      213: -4178617370355315289
+    second: spartanX_100
+  - first:
+      213: 1690671345333430601
+    second: spartanX_101
+  - first:
+      213: -655728255667931285
+    second: spartanX_102
+  - first:
+      213: 6576717344447054951
+    second: spartanX_103
+  - first:
+      213: -1314256420615423561
+    second: spartanX_104
+  - first:
+      213: -4690841342218833437
+    second: spartanX_105
+  - first:
+      213: -890421980519706270
+    second: spartanX_106
+  - first:
+      213: 679328147663160108
+    second: spartanX_107
+  - first:
+      213: 5377525115462294805
+    second: spartanX_108
+  - first:
+      213: -7545767532685822367
+    second: spartanX_109
+  - first:
+      213: 1416480682890774492
+    second: spartanX_110
+  - first:
+      213: -987320316014485564
+    second: spartanX_111
+  - first:
+      213: 400785821416174393
+    second: spartanX_112
+  - first:
+      213: 388509794827187959
+    second: spartanX_113
+  - first:
+      213: -5409729311510496456
+    second: spartanX_114
+  - first:
+      213: 5309759367799693047
+    second: spartanX_115
+  - first:
+      213: -141481008210611994
+    second: spartanX_116
+  - first:
+      213: -8483878728845764625
+    second: spartanX_117
+  - first:
+      213: 3098799199734982613
+    second: spartanX_118
+  - first:
+      213: -3877343360589776052
+    second: spartanX_119
+  - first:
+      213: -2339005594981976541
+    second: spartanX_120
+  - first:
+      213: 6785468210769040487
+    second: spartanX_121
+  - first:
+      213: -3025734681954662635
+    second: spartanX_122
+  - first:
+      213: 4634581221902887261
+    second: spartanX_123
+  - first:
+      213: 1965884448034728369
+    second: spartanX_124
+  - first:
+      213: 6164586956681790909
+    second: spartanX_125
+  - first:
+      213: 7562127362983060443
+    second: spartanX_126
+  - first:
+      213: -1521469912629406471
+    second: spartanX_127
+  - first:
+      213: 7003489709326290701
+    second: spartanX_128
+  - first:
+      213: -4968442033807064432
+    second: spartanX_129
+  - first:
+      213: -3134774842471465287
+    second: spartanX_130
+  - first:
+      213: -722825898757528992
+    second: spartanX_131
+  - first:
+      213: 1671083949670007591
+    second: spartanX_132
+  - first:
+      213: 5209549579784851208
+    second: spartanX_133
+  - first:
+      213: 5127537571039696997
+    second: spartanX_134
+  - first:
+      213: 6728042097637384178
+    second: spartanX_135
+  - first:
+      213: -1040374872847685951
+    second: spartanX_136
+  - first:
+      213: -5056896311762267642
+    second: spartanX_137
+  - first:
+      213: 505132416814749268
+    second: spartanX_138
+  - first:
+      213: 4162832818186252094
+    second: spartanX_139
+  - first:
+      213: 4014719697026166634
+    second: spartanX_140
+  - first:
+      213: 7456582866053884286
+    second: spartanX_141
+  - first:
+      213: -158619575221374169
+    second: spartanX_142
+  - first:
+      213: -6023274779062258354
+    second: spartanX_143
+  - first:
+      213: -4631287504705744920
+    second: spartanX_144
+  - first:
+      213: 3391499032811595783
+    second: spartanX_145
+  - first:
+      213: -1031292481873952472
+    second: spartanX_146
+  - first:
+      213: -1969660530866799895
+    second: spartanX_147
+  - first:
+      213: 8058803674060240790
+    second: spartanX_148
+  - first:
+      213: 7516648662085465727
+    second: spartanX_149
+  - first:
+      213: -116994007134104065
+    second: spartanX_150
+  - first:
+      213: -6622273729366908033
+    second: spartanX_151
+  - first:
+      213: 7658973174698242760
+    second: spartanX_152
+  - first:
+      213: -2421471545652416297
+    second: spartanX_153
+  - first:
+      213: -2479690458646132698
+    second: spartanX_154
+  - first:
+      213: 7751076979681398985
+    second: spartanX_155
+  - first:
+      213: 496318065635938727
+    second: spartanX_156
+  - first:
+      213: -8157540126517997940
+    second: spartanX_157
+  - first:
+      213: 8030580565676338733
+    second: spartanX_158
+  - first:
+      213: -4393907870100090474
+    second: spartanX_159
+  - first:
+      213: 589898643742274579
+    second: spartanX_160
+  - first:
+      213: -2701703824401227290
+    second: spartanX_161
+  - first:
+      213: -6303984612705291176
+    second: spartanX_162
+  - first:
+      213: 4033775799278290374
+    second: spartanX_163
+  - first:
+      213: -6520800640880886610
+    second: spartanX_164
+  - first:
+      213: -5540847149658826229
+    second: spartanX_165
+  - first:
+      213: 8605078208925053748
+    second: spartanX_166
+  - first:
+      213: 8274259600684394898
+    second: spartanX_167
+  - first:
+      213: 8261806289432387769
+    second: spartanX_168
+  - first:
+      213: -7721406200807707321
+    second: spartanX_169
+  - first:
+      213: -8593095520855994997
+    second: spartanX_170
+  - first:
+      213: -5345332025972464044
+    second: spartanX_171
+  - first:
+      213: -5875637855719422128
+    second: spartanX_172
+  - first:
+      213: -2492761505695033151
+    second: spartanX_173
+  - first:
+      213: -4411497533740235819
+    second: spartanX_174
+  - first:
+      213: -5709276765792218746
+    second: spartanX_175
+  - first:
+      213: -2028398183990824631
+    second: spartanX_176
+  - first:
+      213: -6981053180041836072
+    second: spartanX_177
+  - first:
+      213: -6067231751883886724
+    second: spartanX_178
+  - first:
+      213: -5080261589967969671
+    second: spartanX_179
+  - first:
+      213: 2598593693397654748
+    second: spartanX_180
+  - first:
+      213: 5117633442137708456
+    second: spartanX_181
+  - first:
+      213: 6646309095114183279
+    second: spartanX_182
+  - first:
+      213: 4712944082919432580
+    second: spartanX_183
+  - first:
+      213: 9028816217633815023
+    second: spartanX_184
+  - first:
+      213: 7685474231585222227
+    second: spartanX_185
+  - first:
+      213: -3563098012296409869
+    second: spartanX_186
+  - first:
+      213: 7452654980069074053
+    second: spartanX_187
+  - first:
+      213: -4328422598598715826
+    second: spartanX_188
+  - first:
+      213: 5545793486604602606
+    second: spartanX_189
+  - first:
+      213: -4558492495405101431
+    second: spartanX_190
+  - first:
+      213: -1317316151146669006
+    second: spartanX_191
+  - first:
+      213: 6529432194275090814
+    second: spartanX_192
+  - first:
+      213: -5100608725320900584
+    second: spartanX_193
+  - first:
+      213: 5218876059977063110
+    second: spartanX_194
+  - first:
+      213: 3935749730252347981
+    second: spartanX_195
+  - first:
+      213: 26104031161540104
+    second: spartanX_196
+  - first:
+      213: -6186856876441552132
+    second: spartanX_197
+  - first:
+      213: 8437596713675341439
+    second: spartanX_198
+  - first:
+      213: -414167733510330944
+    second: spartanX_199
+  - first:
+      213: 6320749734997390091
+    second: spartanX_200
+  - first:
+      213: 2289169443566937604
+    second: spartanX_201
+  - first:
+      213: -8625387019074346691
+    second: spartanX_202
+  - first:
+      213: -6935516038283036372
+    second: spartanX_203
+  - first:
+      213: 7195373430374010165
+    second: spartanX_204
+  - first:
+      213: -1120440485457690795
+    second: spartanX_205
+  - first:
+      213: -8721846633577898412
+    second: spartanX_206
+  - first:
+      213: -5861988839159358688
+    second: spartanX_207
+  - first:
+      213: 7660751795372987358
+    second: spartanX_208
+  - first:
+      213: -6140251800909686904
+    second: spartanX_209
+  - first:
+      213: 3794384419328188537
+    second: spartanX_210
+  - first:
+      213: -7292701252474637513
+    second: spartanX_211
+  - first:
+      213: -675223125298671676
+    second: spartanX_212
+  - first:
+      213: -7638595143847564194
+    second: spartanX_213
+  - first:
+      213: -4172965985370327635
+    second: spartanX_214
+  - first:
+      213: 8500311032986693134
+    second: spartanX_215
+  - first:
+      213: 5987935463534491164
+    second: spartanX_216
+  - first:
+      213: 3237250358568723817
+    second: spartanX_217
+  - first:
+      213: -3333727998151329812
+    second: spartanX_218
+  - first:
+      213: -7972341279152913496
+    second: spartanX_219
+  - first:
+      213: 2183287570337164751
+    second: spartanX_220
+  - first:
+      213: 711238489468201203
+    second: spartanX_221
+  - first:
+      213: 1841347565961838052
+    second: spartanX_222
+  - first:
+      213: 6174037726480338911
+    second: spartanX_223
+  - first:
+      213: 2438672476285421132
+    second: spartanX_224
+  - first:
+      213: 2742160592545266209
+    second: spartanX_225
+  - first:
+      213: -6409170339839374019
+    second: spartanX_226
+  - first:
+      213: 6785894659504775722
+    second: spartanX_227
+  - first:
+      213: -5274764303649904294
+    second: spartanX_228
+  - first:
+      213: 1706302062512620437
+    second: spartanX_229
+  - first:
+      213: -5804670132023034584
+    second: spartanX_230
+  - first:
+      213: -6805488559237939972
+    second: spartanX_231
+  - first:
+      213: 8121811739412228135
+    second: spartanX_232
+  - first:
+      213: -8285735142057686320
+    second: spartanX_233
+  - first:
+      213: -3948177789969064572
+    second: spartanX_234
+  - first:
+      213: 5435721161871458933
+    second: spartanX_235
+  - first:
+      213: -4767004719228772719
+    second: spartanX_236
+  - first:
+      213: -2045069499021723281
+    second: spartanX_237
+  - first:
+      213: -4960739946060251037
+    second: spartanX_238
+  - first:
+      213: 4826833050066500588
+    second: spartanX_239
+  - first:
+      213: -4355668365607971146
+    second: spartanX_240
+  - first:
+      213: -3854602651586075852
+    second: spartanX_241
+  - first:
+      213: 8253919755546535104
+    second: spartanX_242
+  - first:
+      213: -3650677190816038417
+    second: spartanX_243
+  - first:
+      213: -7990011414599081472
+    second: spartanX_244
+  - first:
+      213: 4524822183375155111
+    second: spartanX_245
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spartanX_0
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 854
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed829a44cd132b7429a0f2d8dcabf411
+      internalID: -9135177329058829912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_1
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 854
+        width: 16
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c81575e27819734c9e5e150992232a1
+      internalID: -6246553492987934691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_2
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 854
+        width: 10
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2578de0c6a102584d8994d6f305a523c
+      internalID: -499402843058927846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_3
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 854
+        width: 16
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ba2c4d6240b644f861463603e60e7e
+      internalID: -4812050365984986617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_4
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 854
+        width: 16
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 911cc394e7d614a439e7f0114f8c2440
+      internalID: 7790194017146806456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_5
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 854
+        width: 10
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c1f457915de1ad43b32a0689f04536a
+      internalID: 4499475307771931306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_6
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 854
+        width: 16
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f527da84ae03d424f9d27b18ecf84d05
+      internalID: -468454198278746641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_7
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 854
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd245af048b9e0541ab42a598079a264
+      internalID: 6760564918590806538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_8
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 811
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d01763c592a1d95498272db5098423d2
+      internalID: -627267917711033154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_9
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 811
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 825b62cf9c28cbb4d9a23e31d1339de1
+      internalID: -1979547274917676678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_10
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 811
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c4c9ffd8e4f5f24f9aab202b95dca5d
+      internalID: -5859116346831108498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_11
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 811
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a6a7a0f953ea824db037659d4a8c08e
+      internalID: 8569034816524830710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_12
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 811
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4e9e7e360f709c4997cfff08d8eb63d
+      internalID: -524302100927552761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_13
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 811
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e9717b2bf28a8e46a0bd205f8e4564d
+      internalID: -4488331922703465835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_14
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 775
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdec76635a55e6a42befa4b618778824
+      internalID: -1440757016266148946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_15
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 775
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a4e0695c8976df48bba32ebace9e3a7
+      internalID: -2001327718617902411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_16
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 775
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2683dd52bdde81a4ab2e7c02ed2d2273
+      internalID: -1679733030976347353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_17
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 775
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a212930d9c52aee47917c9f54b6a2949
+      internalID: 8934587108566990723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_18
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 775
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6755a31384f63d74c8bc79e14911aeb4
+      internalID: -4713930858822812663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_19
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 775
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e8d23fdbfa0dbd43a3ba2575fe34230
+      internalID: 2444269532944184076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_20
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 775
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d74c612a5824f654ead40fa91aae557a
+      internalID: -5081012560071610267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_21
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 775
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2498b1fe4a2c9b54c9513b599a9bc433
+      internalID: -657140137877628641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_22
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 729
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 240c0a52aa6f5734888cabd6a490f546
+      internalID: -4082787651967894939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_23
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 729
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39c0749c978e4cd40a3b206fc5461dc6
+      internalID: -6799190377588418976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_24
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 729
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 501968fb19f89d145a82ad8f9ca0144b
+      internalID: -1980991050158209031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_25
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 729
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 097be90ca0db8b145972f5d35092c1b3
+      internalID: 9043918286424478713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_26
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 729
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cd34ca22b9fb574fa2cd994cfa9e613
+      internalID: 6685599708424855302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_27
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 729
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d0fcb4cbf37125418433dabcd927b50
+      internalID: -9196627702546770162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_28
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 729
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff67cc1be526d04f8ffac0e6ea89f27
+      internalID: 2398439691110599835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_29
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 729
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaeb985b44c3e9942962addae6ad262e
+      internalID: 3898562649269133994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_30
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 683
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 045b736187814c646a35a91219ee601e
+      internalID: 4072676246602127894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_31
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 683
+        width: 16
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f17f8ae216cc5b74bab96fcdd7ef5bad
+      internalID: 2448744326833308827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_32
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 683
+        width: 10
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0201ea5e7e38a42419c159a12d21561b
+      internalID: 2718352297412499445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_33
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 683
+        width: 16
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e992fe683689744cbee712fbdd5ac2c
+      internalID: -1591900072435346225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_34
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 683
+        width: 16
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e4dd357ff8fed54a82b47b074bb29ef
+      internalID: 7851785508279353202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_35
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 683
+        width: 10
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1697c0d1bd3f24388cb799a192b443
+      internalID: 5416589344869474811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_36
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 683
+        width: 16
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 454be92a9e906e943beb97ef0740b01e
+      internalID: -2165400389284290593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_37
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 683
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef146c57f65b131449380cba97c5596d
+      internalID: 3558691072735002421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_38
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 640
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b52ab21a0274cd4a8f9555cb9f68d55
+      internalID: 4776714903762007356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_39
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 640
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a499f1c26d83bcc429802a8d24776afc
+      internalID: 6226175870672684880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_40
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 640
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a546626be09c024695ff136bf6fd558
+      internalID: 260708795520356637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_41
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 640
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 477c5c0eb219c4b43a917477a37a3945
+      internalID: 2790143978728101511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_42
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 640
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17b31986fd482c24bab3b61447571ada
+      internalID: -6657098182693729732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_43
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 640
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45a023f377a101445bb1c7024cfc9639
+      internalID: -9050720335856908269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_44
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 604
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5222b0e60cc26b24fb0c50f70b7a7f25
+      internalID: 3444341353361572339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_45
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 604
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46797eba87583fa428f8968ec329d87a
+      internalID: -6436874858619667516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_46
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 604
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b520d1a29a440d499b059e754005cbd
+      internalID: 302904836175060486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_47
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 604
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 220f558d93f88894caa6c6582bdac94c
+      internalID: -2287295744134259751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_48
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 604
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9162fe698cbdc4141b4039b3c3c7e3e7
+      internalID: -6222018540578166691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_49
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 604
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f36e57f9838a4b4db5c9cbe6592013e
+      internalID: 2251147304902120641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_50
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 604
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b56341c9a46ce04d9b5c7b45105b27a
+      internalID: 5819521889098334515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_51
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 604
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f803619c9bbf97408cddbc44c5848a3
+      internalID: -2191618809957458891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_52
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 558
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e21fc2aa88771418eeacaba606a553
+      internalID: -5191845207926741574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_53
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 558
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0e62cdec2bd0b44f98044748dd79599
+      internalID: -2297251578499046937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_54
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 558
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edd4b089d08a16e4a8ad97a108f91b29
+      internalID: 1040328904100101571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_55
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 558
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 987cba5536e66304e9967df82971cbb1
+      internalID: -4651129033645530208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_56
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 558
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2d105c63ce2c78429d0d680f26711b7
+      internalID: -8080441867693135695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_57
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 558
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f24873e0e610e8649b2f7bf05fc5c126
+      internalID: -959485507466603339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_58
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 558
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3666c85f5e0a9346ae8ad4635a80160
+      internalID: 1102621382426200702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_59
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 558
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37d6136c6f3fa0b46ae7cb05b56be0bb
+      internalID: 2711033364274340254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_60
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 515
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86cf6e7a2a87c354bb91c62e18dbe319
+      internalID: -8399748096192285376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_61
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 515
+        width: 13
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78f9f1558d4cae34fbed7d03ff53cdb6
+      internalID: 2639598001749883957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_62
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 515
+        width: 11
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d81bbd4b108b9764a8f22100c669a9ff
+      internalID: -7745149055366243705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_63
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 515
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2616f1ba182bb842baf45d1e2a926e4
+      internalID: 6410052145550964233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_64
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 515
+        width: 16
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 400184c0745e6694ba405dd065941b33
+      internalID: -7526113524992319010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_65
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 515
+        width: 14
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2bd0d70b8f019145805dc369db36df6
+      internalID: -2612816485297148260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_66
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 515
+        width: 14
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 781eefbcd485ceb439c8b63328eb1855
+      internalID: 8014156956199501162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_67
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 515
+        width: 16
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31e7fe3bb3cb22148a92f787086e74ab
+      internalID: -3286262773638700488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_68
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 515
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e11ba99891e615c4ea49003ccf767086
+      internalID: -3906959769745260917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_69
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 515
+        width: 11
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f71da4414d9c9b5489f6d13af546ebbf
+      internalID: -7537820357037660904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_70
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 515
+        width: 13
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5a5e241feb2f15448a3e321af5fe068
+      internalID: -2020208424028596046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_71
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 515
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f73c224ca9ea4424caa588d2566d6adf
+      internalID: -9012394095897492361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_72
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 463
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53db2724944fa2e419a6270f57538061
+      internalID: 6209455874623563556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_73
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 463
+        width: 22
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b67d7c079d2b06a419802ded3f57463a
+      internalID: 8538066448470034766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_74
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 463
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 830474c9290caac4c91905f2b7249725
+      internalID: 6167017155555564846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_75
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 463
+        width: 24
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e94e427bd5f8b004ca32329010edd6eb
+      internalID: 6867665094983811247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_76
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 463
+        width: 16
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8df1016a2fa66b342bdf87bc5069c700
+      internalID: 5383909233156033982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_77
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 463
+        width: 14
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8690491b55619c54687be2617ed23210
+      internalID: 7627119948384075047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_78
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 463
+        width: 16
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef0d894aea4cf3498a17184f172f1ac
+      internalID: -2902919414802430571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_79
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 463
+        width: 16
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 393f38b929773704d8194fcc44615192
+      internalID: 5042909293263879011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_80
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 463
+        width: 14
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5404e40ae6a227f4a8752e832bdb1039
+      internalID: 4578848501663151255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_81
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 463
+        width: 16
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c939b17a14934048b50978e07ad3515
+      internalID: 7049656337291887926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_82
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 463
+        width: 24
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f78670f4eaece784a986fa2216a9b0cf
+      internalID: -5449147709855328801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_83
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 463
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 217a33118b5a9ca4e8a66b923c1e0e84
+      internalID: 1358013665735860348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_84
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 463
+        width: 22
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb77cbd6203d35c4b91a18506d7495d8
+      internalID: -4313411539546727155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_85
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 463
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c75fbbc37c21e7447a78e3e7e48f7be2
+      internalID: -5452082118448893272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_86
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 413
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f3dce28f60516a4a881c5ca5561ba56
+      internalID: -8984359446659878062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_87
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 413
+        width: 37
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0433077f5ec42fc4484a901e38f11d70
+      internalID: -1007337506758158766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_88
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 413
+        width: 21
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1dafd947ee040c4da40e5ae062144ad
+      internalID: -1677634721583214922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_89
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 413
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7cfce3f8b6b5a24aa56ca15140949ba
+      internalID: 453485787078283858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_90
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 413
+        width: 20
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7e4b319cc2c897428886485f92da2bc
+      internalID: -5389754459486735258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_91
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 413
+        width: 14
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33af4925a3b4faa4794812993744751b
+      internalID: -1615024832890424843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_92
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 413
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87ad59d7cecd10149b1ef073b1dd1592
+      internalID: 1707465878821875388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_93
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 413
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edc265a90bc971b448a33478dfaec8a2
+      internalID: -2017065069917071757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_94
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 413
+        width: 14
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36a2a0bb9b8f6be449a836d25566007b
+      internalID: -6241679412330244325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_95
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 413
+        width: 20
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 187786d0cfdb9524abd210aa7fda08e4
+      internalID: -7114613905693308026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_96
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 413
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc587cc936d30194ca3224d389898354
+      internalID: 3457686107571522972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_97
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 413
+        width: 21
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0cfaebbef8d1184c91661520f006540
+      internalID: 5908353319676764508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_98
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 413
+        width: 37
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf209c6ce56261644944432848f293f7
+      internalID: -1608365569506499453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_99
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 413
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba246125786c9a54e9c535d1b16cade9
+      internalID: 541279902766379145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_100
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 396
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a247d42c87c7fda46bf12f7fbd71d389
+      internalID: -4178617370355315289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_101
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 396
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3c5f6656e143e541bbc228387f68016
+      internalID: 1690671345333430601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_102
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 396
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e6a677fdbab3d84cb1707c661113018
+      internalID: -655728255667931285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_103
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 354
+        width: 23
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eada0bd9ab161b445ae300819415cf54
+      internalID: 6576717344447054951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_104
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 396
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3a5ae054e30541498ebbc6c3f62eeac
+      internalID: -1314256420615423561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_105
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 396
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2824168add9f86488a43b9dd233397d
+      internalID: -4690841342218833437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_106
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 356
+        width: 20
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6ebb9e64cd027b4ab20d35ec308d514
+      internalID: -890421980519706270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_107
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 359
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d2462970cdea64fb362b16720117ba
+      internalID: 679328147663160108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_108
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 378
+        width: 30
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11430190ae11da647a5f73f1bc494e93
+      internalID: 5377525115462294805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_109
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 359
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d1e892b7ff348f4b9d68f000c73455b
+      internalID: -7545767532685822367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_110
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 359
+        width: 14
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e89ec894e7fd6164fa03cc731f22bdd1
+      internalID: 1416480682890774492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_111
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 359
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e46677c3dcf3f14cad3d7e4f9cfd601
+      internalID: -987320316014485564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_112
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 359
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b9beae0c25e50041b277aa7240ec9c9
+      internalID: 400785821416174393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_113
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 378
+        width: 30
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5330eb089d66974e921de6b97da96db
+      internalID: 388509794827187959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_114
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 359
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03b30c6c54fd06e4aa5467492fe42ec7
+      internalID: -5409729311510496456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_115
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 356
+        width: 20
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76fad881fe80d3f41b3a9dd24ec3546e
+      internalID: 5309759367799693047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_116
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 359
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 818280a1ef4f1f741aa2891f30ec1d8b
+      internalID: -141481008210611994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_117
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 354
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 263f770e083a8ee4f9dbb0a16147b6d4
+      internalID: -8483878728845764625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_118
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 354
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19e31ca84c069334fb232b8500d4ec77
+      internalID: 3098799199734982613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_119
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 359
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ebf58daedfdb1c45beb51ad2bc7df18
+      internalID: -3877343360589776052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_120
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 299
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9db222c90ef76c549ab154c4efa72210
+      internalID: -2339005594981976541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_121
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 299
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc55d09b060ca9a40b6e1bb7b0553ace
+      internalID: 6785468210769040487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_122
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 339
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7800d2c5e2693c47980639f3781c2c6
+      internalID: -3025734681954662635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_123
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 339
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36e6e4106e8749941b6f6b09014276ed
+      internalID: 4634581221902887261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_124
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 339
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baa82bd56cab7904a905925b53940909
+      internalID: 1965884448034728369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_125
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 299
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 323bb733aa82cc94fb810344020ba7ad
+      internalID: 6164586956681790909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_126
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 299
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13e3389be01da4748b61d2ab0ea386c0
+      internalID: 7562127362983060443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_127
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 301
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b7f43823805fa341a676122455da3d0
+      internalID: -1521469912629406471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_128
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 299
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1596f46c8c470f41a887a2431d8c08d
+      internalID: 7003489709326290701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_129
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 301
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 204df59bb4684b64e8babb8380605a1a
+      internalID: -4968442033807064432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_130
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 299
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 905311965dad7794ba8246d310845a40
+      internalID: -3134774842471465287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_131
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 299
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8e2ded852837574eaa134e3f2f0e962
+      internalID: -722825898757528992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_132
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 299
+        width: 24
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c6d6b2c890076842bef5eab86b8eaf9
+      internalID: 1671083949670007591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_133
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 299
+        width: 22
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08a11101dc6089847a6c1cd3f9a076bc
+      internalID: 5209549579784851208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_134
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 299
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b1bb3aac1394224ea002e391ec2090d
+      internalID: 5127537571039696997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_135
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 299
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b6bad1b388b69f4b9babb4ffc523d05
+      internalID: 6728042097637384178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_136
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 299
+        width: 22
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 850bc43d555a9a74e9b8970bb3930ba4
+      internalID: -1040374872847685951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_137
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 299
+        width: 24
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 656f283256dc8a24692c91e43498f98a
+      internalID: -5056896311762267642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_138
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 299
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cb24dafe4b404743a513926ee9e8d15
+      internalID: 505132416814749268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_139
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 299
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c85767b6eb02cae498af56e10927ec86
+      internalID: 4162832818186252094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_140
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 301
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff63f4cdb14a2f0459ce355e25caf417
+      internalID: 4014719697026166634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_141
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 299
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b25613e137f99ae4e8a9f56fbe1e0110
+      internalID: 7456582866053884286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_142
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 301
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0263c6ffd1bed7a459bd54b4b3149db4
+      internalID: -158619575221374169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_143
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 272
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05ad96d8624c15446bae89428910451c
+      internalID: -6023274779062258354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_144
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 272
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82513a690dbadc04e83a8a36c21603bc
+      internalID: -4631287504705744920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_145
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 272
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f6a7cf3c5c94cf4e897ac850ee5d5dc
+      internalID: 3391499032811595783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_146
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 272
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f9d41880c94f1b4f94212661e7c85fb
+      internalID: -1031292481873952472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_147
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 272
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adedad57910191844afc14dd9f73a26c
+      internalID: -1969660530866799895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_148
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 272
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92ad71f72c60214b9362efdf956874e
+      internalID: 8058803674060240790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_149
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 272
+        width: 7
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78f5691b22a5dc54f885e1125b96bbff
+      internalID: 7516648662085465727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_150
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 272
+        width: 11
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: befbc415a578e26449177e4037783cba
+      internalID: -116994007134104065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_151
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 272
+        width: 11
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae275c5394572e8439e7f275b35cee69
+      internalID: -6622273729366908033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_152
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 272
+        width: 7
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daef9d973debd2f42ad61db89d789427
+      internalID: 7658973174698242760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_153
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 272
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e71ff15f6afb547b41e1f8160fee8b
+      internalID: -2421471545652416297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_154
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 272
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4fe55ebd5f2fae47a80fc3ee84bb868
+      internalID: -2479690458646132698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_155
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 272
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f766f9307d279fa4fa7b3ee6a4d87acc
+      internalID: 7751076979681398985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_156
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 272
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28daf9d6c307b4f409b129e814da8079
+      internalID: 496318065635938727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_157
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 272
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c820012e9f14314a8c3555fcdef2a33
+      internalID: -8157540126517997940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_158
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 272
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46c795e9e8b521e4eb9c3fac791e092d
+      internalID: 8030580565676338733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_159
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 220
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc08e1221f38154299b28c79d692413
+      internalID: -4393907870100090474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_160
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 220
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5d89819cf658ec44a0047dbb90729d8
+      internalID: 589898643742274579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_161
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 220
+        width: 16
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a2e5b7db41b1424396253d84dfcb87f
+      internalID: -2701703824401227290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_162
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 220
+        width: 16
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f01dc218e5996b44892261a66cfbcea
+      internalID: -6303984612705291176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_163
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 220
+        width: 16
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08b733795ecec0c45ab43f48749b514e
+      internalID: 4033775799278290374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_164
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 220
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6db2e86d026a474d9e9b532aa9b5fb1
+      internalID: -6520800640880886610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_165
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 201
+        width: 16
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2c3a5543c389b541aa26209f5d6dfe9
+      internalID: -5540847149658826229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_166
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 220
+        width: 16
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48cfb88e554de6346a7792b4925a3cd4
+      internalID: 8605078208925053748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_167
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 220
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df220a274d32df74c81f34e2667f6dcb
+      internalID: 8274259600684394898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_168
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 220
+        width: 16
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66e4d1e1aacd0784187f4b5a87147c9b
+      internalID: 8261806289432387769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_169
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 220
+        width: 16
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aca3027ebaf53984088f8e48bd949100
+      internalID: -7721406200807707321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_170
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 220
+        width: 16
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23dd6f6cb411c5e4bba2971209488320
+      internalID: -8593095520855994997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_171
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 220
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0851ffee9fad82841bff4b0e9ebd4c5d
+      internalID: -5345332025972464044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_172
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 220
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7943fa88bef5464585943049a19a00c
+      internalID: -5875637855719422128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_173
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 201
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da21893338c7ae340900f357b8bff004
+      internalID: -2492761505695033151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_174
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 201
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac88de6bbe8831445b84088df11d13c1
+      internalID: -4411497533740235819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_175
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 201
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b1a94ab633cca04aae86906460cc1f1
+      internalID: -5709276765792218746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_176
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 201
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 610f5869794404644ae65798618e4438
+      internalID: -2028398183990824631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_177
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 201
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c01cdedf24fdc1142a30b7e4983a70d6
+      internalID: -6981053180041836072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_178
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 201
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a8ad8d1ff31a794aaa970ea9a6fd2bc
+      internalID: -6067231751883886724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_179
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 201
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4416d4f83cf69384c81241a3c08089b7
+      internalID: -5080261589967969671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_180
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 201
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf0917a536e91d84c96b9acc889bd5ee
+      internalID: 2598593693397654748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_181
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 201
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74438360a13616a4e9e96e6e6f1bc034
+      internalID: 5117633442137708456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_182
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 166
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ff2497ff5c475e4cb02e9d9b44660fb
+      internalID: 6646309095114183279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_183
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 166
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 945c0e267eb9c8b4aaea961e814bbb72
+      internalID: 4712944082919432580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_184
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 166
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d524b86f70f3d84087b9d9de4dbb37f
+      internalID: 9028816217633815023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_185
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 166
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 258bd7deb47dcd04b85f2b85a1288f53
+      internalID: 7685474231585222227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_186
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 166
+        width: 13
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b689328f1a33664a96d1dfe5b78ce62
+      internalID: -3563098012296409869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_187
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 166
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d9d26933bd169d42b11c32b2b903f3a
+      internalID: 7452654980069074053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_188
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 166
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bca04528ff7325458a1a896d7b4147c
+      internalID: -4328422598598715826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_189
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 166
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23aa760b8a0f5664882d47bc4f525d64
+      internalID: 5545793486604602606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_190
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 166
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f415428191c4f994386343b6706e8a9e
+      internalID: -4558492495405101431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_191
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 166
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45bf701e3e4e386439b900dc85322c2f
+      internalID: -1317316151146669006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_192
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 166
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8254771998c63a846a0b100807f8ed44
+      internalID: 6529432194275090814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_193
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 166
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a26d7d5677100c408c4ff9e615d00a4
+      internalID: -5100608725320900584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_194
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 166
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbb9c7330d8c1354cabdaf839a10e3c1
+      internalID: 5218876059977063110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_195
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 166
+        width: 13
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92f656b379626604db1426f55134cfb8
+      internalID: 3935749730252347981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_196
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 166
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4298151a2d8c56243a105cd796584364
+      internalID: 26104031161540104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_197
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 166
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 786325be7c444ba4a95012dc8eea1334
+      internalID: -6186856876441552132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_198
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 166
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf7dcd07b98bcc4aa14f3504058f5dd
+      internalID: 8437596713675341439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_199
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 166
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fe6683e3163e1d4f8e4c5f80687023a
+      internalID: -414167733510330944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_200
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 132
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b505da297bde4ba43960918039a28b76
+      internalID: 6320749734997390091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_201
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 132
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c86430dbf670e40896554b4a00ca66
+      internalID: 2289169443566937604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_202
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 132
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b368700a0e5a0504699b517930a313be
+      internalID: -8625387019074346691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_203
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 132
+        width: 13
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 001037dff2268d94b88fa4a8763e174d
+      internalID: -6935516038283036372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_204
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 132
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c3963a513e86340b27a8577d5b9706
+      internalID: 7195373430374010165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_205
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 132
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a03c8436dfcc5849abf3dfcae1c7f10
+      internalID: -1120440485457690795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_206
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 132
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b34a52b1c0d81a340963f27a968edec4
+      internalID: -8721846633577898412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_207
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 132
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dab11824968d8b048aefe8b211dd6777
+      internalID: -5861988839159358688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_208
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 132
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff904ddfdc70cea47a3ced4656c85e9d
+      internalID: 7660751795372987358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_209
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 132
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 282b874356ec3d344bda6fb8eb4d0bab
+      internalID: -6140251800909686904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_210
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 132
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d7d7f9eafbdc65478a174edfe0ce83d
+      internalID: 3794384419328188537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_211
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 132
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48c105c2d89f3d0478429084aa60703c
+      internalID: -7292701252474637513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_212
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 132
+        width: 13
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 762f9b72977bd124da21b98d65ba127f
+      internalID: -675223125298671676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_213
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 132
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52158283dd7f5fb41bec118c41122afb
+      internalID: -7638595143847564194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_214
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 132
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 112898c52c4bfaa458477171adb9b35f
+      internalID: -4172965985370327635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_215
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 132
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2782a1d8bcc86fe4585d31d632d0c755
+      internalID: 8500311032986693134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_216
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 87
+        width: 22
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8370d60d48b26374b8cf78680bf297fc
+      internalID: 5987935463534491164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_217
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 87
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7717fb127325144eae6e3fb7471ee74
+      internalID: 3237250358568723817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_218
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 87
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3b5d4bff89494242affccc8ce1b3b13
+      internalID: -3333727998151329812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_219
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 87
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 586d8f889a506224193c4caad3537615
+      internalID: -7972341279152913496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_220
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 87
+        width: 16
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a90a8b1f7cb3a3e4c8d00f4d33c02237
+      internalID: 2183287570337164751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_221
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 87
+        width: 19
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48c933bf653a924dbafea3ae956caf2
+      internalID: 711238489468201203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_222
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 87
+        width: 16
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87c4e04d5d78f2c4293294b7b18fc49d
+      internalID: 1841347565961838052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_223
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 87
+        width: 10
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53fb7ef9be3696e4d9060238cee4a9cd
+      internalID: 6174037726480338911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_224
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 87
+        width: 10
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9776160b51db28e45b9c94dd5a212948
+      internalID: 2438672476285421132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_225
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 87
+        width: 16
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de8aedb1549159146bc6fb04037682ad
+      internalID: 2742160592545266209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_226
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 87
+        width: 19
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae64f65b5a70d64b958d8997ecea777
+      internalID: -6409170339839374019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_227
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 87
+        width: 16
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c02043fbae7a3f0438dfcff882225589
+      internalID: 6785894659504775722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_228
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 87
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ce8dbae7599e18429f60c19dbaf8a3f
+      internalID: -5274764303649904294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_229
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 87
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 403ec895f136b7e47ab05cfd221d3c24
+      internalID: 1706302062512620437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_230
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 87
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a32d0c57ab7930499583c4a713be7f8
+      internalID: -5804670132023034584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_231
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 87
+        width: 22
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b943db16e71d26d47951a5b520aa1f11
+      internalID: -6805488559237939972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_232
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 44
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a44efa241046dfa4293cb190606ce1eb
+      internalID: 8121811739412228135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_233
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 44
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41f05185252ee064bb5f86c007eff7cd
+      internalID: -8285735142057686320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_234
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 44
+        width: 16
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2aff1f7c8fd0eb459e45237cbcf2759
+      internalID: -3948177789969064572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_235
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 44
+        width: 33
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c14e98aeb47c4bb4b8fc485f4ddcd8f0
+      internalID: 5435721161871458933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_236
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 44
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b8bee418c43f7f469d7390187f5363b
+      internalID: -4767004719228772719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_237
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 44
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8fd033e51e079a4ea71162725c00f11
+      internalID: -2045069499021723281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_238
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 44
+        width: 33
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0b707ccef37fbd458bac5dea892b64d
+      internalID: -4960739946060251037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_239
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 44
+        width: 16
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ba841a4a1c5669438b4711e115355d6
+      internalID: 4826833050066500588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_240
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 44
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed9c3bd72022e5c4490bc4f0a4151ae3
+      internalID: -4355668365607971146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_241
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 44
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 180e86321aef82c42a6a0ec1c31b6ebc
+      internalID: -3854602651586075852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_242
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 6
+        width: 8
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0651c4d745ea3374a865ad3fb13bf13c
+      internalID: 8253919755546535104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_243
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 6
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 703d6015316491245bf70ffa4c5f12c5
+      internalID: -3650677190816038417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_244
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 6
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c47a8ff3db516248ae1f5587b0b865a
+      internalID: -7990011414599081472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spartanX_245
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 6
+        width: 8
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e98831509f7ff745a4b02abfc5db74b
+      internalID: 4524822183375155111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 1f267ce2731dd7646bab2bfafb903d8f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
