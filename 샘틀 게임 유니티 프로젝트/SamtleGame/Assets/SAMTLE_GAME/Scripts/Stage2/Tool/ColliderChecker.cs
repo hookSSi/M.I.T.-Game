@@ -16,13 +16,28 @@ namespace MIT.SamtleGame.Stage2.Tool
 
     public class ColliderChecker : MonoBehaviour
     {
-        public static bool CheckColliders(Vector3 centerPoint, Vector2 size, string tag)
+        public static bool CheckColliders(Vector2 origin, Vector2 dest, string tag, bool isDebug = false)
         {
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(centerPoint, size, 0);
+            RaycastHit2D[] hitted = Physics2D.LinecastAll(origin, dest);
             
-            foreach(var col in colliders)
+            foreach(var obj in hitted)
             {
-                if(col.tag == tag)
+                if(obj.collider.tag == tag)
+                {
+                    if(isDebug)
+                        Debug.Log(obj.collider.tag);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public static bool CheckColliders(Vector2 origin, Vector2 dest, string tag, RaycastHit2D[] result)
+        {
+            Physics2D.LinecastNonAlloc(origin, dest, result);
+            
+            foreach(var obj in result)
+            {
+                if(obj.collider.tag == tag)
                 {
                     return true;
                 }
@@ -30,11 +45,11 @@ namespace MIT.SamtleGame.Stage2.Tool
             return false;
         }
 
-        public static bool CheckColliders(Vector3 centerPoint, Vector2 size, string[] tags)
+        public static bool CheckColliders(Vector2 origin, Vector2 dest, string[] tags)
         {
             foreach(var tag in tags)
             {
-                if(CheckColliders(centerPoint, size, tag))
+                if(CheckColliders(origin, dest, tag))
                 {
                     return true;
                 }
@@ -42,11 +57,11 @@ namespace MIT.SamtleGame.Stage2.Tool
             return false;
         }
 
-        public static bool CheckColliders(Vector3 centerPoint, Vector2 size, Tag[] tags)
+        public static bool CheckColliders(Vector2 origin, Vector2 dest, Tag[] tags)
         {
             foreach(var tag in tags)
             {
-                if(CheckColliders(centerPoint, size, tag.GetTag()))
+                if(CheckColliders(origin, dest, tag.GetTag()))
                 {
                     return true;
                 }
@@ -54,16 +69,16 @@ namespace MIT.SamtleGame.Stage2.Tool
             return false;
         }
 
-        public static List<Collider2D> GetColliders(Vector3 centerPoint, Vector2 size, string tag)
+        public static List<Collider2D> GetColliders(Vector2 origin, Vector2 dest, string tag)
         {
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(centerPoint, size, 0);
+            RaycastHit2D[] hitted = Physics2D.LinecastAll(origin, dest);
             List<Collider2D> checkedColliders = new List<Collider2D>();
             
-            foreach(var col in colliders)
+            foreach(var obj in hitted)
             {
-                if(col.tag == tag)
+                if(obj.collider.tag == tag)
                 {
-                    checkedColliders.Add(col);
+                    checkedColliders.Add(obj.collider);
                 }
             }
 
