@@ -9,19 +9,12 @@ namespace MIT.SamtleGame.Stage2.NPC
     *   @desc 할배 NPC 클래스
     */
     [RequireComponent(typeof(Animator))]
-    public class GrandFather : Npc
+    public class GrandFather : EventNpc
     {
-        private Animator _animator;
-
-        protected override void Initialization() 
+        protected override void Update() 
         {
-            base.Initialization();
-            _animator = GetComponent<Animator>();
-            //StartMove();
-        }
+            base.Update();
 
-        protected virtual void Update() 
-        {
             _animator.SetFloat("Horizontal", _currentDir.x);
             _animator.SetFloat("Vertical", _currentDir.y);
         }

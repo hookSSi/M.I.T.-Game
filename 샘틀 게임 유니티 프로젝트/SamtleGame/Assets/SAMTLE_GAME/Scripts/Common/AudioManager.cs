@@ -55,7 +55,8 @@ public class Sound
 
     public void Play()
     {
-        _source.Play();
+        if(!_source.isPlaying)
+            _source.Play();
     }
     public void Stop()
     {
