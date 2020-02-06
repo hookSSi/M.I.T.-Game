@@ -40,7 +40,7 @@ namespace MIT.SamtleGame.Stage2
         public int _walkCount = 10;
         public float _walkTime = 0.1f;
         public float _speed = 1;
-        public Vector2 _colSize;
+        //public Vector2 _colSize;
         public float _jumpPower = 30f;
 
         [Header("충돌되는 태그")]
@@ -106,8 +106,10 @@ namespace MIT.SamtleGame.Stage2
         /// 상호작용
         void Interact()
         {
-            Vector2 point = ((Vector2)transform.position + _currentDir * _walkSize);
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(point, _colSize, 0);
+            Vector2 origin = ((Vector2)transform.position);
+            Vector2 dest = ((Vector2)transform.position + _currentDir * _walkSize);
+            
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(origin, dest, 0);
 
             foreach(var col in colliders)
             {
@@ -115,33 +117,19 @@ namespace MIT.SamtleGame.Stage2
                 {
                     Npc npc = col.GetComponent<Npc>();
                     Debug.LogFormat("Npc({0})와 대화 시작", npc._id);
+                    npc.SetDirection(_currentDir * -1);
                     npc.Talk();
                 }
             }
         }
 
-        /// 충돌처리
-        bool CheckCollider(Vector2 dir, string tag)
-        {
-            Vector2 point = ((Vector2)transform.position + dir * _walkSize);
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(point, _colSize, 0);
-            
-            foreach(var col in colliders)
-            {
-                if(col.tag == tag)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         #region 이동
         void Move()
         {
-            Vector2 point = ((Vector2)transform.position + _currentDir * _walkSize);
+            Vector2 origin = ((Vector2)transform.position);
+            Vector2 dest = ((Vector2)transform.position + _currentDir * _walkSize);
 
-            if(!ColliderChecker.CheckColliders(point, _colSize, _obstacles))
+            if(!ColliderChecker.CheckColliders(origin, dest, _obstacles))
             {
                 StartCoroutine(MoveRoutine());
             }
@@ -185,7 +173,7 @@ namespace MIT.SamtleGame.Stage2
         private void OnDrawGizmosSelected() 
         {
             Vector2 point = ((Vector2)transform.position + _currentDir * _walkSize);
-            Gizmos.DrawCube(point, _colSize);
+            Gizmos.DrawCube(point, Vector2.one);
         }
 
         public virtual void OnEvent(PlayerControllerEvent playerControllerEvent)

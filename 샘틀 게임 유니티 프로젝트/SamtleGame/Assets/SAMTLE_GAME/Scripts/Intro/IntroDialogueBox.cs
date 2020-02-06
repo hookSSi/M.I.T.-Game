@@ -9,6 +9,13 @@ public class IntroDialogueBox : DialogueBox
 {
 	private bool _isPageEnd = false;
 
+	protected override void Initialization()
+	{
+		_textComponent = gameObject.GetComponent<TMP_Text>();
+		_textComponent.text = _textPages[_currentPage];
+		StartCoroutine(RevealCharacters(_textComponent, _delay));
+	}
+
 	public override void NextPage()
 	{
 		if(_currentPage < _textPages.Count - 1)

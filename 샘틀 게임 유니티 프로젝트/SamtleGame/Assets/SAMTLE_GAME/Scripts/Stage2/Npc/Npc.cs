@@ -9,14 +9,20 @@ namespace MIT.SamtleGame.Stage2.NPC
     public class Npc : InteracterbleObject
     {
         private int  _currentWalkCount = 0;
+        
+        /// 애니메이션
+        protected Animator _animator;
 
         [Header("Identification")]
         public int _id = 0;
+
         [Header("대사 UI 프리팹")]
         public GameObject _dialogueUIPrefab;
+
         [Header("대사")]
         public List<string> _textPages;
         public string _talkSound;
+
         [Header("Event")]
         [SerializeField]
         private DialogueEvent _talkEvent;
@@ -28,16 +34,18 @@ namespace MIT.SamtleGame.Stage2.NPC
         [SerializeField]
         protected Vector2 _currentDir;
 
-        [Header("Npc 이동 정보")]
+        [Header("Npc 정보")]
         public float _walkSize = 1;
         public int _walkCount = 10;
         public float _walkTime = 0.1f;
         public float _speed = 1;
-        public Vector2 _colSize;
+        //public Vector2 _colSize;
 
         protected virtual void Initialization() 
         {
+            _talkEvent._id = _id;
             DialogueManager.AddNpc(this);
+            _animator = GetComponent<Animator>();
         }
 
         private void Start() 
@@ -81,6 +89,11 @@ namespace MIT.SamtleGame.Stage2.NPC
             }
         }
 
+        public void SetDirection(Vector2 dir)
+        {
+            _currentDir = dir;
+        }
+
         /// 이동처리
         IEnumerator MoveRoutine(Vector2 dir)
         {
@@ -118,10 +131,11 @@ namespace MIT.SamtleGame.Stage2.NPC
             Talk();
         }
 
-        private void OnDrawGizmosSelected() 
+        protected virtual void OnDrawGizmosSelected() 
         {
+            Gizmos.color = Color.green;
             Vector2 point = ((Vector2)transform.position + _currentDir * _walkSize);
-            Gizmos.DrawCube(point, _colSize);
+            Gizmos.DrawCube(point, Vector2.one);
         }
     }
 }
