@@ -11,6 +11,7 @@ namespace Pokemon
         public string _name;
         [Tooltip("남은 갯수")]
         public string _count;
+        public BattleEvent _battleEvent;
     }
     [System.Serializable]
     public class PokemonInfo

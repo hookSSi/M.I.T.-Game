@@ -4,14 +4,6 @@ using UnityEngine;
 
 namespace Pokemon
 {
-    public delegate void BattleDelegate(Pokemon myPokemon, Pokemon enemyPokemon);
-
-    public struct BattleEvent
-    {
-        public int _priority;
-        public BattleDelegate _event;
-    }
-
     public class PokemonBattleItemManager : MonoBehaviour
     {
         private PokemonBattleManager _manager;
@@ -20,18 +12,6 @@ namespace Pokemon
 
         [SerializeField] private List<BattleItem> _itemList = new List<BattleItem>();
 
-
-        private void Start()
-        {
-            // 게임 오브젝트 초기화
-
-        }
-
-
-        private void Update()
-        {
-            
-        }
 
         public void Initialize()
         {
@@ -54,7 +34,7 @@ namespace Pokemon
 
             // 아이템 사용 효과 ...
 
-            _itemList[index]._itemEvent._event(_manager._myPokemon, _manager._enemyPokemon);
+            // _itemList[index]._itemEvent._event(_manager._myPokemon, _manager._enemyPokemon);
 
             // 아이템 개수 감소
 

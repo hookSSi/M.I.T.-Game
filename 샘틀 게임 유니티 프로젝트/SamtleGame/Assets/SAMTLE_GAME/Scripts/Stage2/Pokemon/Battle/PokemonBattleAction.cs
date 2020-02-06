@@ -14,7 +14,7 @@ namespace Pokemon
 
         private Text[] _actionTexts = new Text[4];
 
-        private void Update()
+        private void Awake()
         {
             Initialize();
         }

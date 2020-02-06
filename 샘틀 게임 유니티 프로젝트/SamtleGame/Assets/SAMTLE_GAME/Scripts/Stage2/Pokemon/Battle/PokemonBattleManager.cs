@@ -6,13 +6,9 @@ namespace Pokemon
 {
     public enum BattleState
     {
-        None,
-        Start,
-        Introduction,
+        None, Start, Introduction,
         SelectAction, SelectSkill, SelectItem,
-        Act,
-        AfterAct,
-        End
+        Act, End
     }
 
     public class PokemonBattleManager : MonoBehaviour
@@ -30,6 +26,15 @@ namespace Pokemon
         public BattleState _currentState
         {
             get { return _state; }
+        }
+
+        private Skill NextEnemySkill
+        {
+            get
+            {
+                int enemySkillLength = _enemyPokemon.Info._skills.Length;
+                return _enemyPokemon.UseSkill(Random.Range(0, enemySkillLength));
+            }
         }
 
         /*
@@ -109,9 +114,12 @@ namespace Pokemon
 
             // Debug.Log(indexOfSkill);
 
-            _myPokemon?.UseSkill(indexOfSkill);
+            Skill playerSkill = _myPokemon?.UseSkill(indexOfSkill);
 
             _uiManager._bottomUI.UpdateDialog();
+
+            // enemyEvent는 다른 스크립트에서 땡겨오자.
+            ActPhase(playerSkill._battleEvent, NextEnemySkill._battleEvent);
         }
 
         public void UseItem(BattleEvent battleEvent)
@@ -119,8 +127,24 @@ namespace Pokemon
             _state = BattleState.Act;
 
             Debug.Log("아이템 사용!");
+
             _uiManager._mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Battle);
             _uiManager._bottomUI.UpdateDialog();
+
+            ActPhase(battleEvent, NextEnemySkill._battleEvent);
+        }
+
+        // 행동 실행
+        private void ActPhase(BattleEvent playerEvent, BattleEvent enemyEvent)
+        {
+            // 우선순위(priority)에 따른 선공 결정
+            BattleDelegate[] actions = new BattleDelegate[2];
+            
+            for(int i = 0; i < 2; i++)
+            {
+                
+            }
+            
         }
 
         // 포켓몬 고르기(정보)
