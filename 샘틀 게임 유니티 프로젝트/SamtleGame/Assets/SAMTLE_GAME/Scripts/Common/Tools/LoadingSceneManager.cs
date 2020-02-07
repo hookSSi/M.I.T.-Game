@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
+using TMPro;
+
 namespace MIT.SamtleGame.Tools
 {
     public class LoadingSceneManager : MonoBehaviour
@@ -32,7 +34,7 @@ namespace MIT.SamtleGame.Tools
         public static string _loadingScreenSceneName = "LoadingScreen";
         [Header("게임 오브젝트")]
         /// the text object where you want the loading message to be displayed
-		public Text _loadingText;
+		public TMP_Text _loadingText;
 		/// the canvas group containing the progress bar
 		public CanvasGroup _loadingProgressBar;
 		/// the canvas group containing the animation
@@ -72,7 +74,7 @@ namespace MIT.SamtleGame.Tools
         {
             _sceneToLoad = sceneToLoad;
             Application.backgroundLoadingPriority = ThreadPriority.High;
-            SceneManager.LoadScene(_loadingScreenSceneName);
+            SceneManager.LoadScene(loadingSceneName);
         }
 
         private void Start() 
@@ -86,8 +88,8 @@ namespace MIT.SamtleGame.Tools
 
         private void Update() 
         {
-            Time.timeScale = 1f;
-            _loadingProgressBar.GetComponent<Image>().fillAmount = Maths.Approach(_loadingProgressBar.GetComponent<Image>().fillAmount, _fillTarget, Time.deltaTime * _progressBarSpeed);
+            //Time.timeScale = 1f;
+            //_loadingProgressBar.GetComponent<Image>().fillAmount = Maths.Approach(_loadingProgressBar.GetComponent<Image>().fillAmount, _fillTarget, Time.deltaTime * _progressBarSpeed);
         }
 
         private IEnumerator LoadAsynchronously()
@@ -103,11 +105,6 @@ namespace MIT.SamtleGame.Tools
                 yield return null;
             }
             _fillTarget = 1f;
-
-            while(_loadingProgressBar.GetComponent<Image>().fillAmount != _fillTarget)
-            {
-                yield return null;
-            }
 
             LoadingComplete();
             yield return new WaitForSeconds(_loadCompleteDelay);

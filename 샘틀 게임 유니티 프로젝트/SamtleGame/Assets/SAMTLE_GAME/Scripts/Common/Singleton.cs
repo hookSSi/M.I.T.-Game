@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DesignPattern
+namespace MIT.SamtleGame.DesignPattern
 {
 	/// <summary>
 	/// Singleton pattern.

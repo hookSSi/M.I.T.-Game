@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MIT.SamtleGame.NPC
+namespace MIT.SamtleGame.Stage2.NPC
 {
     /*
     *   @desc NPC에게 Action을 전달하는 클래스

@@ -1,0 +1,141 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace MIT.SamtleGame.Stage2.NPC
+{
+    public enum NpcAnimState { Idle = 0, Walk = 1} 
+
+    public class Npc : InteracterbleObject
+    {
+        private int  _currentWalkCount = 0;
+        
+        /// 애니메이션
+        protected Animator _animator;
+
+        [Header("Identification")]
+        public int _id = 0;
+
+        [Header("대사 UI 프리팹")]
+        public GameObject _dialogueUIPrefab;
+
+        [Header("대사")]
+        public List<string> _textPages;
+        public string _talkSound;
+
+        [Header("Event")]
+        [SerializeField]
+        private DialogueEvent _talkEvent;
+
+        [Header("NPC의 행동을 정의")]
+        [SerializeField]
+        private Action _act;
+        [Header("현재 Npc 방향")]
+        [SerializeField]
+        protected Vector2 _currentDir;
+
+        [Header("Npc 정보")]
+        public float _walkSize = 1;
+        public int _walkCount = 10;
+        public float _walkTime = 0.1f;
+        public float _speed = 1;
+        //public Vector2 _colSize;
+
+        protected virtual void Initialization() 
+        {
+            _talkEvent._id = _id;
+            DialogueManager.AddNpc(this);
+            _animator = GetComponent<Animator>();
+        }
+
+        private void Start() 
+        {
+            Initialization();
+        }
+
+        public string GetText(int index)
+        {
+            return _textPages[index];
+        }
+        public void SetText(int index, string text)
+        {
+            _textPages[index] = text;
+        }
+
+        public virtual void Talk()
+        {
+            PlayerControllerEvent.Trigger(false);
+            DialogueEvent.Trigger(_talkEvent._id, _talkSound);  
+        }
+
+        protected void SetDirection(Direction dir)
+        {
+            switch(dir)
+            {
+                case Direction.UP:
+                    _currentDir = Vector2.up;
+                    break;
+                case Direction.DONW:
+                    _currentDir = Vector2.down;
+                    break;
+                case Direction.RIGHT:
+                    _currentDir = Vector2.right;
+                    break;
+                case Direction.LEFT:
+                    _currentDir = Vector2.left;
+                    break;
+                case Direction.NONE:
+                    break;
+            }
+        }
+
+        public void SetDirection(Vector2 dir)
+        {
+            _currentDir = dir;
+        }
+
+        /// 이동처리
+        IEnumerator MoveRoutine(Vector2 dir)
+        {
+            Vector2 walkAmount = dir * ( _walkSize / _walkCount ) * _speed;
+
+            while(true)
+            {
+                this.transform.Translate(walkAmount);
+                _currentWalkCount++;
+
+                if(_currentWalkCount == _walkCount)
+                {
+                    _currentWalkCount = 0;
+                    yield break;
+                }
+
+                yield return new WaitForSeconds(_walkTime);
+            }
+        }
+
+        /// 미리 정의된 행동 목록 처리
+        IEnumerator ActionRoutine()
+        {
+            foreach(var dir in _act.moveDirs)
+            {
+                this.SetDirection(dir);
+                yield return StartCoroutine(MoveRoutine(_currentDir));
+            }
+
+            yield break;
+        }
+
+        public override void Interact() 
+        {
+            Talk();
+        }
+
+        protected virtual void OnDrawGizmosSelected() 
+        {
+            Gizmos.color = Color.green;
+            Vector2 point = ((Vector2)transform.position + _currentDir * _walkSize);
+            Gizmos.DrawCube(point, Vector2.one);
+        }
+    }
+}

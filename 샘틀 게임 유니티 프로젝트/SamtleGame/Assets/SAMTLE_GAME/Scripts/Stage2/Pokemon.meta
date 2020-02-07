@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<<< HEAD:샘틀 게임 유니티 프로젝트/SamtleGame/Assets/SAMTLE_GAME/Scripts/Stage2/Pokemon.meta
 guid: 5c67f09a94d001646a7bb0aa5d82fee5
+========
+guid: da119077d3e61e44aac580c58c6fd1c9
+>>>>>>>> origin/master:샘틀 게임 유니티 프로젝트/SamtleGame/Assets/SAMTLE_GAME/Scripts/Pokemon.meta
+=======
+guid: fa8c6485169f62d4a8dfd80091a6418f
+>>>>>>> origin/master
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

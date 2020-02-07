@@ -2,56 +2,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BgmManager : MonoBehaviour
+using MIT.SamtleGame.DesignPattern;
+
+[RequireComponent(typeof(AudioSource))]
+public class BgmManager : Singleton<BgmManager>
 {
-    static public BgmManager instance;
+    public AudioClip[] _clips; //bgms
 
-    public AudioClip[] clips; //bgms
+    private AudioSource _source;
 
-    private AudioSource source;
+    private WaitForSeconds _waitTime = new WaitForSeconds(0.01f);
 
-    private WaitForSeconds waitTime = new WaitForSeconds(0.01f);
-
-    void Start()
+    protected override void Awake()
     {
-        source = GetComponent<AudioSource>();
-    }
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Destroy(this.gameObject);
-        }
-
-        else
-        {
-            DontDestroyOnLoad(this.gameObject);
-            instance = this;
-        }
+        base.Awake();
+        _source = GetComponent<AudioSource>();
     }
 
     public void Play(int _playTrack)
     {
-        source.volume = 0.7f;
-        source.clip = clips[_playTrack];
-        source.Play();
+        _source.volume = 0.7f;
+        _source.clip = _clips[_playTrack];
+        _source.Play();
     }
 
     public void Pause()
     {
-        source.Pause();
+        _source.Pause();
     }
     public void UnPause()
     {
-        source.UnPause();
+        _source.UnPause();
     }
-
 
     public void Stop()
     {
-        source.Stop();
+        _source.Stop();
     }
 
+    public void SetVolume(float _volume)
+    {
+        _source.volume = _volume;
+    }
 
     public void FadeOutBgm()
     {
@@ -62,8 +54,8 @@ public class BgmManager : MonoBehaviour
     {
         for(float i = 0.7f ; i>=0f; i-=0.01f )
         {
-            source.volume = i;
-            yield return waitTime;
+            _source.volume = i;
+            yield return _waitTime;
         }
     }
 
@@ -76,14 +68,8 @@ public class BgmManager : MonoBehaviour
     {
         for (float i = 0f; i <= 0.7f; i += 0.01f)
         {
-            source.volume = i;
-            yield return waitTime;
+            _source.volume = i;
+            yield return _waitTime;
         }
-    }
-
-
-    public void SetVolume(float _volume)
-    {
-        source.volume = _volume;
     }
 }
