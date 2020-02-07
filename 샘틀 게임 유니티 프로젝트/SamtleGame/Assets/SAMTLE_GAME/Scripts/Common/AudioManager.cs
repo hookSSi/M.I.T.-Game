@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-<<<<<<< .merge_file_a19700
-=======
 using MIT.SamtleGame.Tools;
 using MIT.SamtleGame.DesignPattern;
 
@@ -36,26 +34,10 @@ public struct SoundEvent
         EventManager.TriggerEvent(_event);
     }
 }
->>>>>>> .merge_file_a03492
 
 [System.Serializable]
 public class Sound
 {
-<<<<<<< .merge_file_a19700
-    public string name; //이름
-
-    public AudioClip clip; //파일
-    private AudioSource source; //플레이어
-
-    public float volume;
-    public bool loop;
-
-    public void SetSource(AudioSource _source)
-    {
-        source = _source;
-        source.clip = clip;
-        source.loop = loop;
-=======
     private AudioSource _source; //플레이어
 
     public string _name; //이름
@@ -69,125 +51,10 @@ public class Sound
         this._source = _source;
         this._source.clip = _clip;
         this._source.loop = _isLoop;
->>>>>>> .merge_file_a03492
     }
 
     public void Play()
     {
-<<<<<<< .merge_file_a19700
-        source.Play();
-    }
-    public void Stop()
-    {
-        source.Stop();
-    }
-    public void SetLoop() //반복재생
-    {
-        source.loop = true;
-    }
-    public void SetVolume()
-    {
-        source.volume = volume;
-    }
-
-    public void SetLoopCancel() //반복재생 취소
-    {
-        source.loop = false;
-    }
-}
-
-public class AudioManager : MonoBehaviour
-{
-    static public AudioManager instance;
-
-    [SerializeField]
-    public Sound[] sounds;
-
-    void Start()
-    {
-        for ( int i = 0; i < sounds.Length ; i++ )
-        {
-            GameObject soundObject = new GameObject("사운드 파일 이름 : " + i + "=" + sounds[i].name );
-            sounds[i].SetSource( soundObject.AddComponent<AudioSource>() );
-            soundObject.transform.SetParent(this.transform);
-        }
-    }
-
-    private void Awake() //scene 이동 대비
-    {
-        if(instance  != null)
-        {
-            Destroy(this.gameObject);
-        }
-
-        else
-        {
-            DontDestroyOnLoad(this.gameObject);
-            instance = this;
-        }
-    }
-
-
-    public void Play (string _name)
-    {
-        for(int i = 0; i < sounds.Length; i++)
-        {
-            if( _name == sounds[i].name )
-            {
-                sounds[i].Play();
-                return;
-            }
-        }
-    }
-
-    public void Stop(string _name)
-    {
-        for (int i = 0; i < sounds.Length; i++)
-        {
-            if (_name == sounds[i].name)
-            {
-                sounds[i].Stop();
-                return;
-            }
-        }
-    }
-
-    public void SetLoop(string _name)
-    {
-        for (int i = 0; i < sounds.Length; i++)
-        {
-            if (_name == sounds[i].name)
-            {
-                sounds[i].SetLoop();
-                return;
-            }
-        }
-    }
-
-    public void SetLoopCancel(string _name)
-    {
-        for (int i = 0; i < sounds.Length; i++)
-        {
-            if (_name == sounds[i].name)
-            {
-                sounds[i].SetLoopCancel();
-                return;
-            }
-        }
-    }
-
-    public void SetVolume(string _name , float _volume)
-    {
-        for (int i = 0; i < sounds.Length; i++)
-        {
-            if (_name == sounds[i].name)
-            {
-                sounds[i].volume = _volume;
-                sounds[i].SetVolume();
-                return;
-            }
-        }
-=======
         if(!_source.isPlaying)
             _source.Play();
     }
@@ -284,6 +151,5 @@ public class AudioManager : Singleton<AudioManager>, EventListener<SoundEvent>
     private void OnDisable() 
     {
         this.EventStopListening<SoundEvent>();
->>>>>>> .merge_file_a03492
     }
 }

@@ -1,20 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-<<<<<<< .merge_file_a13020
-using MIT.SamtleGame.Stage1;
-
-public enum EnemyState { Walk, Attack }
-
-public class Enemy : MonoBehaviour
-{
-    public float _enemySpeed = 1.5f;
-
-    [SerializeField]
-    private EnemyState _state = EnemyState.Walk;
-    private BoxCollider2D _boxColider;
-=======
 using TMPro;
 using MIT.SamtleGame.Stage1;
 
@@ -41,13 +27,10 @@ public class Enemy : MonoBehaviour
     public float _enemySpeed = 1.5f;
     public GameObject _hittedEffect;
     public TMP_Text _scoreText;
->>>>>>> .merge_file_a13388
 
     protected virtual void Initialization()
     {
         _boxColider = GetComponent<BoxCollider2D>();
-<<<<<<< .merge_file_a13020
-=======
         _scoreText.text = _score.ToString();
     }
 
@@ -59,8 +42,7 @@ public class Enemy : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
             _attackRange.localPosition = new Vector3(_attackRange.localPosition.x * -1, _attackRange.localPosition.y, _attackRange.localPosition.z);
-        } 
->>>>>>> .merge_file_a13388
+        }
     }
 
     private void Start()
@@ -68,55 +50,6 @@ public class Enemy : MonoBehaviour
         Initialization();
     }
 
-<<<<<<< .merge_file_a13020
-    protected virtual void Move()
-    {
-        if(_state == EnemyState.Walk)
-        {
-            transform.Translate(Vector2.right * _enemySpeed * Time.deltaTime);
-            _state = EnemyState.Walk;
-        }
-    }
-
-    private void Update()
-    {
-        Move();
-    }
-
-    protected virtual void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.transform.tag == "Player")
-        {
-            collision.gameObject.GetComponent<PlayerController>().Attacked();
-            _state = EnemyState.Attack;
-            
-            StartCoroutine(DestoyEnemy());
-        }
-    }
-
-    protected virtual void OnCollisionExit2D(Collision2D collision)
-    {
-        //Debug.Log(collision);
-        if (collision.transform.tag == "Player")
-        {
-            _state = EnemyState.Walk;
-        }
-    }
-
-    public virtual void TakeDamage(Transform collisionObjectTransform, float playerForce)
-    {
-        GameController.RisingScore(100);
-
-        StartCoroutine(DestoyEnemy());
-    }
-
-    protected virtual IEnumerator DestoyEnemy()
-    {
-        _boxColider.isTrigger = true;
-
-        yield return new WaitForSeconds(2);
-        Destroy(this.gameObject);
-=======
     /// LookAt 플레이어를 보는 함수가 있으면 좋겠다.
     public virtual void Move()
     {
@@ -180,6 +113,5 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(2);
         Destroy(this.gameObject);
         GameManager._totalEnemyCount -= 1;
->>>>>>> .merge_file_a13388
     }
 }

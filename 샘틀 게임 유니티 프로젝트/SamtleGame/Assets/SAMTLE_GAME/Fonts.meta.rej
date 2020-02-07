@@ -1,0 +1,9 @@
+diff a/샘틀 게임 유니티 프로젝트/SamtleGame/Assets/SAMTLE_GAME/Fonts.meta b/샘틀 게임 유니티 프로젝트/SamtleGame/Assets/SAMTLE_GAME/Fonts.meta	(rejected hunks)
+@@ -6,6 +6,7 @@
+ guid: bd36f5bb7afedaf498f304ca6da9e6de
+ >>>>>>> origin/master:샘틀 게임 유니티 프로젝트/SamtleGame/Assets/SAMTLE_GAME/Resources/Stage1/Sprites.meta
+ =======
++guid: bd36f5bb7afedaf498f304ca6da9e6de
+ >>>>>>> fa96b72746ed13769ba8175465431ba0d3d5cc3a
+ folderAsset: yes
+ DefaultImporter:
