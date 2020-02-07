@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Pokemon
+namespace MIT.SamtleGame.Stage2.Pokemon
 {
     public class PokemonBattleMainUI : MonoBehaviour
     {
@@ -85,6 +85,9 @@ namespace Pokemon
             _isPlayerExpAnimating = false;
 
             _state = UIState.Battle;
+
+            UpdatePlayerHpUI(100f, 100f, false);
+            UpdateEnemyHpUI(100f, 100f, false);
         }
 
         // 게임 UI 변경
@@ -113,7 +116,6 @@ namespace Pokemon
         }
 
         // 적 포켓몬 UI 업데이트
-
         public void SetActiveEnemyPokemonUI(bool isvisible)
         {
             if (_enemyPokemonUI != null)
@@ -126,7 +128,7 @@ namespace Pokemon
                 _enemyPokemonName.text = newEnemyPokemonName;
         }
 
-        public void UpdateEnemyHpUI(int newEnemyHp, int enemyMaxHp, bool useAnimation)
+        public void UpdateEnemyHpUI(float newEnemyHp, float enemyMaxHp, bool useAnimation)
         {
             _enemyHpSlider.minValue = 0;
             _enemyHpSlider.maxValue = enemyMaxHp;
@@ -166,7 +168,7 @@ namespace Pokemon
                 _playerPokemonName.text = newPlayerPokemonName;
         }
 
-        public void UpdatePlayerHpUI(int newPlayerHp, int playerMaxHp, bool useAnimation)
+        public void UpdatePlayerHpUI(float newPlayerHp, float playerMaxHp, bool useAnimation)
         {
             _playerHpSlider.minValue = 0;
             _playerHpSlider.maxValue = playerMaxHp;
@@ -194,7 +196,7 @@ namespace Pokemon
                 _playerLevelText.text = playerLevel.ToString();
         }
 
-        public void UpdatePlayerExpUI(int newPlayerExp, int playerMaxExp, bool useAnimation)
+        public void UpdatePlayerExpUI(float newPlayerExp, float playerMaxExp, bool useAnimation)
         {
             _playerExpSlider.minValue = 0;
             _playerExpSlider.maxValue = playerMaxExp;

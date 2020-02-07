@@ -2,23 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Pokemon
+namespace MIT.SamtleGame.Stage2.Pokemon
 {
     public class PokemonBattleItemManager : MonoBehaviour
     {
         private PokemonBattleManager _manager;
 
         [SerializeField] private GameObject _itemPrefab;
-
         [SerializeField] private List<BattleItem> _itemList = new List<BattleItem>();
 
+        public string _previousItemName { get; private set; }
+
+        private void Awake()
+        {
+            AddItem("전 부회장의 3신기", "기묘한 옛것의 기운이 느껴지는 물건이다...", 5, 
+                BattleItem.ItemType.Consume, new BattleEvent(0, Items.TheTrinity));
+        }
 
         public void Initialize()
         {
             // event system의 first select로 선택될 아이템을 정한다.
             if (_itemList.Count != 0)
             {
-                var eventSystem = FindObjectOfType<PokemonBattleEventSystem>();
+                var eventSystem = FindObjectOfType<Tool.PokemonBattleEventSystem>();
 
                 var firstItem = _itemList[0].gameObject;
 
@@ -28,26 +34,31 @@ namespace Pokemon
 
         public void UseItem(GameObject usingObject)
         {
-            BattleItem usingItem = usingObject.GetComponent<BattleItem>();
-
-            int index = _itemList.FindIndex(item => { return item._itemName == usingItem._itemName; });
-
-            // 아이템 사용 효과 ...
-
-            // _itemList[index]._itemEvent._event(_manager._myPokemon, _manager._enemyPokemon);
-
-            // 아이템 개수 감소
-
-            Debug.Log("이전 아이템 개수 : " + usingItem._itemCount);
-
-            _itemList[index].SetCount(-1);
-
-            Debug.Log("이전 아이템 개수 : " + usingItem._itemCount);
-
-            // 아이템 삭제
-            if (usingItem._itemCount <= 0)
+            try
             {
-                RemoveItem(index);
+                BattleItem usingItem = usingObject.GetComponent<BattleItem>();
+
+                int index =
+                    _itemList.FindIndex(item => { return item._itemName == usingItem._itemName; });
+
+                _previousItemName = usingItem._itemName;
+
+                _manager.UseItem(usingItem._itemEvent);
+
+                Debug.Log("이전 아이템 개수 : " + usingItem._itemCount);
+
+                _itemList[index].SetCount(-1);
+
+                Debug.Log("현재 아이템 개수 : " + usingItem._itemCount);
+
+                if (usingItem._itemCount <= 0)
+                {
+                    RemoveItem(index);
+                }
+            }
+            catch (System.ArgumentNullException error)
+            {
+                Debug.Log("오류가 발생했습니다 : " + error.Message);
             }
         }
 
@@ -73,7 +84,8 @@ namespace Pokemon
         {
             try
             {
-                int index = _itemList.FindIndex(item => { return item._itemName == removedItem._itemName; });
+                int index =
+                    _itemList.FindIndex(item => { return item._itemName == removedItem._itemName; });
                 RemoveItem(index);
             }
             catch (System.ArgumentNullException error)
@@ -81,8 +93,7 @@ namespace Pokemon
                 Debug.Log("오류가 발생했습니다 : " + error.Message);
             }
         }
-
-        // 아이템 삭제(리스트 상의 인덱스를 이용해)
+        
         public void RemoveItem(int index)
         {
             /*  사소한 문제
@@ -93,12 +104,14 @@ namespace Pokemon
              */
             if (_itemList.Count <= index)
             {
-                Debug.Log("경고 : 조회할 수 없는 인덱스의 아이템을 삭제하려 했습니다.(PokemonBattleItemManager)");
-
                 var item = _itemList[index];
 
                 _itemList.RemoveAt(index);
                 Destroy(item.gameObject);
+            }
+            else
+            {
+                Debug.Log("경고 : 조회할 수 없는 인덱스의 아이템을 삭제하려 했습니다.(PokemonBattleItemManager)");
             }
         }
     }

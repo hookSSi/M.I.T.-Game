@@ -1,14 +1,15 @@
 ﻿using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using MIT.SamtleGame.Stage2.Pokemon;
 
-namespace Pokemon
+namespace MIT.SamtleGame.Stage2.Tool
 {
     public class PokemonBattleEventSystem : MonoBehaviour
     {
-        private EventSystem _eventSystem;
-
         private PokemonBattleManager _battleManager;
+
+        private EventSystem _eventSystem;
         
         private GameObject _selected;
 
@@ -18,15 +19,14 @@ namespace Pokemon
 
         private void Start()
         {
+            _battleManager = PokemonBattleManager.Instance;
             _eventSystem = EventSystem.current;
-
-            _battleManager = FindObjectOfType<PokemonBattleManager>();
         }
 
         private void Update()
         {
-            // 선택지가 반드시 존재하도록 고정(전투 상태 한정)
-            if (_battleManager != null && _battleManager._currentState != BattleState.None)
+            // 선택지 중 하나가 반드시 선택되도록 고정한다
+            if (_battleManager != null && _battleManager._state != BattleState.None)
             {
                 if (_eventSystem.currentSelectedGameObject != null && _eventSystem.currentSelectedGameObject != _selected)
                     _selected = _eventSystem.currentSelectedGameObject;

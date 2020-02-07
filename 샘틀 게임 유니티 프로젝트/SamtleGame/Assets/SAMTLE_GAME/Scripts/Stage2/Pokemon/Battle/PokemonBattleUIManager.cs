@@ -2,8 +2,9 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using MIT.SamtleGame.DesignPattern;
 
-namespace Pokemon
+namespace MIT.SamtleGame.Stage2.Pokemon
 {
     public class PokemonBattleUIManager : MonoBehaviour
     {
@@ -27,12 +28,6 @@ namespace Pokemon
         {
             _mainUI?.gameObject.SetActive(true);
             _bottomUI?.gameObject.SetActive(true);
-        }
-
-        private void SetPokemon(Pokemon playerPokemon, Pokemon enemyPokemon)
-        {
-            // _mainUI.SetPokemon(playerPokemon, enemyPokemon);
-            // _bottomUI.SetPokemon(playerPokemon, enemyPokemon);
         }
     }
 }

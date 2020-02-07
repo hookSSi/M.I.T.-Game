@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using System.Collections;
+using MIT.SamtleGame.DesignPattern;
 
 
-namespace Pokemon
+namespace MIT.SamtleGame.Stage2.Pokemon
 {
     public enum BattleState
     {
@@ -11,49 +12,36 @@ namespace Pokemon
         Act, End
     }
 
-    public class PokemonBattleManager : MonoBehaviour
+    // BattleManager를 싱글턴을 쓸 것인가...? => 그 경우 PokemonBattleUIManager는 일반 변수로 받아야 한다.
+    public class PokemonBattleManager : Singleton<PokemonBattleManager>
     {
-        private PokemonBattleEventSystem _eventSystem;
+        private Tool.PokemonBattleEventSystem _eventSystem;
+
+        public PokemonBattleUIManager _uiManager;
+        public PokemonBattleItemManager _itemManager;
 
         public Pokemon _myPokemon { get; private set; }
         public Pokemon _enemyPokemon { get; private set; }
 
-        private PokemonBattleUIManager _uiManager;
+        public BattleState _state { get; private set; }
 
-        [SerializeField]
-        private BattleState _state;
-
-        public BattleState _currentState
-        {
-            get { return _state; }
-        }
-
-        private Skill NextEnemySkill
-        {
-            get
-            {
-                int enemySkillLength = _enemyPokemon.Info._skills.Length;
-                return _enemyPokemon.UseSkill(Random.Range(0, enemySkillLength));
-            }
-        }
-
-        /*
-        public bool _isGameOver
-        {
-            get { return _myPokemon.hp <= 0 || _enemyPokemon.hp <= 0; }
-        }
-        */
+        public bool _isGameOver { get { return _myPokemon.Info._health <= 0 || _enemyPokemon.Info._health <= 0; }}
 
         private void Start()
         {
+            _state = BattleState.None;
+
             if (_uiManager == null)
             {
                 _uiManager = FindObjectOfType<PokemonBattleUIManager>();
             }
 
-            _eventSystem = FindObjectOfType<PokemonBattleEventSystem>();
+            if (_itemManager == null)
+            {
+                _itemManager = FindObjectOfType<PokemonBattleItemManager>();
+            }
 
-            _state = BattleState.None;
+            _eventSystem = FindObjectOfType<Tool.PokemonBattleEventSystem>();
 
             // 전투 시작(테스트용)
             StartBattle(null, null);
@@ -69,6 +57,7 @@ namespace Pokemon
             Debug.Log("배틀 시작!");
 
             _uiManager.gameObject.SetActive(true);
+            _uiManager._bottomUI._skill.SetPokemon(myPokemon);
 
             SelectAction();
         }
@@ -104,7 +93,8 @@ namespace Pokemon
 
             _uiManager._mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Bag);
             _uiManager._bottomUI.UpdateDialog();
-
+            
+            // 처음 탐색할 아이템을 할당하는 PokemonBattleItemManager.Initialize가 필요함
             _eventSystem.InitializeUINavigation(BattleState.SelectItem);
         }
 
@@ -112,39 +102,49 @@ namespace Pokemon
         {
             _state = BattleState.Act;
 
-            // Debug.Log(indexOfSkill);
-
             Skill playerSkill = _myPokemon?.UseSkill(indexOfSkill);
 
             _uiManager._bottomUI.UpdateDialog();
 
-            // enemyEvent는 다른 스크립트에서 땡겨오자.
-            ActPhase(playerSkill._battleEvent, NextEnemySkill._battleEvent);
+            StartCoroutine(ActPhase(playerSkill._battleEvent, NextEnemySkill()._battleEvent));
         }
 
         public void UseItem(BattleEvent battleEvent)
         {
             _state = BattleState.Act;
 
-            Debug.Log("아이템 사용!");
-
             _uiManager._mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Battle);
             _uiManager._bottomUI.UpdateDialog();
 
-            ActPhase(battleEvent, NextEnemySkill._battleEvent);
+            StartCoroutine(ActPhase(battleEvent, NextEnemySkill()._battleEvent));
         }
 
-        // 행동 실행
-        private void ActPhase(BattleEvent playerEvent, BattleEvent enemyEvent)
+        IEnumerator ActPhase(BattleEvent playerEvent, BattleEvent enemyEvent)
         {
             // 우선순위(priority)에 따른 선공 결정
-            BattleDelegate[] actions = new BattleDelegate[2];
-            
-            for(int i = 0; i < 2; i++)
+            BattleDelegate[] Actions = new BattleDelegate[2];
+
+            if (playerEvent._priority <= enemyEvent._priority)
             {
-                
+                Actions[0] = playerEvent._event;
+                Actions[1] = enemyEvent._event;
             }
-            
+            else
+            {
+                Actions[0] = enemyEvent._event;
+                Actions[1] = playerEvent._event;
+            }
+
+            string[] nextScript;
+
+            foreach(var Action in Actions)
+            {
+                Action(_myPokemon, _enemyPokemon, out nextScript);
+                // nextScript를 이용한 대사 출력 1
+                // (작성중) hp 업데이트 후 기다림
+
+                // nextScript를 이용한 대사 출력 2
+            }
         }
 
         // 포켓몬 고르기(정보)
@@ -168,6 +168,13 @@ namespace Pokemon
             // 대화 끝나고...
             _uiManager._bottomUI.UpdateActionUI();
             _eventSystem.InitializeUINavigation(BattleState.SelectAction);
+        }
+
+        // 다음에 적이 사용할 스킬
+        private Skill NextEnemySkill()
+        {
+            int enemySkillLength = _enemyPokemon.Info._skills.Length;
+            return _enemyPokemon.UseSkill(Random.Range(0, enemySkillLength));
         }
     }
 }

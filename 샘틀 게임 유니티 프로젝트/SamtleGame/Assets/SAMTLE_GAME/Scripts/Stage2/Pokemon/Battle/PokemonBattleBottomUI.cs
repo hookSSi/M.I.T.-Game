@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Pokemon
+namespace MIT.SamtleGame.Stage2.Pokemon
 {
     public class PokemonBattleBottomUI : MonoBehaviour
     {
@@ -10,9 +10,9 @@ namespace Pokemon
         [SerializeField] private GameObject _actionUI;
         [SerializeField] private GameObject _skillUI;
 
-        public PokemonBattleAction ActionUI
+        public PokemonBattleSkill _skill
         {
-            get { return _actionUI.GetComponent<PokemonBattleAction>(); }
+            get { return _skillUI.GetComponent<PokemonBattleSkill>(); }
         }
         
         private void OnEnable()

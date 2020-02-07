@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Pokemon
+namespace MIT.SamtleGame.Stage2.Pokemon
 {
     [System.Serializable]
     public class Skill

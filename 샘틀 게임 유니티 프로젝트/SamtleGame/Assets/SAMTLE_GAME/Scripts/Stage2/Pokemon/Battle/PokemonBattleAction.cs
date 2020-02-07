@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Pokemon
+namespace MIT.SamtleGame.Stage2.Pokemon
 {
     public class PokemonBattleAction : MonoBehaviour
     {
-        private Pokemon _playerPokemon;
-
         [SerializeField] private GameObject[] _actions = new GameObject[4];
         [SerializeField] private string[] _actionStrings = new string[4];
 
@@ -17,6 +15,7 @@ namespace Pokemon
         private void Awake()
         {
             Initialize();
+            UpdateText();
         }
 
 #if UNITY_EDITOR
@@ -37,12 +36,7 @@ namespace Pokemon
             }
         }
 
-        public void SetPokemon(Pokemon playerPokemon)
-        {
-            _playerPokemon = playerPokemon;
-        }
-
-        public void UpdateText()
+        private void UpdateText()
         {
             for (int i = 0; i < 4; i++)
             {

@@ -139,8 +139,8 @@ MonoBehaviour:
   _itemCaption: 
   _itemCount: 0
   _itemType: 0
-  _itemNameText: {fileID: 0}
-  _itemCountText: {fileID: 0}
+  _itemNameText: {fileID: 7862935732753493788}
+  _itemCountText: {fileID: 864800247977034094}
 --- !u!114 &2713675229339567377
 MonoBehaviour:
   m_ObjectHideFlags: 0

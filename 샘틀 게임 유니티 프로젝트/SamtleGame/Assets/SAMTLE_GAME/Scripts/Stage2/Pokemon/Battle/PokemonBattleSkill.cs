@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Pokemon
+namespace MIT.SamtleGame.Stage2.Pokemon
 {
     public class PokemonBattleSkill : MonoBehaviour
     {
-        [SerializeField] private Pokemon _playerPokemon;
         [SerializeField] private GameObject[] _skills = new GameObject[4];
-
         [SerializeField] private Text _skillPpText;
-        // [SerializeField] private Text _skillTypeText;
 
+        private Pokemon _playerPokemon;
         private Text[] _skillTexts;
 
         public void SetPokemon(Pokemon playerPokemon)
