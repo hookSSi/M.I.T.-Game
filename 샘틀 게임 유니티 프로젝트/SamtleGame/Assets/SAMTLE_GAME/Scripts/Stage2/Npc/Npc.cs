@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using MIT.SamtleGame.Stage2.Tools;
+
 namespace MIT.SamtleGame.Stage2.NPC
 {
     public enum NpcAnimState { Idle = 0, Walk = 1} 
@@ -39,7 +41,7 @@ namespace MIT.SamtleGame.Stage2.NPC
         public int _walkCount = 10;
         public float _walkTime = 0.1f;
         public float _speed = 1;
-        //public Vector2 _colSize;
+        public Tag[] _obstacles;
 
         protected virtual void Initialization() 
         {
@@ -95,8 +97,18 @@ namespace MIT.SamtleGame.Stage2.NPC
         }
 
         /// 이동처리
-        IEnumerator MoveRoutine(Vector2 dir)
+        protected virtual IEnumerator MoveRoutine(Vector2 dir, bool isBlock = false)
         {
+            if(isBlock)
+            {
+                Vector2 dest = ((Vector2)transform.position + _currentDir * _walkSize);
+
+                if(ColliderChecker.CheckColliders(dest, dest, _obstacles))
+                {
+                    yield break;
+                }
+            }
+
             Vector2 walkAmount = dir * ( _walkSize / _walkCount ) * _speed;
 
             while(true)
@@ -115,7 +127,7 @@ namespace MIT.SamtleGame.Stage2.NPC
         }
 
         /// 미리 정의된 행동 목록 처리
-        IEnumerator ActionRoutine()
+        protected virtual IEnumerator ActionRoutine()
         {
             foreach(var dir in _act.moveDirs)
             {

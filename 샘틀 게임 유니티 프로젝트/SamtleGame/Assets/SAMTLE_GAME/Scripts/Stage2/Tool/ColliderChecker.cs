@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MIT.SamtleGame.Stage2.Tool
+namespace MIT.SamtleGame.Stage2.Tools
 {
     [System.Serializable]
     public struct Tag
