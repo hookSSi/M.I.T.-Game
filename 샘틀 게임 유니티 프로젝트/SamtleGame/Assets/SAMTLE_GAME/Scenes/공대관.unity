@@ -50,11 +50,19 @@ LightmapSettings:
     m_BounceScale: 1
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
+<<<<<<< .merge_file_a12012
+    m_TemporalCoherenceThreshold: 1
+=======
+>>>>>>> .merge_file_a10152
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
+<<<<<<< .merge_file_a12012
+    serializedVersion: 10
+=======
     serializedVersion: 12
+>>>>>>> .merge_file_a10152
     m_Resolution: 2
     m_BakeResolution: 40
     m_AtlasSize: 1024
@@ -62,7 +70,10 @@ LightmapSettings:
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
+<<<<<<< .merge_file_a12012
+=======
     m_ExtractAmbientOcclusion: 0
+>>>>>>> .merge_file_a10152
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
@@ -77,6 +88,12 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
+<<<<<<< .merge_file_a12012
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVRFilteringMode: 1
+=======
     m_PVREnvironmentSampleCount: 500
     m_PVREnvironmentReferencePointCount: 2048
     m_PVRFilteringMode: 2
@@ -87,6 +104,7 @@ LightmapSettings:
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
     m_PVREnvironmentMIS: 0
+>>>>>>> .merge_file_a10152
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
@@ -94,8 +112,12 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+<<<<<<< .merge_file_a12012
+    m_ShowResolutionOverlay: 1
+=======
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+>>>>>>> .merge_file_a10152
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -120,6 +142,8 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< .merge_file_a12012
+=======
 --- !u!1 &117922313
 GameObject:
   m_ObjectHideFlags: 0
@@ -4159,12 +4183,17 @@ Transform:
   m_Father: {fileID: 4820038045110903}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> .merge_file_a10152
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
+<<<<<<< .merge_file_a12012
+  m_PrefabInternal: {fileID: 0}
+=======
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+>>>>>>> .merge_file_a10152
   serializedVersion: 6
   m_Component:
   - component: {fileID: 705507995}
@@ -4180,17 +4209,27 @@ GameObject:
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
+<<<<<<< .merge_file_a12012
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  serializedVersion: 8
+=======
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_Enabled: 1
   serializedVersion: 9
+>>>>>>> .merge_file_a10152
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
+<<<<<<< .merge_file_a12012
+=======
   m_InnerSpotAngle: 21.80208
+>>>>>>> .merge_file_a10152
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -4200,6 +4239,8 @@ Light:
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
+<<<<<<< .merge_file_a12012
+=======
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -4218,6 +4259,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
+>>>>>>> .merge_file_a10152
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
@@ -4225,24 +4267,34 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+<<<<<<< .merge_file_a12012
+=======
   m_RenderingLayerMask: 1
+>>>>>>> .merge_file_a10152
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
+<<<<<<< .merge_file_a12012
+=======
   m_BoundingSphereOverride: {x: 1.7859842e+31, y: 4.3580604e+27, z: 1.7077761e+19,
     w: 7.006224e+22}
   m_UseBoundingSphereOverride: 0
+>>>>>>> .merge_file_a10152
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &705507995
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
+<<<<<<< .merge_file_a12012
+  m_PrefabInternal: {fileID: 0}
+=======
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+>>>>>>> .merge_file_a10152
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
   m_LocalPosition: {x: 0, y: 3, z: 0}
@@ -4251,6 +4303,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+<<<<<<< .merge_file_a12012
+=======
 --- !u!1 &769991765
 GameObject:
   m_ObjectHideFlags: 0
@@ -7520,12 +7574,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+>>>>>>> .merge_file_a10152
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
+<<<<<<< .merge_file_a12012
+  m_PrefabInternal: {fileID: 0}
+=======
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+>>>>>>> .merge_file_a10152
   serializedVersion: 6
   m_Component:
   - component: {fileID: 963194228}
@@ -7542,14 +7601,30 @@ GameObject:
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
+<<<<<<< .merge_file_a12012
+  m_PrefabInternal: {fileID: 0}
+=======
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+>>>>>>> .merge_file_a10152
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
+<<<<<<< .merge_file_a12012
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_GateFitMode: 2
+=======
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
@@ -7562,6 +7637,7 @@ Camera:
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
+>>>>>>> .merge_file_a10152
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -7572,7 +7648,11 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
+<<<<<<< .merge_file_a12012
+  orthographic: 0
+=======
   orthographic: 1
+>>>>>>> .merge_file_a10152
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -7593,16 +7673,25 @@ Camera:
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
+<<<<<<< .merge_file_a12012
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
+=======
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.8, y: -14.17, z: -10}
+>>>>>>> .merge_file_a10152
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< .merge_file_a12012
+=======
 --- !u!1 &1107418020
 GameObject:
   m_ObjectHideFlags: 0
@@ -77506,3 +77595,4 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+>>>>>>> .merge_file_a10152

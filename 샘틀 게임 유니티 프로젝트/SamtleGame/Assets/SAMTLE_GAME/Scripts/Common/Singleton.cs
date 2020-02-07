@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 
+<<<<<<< .merge_file_a19856
+namespace DesignPattern
+=======
 namespace MIT.SamtleGame.DesignPattern
+>>>>>>> .merge_file_a13700
 {
 	/// <summary>
 	/// Singleton pattern.

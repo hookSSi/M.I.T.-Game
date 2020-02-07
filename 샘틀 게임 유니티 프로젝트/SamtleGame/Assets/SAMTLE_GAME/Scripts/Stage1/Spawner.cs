@@ -2,6 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< .merge_file_a15544
+public class Spawner : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+=======
 using MIT.SamtleGame.Tools;
 
 namespace MIT.SamtleGame.Stage1
@@ -200,5 +214,6 @@ namespace MIT.SamtleGame.Stage1
             this.EventStopListening<SpawnerEvent>();
             this.EventStopListening<SpawnEvent>();
         }
+>>>>>>> .merge_file_a10788
     }
 }

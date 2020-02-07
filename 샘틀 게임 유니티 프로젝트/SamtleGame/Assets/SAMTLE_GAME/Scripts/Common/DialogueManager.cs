@@ -1,6 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< .merge_file_a20352
+using MIT.SamtleGame.Tools;
+using MIT.SamtleGame.NPC;
+using TMPro;
+
+public enum DialogueStatus { Start, End, Next }
+=======
 
 using MIT.SamtleGame.Tools;
 using MIT.SamtleGame.Stage2.NPC;
@@ -8,12 +15,20 @@ using MIT.SamtleGame.Stage2;
 using TMPro;
 
 public enum DialogueStatus { Start, End }
+>>>>>>> .merge_file_a04444
 
 [System.Serializable]
 public struct DialogueEvent
 {
     public int _id;
     public int _index;
+<<<<<<< .merge_file_a20352
+    public DialogueStatus _status;
+
+    public DialogueEvent(int id = 0, DialogueStatus status = DialogueStatus.Start, int index = 0)
+    {
+        _id = id;
+=======
     public string _sound;
     public DialogueStatus _status;
 
@@ -21,16 +36,23 @@ public struct DialogueEvent
     {
         _id = id;
         _sound = sound;
+>>>>>>> .merge_file_a04444
         _index = index;
         _status = status;
     }
 
     static DialogueEvent _event;
 
+<<<<<<< .merge_file_a20352
+    public static void Trigger(int id = 0, DialogueStatus status = DialogueStatus.Start, int index = 0)
+    {
+        _event._id = id;
+=======
     public static void Trigger(int id = 0, string sound = "", DialogueStatus status = DialogueStatus.Start, int index = 0)
     {
         _event._id = id;
         _event._sound = sound;
+>>>>>>> .merge_file_a04444
         _event._index = index;
         _event._status = status;
         EventManager.TriggerEvent(_event);
@@ -48,7 +70,11 @@ public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
     [Header("현재 대화중인 NPC")]
     public Npc _currentNpc;
 
+<<<<<<< .merge_file_a20352
+    private void DialogueUpdate(int id, DialogueStatus status)
+=======
     private void DialogueUpdate(int id, string sound, DialogueStatus status)
+>>>>>>> .merge_file_a04444
     {
         if(!_npcs.ContainsKey(id))
         {
@@ -58,11 +84,54 @@ public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
         switch(status)
         {
             case DialogueStatus.Start:
+<<<<<<< .merge_file_a20352
+                ShowDialogue(id);
+=======
                 StartDialogue(id, sound);
+>>>>>>> .merge_file_a04444
                 break;
             case DialogueStatus.End:
                 EndDialogue();
                 break;
+<<<<<<< .merge_file_a20352
+            case DialogueStatus.Next:
+                NextPage();
+                break;
+        }
+    }
+
+    private void CreateDialogueUI()
+    {
+        /// UI 프리팹을 주 Canvas에 자식으로 붙이는 과정
+        _currentDialogueUI = Instantiate(_dialogueUIPrefab);
+        _currentDialogueUI.transform.parent = this.gameObject.transform;
+
+        _curretDialogue = _currentDialogueUI.GetComponentInChildren<DialogueBox>();
+        Debug.Log(_curretDialogue);
+    }
+
+    private void ShowDialogue(int id)
+    {
+        EndDialogue();
+
+        _currentNpc = _npcs[id];
+        _dialogueUIPrefab = _currentNpc._dialogueUIPrefab;
+
+        CreateDialogueUI();
+
+        _curretDialogue._textPages = new List<string>(_currentNpc._textPages);
+    }
+
+    private void NextPage()
+    {
+        _curretDialogue.NextPage();
+    }
+
+    private void EndDialogue()
+    {
+        if(_currentDialogueUI != null)
+            Destroy(_currentDialogueUI);
+=======
         }
     }
     /// 대화창 객체 생성
@@ -111,6 +180,7 @@ public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
             _currentDialogueUI.SetActive(false);
             PlayerControllerEvent.Trigger(true);
         }
+>>>>>>> .merge_file_a04444
     }
 
     public static void AddNpc(Npc npc)
@@ -123,7 +193,11 @@ public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
 
     public virtual void OnEvent(DialogueEvent dialogueEvent)
     {
+<<<<<<< .merge_file_a20352
+        DialogueUpdate(dialogueEvent._id, dialogueEvent._status);
+=======
         DialogueUpdate(dialogueEvent._id, dialogueEvent._sound, dialogueEvent._status);
+>>>>>>> .merge_file_a04444
     }
 
     private void OnEnable() 

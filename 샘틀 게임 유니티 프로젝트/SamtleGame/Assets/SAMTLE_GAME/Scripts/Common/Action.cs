@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< .merge_file_a14784
+namespace MIT.SamtleGame.NPC
+=======
 namespace MIT.SamtleGame.Stage2.NPC
+>>>>>>> .merge_file_a11952
 {
     /*
     *   @desc NPC의 행동 목록들을 만들 수 있는 클래스

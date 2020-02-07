@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD:샘틀 게임 유니티 프로젝트/SamtleGame/Assets/SAMTLE_GAME/Fonts.meta
 guid: a9568aab84d51db4fb9ef5ee5f0a6d2d
 =======
 guid: bd36f5bb7afedaf498f304ca6da9e6de
 >>>>>>> origin/master:샘틀 게임 유니티 프로젝트/SamtleGame/Assets/SAMTLE_GAME/Resources/Stage1/Sprites.meta
+=======
+guid: bd36f5bb7afedaf498f304ca6da9e6de
+>>>>>>> fa96b72746ed13769ba8175465431ba0d3d5cc3a
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
