@@ -6,6 +6,21 @@ public class PlayerAnimController : MonoBehaviour
 {
 	public Transform stair;
 
+	private Animator anim;
+
+	private void Start()
+	{
+		anim = GetComponent<Animator>();
+	}
+
+	public void StartToGoToStair(Transform stair)
+	{
+		this.stair = stair;
+		anim.SetTrigger("GoToStair");
+		// something other?
+
+	}
+
 	public void GoToStair(float distance)
 	{
 		float before = stair.position.x - transform.position.x;
@@ -14,6 +29,7 @@ public class PlayerAnimController : MonoBehaviour
 		if (before * after <= 0)
 		{
 			transform.position = new Vector3(stair.position.x, transform.position.y,transform.position.z);
+			anim.SetTrigger("GoDown");
 		}
 	}
 
