@@ -22,6 +22,7 @@ public class DialogueBox : MonoBehaviour
     public bool _isTextChanged;
 	public bool _isNextPage = false;
 	public bool _isLoop = true;
+	public bool _isStartFirst = false;
 
 	protected virtual void Initialization()
 	{
@@ -32,6 +33,10 @@ public class DialogueBox : MonoBehaviour
 	private void Start() 
 	{
 		Initialization();
+
+		/// 스테이지1 보스 인트로 애니메이션 때문에 사용
+		if(_isStartFirst)
+			StartCoroutine(RevealCharacters(_textComponent, _delay));
 	}
 
 	public virtual void Reset(int id, List<string> textPages, int page = 0, string sound = "")
@@ -42,7 +47,7 @@ public class DialogueBox : MonoBehaviour
 		_textPages = textPages;
 		Initialization();
 		StartCoroutine(RevealCharacters(_textComponent, _delay));
-    } 
+    }
 
 	public virtual void NextPage()
 	{

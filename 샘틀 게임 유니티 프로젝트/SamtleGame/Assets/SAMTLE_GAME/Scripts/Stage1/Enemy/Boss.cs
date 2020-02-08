@@ -7,6 +7,7 @@ namespace MIT.SamtleGame.Stage1
     public class Boss : Enemy
     {
         private Animator _animator;
+        private bool _isDefending =  false;
 
         [Header("보스 상태 정보")]
         [SerializeField]
@@ -16,6 +17,7 @@ namespace MIT.SamtleGame.Stage1
 
         [Header("보스 공격 정보")]
         public float _delay = 0.5f;
+        public float _defenseTime = 0.33f;
 
         protected override void Initialization()
         {
@@ -23,9 +25,14 @@ namespace MIT.SamtleGame.Stage1
             _animator = GetComponent<Animator>();
         }
 
+        protected override void Update() 
+        {
+            /// Update를 안돌리기 위해 비워둠
+        }
+
         public bool IsPlayerClose()
         {
-            if( Mathf.Abs( _attackRange.position.x - Player._pos.x ) < _attackSize.x / 2 )
+            if( Mathf.Abs( transform.position.x - Player._pos.x ) < _attackSize.x )
             {
                 return true;
             }
@@ -77,7 +84,25 @@ namespace MIT.SamtleGame.Stage1
         }
         public virtual void Defense()
         {
-            Debug.Log("방어!");
+            StartCoroutine(DefenseRoutine());
+        }
+
+        protected IEnumerator DefenseRoutine()
+        {
+            _isDefending = true;
+            yield return new WaitForSeconds(_defenseTime);
+            _isDefending = false;
+            yield break;
+        }
+
+        public override void Hitted(Transform collisionObjectTransform)
+        {
+            if(_isAlive && !_isDefending)
+            {
+                ScoreUpEvent.Trigger(_score);
+                Instantiate(_hittedEffect, collisionObjectTransform);
+                StartCoroutine(DestoySelf(true));
+            }
         }
     }
 

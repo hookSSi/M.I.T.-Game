@@ -285,6 +285,7 @@ MonoBehaviour:
   _isTextChanged: 0
   _isNextPage: 0
   _isLoop: 0
+  _isStartFirst: 1
 --- !u!1 &1570843994
 GameObject:
   m_ObjectHideFlags: 0
