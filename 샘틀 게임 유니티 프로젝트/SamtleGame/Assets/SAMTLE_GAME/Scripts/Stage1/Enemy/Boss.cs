@@ -23,11 +23,6 @@ namespace MIT.SamtleGame.Stage1
             _animator = GetComponent<Animator>();
         }
 
-        protected  override void Update() 
-        {
-            
-        }
-
         public bool IsPlayerClose()
         {
             if( Mathf.Abs( _attackRange.position.x - Player._pos.x ) < _attackSize.x / 2 )
@@ -80,5 +75,10 @@ namespace MIT.SamtleGame.Stage1
                 }
             }
         }
+        public virtual void Defense()
+        {
+            Debug.Log("방어!");
+        }
     }
+
 }

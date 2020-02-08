@@ -37,9 +37,7 @@ namespace MIT.SamtleGame.Stage1
                 {
                     if( rndNum <= 20 )
                         Crouch(animator);
-                    if( rndNum < 20 && rndNum <= 40 )
-                        Backstep(animator);
-                    if( 40 < rndNum )
+                    if( 20 < rndNum )
                         Defense(animator);
                 }
             }

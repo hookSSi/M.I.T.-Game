@@ -879,6 +879,7 @@ MonoBehaviour:
   _walkCount: 10
   _walkTime: 0.1
   _speed: 1
+  _obstacles: []
   _isWaiting: 0
   _detectRange: 0
   _detectSound: 
@@ -1183,8 +1184,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8393415943630072550, guid: b29713bfac893ae459e7c2e1e565c9ac,
         type: 3}
+      propertyPath: _obstacles.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393415943630072550, guid: b29713bfac893ae459e7c2e1e565c9ac,
+        type: 3}
       propertyPath: _reactMarkDest
       value: 
       objectReference: {fileID: 1439089253}
+    - target: {fileID: 8393415943630072550, guid: b29713bfac893ae459e7c2e1e565c9ac,
+        type: 3}
+      propertyPath: _obstacles.Array.data[1]._flag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393415943630072550, guid: b29713bfac893ae459e7c2e1e565c9ac,
+        type: 3}
+      propertyPath: _obstacles.Array.data[2]._flag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393415943630072550, guid: b29713bfac893ae459e7c2e1e565c9ac,
+        type: 3}
+      propertyPath: _detectSound
+      value: "\uBC1C\uACAC"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b29713bfac893ae459e7c2e1e565c9ac, type: 3}
