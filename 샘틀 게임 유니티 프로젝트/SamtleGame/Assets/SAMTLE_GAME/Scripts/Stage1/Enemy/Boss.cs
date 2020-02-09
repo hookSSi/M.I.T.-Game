@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using MIT.SamtleGame.Tools;
+
 namespace MIT.SamtleGame.Stage1
 {
     public class Boss : Enemy
@@ -101,6 +103,25 @@ namespace MIT.SamtleGame.Stage1
                 Instantiate(_hittedEffect, collisionObjectTransform);
                 StartCoroutine(DestoySelf(true));
             }
+        }
+
+        protected override IEnumerator DestoySelf(bool isHitted = false, float duration = 1f)
+        {
+            _isAlive = false;
+            _boxColider.isTrigger = true;
+            this.GetComponent<SpriteRenderer>().enabled = false;
+
+            if(isHitted)
+            {
+                _scoreText.gameObject.SetActive(true);
+                yield return new WaitForSeconds(duration);
+                _scoreText.gameObject.SetActive(false);
+            }
+
+            yield return new WaitForSeconds(2);
+            Destroy(this.gameObject);
+            GameManager._totalEnemyCount -= 1;
+            LoadingSceneManager.LoadScene("공대관");
         }
     }
 

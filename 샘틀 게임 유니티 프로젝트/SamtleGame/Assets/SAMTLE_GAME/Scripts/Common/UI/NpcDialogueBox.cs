@@ -13,9 +13,8 @@ namespace MIT.SamtleGame.Stage2
 
         protected override void Initialization()
         {
+            base.Initialization();
             _isEnd = false;
-            _textComponent = gameObject.GetComponent<TMP_Text>();
-            _textComponent.text = _textPages[_currentPage];
         }
 
         public override void NextPage()
@@ -25,8 +24,8 @@ namespace MIT.SamtleGame.Stage2
             if(_currentPage < _textPages.Count)
             {
                 _textComponent.maxVisibleCharacters = 0;
-                _textComponent.text = _textPages[_currentPage];
                 _isNextPage = true;
+                base.Initialization();
             }
             else
             {
@@ -47,7 +46,7 @@ namespace MIT.SamtleGame.Stage2
             yield break;
         }
 
-        protected override IEnumerator RevealCharacters(TMP_Text textComponent, float delay)
+        protected override IEnumerator RevealCharacters(TMP_Text textComponent)
         {
             textComponent.ForceMeshUpdate();
 
@@ -55,7 +54,9 @@ namespace MIT.SamtleGame.Stage2
 
             int totalVisibleCharacters = textInfo.characterCount; // Get # of Visible Character in text object
             int visibleCount = 0;
+            textComponent.maxVisibleCharacters = visibleCount;
 
+            yield return new WaitForSeconds(_delayDuration);
             while (!_isEnd)
             {
                 if (_isTextChanged)
@@ -67,10 +68,12 @@ namespace MIT.SamtleGame.Stage2
                 /// 다음 페이지 경우 관련 변수 초기화
                 if (_isNextPage)
                 {
+                    yield return new WaitForSeconds(_duration);
+
                     _isNextPage = false;
                     visibleCount = 0;
                     
-                    yield return null;
+                    yield return new WaitForSeconds(_delayDuration);
                 }
 
                 /// 사운드 처리
@@ -82,7 +85,7 @@ namespace MIT.SamtleGame.Stage2
 
                 /// 한 글자씩 밝혀짐
                 textComponent.maxVisibleCharacters = visibleCount; // How many characters should TextMeshPro display?
-                yield return new WaitForSeconds(delay);
+                yield return new WaitForSeconds(_typingDelay);
                 visibleCount += 1;
 
                 /// 다음 페이지를 기다림

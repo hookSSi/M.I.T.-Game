@@ -4,21 +4,34 @@ using System.Collections.Generic;
 using TMPro;
 
 using MIT.SamtleGame.Tools;
+
+/// string을 대체할 예정
+[System.Serializable]
+public struct DialoguePage
+{
+	[Multiline(3)]
+	public string _text;
+	[Range(0, 100)]
+	public float _delayDuration; // 실행전 딜레이
+	[Range(0, 100)]
+	public float _duration; // 실행후 지속시간
+}
+
 [RequireComponent(typeof(TMP_Text))]
 public class DialogueBox : MonoBehaviour
 {
 	protected TMP_Text _textComponent;
 	protected int _currentPage = 0;
 	protected int _id;
+	protected float _delayDuration = 0.33f;
+	protected float _duration = 0.33f;
 
 	[Header("텍스트")]
-	[Multiline(3)]
-	public List<string> _textPages;
+	public List<DialoguePage> _textPages;
 
-	[Tooltip("텍스트 출력 효과음")]
+	[Tooltip("텍스트 출력 효과")]
+	public float _typingDelay;
 	public string _typingSoundName;
-	[Tooltip("텍스트 출력 지연시간")]
-	public float _delay = 0.33f;
     public bool _isTextChanged;
 	public bool _isNextPage = false;
 	public bool _isLoop = true;
@@ -26,8 +39,11 @@ public class DialogueBox : MonoBehaviour
 
 	protected virtual void Initialization()
 	{
-		_textComponent = gameObject.GetComponent<TMP_Text>();
-		_textComponent.text = _textPages[_currentPage];
+		if(_textComponent == null)
+			_textComponent = gameObject.GetComponent<TMP_Text>();
+		_textComponent.text = _textPages[_currentPage]._text;
+		_delayDuration = _textPages[_currentPage]._delayDuration;
+		_duration = _textPages[_currentPage]._duration;
 	}
 
 	private void Start() 
@@ -36,17 +52,17 @@ public class DialogueBox : MonoBehaviour
 
 		/// 스테이지1 보스 인트로 애니메이션 때문에 사용
 		if(_isStartFirst)
-			StartCoroutine(RevealCharacters(_textComponent, _delay));
+			StartCoroutine(RevealCharacters(_textComponent));
 	}
 
-	public virtual void Reset(int id, List<string> textPages, int page = 0, string sound = "")
+	public virtual void Reset(int id, List<DialoguePage> textPages, int page = 0, string sound = "")
     {
 		_id = id;
 		_currentPage = page;
 		_typingSoundName = sound;
 		_textPages = textPages;
 		Initialization();
-		StartCoroutine(RevealCharacters(_textComponent, _delay));
+		StartCoroutine(RevealCharacters(_textComponent));
     }
 
 	public virtual void NextPage()
@@ -55,7 +71,7 @@ public class DialogueBox : MonoBehaviour
 		{
 			_currentPage++;
 			_textComponent.maxVisibleCharacters = 0;
-			_textComponent.text = _textPages[_currentPage];
+			Initialization();
 		}
 		else
 		{
@@ -69,12 +85,11 @@ public class DialogueBox : MonoBehaviour
 
 	protected virtual void PlaySound(char ch)
 	{
-		
 		if(ch != ' ' && ch != '\n')
 			SoundEvent.Trigger(_typingSoundName);
 	}
 
-	protected virtual IEnumerator RevealCharacters(TMP_Text textComponent, float delay)
+	protected virtual IEnumerator RevealCharacters(TMP_Text textComponent)
 	{
 		textComponent.ForceMeshUpdate();
 
@@ -82,7 +97,9 @@ public class DialogueBox : MonoBehaviour
 
 		int totalVisibleCharacters = textInfo.characterCount; // Get # of Visible Character in text object
 		int visibleCount = 0;
+		textComponent.maxVisibleCharacters = visibleCount;
 
+		yield return new WaitForSeconds(_delayDuration);
 		while (true)
 		{
 			if (_isTextChanged)
@@ -93,10 +110,12 @@ public class DialogueBox : MonoBehaviour
 
 			if (_isNextPage)
 			{
+				yield return new WaitForSeconds(_duration);
+
 				_isNextPage = false;
 				visibleCount = 0;
 				
-				yield return null;
+				yield return new WaitForSeconds(_delayDuration);
 			}
 
 			if(0 < visibleCount && visibleCount < textComponent.text.Length)
@@ -107,8 +126,7 @@ public class DialogueBox : MonoBehaviour
 
 			textComponent.maxVisibleCharacters = visibleCount; // How many characters should TextMeshPro display?
 			
-			yield return new WaitForSeconds(delay);
-
+			yield return new WaitForSeconds(_typingDelay);
 			visibleCount += 1;
 		}
 	}

@@ -66,7 +66,7 @@ public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
         }
     }
     /// 대화창 객체 생성
-    private void CreateDialogueUI(int id, List<string> textPages, string sound)
+    private void CreateDialogueUI(int id, List<DialoguePage> textPages, string sound)
     {
         Debug.LogFormat("{0} 대화창 생성", id);
         /// 초기화
@@ -81,7 +81,7 @@ public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
         _curretDialogue.Reset(id, textPages, 0, sound);
     }
     /// 대화창 리셋
-    private void ResetDialogue(int id, List<string> textPages, string sound)
+    private void ResetDialogue(int id, List<DialoguePage> textPages, string sound)
     {
         Debug.LogFormat("{0} 대화창 초기화", id);
         _currentDialogueUI.SetActive(true);

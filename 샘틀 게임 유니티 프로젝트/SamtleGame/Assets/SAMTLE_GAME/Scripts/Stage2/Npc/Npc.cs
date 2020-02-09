@@ -20,7 +20,7 @@ namespace MIT.SamtleGame.Stage2.NPC
         public GameObject _dialogueUIPrefab;
 
         [Header("대사")]
-        public List<string> _textPages;
+        public List<DialoguePage> _textPages;
         public string _talkSound;
 
         [Header("Event")]
