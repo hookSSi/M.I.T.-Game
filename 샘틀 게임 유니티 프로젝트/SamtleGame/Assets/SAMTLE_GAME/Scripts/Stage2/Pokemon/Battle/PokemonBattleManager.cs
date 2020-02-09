@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using MIT.SamtleGame.DesignPattern;
 using System.Collections;
-using MIT.SamtleGame.DesignPattern;
+
+using UnityEngine;
 
 
 namespace MIT.SamtleGame.Stage2.Pokemon
@@ -11,8 +12,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         SelectAction, SelectSkill, SelectItem,
         Act, End
     }
-
-    // BattleManager를 싱글턴을 쓸 것인가...? => 그 경우 PokemonBattleUIManager는 일반 변수로 받아야 한다.
     public class PokemonBattleManager : Singleton<PokemonBattleManager>
     {
         private Tool.PokemonBattleEventSystem _eventSystem;
@@ -137,15 +136,52 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             string[] nextScript;
 
-            foreach(var Action in Actions)
+            foreach (var Action in Actions)
             {
-                Action(_myPokemon, _enemyPokemon, out nextScript);
-                // nextScript를 이용한 대사 출력 1
-                // (작성중) hp 업데이트 후 기다림
+                float previousPlayerHealth = _myPokemon.Info._health;
+                float previousEnemyHealth = _enemyPokemon.Info._health;
 
-                // nextScript를 이용한 대사 출력 2
+                Action(_myPokemon, _enemyPokemon, out nextScript);
+
+                // nextScript를 이용한 대사 출력 1(예정)
+
+                if (_myPokemon.Info._health != previousPlayerHealth)
+                    _uiManager._mainUI.UpdatePlayerHpUI(_myPokemon.Info._health, 100f, true);
+
+                if (_enemyPokemon.Info._health != previousEnemyHealth)
+                    _uiManager._mainUI.UpdateEnemyHpUI(_enemyPokemon.Info._health, 100f, true);
+
+                yield return new WaitForSeconds(0.1f);
+
+                System.Func<bool> predicate =
+                    () => { return _uiManager._mainUI._isPlayerHpAnimating || _uiManager._mainUI._isEnemyHpAnimating; };
+
+                yield return new WaitWhile(predicate);
+
+                // nextScript를 이용한 대사 출력 2(예정)
+
+                if (_isGameOver)
+                    break;
+            }
+
+            // 게임 종료 체크
+            if (_isGameOver)
+            {
+                if (_myPokemon.Info._health <= 0f)
+                {
+                    Debug.Log("게임오버... 패배...");
+                }
+                else
+                {
+                    Debug.Log("전투 승리!");
+                }
+            }
+            else
+            {
+                SelectAction();
             }
         }
+
 
         // 포켓몬 고르기(정보)
         public void SelectPokemonInformation()

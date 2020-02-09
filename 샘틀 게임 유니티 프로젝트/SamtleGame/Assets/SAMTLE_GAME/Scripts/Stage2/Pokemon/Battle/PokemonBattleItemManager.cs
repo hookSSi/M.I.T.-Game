@@ -32,7 +32,13 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             }
         }
 
-        public void UseItem(GameObject usingObject)
+        // Item 프리팹이 이걸 실행해야 하는데 안되서 지금 골치아픔...(UseItemFunction)
+        public static void UseItem(GameObject usingObject)
+        {
+            PokemonBattleManager.Instance._itemManager.UseItemFunction(usingObject);
+        }
+
+        private void UseItemFunction(GameObject usingObject)
         {
             try
             {
