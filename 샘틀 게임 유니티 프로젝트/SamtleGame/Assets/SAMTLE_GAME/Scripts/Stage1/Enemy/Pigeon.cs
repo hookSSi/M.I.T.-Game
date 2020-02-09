@@ -7,8 +7,12 @@ namespace MIT.SamtleGame.Stage1
         protected override void Initialization()
         {
             base.Initialization();
+            int rndNum = Random.Range(0, 100);
 
-            _enemySpeed = 3f;
+            if(rndNum < 50)
+            {
+                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1.4f, 0.0f);
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other) 

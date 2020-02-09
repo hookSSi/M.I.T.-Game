@@ -96,7 +96,7 @@ namespace MIT.SamtleGame.Stage1
             _spawnAnimator.Play("SpawnTest", -1, 0f);
         }
 
-        public void Rest() {}
+        public void Reset() {}
 
         protected void Spawn()
         {

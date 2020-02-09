@@ -68,8 +68,9 @@ namespace MIT.SamtleGame.Stage1
             yield return new WaitForSecondsRealtime(2.0f);
             _readyText.SetActive(false);
             _startText.SetActive(false);
-            SpawnerEvent.Trigger(SpawnerState.Play);
             Play();
+            yield return new WaitForSecondsRealtime(0.33f);
+            SpawnerEvent.Trigger(SpawnerState.Play);
         }
 
         public virtual void OnEvent(PlayGameEvent playGameEvent)

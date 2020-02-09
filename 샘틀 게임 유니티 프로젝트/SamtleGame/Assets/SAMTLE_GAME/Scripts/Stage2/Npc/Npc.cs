@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using MIT.SamtleGame.Stage2.Tools;
+
 namespace MIT.SamtleGame.Stage2.NPC
 {
     public enum NpcAnimState { Idle = 0, Walk = 1} 
@@ -27,9 +29,7 @@ namespace MIT.SamtleGame.Stage2.NPC
         [SerializeField]
         private DialogueEvent _talkEvent;
 
-        [Header("NPC의 행동을 정의")]
-        [SerializeField]
-        private Action _act;
+
         [Header("현재 Npc 방향")]
         [SerializeField]
         protected Vector2 _currentDir;
@@ -39,7 +39,15 @@ namespace MIT.SamtleGame.Stage2.NPC
         public int _walkCount = 10;
         public float _walkTime = 0.1f;
         public float _speed = 1;
-        //public Vector2 _colSize;
+        public Tag[] _obstacles;
+
+        [Header("NPC 웨이포인트")]
+        [SerializeField]
+        public Transform _nodeStorage;
+        public GameObject _nodePrefab;
+        public List<Transform> _wayPoints = new List<Transform>();
+        [ColorUsage(false)]
+        public Color _wayPointsGizmoColor = Color.yellow;
 
         protected virtual void Initialization() 
         {
@@ -95,8 +103,18 @@ namespace MIT.SamtleGame.Stage2.NPC
         }
 
         /// 이동처리
-        IEnumerator MoveRoutine(Vector2 dir)
+        protected virtual IEnumerator MoveRoutine(Vector2 dir, bool isBlock = false)
         {
+            if(isBlock)
+            {
+                Vector2 dest = ((Vector2)transform.position + _currentDir * _walkSize);
+
+                if(ColliderChecker.CheckColliders(dest, dest, _obstacles))
+                {
+                    yield break;
+                }
+            }
+
             Vector2 walkAmount = dir * ( _walkSize / _walkCount ) * _speed;
 
             while(true)
@@ -115,15 +133,43 @@ namespace MIT.SamtleGame.Stage2.NPC
         }
 
         /// 미리 정의된 행동 목록 처리
-        IEnumerator ActionRoutine()
+        protected virtual IEnumerator WayPointsRoutine()
         {
-            foreach(var dir in _act.moveDirs)
+            // foreach(var dir in _act.moveDirs)
+            // {
+            //     this.SetDirection(dir);
+            //     yield return StartCoroutine(MoveRoutine(_currentDir));
+            // }
+
+            foreach(var dest in _wayPoints)
             {
-                this.SetDirection(dir);
-                yield return StartCoroutine(MoveRoutine(_currentDir));
+                Direction dir = DirectionDecision(dest.position);
+                SetDirection(dir);
+                yield return StartCoroutine(MoveToWayPointRoutine(_currentDir, dest));
+                Destroy(dest.gameObject);
             }
 
             yield break;
+        }
+
+        protected IEnumerator MoveToWayPointRoutine(Vector2 dir, Transform dest)
+        {
+            while( Vector3.Distance(dest.position, transform.position) > 0.1f )
+            {
+                yield return StartCoroutine(MoveRoutine(dir));
+            }
+
+            yield break;
+        }
+
+        protected Direction DirectionDecision(Vector3 dest)
+        {
+            Direction result = Direction.NONE;
+            
+            Vector2 dirVector = dest - transform.position;
+            result = Action.VectorToDir(dirVector);
+
+            return result;
         }
 
         public override void Interact() 
@@ -131,11 +177,38 @@ namespace MIT.SamtleGame.Stage2.NPC
             Talk();
         }
 
+        public void GenerateNodes()
+        {
+            for(var i = _wayPoints.Count - 1; i > -1; i--)
+            {
+                if (_wayPoints[i] == null)
+                    _wayPoints.RemoveAt(i);
+                else
+                    _wayPoints[i].name = string.Format("노드 - {0}", i + 1);
+            }
+
+            var newNode = Instantiate(_nodePrefab);
+            newNode.transform.SetParent(_nodeStorage);
+            newNode.transform.localPosition = new Vector3(0f, 0f, 0f);
+            newNode.transform.localRotation = Quaternion.identity;
+            _wayPoints.Add(newNode.transform);
+
+            newNode.name = string.Format("노드 - {0}", _wayPoints.Count);
+        }
+
         protected virtual void OnDrawGizmosSelected() 
         {
             Gizmos.color = Color.green;
             Vector2 point = ((Vector2)transform.position + _currentDir * _walkSize);
-            Gizmos.DrawCube(point, Vector2.one);
+            Gizmos.DrawCube(point, Vector2.one / 2);
+
+            Gizmos.color = _wayPointsGizmoColor;
+            var prevNode = this.transform;
+            foreach(var node in _wayPoints)
+            {
+                Gizmos.DrawLine(prevNode.position, node.position);
+                prevNode = node;
+            }
         }
     }
 }

@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using MIT.SamtleGame.Stage2.Tool;
+using MIT.SamtleGame.Stage2.Tools;
 using MIT.SamtleGame.Tools;
 
 namespace MIT.SamtleGame.Stage2.NPC
 {
+    public enum NpcEventType { Move, Talk, Battle }
+
+    public struct NpcEvent
+    {
+        public NpcEventType _type;
+    }
+
     /*
     *   @desc 이벤트를 가진 Npc
     */
@@ -26,6 +33,7 @@ namespace MIT.SamtleGame.Stage2.NPC
 
             if(_isWaiting)
                 _reactMark.SetActive(false);
+                StartCoroutine(WayPointsRoutine());
         }
 
         protected virtual void Update()
@@ -56,7 +64,7 @@ namespace MIT.SamtleGame.Stage2.NPC
 
         protected virtual void EventProcess()
         {
-            SoundEvent.Trigger("발견");
+            SoundEvent.Trigger(_detectSound);
             Debug.Log("플레이어 감지됨");
             _reactMark.SetActive(true);
             _isWaiting = false;
@@ -65,8 +73,24 @@ namespace MIT.SamtleGame.Stage2.NPC
 
         protected virtual IEnumerator EventRoutine()
         {
+            PlayerControllerEvent.Trigger(false, Action.VectorToDir(-_currentDir));
+
+
             yield return Tweens.MoveTransform(this, _reactMark.transform, _reactMark.transform, _reactMarkDest, new WaitForSeconds(0.1f), 0.1f, 1f, Tweens.TweenCurve.EaseInOutBounce);
+            yield return StartCoroutine(MoveToPlayerRoutine());
+
+            PlayerControllerEvent.Trigger(true);
             Debug.Log("이벤트 끝");
+            yield break;
+        }
+
+        protected virtual IEnumerator MoveToPlayerRoutine()
+        {
+            for(int i = 0;  i < (int)_detectRange; i++)
+            {
+                yield return StartCoroutine(MoveRoutine(_currentDir, true));
+            }
+
             yield break;
         }
 
