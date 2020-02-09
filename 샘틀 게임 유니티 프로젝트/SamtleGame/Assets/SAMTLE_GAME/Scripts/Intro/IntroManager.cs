@@ -72,7 +72,7 @@ public class IntroManager : MonoBehaviour, EventListener<IntroEvent>
         LoadNextScene();
     }
 
-    public virtual void OnEvent(IntroEvent soundEvent)
+    public virtual void OnEvent(IntroEvent introEvent)
     {
        StartCoroutine(LoadNextSceneRoutine());
     }

@@ -33,6 +33,7 @@ namespace MIT.SamtleGame.Stage2.NPC
 
             if(_isWaiting)
                 _reactMark.SetActive(false);
+                StartCoroutine(WayPointsRoutine());
         }
 
         protected virtual void Update()

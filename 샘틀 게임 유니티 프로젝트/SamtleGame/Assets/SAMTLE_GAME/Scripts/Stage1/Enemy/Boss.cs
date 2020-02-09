@@ -10,8 +10,6 @@ namespace MIT.SamtleGame.Stage1
         private bool _isDefending =  false;
 
         [Header("보스 상태 정보")]
-        [SerializeField]
-        private EnemyState _state = EnemyState.Stand;
         public int _health = 100;
         public DialogueBox _dialogue;
 

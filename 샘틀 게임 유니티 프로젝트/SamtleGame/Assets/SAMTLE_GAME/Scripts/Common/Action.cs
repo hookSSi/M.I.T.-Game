@@ -35,14 +35,23 @@ namespace MIT.SamtleGame.Stage2.Tools
         {
             Direction result = Direction.NONE;
 
-            if(vec.x > 0)
-                result = Direction.RIGHT;
-            if(vec.x < 0)
-                result = Direction.LEFT;
-            if(vec.y > 0)
-                result = Direction.UP;
-            if(vec.y < 0)
-                result = Direction.DONW;
+            float horizontal = vec.x;
+            float vertical = vec.y;
+
+            if( Mathf.Abs(vertical) > Mathf.Abs(horizontal) )
+            {
+                if(vertical > 0)
+                    result = Direction.UP;
+                else
+                    result = Direction.DONW;
+            }
+            else
+            {
+                if(horizontal > 0)
+                    result = Direction.RIGHT;
+                else
+                    result = Direction.LEFT;
+            }
 
             return result;
         }
