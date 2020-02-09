@@ -88,6 +88,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             UpdatePlayerHpUI(100f, 100f, false);
             UpdateEnemyHpUI(100f, 100f, false);
+
+            SetHealthColor(_playerHpSlider, 100f, 100f);
+            SetHealthColor(_enemyHpSlider, 100f, 100f);
         }
 
         // 게임 UI 변경
@@ -234,16 +237,45 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
                 currentValue += changeSpeed * Time.deltaTime;
 
-                if (slider != null) slider.value = currentValue;
+                if (slider != null)
+                {
+                    slider.value = currentValue;
+
+                    // Color Settings
+                    if (slider == _enemyHpSlider || slider == _playerHpSlider)
+                        SetHealthColor(slider, currentValue, 100f);
+                }
                 if (text != null) text.text = (int)currentValue + "/" + (int)slider.maxValue;
 
                 yield return null;
             }
 
-            if (slider != null) slider.value = newValue;
+            if (slider != null)
+            {
+                slider.value = newValue;
+
+                // Color Settings
+                if (slider == _enemyHpSlider || slider == _playerHpSlider)
+                    SetHealthColor(slider, currentValue, 100f);
+            }
             if (text != null) text.text = (int)newValue + "/" + (int)slider.maxValue;
 
             SetBool(false);
+        }
+
+        private void SetHealthColor(Slider slider, float currentValue, float maxValue)
+        {
+            float valueRatio = currentValue / maxValue;
+            var colors = slider.colors;
+
+            if (valueRatio > 0.5f)
+                colors.normalColor = Color.green;
+            else if (valueRatio > 0.2f)
+                colors.normalColor = Color.yellow;
+            else
+                colors.normalColor = Color.red;
+
+            slider.colors = colors;
         }
     }
 }
