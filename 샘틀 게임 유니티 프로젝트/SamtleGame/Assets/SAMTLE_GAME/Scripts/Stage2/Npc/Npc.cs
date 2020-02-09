@@ -43,8 +43,6 @@ namespace MIT.SamtleGame.Stage2.NPC
 
         [Header("NPC 웨이포인트")]
         [SerializeField]
-        private Action _act;
-        [SerializeField]
         public Transform _nodeStorage;
         public GameObject _nodePrefab;
         public List<Transform> _wayPoints = new List<Transform>();
