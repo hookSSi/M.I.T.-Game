@@ -33,7 +33,6 @@ namespace MIT.SamtleGame.Stage2.NPC
 
             if(_isWaiting)
                 _reactMark.SetActive(false);
-                StartCoroutine(WayPointsRoutine());
         }
 
         protected virtual void Update()
@@ -71,16 +70,9 @@ namespace MIT.SamtleGame.Stage2.NPC
             StartCoroutine(EventRoutine());
         }
 
+        /// 상속 받는 클래스가 구현하도록 비워둠
         protected virtual IEnumerator EventRoutine()
         {
-            PlayerControllerEvent.Trigger(false, Action.VectorToDir(-_currentDir));
-
-
-            yield return Tweens.MoveTransform(this, _reactMark.transform, _reactMark.transform, _reactMarkDest, new WaitForSeconds(0.1f), 0.1f, 1f, Tweens.TweenCurve.EaseInOutBounce);
-            yield return StartCoroutine(MoveToPlayerRoutine());
-
-            PlayerControllerEvent.Trigger(true);
-            Debug.Log("이벤트 끝");
             yield break;
         }
 

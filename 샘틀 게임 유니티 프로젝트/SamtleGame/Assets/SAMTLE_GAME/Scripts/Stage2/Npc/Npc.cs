@@ -6,8 +6,6 @@ using MIT.SamtleGame.Stage2.Tools;
 
 namespace MIT.SamtleGame.Stage2.NPC
 {
-    public enum NpcAnimState { Idle = 0, Walk = 1} 
-
     public class Npc : InteracterbleObject
     {
         private int  _currentWalkCount = 0;
@@ -49,25 +47,18 @@ namespace MIT.SamtleGame.Stage2.NPC
         [ColorUsage(false)]
         public Color _wayPointsGizmoColor = Color.yellow;
 
+        #region 초기화
         protected virtual void Initialization() 
         {
             _talkEvent._id = _id;
             DialogueManager.AddNpc(this);
             _animator = GetComponent<Animator>();
         }
+        #endregion
 
         private void Start() 
         {
             Initialization();
-        }
-
-        public string GetText(int index)
-        {
-            return _textPages[index];
-        }
-        public void SetText(int index, string text)
-        {
-            _textPages[index] = text;
         }
 
         public virtual void Talk()
@@ -76,6 +67,7 @@ namespace MIT.SamtleGame.Stage2.NPC
             DialogueEvent.Trigger(_talkEvent._id, _talkSound);  
         }
 
+        #region  이동처리
         protected void SetDirection(Direction dir)
         {
             switch(dir)
@@ -102,7 +94,6 @@ namespace MIT.SamtleGame.Stage2.NPC
             _currentDir = dir;
         }
 
-        /// 이동처리
         protected virtual IEnumerator MoveRoutine(Vector2 dir, bool isBlock = false)
         {
             if(isBlock)
@@ -131,16 +122,11 @@ namespace MIT.SamtleGame.Stage2.NPC
                 yield return new WaitForSeconds(_walkTime);
             }
         }
+        #endregion
 
-        /// 미리 정의된 행동 목록 처리
+        #region  웨이포인트 이동
         protected virtual IEnumerator WayPointsRoutine()
         {
-            // foreach(var dir in _act.moveDirs)
-            // {
-            //     this.SetDirection(dir);
-            //     yield return StartCoroutine(MoveRoutine(_currentDir));
-            // }
-
             foreach(var dest in _wayPoints)
             {
                 Direction dir = DirectionDecision(dest.position);
@@ -161,7 +147,7 @@ namespace MIT.SamtleGame.Stage2.NPC
 
             yield break;
         }
-
+        
         protected Direction DirectionDecision(Vector3 dest)
         {
             Direction result = Direction.NONE;
@@ -171,12 +157,16 @@ namespace MIT.SamtleGame.Stage2.NPC
 
             return result;
         }
+        #endregion
 
+        #region  상호작용
         public override void Interact() 
         {
             Talk();
         }
+        #endregion
 
+        #region  스크립트 사용 편의성 관련
         public void GenerateNodes()
         {
             for(var i = _wayPoints.Count - 1; i > -1; i--)
@@ -210,5 +200,6 @@ namespace MIT.SamtleGame.Stage2.NPC
                 prevNode = node;
             }
         }
+        #endregion
     }
 }

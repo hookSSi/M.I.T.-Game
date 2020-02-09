@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4970011912563169699}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16, y: 16}
+  m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0
 --- !u!95 &-2408236259219881445
 Animator:
@@ -163,10 +163,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentDir: {x: 0, y: -1}
+  _isControllable: 1
   _walkSize: 1
   _walkCount: 5
   _walkTime: 0.1
   _speed: 1
-  _colSize: {x: 1, y: 1}
+  _jumpPower: 30
+  _obstacles:
+  - _flag: 1
+  - _flag: 2
   _walkSound: 
   _animator: {fileID: -2408236259219881445}
+  _test: {fileID: 0}
+  _test2: {fileID: 0}
