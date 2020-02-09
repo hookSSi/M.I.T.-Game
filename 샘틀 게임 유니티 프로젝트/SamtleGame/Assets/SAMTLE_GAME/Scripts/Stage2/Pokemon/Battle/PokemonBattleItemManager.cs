@@ -9,14 +9,25 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         private PokemonBattleManager _manager;
 
         [SerializeField] private GameObject _itemPrefab;
-        [SerializeField] private List<BattleItem> _itemList = new List<BattleItem>();
+        [SerializeField] private List<BattleItem> _itemList;
 
         public string _previousItemName { get; private set; }
 
-        private void Awake()
+        private void Start()
         {
+            _itemList = new List<BattleItem>();
+
+            // 아이템 추가
             AddItem("전 부회장의 3신기", "기묘한 옛것의 기운이 느껴지는 물건이다...", 5, 
                 BattleItem.ItemType.Consume, new BattleEvent(0, Items.TheTrinity));
+
+            AddItem("전 부회장의 3신기의 사본", "복사본 1", 1,
+                BattleItem.ItemType.Consume, new BattleEvent(0, Items.TheTrinity));
+
+            AddItem("전 부회장의 3신기의 사본", "복사본 2", 7, 
+                BattleItem.ItemType.Consume, new BattleEvent(0, Items.TheTrinity));
+
+            Initialize();
         }
 
         public void Initialize()
@@ -32,13 +43,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             }
         }
 
-        // Item 프리팹이 이걸 실행해야 하는데 안되서 지금 골치아픔...(UseItemFunction)
-        public static void UseItem(GameObject usingObject)
-        {
-            PokemonBattleManager.Instance._itemManager.UseItemFunction(usingObject);
-        }
-
-        private void UseItemFunction(GameObject usingObject)
+        public void UseItem(GameObject usingObject)
         {
             try
             {
@@ -81,6 +86,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             newItem.SetValues(itemName, itemCaption, itemCount, itemType, itemEvent);
             newItem.UpdateText();
+            newItem.AddEvents();
 
             _itemList.Add(newItem);
         }

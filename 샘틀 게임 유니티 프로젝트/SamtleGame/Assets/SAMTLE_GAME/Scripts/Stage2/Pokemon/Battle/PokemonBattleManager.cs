@@ -1,6 +1,5 @@
 ﻿using MIT.SamtleGame.DesignPattern;
 using System.Collections;
-
 using UnityEngine;
 
 
