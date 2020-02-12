@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 namespace MIT.SamtleGame.Stage2.Pokemon
@@ -71,17 +70,16 @@ namespace MIT.SamtleGame.Stage2.Pokemon
     // 인게임 아이템 이벤트들
     public class Items
     {
-        private static string UsingScript()
+        private static void FirstScript(out string firstDialog)
         {
             var battleManager = PokemonBattleManager.Instance;
-            return "새내기는 " + battleManager._itemManager._previousItemName + "를(을) 사용했다!";
+            firstDialog =  "새내기는 " + battleManager._itemManager._previousItemName + "를(을) 사용했다!";
         }
 
         // 전 부회장의 3신기
-        public static void TheTrinity(Pokemon myPokemon, Pokemon enemyPokemon, out string[] dialog)
+        public static void TheTrinity(Pokemon myPokemon, Pokemon enemyPokemon)
         {
-            var battleManager = PokemonBattleManager.Instance;
-            var uiManager = PokemonBattleManager.Instance._uiManager;
+            string[] dialog = PokemonBattleManager.Instance.nextScripts;
             // 확률에 따라 플레이어의 체력이 1/3이 되거나 적의 체력이 1/3이 되거나 아무 일도 일어나지 않는다.
             int nextEffect = Random.Range(1, 4);
 
@@ -89,7 +87,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             float damage = 100f / 3f;
 
             dialog = new string[2];
-            dialog[0] = UsingScript();
+            FirstScript(out dialog[0]);
 
             switch (nextEffect)
             {

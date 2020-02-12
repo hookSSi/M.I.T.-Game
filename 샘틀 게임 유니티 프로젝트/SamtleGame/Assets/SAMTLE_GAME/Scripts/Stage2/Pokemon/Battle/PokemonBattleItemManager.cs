@@ -1,45 +1,56 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 namespace MIT.SamtleGame.Stage2.Pokemon
 {
+    [System.Serializable]
+    public class BattleEvent : UnityEvent<Pokemon, Pokemon> { }
+
     public class PokemonBattleItemManager : MonoBehaviour
     {
         private PokemonBattleManager _manager;
 
         [SerializeField] private GameObject _itemPrefab;
+        
+        [SerializeField] private BattleItem _dummyItem;
         [SerializeField] private List<BattleItem> _itemList;
 
         public string _previousItemName { get; private set; }
 
-        private void Start()
+        private void Awake()
         {
             _itemList = new List<BattleItem>();
 
             // 아이템 추가
             AddItem("전 부회장의 3신기", "기묘한 옛것의 기운이 느껴지는 물건이다...", 5, 
-                BattleItem.ItemType.Consume, new BattleEvent(0, Items.TheTrinity));
+                BattleItem.ItemType.Consume, Items.TheTrinity);
 
-            AddItem("전 부회장의 3신기의 사본", "복사본 1", 1,
-                BattleItem.ItemType.Consume, new BattleEvent(0, Items.TheTrinity));
+            AddItem("전 부회장의 3신기의 사본A", "복사본 1", 1,
+                BattleItem.ItemType.Consume, Items.TheTrinity);
 
-            AddItem("전 부회장의 3신기의 사본", "복사본 2", 7, 
-                BattleItem.ItemType.Consume, new BattleEvent(0, Items.TheTrinity));
-
-            Initialize();
+            AddItem("전 부회장의 3신기의 사본B", "복사본 2", 7, 
+                BattleItem.ItemType.Consume, Items.TheTrinity);
         }
 
-        public void Initialize()
+        public void SetFirstItem()
         {
             // event system의 first select로 선택될 아이템을 정한다.
+            var eventSystem = FindObjectOfType<Tool.PokemonBattleEventSystem>();
+
             if (_itemList.Count != 0)
             {
-                var eventSystem = FindObjectOfType<Tool.PokemonBattleEventSystem>();
+                eventSystem.SetIndexObject(firstItemObject: _itemList[0].gameObject);
 
-                var firstItem = _itemList[0].gameObject;
+                _dummyItem.gameObject.SetActive(false);
+            }
+            else
+            {
+                eventSystem.SetIndexObject(firstItemObject: _dummyItem.gameObject);
 
-                eventSystem.SetIndexObject(firstItemObject: firstItem);
+                _dummyItem.gameObject.SetActive(true);
             }
         }
 
@@ -51,7 +62,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
                 int index =
                     _itemList.FindIndex(item => { return item._itemName == usingItem._itemName; });
-
                 _previousItemName = usingItem._itemName;
 
                 _manager.UseItem(usingItem._itemEvent);
@@ -73,7 +83,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             }
         }
 
-        public void AddItem(string itemName, string itemCaption, int itemCount, BattleItem.ItemType itemType, BattleEvent itemEvent)
+        public void AddItem(string itemName, string itemCaption, int itemCount, BattleItem.ItemType itemType, UnityAction<Pokemon, Pokemon> itemEvent)
         {
             if (_itemPrefab == null)
             {
@@ -81,13 +91,16 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 return;
             }
 
-            var newObject = Instantiate(_itemPrefab, transform);
-            var newItem = newObject.GetComponent<BattleItem>();
+            GameObject newObject = Instantiate(_itemPrefab, transform);
+            BattleItem newItem = newObject.GetComponent<BattleItem>();
 
-            newItem.SetValues(itemName, itemCaption, itemCount, itemType, itemEvent);
+            BattleEvent newItemEvent = new BattleEvent();
+            newItemEvent.AddListener(itemEvent);
+
+            newItem.SetValues(itemName, itemCaption, itemCount, itemType, newItemEvent);
             newItem.UpdateText();
             newItem.AddEvents();
-
+            
             _itemList.Add(newItem);
         }
 

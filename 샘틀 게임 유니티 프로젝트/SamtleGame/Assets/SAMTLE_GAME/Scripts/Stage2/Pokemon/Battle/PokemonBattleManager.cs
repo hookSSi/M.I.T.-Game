@@ -1,6 +1,7 @@
 ﻿using MIT.SamtleGame.DesignPattern;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 namespace MIT.SamtleGame.Stage2.Pokemon
@@ -23,6 +24,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         public BattleState _state { get; private set; }
 
+        public string[] nextScripts = new string[3];
+
         public bool _isGameOver { get { return _myPokemon.Info._health <= 0 || _enemyPokemon.Info._health <= 0; }}
 
         private void Start()
@@ -42,7 +45,14 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _eventSystem = FindObjectOfType<Tool.PokemonBattleEventSystem>();
 
             // 전투 시작(테스트용)
-            StartBattle(null, null);
+            var pokemonManager = GetComponent<PokemonManager>();
+
+            PokemonInfo playerPokemonInfo = pokemonManager._pokemonList[pokemonManager._pokemonList.FindIndex
+                ((element) => { return element._key == "C++"; })]._info;
+            PokemonInfo enemyPokemonInfo = pokemonManager._pokemonList[pokemonManager._pokemonList.FindIndex
+                ((element) => { return element._key == "OldCom"; })]._info;
+
+            StartBattle(_myPokemon, _enemyPokemon);
         }
 
         public void StartBattle(Pokemon myPokemon, Pokemon enemyPokemon)
@@ -51,6 +61,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _enemyPokemon = enemyPokemon;
 
             _state = BattleState.Start;
+
+            nextScripts = new string[3];
 
             Debug.Log("배틀 시작!");
 
@@ -67,6 +79,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _uiManager._mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Battle);
             _uiManager._bottomUI.UpdateActionUI();
 
+            _itemManager.SetFirstItem();
             _eventSystem.InitializeUINavigation(BattleState.SelectAction);
         }
 
@@ -119,30 +132,18 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         IEnumerator ActPhase(BattleEvent playerEvent, BattleEvent enemyEvent)
         {
-            // 우선순위(priority)에 따른 선공 결정
-            BattleDelegate[] Actions = new BattleDelegate[2];
-
-            if (playerEvent._priority <= enemyEvent._priority)
-            {
-                Actions[0] = playerEvent._event;
-                Actions[1] = enemyEvent._event;
-            }
-            else
-            {
-                Actions[0] = enemyEvent._event;
-                Actions[1] = playerEvent._event;
-            }
-
-            string[] nextScript;
-
-            foreach (var Action in Actions)
+            for (int i = 0; i < 2; i++)
             {
                 float previousPlayerHealth = _myPokemon.Info._health;
                 float previousEnemyHealth = _enemyPokemon.Info._health;
 
-                Action(_myPokemon, _enemyPokemon, out nextScript);
+                if (i == 0)
+                    playerEvent.Invoke(_myPokemon, _enemyPokemon);
+                else
+                    enemyEvent.Invoke(_enemyPokemon, _myPokemon);
 
-                // nextScript를 이용한 대사 출력 1(예정)
+                // 대사 1(예정)(일단 전체 출력)
+                Debug.Log((i == 0 ? "플레이어" : "적") + " 턴 : " + nextScripts);
 
                 if (_myPokemon.Info._health != previousPlayerHealth)
                     _uiManager._mainUI.UpdatePlayerHpUI(_myPokemon.Info._health, 100f, true);
@@ -150,14 +151,14 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 if (_enemyPokemon.Info._health != previousEnemyHealth)
                     _uiManager._mainUI.UpdateEnemyHpUI(_enemyPokemon.Info._health, 100f, true);
 
-                yield return new WaitForSeconds(0.1f);
+                yield return null;
 
                 System.Func<bool> predicate =
                     () => { return _uiManager._mainUI._isPlayerHpAnimating || _uiManager._mainUI._isEnemyHpAnimating; };
 
                 yield return new WaitWhile(predicate);
 
-                // nextScript를 이용한 대사 출력 2(예정)
+                // 대사 출력 2(예정)
 
                 if (_isGameOver)
                     break;
@@ -166,19 +167,28 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             // 게임 종료 체크
             if (_isGameOver)
             {
-                if (_myPokemon.Info._health <= 0f)
-                {
-                    Debug.Log("게임오버... 패배...");
-                }
-                else
-                {
-                    Debug.Log("전투 승리!");
-                }
+                StartCoroutine("EndBattle");
             }
             else
             {
                 SelectAction();
             }
+        }
+
+        private IEnumerator EndBattle()
+        {
+            _state = BattleState.End;
+            
+            if (_myPokemon.Info._health > 0f)
+            {
+                Debug.Log("승리!");
+            }
+            else
+            {
+                Debug.Log("패배...");
+            }
+
+            yield return null;
         }
 
 

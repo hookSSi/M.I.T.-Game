@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using MIT.SamtleGame.Stage2.Pokemon;
@@ -39,6 +40,11 @@ namespace MIT.SamtleGame.Stage2.Tool
         // (전투 메뉴, 기술 메뉴, 가방 메뉴 등에 들어갈 때마다 실행, 처음 선택될 오브젝트를 설정함)
         public void InitializeUINavigation(BattleState currentState)
         {
+            StartCoroutine("InitializeFunction", currentState);
+        }
+
+        private IEnumerator InitializeFunction(BattleState currentState)
+        {
             switch (currentState)
             {
                 case BattleState.SelectAction:
@@ -46,13 +52,13 @@ namespace MIT.SamtleGame.Stage2.Tool
                         _eventSystem.SetSelectedGameObject(_firstActionSelection);
                     break;
                 case BattleState.SelectItem:
-                    if (_firstItemSelection)
-                        _eventSystem.SetSelectedGameObject(_firstItemSelection);
+                    // 선택할 수 있는 아이템이 
+                    yield return new WaitUntil(() => _firstItemSelection);
+                    _eventSystem.SetSelectedGameObject(_firstItemSelection);
                     break;
                 case BattleState.SelectSkill:
-                    _eventSystem.SetSelectedGameObject(_firstSkillSelection);
-                    break;
-                default:
+                    if (_firstSkillSelection)
+                        _eventSystem.SetSelectedGameObject(_firstSkillSelection);
                     break;
             }
         }

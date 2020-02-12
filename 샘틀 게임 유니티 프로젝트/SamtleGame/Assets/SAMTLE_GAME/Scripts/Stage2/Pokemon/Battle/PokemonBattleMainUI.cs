@@ -74,10 +74,10 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         private void Awake()
         {
-            Initialize();
+            Init();
         }
 
-        public void Initialize()
+        public void Init()
         {
             // Initialize
             _isEnemyHpAnimating = false;

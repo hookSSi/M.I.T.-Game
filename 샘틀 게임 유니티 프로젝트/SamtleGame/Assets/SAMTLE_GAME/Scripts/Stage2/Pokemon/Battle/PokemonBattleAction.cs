@@ -14,7 +14,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         private void Awake()
         {
-            Initialize();
+            Init();
             UpdateText();
         }
 
@@ -25,7 +25,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         }
 #endif
 
-        private void Initialize()
+        private void Init()
         {
             for (int i = 0; i < 4; i++)
             {
