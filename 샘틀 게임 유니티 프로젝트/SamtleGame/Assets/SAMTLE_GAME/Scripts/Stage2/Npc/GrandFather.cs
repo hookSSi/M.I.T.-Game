@@ -23,17 +23,40 @@ namespace MIT.SamtleGame.Stage2.NPC
 
         protected override IEnumerator EventRoutine()
         {
-            PlayerControllerEvent.Trigger(false, Action.VectorToDir(-_currentDir));
-            
-            /// 느낌표!
-            yield return Tweens.MoveTransform(this, _reactMark.transform, _reactMark.transform, _reactMarkDest, new WaitForSeconds(0.1f), 0.1f, 1f, Tweens.TweenCurve.EaseInOutBounce);
-            _reactMark.SetActive(false);
-
+            /// 플레이어에게 이동
             yield return StartCoroutine(MoveToPlayerRoutine());
-            yield return StartCoroutine(WayPointsRoutine());
+
+            /// 대화
+            Talk(false);
+            yield return WaitUntillTalkEnd();
+
+            /// 웨이포인트 이동
+            yield return StartCoroutine(WayPointsMoveRoutine());
 
             PlayerControllerEvent.Trigger(true);
             Debug.Log("이벤트 끝");
+            yield break;
+        }
+
+        protected override IEnumerator WayPointsMoveRoutine()
+        {
+            /// 플레이어에게 웨이 포인트 전달
+            _detectedPlayer.AddWayPoint(_wayPoints.ToArray());
+            _detectedPlayer.WayPointMove();
+
+            foreach(var dest in _wayPoints)
+            {
+                Direction dir = Maths.Vector2ToDirection(dest.position - transform.position);
+                _currentDir = Maths.DirectionToVector2(dir);
+
+                /// 웨이포인트로 이동
+                float walkAmount = ( _walkSize / _walkCount ) * _speed * 2;
+                while( Vector2.Distance(dest.position, transform.position) > walkAmount )
+                {
+                    yield return StartCoroutine(MoveRoutine(_currentDir));
+                }
+            }
+
             yield break;
         }
 

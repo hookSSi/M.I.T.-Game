@@ -48,6 +48,9 @@ namespace MIT.SamtleGame.Stage2
         //public Vector2 _colSize;
         public float _jumpPower = 30f;
 
+        [Header("웨이포인트")]
+        public Queue<Transform> _wayPoints = new Queue<Transform>();
+
         [Header("충돌되는 태그")]
         public Tag[] _obstacles;
         
@@ -134,17 +137,22 @@ namespace MIT.SamtleGame.Stage2
         #region 이동
         void Move()
         {
-            Vector2 origin = ((Vector2)transform.position);
-            Vector2 dest = ((Vector2)transform.position + _currentDir * _walkSize);
-
-            if(!ColliderChecker.CheckColliders(origin, dest, _obstacles))
-            {
-                StartCoroutine(MoveRoutine());
-            }
+            StartCoroutine(MoveRoutine(true));
         }
 
-        IEnumerator MoveRoutine()
+        IEnumerator MoveRoutine(bool isBlock = false)
         {
+            if(isBlock)
+            {
+                Vector2 origin = ((Vector2)transform.position);
+                Vector2 dest = ((Vector2)transform.position + _currentDir * _walkSize);
+        
+                if(ColliderChecker.CheckColliders(origin, dest, _obstacles))
+                {
+                    yield break;
+                }
+            }
+
             _isMoving = true;
             Vector2 walkAmount = _currentDir * ( _walkSize / _walkCount ) * _speed;
 
@@ -164,6 +172,43 @@ namespace MIT.SamtleGame.Stage2
             }
         }
         #endregion
+
+        #region 웨이포인트 이동
+        public void AddWayPoint(Transform[] wayPoints)
+        {
+            foreach(var wayPoint in wayPoints)
+            {
+                _wayPoints.Enqueue(wayPoint);
+            }
+        }
+
+        public void WayPointMove()
+        {
+            StartCoroutine(WayPointsMoveRoutine());
+        }
+
+        public virtual IEnumerator WayPointsMoveRoutine()
+        {
+            while(_wayPoints.Count > 0 && !_isControllable)
+            {
+                Transform wayPoint = _wayPoints.Peek();
+                Direction dir = Maths.Vector2ToDirection(wayPoint.position - transform.position);
+                _currentDir = Maths.DirectionToVector2(dir);
+                
+                /// 웨이포인트로 이동
+                float walkAmount = ( _walkSize / _walkCount ) * _speed * 2;
+                while( Vector2.Distance(wayPoint.position, transform.position) > walkAmount && !_isControllable)
+                {
+                    yield return StartCoroutine(MoveRoutine(true));
+                }
+                _wayPoints.Dequeue();
+            }
+
+            _wayPoints.Clear();
+            yield break;
+        }
+        #endregion
+
 
         #region 점프
         void Jump()

@@ -43,6 +43,66 @@ namespace MIT.SamtleGame.Tools
 		}
 
 		/// <summary>
+		/// Vector2 to Direction in Action.cs
+		/// </summary>
+		/// <returns>The Direction.</returns>
+		/// <param name="target">The Vector2 to turn into a Direction</param>
+		public static Direction Vector2ToDirection(Vector2 target)
+		{
+            Direction result = Direction.NONE;
+
+            float horizontal = target.x;
+            float vertical = target.y;
+
+            if( Mathf.Abs(vertical) > Mathf.Abs(horizontal) )
+            {
+                if(vertical > 0)
+                    result = Direction.UP;
+                else
+                    result = Direction.DONW;
+            }
+            else
+            {
+                if(horizontal > 0)
+                    result = Direction.RIGHT;
+                else
+                    result = Direction.LEFT;
+            }
+
+            return result;
+		}
+
+		/// <summary>
+		/// Direction in Action.cs to Vector2
+		/// </summary>
+		/// <returns>The Vector2.</returns>
+		/// <param name="target">The Direction to turn into a Vector2</param>
+		public static Vector2 DirectionToVector2(Direction target)
+		{
+			Vector2 result = Vector2.zero;
+
+			switch(target)
+            {
+                case Direction.UP:
+                    result = Vector2.up;
+                    break;
+                case Direction.DONW:
+                    result = Vector2.down;
+                    break;
+                case Direction.RIGHT:
+                    result = Vector2.right;
+                    break;
+                case Direction.LEFT:
+                    result = Vector2.left;
+                    break;
+                case Direction.NONE:
+                    break;
+            }
+
+			return result;
+		}
+
+		/// <summary>
 		/// Rounds all components of a Vector3.
 		/// </summary>
 		/// <returns>The vector3.</returns>

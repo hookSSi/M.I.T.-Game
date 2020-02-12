@@ -9,7 +9,7 @@ namespace MIT.SamtleGame.Stage2
     {
         // 대화 넘김 기다림
         public GameObject _blinker;
-        private bool _isEnd = false;
+        public bool _isEnd = false;
 
         protected override void Initialization()
         {

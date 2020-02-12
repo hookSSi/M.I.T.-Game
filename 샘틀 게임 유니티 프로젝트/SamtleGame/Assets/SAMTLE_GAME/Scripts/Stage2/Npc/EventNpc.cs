@@ -27,6 +27,10 @@ namespace MIT.SamtleGame.Stage2.NPC
         public GameObject _reactMark; // 발견했을 때 표시
         public Transform _reactMarkDest; // 느낌표 목표 위치
 
+        [Header("감지된 플레이어")]
+        [SerializeField]
+        protected PlayerController _detectedPlayer;
+
         protected override void Initialization() 
         {
             base.Initialization();
@@ -41,7 +45,8 @@ namespace MIT.SamtleGame.Stage2.NPC
             {
                 if(DetectPlayer())
                 {
-                    EventProcess();  
+                    StartCoroutine(Response());
+                    StartCoroutine(EventRoutine());
                 }
             }
         }
@@ -51,8 +56,11 @@ namespace MIT.SamtleGame.Stage2.NPC
             Vector2 origin = ((Vector2)transform.position + _currentDir * _walkSize);
             Vector2 dest = ((Vector2)transform.position + (_currentDir * _walkSize) * _detectRange);
 
-            if(ColliderChecker.CheckColliders(origin, dest, "Player", true))
+            List<Collider2D> playerCols = ColliderChecker.GetColliders(origin, dest, "Player");
+
+            if(playerCols.Count > 0)
             {
+                _detectedPlayer = playerCols[0].gameObject.GetComponent<PlayerController>();
                 return true;
             }
             else
@@ -61,13 +69,19 @@ namespace MIT.SamtleGame.Stage2.NPC
             }
         }
 
-        protected virtual void EventProcess()
+        protected virtual IEnumerator Response()
         {
             SoundEvent.Trigger(_detectSound);
             Debug.Log("플레이어 감지됨");
             _reactMark.SetActive(true);
             _isWaiting = false;
-            StartCoroutine(EventRoutine());
+
+            PlayerControllerEvent.Trigger(false, Maths.Vector2ToDirection(-_currentDir));
+            
+            /// 느낌표!
+            yield return Tweens.MoveTransform(this, _reactMark.transform, _reactMark.transform, _reactMarkDest, new WaitForSeconds(0.1f), 0.1f, 1f, Tweens.TweenCurve.EaseInOutBounce);
+            _reactMark.SetActive(false);
+            yield break;
         }
 
         /// 상속 받는 클래스가 구현하도록 비워둠
@@ -81,6 +95,18 @@ namespace MIT.SamtleGame.Stage2.NPC
             for(int i = 0;  i < (int)_detectRange; i++)
             {
                 yield return StartCoroutine(MoveRoutine(_currentDir, true));
+            }
+
+            yield break;
+        }
+
+        protected virtual IEnumerator WaitUntillTalkEnd()
+        {
+            NpcDialogueBox dialogueBox = (NpcDialogueBox)FindObjectOfType(typeof(NpcDialogueBox));
+
+            while(!dialogueBox._isEnd)
+            {
+                yield return null;
             }
 
             yield break;

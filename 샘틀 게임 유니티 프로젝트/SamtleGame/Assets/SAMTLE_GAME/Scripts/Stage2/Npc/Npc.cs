@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using MIT.SamtleGame.Stage2.Tools;
+using MIT.SamtleGame.Tools;
 
 namespace MIT.SamtleGame.Stage2.NPC
 {
+    [SelectionBase]
     public class Npc : InteracterbleObject
     {
         private int  _currentWalkCount = 0;
@@ -61,34 +63,13 @@ namespace MIT.SamtleGame.Stage2.NPC
             Initialization();
         }
 
-        public virtual void Talk()
+        public virtual void Talk(bool isControllable = true)
         {
             PlayerControllerEvent.Trigger(false);
-            DialogueEvent.Trigger(_talkEvent._id, _talkSound);  
+            DialogueEvent.Trigger(_talkEvent._id, _talkSound, DialogueStatus.Start, 0, isControllable);  
         }
 
         #region  이동처리
-        protected void SetDirection(Direction dir)
-        {
-            switch(dir)
-            {
-                case Direction.UP:
-                    _currentDir = Vector2.up;
-                    break;
-                case Direction.DONW:
-                    _currentDir = Vector2.down;
-                    break;
-                case Direction.RIGHT:
-                    _currentDir = Vector2.right;
-                    break;
-                case Direction.LEFT:
-                    _currentDir = Vector2.left;
-                    break;
-                case Direction.NONE:
-                    break;
-            }
-        }
-
         public void SetDirection(Vector2 dir)
         {
             _currentDir = dir;
@@ -98,6 +79,7 @@ namespace MIT.SamtleGame.Stage2.NPC
         {
             if(isBlock)
             {
+                Vector2 origin = ((Vector2)transform.position);
                 Vector2 dest = ((Vector2)transform.position + _currentDir * _walkSize);
 
                 if(ColliderChecker.CheckColliders(dest, dest, _obstacles))
@@ -125,37 +107,22 @@ namespace MIT.SamtleGame.Stage2.NPC
         #endregion
 
         #region  웨이포인트 이동
-        protected virtual IEnumerator WayPointsRoutine()
+        protected virtual IEnumerator WayPointsMoveRoutine()
         {
             foreach(var dest in _wayPoints)
             {
-                Direction dir = DirectionDecision(dest.position);
-                SetDirection(dir);
-                yield return StartCoroutine(MoveToWayPointRoutine(_currentDir, dest));
-                Destroy(dest.gameObject);
+                Direction dir = Maths.Vector2ToDirection(dest.position - transform.position);
+                _currentDir = Maths.DirectionToVector2(dir);
+
+                /// 웨이포인트로 이동
+                float walkAmount = ( _walkSize / _walkCount ) * _speed;
+                while( Vector2.Distance(dest.position, transform.position) > walkAmount * 2 )
+                {
+                    yield return StartCoroutine(MoveRoutine(_currentDir));
+                }
             }
 
             yield break;
-        }
-
-        protected IEnumerator MoveToWayPointRoutine(Vector2 dir, Transform dest)
-        {
-            while( Vector3.Distance(dest.position, transform.position) > 0.1f )
-            {
-                yield return StartCoroutine(MoveRoutine(dir));
-            }
-
-            yield break;
-        }
-        
-        protected Direction DirectionDecision(Vector3 dest)
-        {
-            Direction result = Direction.NONE;
-            
-            Vector2 dirVector = dest - transform.position;
-            result = Action.VectorToDir(dirVector);
-
-            return result;
         }
         #endregion
 

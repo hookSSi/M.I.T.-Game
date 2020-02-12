@@ -17,22 +17,28 @@ public struct DialogueEvent
     public string _sound;
     public DialogueStatus _status;
 
-    public DialogueEvent(int id = 0, string sound = "", DialogueStatus status = DialogueStatus.Start, int index = 0)
+    /// 대화가 끝날시 플레이어 컨트롤 여부
+    /// status가 Start인 경우에만 체크
+    public bool _isControllable; 
+    
+    public DialogueEvent(int id = 0, string sound = "", DialogueStatus status = DialogueStatus.Start, int index = 0, bool isControllable = true)
     {
         _id = id;
         _sound = sound;
         _index = index;
         _status = status;
+        _isControllable = isControllable;
     }
 
     static DialogueEvent _event;
 
-    public static void Trigger(int id = 0, string sound = "", DialogueStatus status = DialogueStatus.Start, int index = 0)
+    public static void Trigger(int id = 0, string sound = "", DialogueStatus status = DialogueStatus.Start, int index = 0, bool isControllable = true)
     {
         _event._id = id;
         _event._sound = sound;
         _event._index = index;
         _event._status = status;
+        _event._isControllable = isControllable;
         EventManager.TriggerEvent(_event);
     }
 }
@@ -45,10 +51,14 @@ public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
 
     [Header("현재 대화 UI Prefab")]
     public GameObject _dialogueUIPrefab;
+
     [Header("현재 대화중인 NPC")]
     public Npc _currentNpc;
 
-    private void DialogueUpdate(int id, string sound, DialogueStatus status)
+    [Header("대화 끝날시 플레이어 컨트롤 여부")]
+    public bool _isControllable;
+
+    private void DialogueUpdate(int id, string sound, DialogueStatus status, bool isControllable)
     {
         if(!_npcs.ContainsKey(id))
         {
@@ -59,13 +69,14 @@ public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
         {
             case DialogueStatus.Start:
                 StartDialogue(id, sound);
+                _isControllable = isControllable;
                 break;
             case DialogueStatus.End:
                 EndDialogue();
                 break;
         }
     }
-    /// 대화창 객체 생성
+    #region 대화창 객체 생성
     private void CreateDialogueUI(int id, List<DialoguePage> textPages, string sound)
     {
         Debug.LogFormat("{0} 대화창 생성", id);
@@ -80,7 +91,9 @@ public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
         _curretDialogue = _currentDialogueUI.GetComponentInChildren<DialogueBox>();
         _curretDialogue.Reset(id, textPages, 0, sound);
     }
-    /// 대화창 리셋
+    #endregion
+
+    #region  대화창 리셋
     private void ResetDialogue(int id, List<DialoguePage> textPages, string sound)
     {
         Debug.LogFormat("{0} 대화창 초기화", id);
@@ -88,7 +101,9 @@ public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
         _curretDialogue = _currentDialogueUI.GetComponentInChildren<DialogueBox>();
         _curretDialogue.Reset(id, textPages, 0, sound);
     }
-    /// 대화창 시작
+    #endregion
+
+    #region  대화창 시작
     protected virtual void StartDialogue(int id, string sound)
     {
         _currentNpc = _npcs[id];
@@ -103,15 +118,18 @@ public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
             ResetDialogue(id, _currentNpc._textPages, sound);
         }
     }
-    /// 대화 종료
+    #endregion
+
+    #region  대화 종료
     protected virtual void EndDialogue()
     {
         if(_currentDialogueUI != null)
         {
             _currentDialogueUI.SetActive(false);
-            PlayerControllerEvent.Trigger(true);
+            PlayerControllerEvent.Trigger(_isControllable);
         }
     }
+    #endregion
 
     public static void AddNpc(Npc npc)
     {
@@ -123,7 +141,7 @@ public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
 
     public virtual void OnEvent(DialogueEvent dialogueEvent)
     {
-        DialogueUpdate(dialogueEvent._id, dialogueEvent._sound, dialogueEvent._status);
+        DialogueUpdate(dialogueEvent._id, dialogueEvent._sound, dialogueEvent._status, dialogueEvent._isControllable);
     }
 
     private void OnEnable() 

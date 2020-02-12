@@ -172,13 +172,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textPages: []
-  _typingDelay: 0.33
+  _typingDelay: 0.1
   _typingSoundName: 
   _isTextChanged: 0
   _isNextPage: 0
   _isLoop: 1
   _isStartFirst: 0
   _blinker: {fileID: 0}
+  _isEnd: 0
 --- !u!1 &3511568495215991660
 GameObject:
   m_ObjectHideFlags: 0

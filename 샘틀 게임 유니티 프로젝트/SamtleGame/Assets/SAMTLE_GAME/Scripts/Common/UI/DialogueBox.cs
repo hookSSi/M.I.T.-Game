@@ -18,6 +18,7 @@ public struct DialoguePage
 }
 
 [RequireComponent(typeof(TMP_Text))]
+[SelectionBase]
 public class DialogueBox : MonoBehaviour
 {
 	protected TMP_Text _textComponent;
