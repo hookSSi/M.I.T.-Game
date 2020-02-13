@@ -4257,63 +4257,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1300457271, guid: 6cdc17498de89644bac24e543b8058de, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 9.904
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300457271, guid: 6cdc17498de89644bac24e543b8058de, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.035
-      objectReference: {fileID: 0}
     - target: {fileID: 547110061143846333, guid: 6cdc17498de89644bac24e543b8058de,
         type: 3}
-      propertyPath: _isWaiting
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 547110061143846333, guid: 6cdc17498de89644bac24e543b8058de,
-        type: 3}
-      propertyPath: _textPages.Array.data[0]._text
-      value: "\uCCAB \uBC88\uC9F8 \uB300\uC0AC \uBD80\uB77C\uB974\u314F\uBE0C\u314F"
-      objectReference: {fileID: 0}
-    - target: {fileID: 547110061143846333, guid: 6cdc17498de89644bac24e543b8058de,
-        type: 3}
-      propertyPath: _textPages.Array.data[1]._text
-      value: "\uB450 \uBC88\uC9F8 \uB300\uC0AC \uBD80\uB77C\uB974\u314F\uBE0C\u314F"
-      objectReference: {fileID: 0}
-    - target: {fileID: 547110061143846333, guid: 6cdc17498de89644bac24e543b8058de,
-        type: 3}
-      propertyPath: _textPages.Array.data[2]._text
-      value: "\uC138 \uBC88\uC9F8 \uB300\uC0AC \uBD80\uB77C\uB974\u314F\uBE0C\u314F"
-      objectReference: {fileID: 0}
-    - target: {fileID: 547110061143846333, guid: 6cdc17498de89644bac24e543b8058de,
-        type: 3}
-      propertyPath: _textPages.Array.data[0]._duration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 547110061143846333, guid: 6cdc17498de89644bac24e543b8058de,
-        type: 3}
-      propertyPath: _textPages.Array.data[1]._duration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 547110061143846333, guid: 6cdc17498de89644bac24e543b8058de,
-        type: 3}
-      propertyPath: _textPages.Array.data[2]._duration
+      propertyPath: _textPages.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 547110061143846333, guid: 6cdc17498de89644bac24e543b8058de,
         type: 3}
       propertyPath: _textPages.Array.data[0]._delayDuration
-      value: 0.33
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 547110061143846333, guid: 6cdc17498de89644bac24e543b8058de,
+        type: 3}
+      propertyPath: _textPages.Array.data[0]._duration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 547110061143846333, guid: 6cdc17498de89644bac24e543b8058de,
         type: 3}
       propertyPath: _textPages.Array.data[1]._delayDuration
-      value: 0.33
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 547110061143846333, guid: 6cdc17498de89644bac24e543b8058de,
+        type: 3}
+      propertyPath: _textPages.Array.data[1]._duration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 547110061143846333, guid: 6cdc17498de89644bac24e543b8058de,
         type: 3}
       propertyPath: _textPages.Array.data[2]._delayDuration
-      value: 0.33
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 547110061143846333, guid: 6cdc17498de89644bac24e543b8058de,
+        type: 3}
+      propertyPath: _textPages.Array.data[2]._duration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 547110061143846333, guid: 6cdc17498de89644bac24e543b8058de,
+        type: 3}
+      propertyPath: _walkTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 547110061143846334, guid: 6cdc17498de89644bac24e543b8058de,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1837419332420388039, guid: 6cdc17498de89644bac24e543b8058de,
         type: 3}
@@ -4369,11 +4356,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6223479023184681662, guid: 6cdc17498de89644bac24e543b8058de,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 9.877
       objectReference: {fileID: 0}
     - target: {fileID: 6499820179062791909, guid: 6cdc17498de89644bac24e543b8058de,
         type: 3}
@@ -7802,6 +7784,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _walkCount
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970011912563169699, guid: a4f2b702027f1f64f873a64b31c138ca,
+        type: 3}
+      propertyPath: _walkTime
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4970011912563169724, guid: a4f2b702027f1f64f873a64b31c138ca,
         type: 3}
@@ -25602,7 +25589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1364985075780215
 GameObject:
   m_ObjectHideFlags: 0

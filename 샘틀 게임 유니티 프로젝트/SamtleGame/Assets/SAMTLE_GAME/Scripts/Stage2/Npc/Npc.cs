@@ -38,7 +38,6 @@ namespace MIT.SamtleGame.Stage2.NPC
         public float _walkSize = 1;
         public int _walkCount = 10;
         public float _walkTime = 0.1f;
-        public float _speed = 1;
         public Tag[] _obstacles;
 
         [Header("NPC 웨이포인트")]
@@ -55,6 +54,8 @@ namespace MIT.SamtleGame.Stage2.NPC
             _talkEvent._id = _id;
             DialogueManager.AddNpc(this);
             _animator = GetComponent<Animator>();
+
+            DataManager.JsonFileSave(_textPages, Application.dataPath + "/Json", this.gameObject.name);
         }
         #endregion
 
@@ -88,7 +89,7 @@ namespace MIT.SamtleGame.Stage2.NPC
                 }
             }
 
-            Vector2 walkAmount = dir * ( _walkSize / _walkCount ) * _speed;
+            Vector2 walkAmount = dir * ( _walkSize / _walkCount );
 
             while(true)
             {
@@ -115,8 +116,8 @@ namespace MIT.SamtleGame.Stage2.NPC
                 _currentDir = Maths.DirectionToVector2(dir);
 
                 /// 웨이포인트로 이동
-                float walkAmount = ( _walkSize / _walkCount ) * _speed;
-                while( Vector2.Distance(dest.position, transform.position) > walkAmount * 2 )
+                float walkAmount = _walkSize;
+                while( Vector2.Distance(transform.position, dest.position) > walkAmount )
                 {
                     yield return StartCoroutine(MoveRoutine(_currentDir));
                 }
@@ -146,7 +147,7 @@ namespace MIT.SamtleGame.Stage2.NPC
 
             var newNode = Instantiate(_nodePrefab);
             newNode.transform.SetParent(_nodeStorage);
-            newNode.transform.localPosition = new Vector3(0f, 0f, 0f);
+            newNode.transform.localPosition = _wayPoints[_wayPoints.Count - 1].localPosition;
             newNode.transform.localRotation = Quaternion.identity;
             _wayPoints.Add(newNode.transform);
 

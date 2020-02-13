@@ -41,8 +41,14 @@ namespace MIT.SamtleGame.Stage2.NPC
         protected override IEnumerator WayPointsMoveRoutine()
         {
             /// 플레이어에게 웨이 포인트 전달
-            _detectedPlayer.AddWayPoint(_wayPoints.ToArray());
+            _detectedPlayer.AddWayPoint(_wayPoints);
             _detectedPlayer.WayPointMove();
+
+            var prevWalkSize = _walkSize;
+            var prevWalkCount = _walkCount;
+            var prevWalkTime = _walkTime;
+
+            _walkTime = 0f;
 
             foreach(var dest in _wayPoints)
             {
@@ -50,19 +56,18 @@ namespace MIT.SamtleGame.Stage2.NPC
                 _currentDir = Maths.DirectionToVector2(dir);
 
                 /// 웨이포인트로 이동
-                float walkAmount = ( _walkSize / _walkCount ) * _speed * 2;
-                while( Vector2.Distance(dest.position, transform.position) > walkAmount )
+                float walkAmount = _walkSize / 2;
+                while( Vector2.Distance(transform.position, dest.position) > walkAmount )
                 {
                     yield return StartCoroutine(MoveRoutine(_currentDir));
                 }
             }
 
-            yield break;
-        }
+            _walkSize = prevWalkSize;
+            _walkCount = prevWalkCount;
+            _walkTime = prevWalkTime;
 
-        private void StartMove()
-        {
-            StartCoroutine("ActionRoutine");
+            yield break;
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 
+using TMPro;
 using MIT.SamtleGame.Tools;
 
 /// string을 대체할 예정

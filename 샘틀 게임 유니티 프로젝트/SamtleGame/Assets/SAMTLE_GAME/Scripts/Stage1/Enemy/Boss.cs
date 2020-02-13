@@ -99,9 +99,15 @@ namespace MIT.SamtleGame.Stage1
         {
             if(_isAlive && !_isDefending)
             {
-                ScoreUpEvent.Trigger(_score);
-                Instantiate(_hittedEffect, collisionObjectTransform);
-                StartCoroutine(DestoySelf(true));
+                _health -= 10;
+                BossHittedEvent.Trigger(_health);
+                
+                if(_health == 0)
+                {
+                    ScoreUpEvent.Trigger(_score);
+                    Instantiate(_hittedEffect, collisionObjectTransform);
+                    StartCoroutine(DestoySelf(true));
+                }
             }
         }
 

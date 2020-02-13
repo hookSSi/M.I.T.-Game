@@ -341,6 +341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueUIPrefab: {fileID: 0}
   _currentNpc: {fileID: 0}
+  _isControllable: 0
 --- !u!114 &1382240505
 MonoBehaviour:
   m_ObjectHideFlags: 0

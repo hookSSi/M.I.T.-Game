@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     public Transform _attackRange;
     public Vector2 _attackSize;
     [Tooltip("적의 데미지")]
-    public float _damage = 0.1f;
+    public int _damage = 10;
 
     [Header("스코어 관련 설정")]
     [Tooltip("잡으면 주는 스코어")]

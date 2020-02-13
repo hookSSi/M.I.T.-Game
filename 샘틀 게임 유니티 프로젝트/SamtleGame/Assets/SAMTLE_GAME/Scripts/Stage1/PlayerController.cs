@@ -10,8 +10,7 @@ namespace MIT.SamtleGame.Stage1
     [RequireComponent(typeof(Player))]
     public class PlayerController : Controller
     {
-        [SerializeField]
-        private int _playerHpCount = 10;
+        private Player _playerInfo;
         private float _immuneCurrentTime;
         private float _immuneCollTime = 1;
 
@@ -33,6 +32,7 @@ namespace MIT.SamtleGame.Stage1
 
         protected override void Initialization()
         {
+            _playerInfo = GetComponent<Player>();
             _playerAnimator = GetComponent<Animator>();
             _rigid = GetComponent<Rigidbody2D>();
             _crouchCol.enabled = false;
@@ -152,15 +152,15 @@ namespace MIT.SamtleGame.Stage1
             }
         }
 
-        public void Hitted(float damage)
+        public void Hitted(int damage)
         {
             if(_immuneCurrentTime <= 0)
             {
-                _playerHpCount--;
-                PlayerHittedEvent.Trigger(damage);
+                _playerInfo._currentHp -= damage;
+                PlayerHittedEvent.Trigger(_playerInfo._currentHp);
                 _immuneCurrentTime = _immuneCollTime;
 
-                if(_playerHpCount == 0)
+                if(_playerInfo._currentHp == 0)
                 {
                     _isAlive = false;
                     Dead();

@@ -5,41 +5,42 @@ using UnityEngine.UI;
 using TMPro;
 
 using MIT.SamtleGame.Tools;
+using MIT.SamtleGame.UI;
 
 namespace MIT.SamtleGame.Stage1
 {
     public struct PlayerHittedEvent
     {
-        public float _damage;
+        public int _playerHp;
 
-        public PlayerHittedEvent(float damage = 0)
+        public PlayerHittedEvent(int damage = 0)
         {
-            _damage = damage;
+            _playerHp = damage;
         }
 
         private static PlayerHittedEvent _event;
 
-        public static void Trigger(float damage = 0)
+        public static void Trigger(int damage = 0)
         {
-            _event._damage = damage;
+            _event._playerHp = damage;
             EventManager.TriggerEvent(_event);
         }
     }
 
     public struct BossHittedEvent
     {
-        public float _damage;
+        public int _bossHp;
 
-        public BossHittedEvent(float damage = 0)
+        public BossHittedEvent(int damage = 0)
         {
-            _damage = damage;
+            _bossHp = damage;
         }
 
         private static BossHittedEvent _event;
 
-        public static void Trigger(float damage = 0)
+        public static void Trigger(int damage = 0)
         {
-            _event._damage = damage;
+            _event._bossHp = damage;
             EventManager.TriggerEvent(_event);
         }
     }
@@ -68,8 +69,8 @@ namespace MIT.SamtleGame.Stage1
         private const int MAX_SCORE = 999999;
         private int _currentScore = 0;
 
-        public Slider _playerHpUI;
-        public Slider _bossHpUI;
+        public HealthBar _playerHpUI;
+        public HealthBar _bossHpUI;
         public TMP_Text _timeUI;
         public TMP_Text _score;
         public float _timeStart = 2000;
@@ -103,12 +104,12 @@ namespace MIT.SamtleGame.Stage1
 
         public virtual void OnEvent(PlayerHittedEvent playerHittedEvent)
         {
-            _playerHpUI.value -= playerHittedEvent._damage;
+            _playerHpUI.SetHealth(playerHittedEvent._playerHp);
         }
 
         public virtual void OnEvent(BossHittedEvent bossHittedEvent)
         {
-            _bossHpUI.value -= bossHittedEvent._damage;
+            _bossHpUI.SetHealth(bossHittedEvent._bossHp);
         }
 
         private string IntToScoreFormat(int score)

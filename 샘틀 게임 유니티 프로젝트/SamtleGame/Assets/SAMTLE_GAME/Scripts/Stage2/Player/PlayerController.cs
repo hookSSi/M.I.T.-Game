@@ -44,8 +44,6 @@ namespace MIT.SamtleGame.Stage2
         public float _walkSize = 1;
         public int _walkCount = 10;
         public float _walkTime = 0.1f;
-        public float _speed = 1;
-        //public Vector2 _colSize;
         public float _jumpPower = 30f;
 
         [Header("웨이포인트")]
@@ -154,7 +152,7 @@ namespace MIT.SamtleGame.Stage2
             }
 
             _isMoving = true;
-            Vector2 walkAmount = _currentDir * ( _walkSize / _walkCount ) * _speed;
+            Vector2 walkAmount = _currentDir * ( _walkSize / _walkCount );
 
             while(true)
             {
@@ -174,7 +172,7 @@ namespace MIT.SamtleGame.Stage2
         #endregion
 
         #region 웨이포인트 이동
-        public void AddWayPoint(Transform[] wayPoints)
+        public void AddWayPoint(List<Transform> wayPoints)
         {
             foreach(var wayPoint in wayPoints)
             {
@@ -189,20 +187,32 @@ namespace MIT.SamtleGame.Stage2
 
         public virtual IEnumerator WayPointsMoveRoutine()
         {
+            var prevWalkSize = _walkSize;
+            var prevWalkCount = _walkCount;
+            var prevWalkTime = _walkTime;
+
+            _walkTime = 0f;
+
             while(_wayPoints.Count > 0 && !_isControllable)
             {
                 Transform wayPoint = _wayPoints.Peek();
+
                 Direction dir = Maths.Vector2ToDirection(wayPoint.position - transform.position);
                 _currentDir = Maths.DirectionToVector2(dir);
                 
                 /// 웨이포인트로 이동
-                float walkAmount = ( _walkSize / _walkCount ) * _speed * 2;
-                while( Vector2.Distance(wayPoint.position, transform.position) > walkAmount && !_isControllable)
+                float walkAmount = _walkSize / 2;
+                while( Vector2.Distance(transform.position, wayPoint.position) > walkAmount && !_isControllable)
                 {
-                    yield return StartCoroutine(MoveRoutine(true));
+                    yield return StartCoroutine(MoveRoutine(false));
                 }
+
                 _wayPoints.Dequeue();
             }
+
+            _walkSize = prevWalkSize;
+            _walkCount = prevWalkCount;
+            _walkTime = prevWalkTime;
 
             _wayPoints.Clear();
             yield break;
