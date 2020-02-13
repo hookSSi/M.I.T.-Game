@@ -6,17 +6,12 @@ using UnityEngine.EventSystems;
 
 namespace MIT.SamtleGame.Stage2.Pokemon
 {
-    [System.Serializable]
-    public class BattleEvent : UnityEvent<Pokemon, Pokemon> { }
-
     public class PokemonBattleItemManager : MonoBehaviour
     {
-        private PokemonBattleManager _manager;
-
         [SerializeField] private GameObject _itemPrefab;
         
         [SerializeField] private BattleItem _dummyItem;
-        [SerializeField] private List<BattleItem> _itemList;
+        [SerializeField] private List<BattleItem> _itemList = new List<BattleItem>();
 
         public string _previousItemName { get; private set; }
 
@@ -25,14 +20,15 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _itemList = new List<BattleItem>();
 
             // 아이템 추가
+            var item = new Items();
             AddItem("전 부회장의 3신기", "기묘한 옛것의 기운이 느껴지는 물건이다...", 5, 
-                BattleItem.ItemType.Consume, Items.TheTrinity);
+                BattleItem.ItemType.Consume, item.TheTrinity);
 
             AddItem("전 부회장의 3신기의 사본A", "복사본 1", 1,
-                BattleItem.ItemType.Consume, Items.TheTrinity);
+                BattleItem.ItemType.Consume, item.TheTrinity);
 
             AddItem("전 부회장의 3신기의 사본B", "복사본 2", 7, 
-                BattleItem.ItemType.Consume, Items.TheTrinity);
+                BattleItem.ItemType.Consume, item.TheTrinity);
         }
 
         public void SetFirstItem()
@@ -64,13 +60,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                     _itemList.FindIndex(item => { return item._itemName == usingItem._itemName; });
                 _previousItemName = usingItem._itemName;
 
-                _manager.UseItem(usingItem._itemEvent);
-
-                Debug.Log("이전 아이템 개수 : " + usingItem._itemCount);
+                PokemonBattleManager.Instance.UseItem(usingItem._itemEvent);
 
                 _itemList[index].SetCount(-1);
-
-                Debug.Log("현재 아이템 개수 : " + usingItem._itemCount);
 
                 if (usingItem._itemCount <= 0)
                 {
@@ -100,7 +92,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             newItem.SetValues(itemName, itemCaption, itemCount, itemType, newItemEvent);
             newItem.UpdateText();
             newItem.AddEvents();
-            
+
+            SetFirstItem();
+
             _itemList.Add(newItem);
         }
 
@@ -133,6 +127,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
                 _itemList.RemoveAt(index);
                 Destroy(item.gameObject);
+
+                SetFirstItem();
             }
             else
             {

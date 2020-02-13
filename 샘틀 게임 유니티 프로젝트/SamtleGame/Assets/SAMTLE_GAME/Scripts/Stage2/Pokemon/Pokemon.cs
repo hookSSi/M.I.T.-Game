@@ -38,8 +38,26 @@ namespace MIT.SamtleGame.Stage2.Pokemon
     {
         [SerializeField]
         private PokemonInfo _info;
-
         public PokemonInfo Info { get => _info; }
+
+        private float _health;
+        public float Health
+        {
+            get
+            {
+                return _health;
+            }
+            set
+            {
+                _health = value;
+                if (_health < 0f) _health = 0f;
+            }
+        }
+        
+        public float MaxHealth
+        {
+            get { return _info._health; }
+        }
 
         public Skill UseSkill(int n)
         {
@@ -54,6 +72,15 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public AudioClip Cry()
         {
             return _info._cryingSound;
+        }
+
+        public void SetInfo(PokemonInfo newInfo)
+        {
+            if (newInfo == null)
+                return;
+
+            _info = newInfo;
+            Health = MaxHealth;
         }
     }
 }

@@ -226,6 +226,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4917301245617319877}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &829156951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6855091459742909747, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4917301245617319877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4069acebd6ad1954db91fd3bcc6ada80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &908556797
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,6 +538,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1762143250 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8466299005487996077, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4917301245617319877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4069acebd6ad1954db91fd3bcc6ada80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1920615998 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4917301245897720652, guid: 487c3d8b94b2f52449e7550a2dc4161c,
@@ -571,10 +595,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiManager: {fileID: 1920615998}
   _itemManager: {fileID: 1168953939}
-  nextScripts:
-  - 
-  - 
-  - 
+  _myPokemon: {fileID: 829156951}
+  _enemyPokemon: {fileID: 1762143250}
+  _textList: []
 --- !u!4 &2077277600
 Transform:
   m_ObjectHideFlags: 0
@@ -601,7 +624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f195c73890ae6fb4993654116184ac1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pokemonList:
+  _list:
   - _key: C++
     _info:
       _frontImage: {fileID: 0}
@@ -610,26 +633,37 @@ MonoBehaviour:
       _name: C++
       _health: 100
       _skills:
-      - _name: 
-        _count: 
+      - _name: "\uD280\uC5B4\uC624\uB974\uAE30"
+        _count: 10
         _battleEvent:
           m_PersistentCalls:
-            m_Calls: []
-  - _key: 
+            m_Calls:
+            - m_Target: {fileID: 2077277602}
+              m_MethodName: Splash
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+  - _key: Python
     _info:
       _frontImage: {fileID: 0}
       _backImage: {fileID: 0}
       _cryingSound: {fileID: 0}
-      _name: 
-      _health: 0
+      _name: Python
+      _health: 100
       _skills: []
-  - _key: 
+  - _key: Java
     _info:
       _frontImage: {fileID: 0}
       _backImage: {fileID: 0}
       _cryingSound: {fileID: 0}
-      _name: 
-      _health: 0
+      _name: Java
+      _health: 100
       _skills: []
   - _key: OldCom
     _info:
@@ -639,18 +673,29 @@ MonoBehaviour:
       _name: "\uC624\uB798\uB41C \uB3D9\uBC29\uCEF4"
       _health: 100
       _skills:
-      - _name: 
-        _count: 
+      - _name: "\uD280\uC5B4\uC624\uB974\uAE30 \uC5F4\uD654\uD310"
+        _count: 10
         _battleEvent:
           m_PersistentCalls:
-            m_Calls: []
-  - _key: 
+            m_Calls:
+            - m_Target: {fileID: 2077277602}
+              m_MethodName: Splash
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+  - _key: "\uB5BC\uAEC4\uB8E9"
     _info:
       _frontImage: {fileID: 0}
       _backImage: {fileID: 0}
       _cryingSound: {fileID: 0}
-      _name: 
-      _health: 0
+      _name: "\uBBFC\uC9C0\uC758 \uACE0\uBA10\uBBF8"
+      _health: 10000
       _skills: []
 --- !u!114 &2077277602
 MonoBehaviour:

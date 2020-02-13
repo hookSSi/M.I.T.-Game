@@ -1,5 +1,6 @@
 ﻿using MIT.SamtleGame.DesignPattern;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,6 +13,10 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         SelectAction, SelectSkill, SelectItem,
         Act, End
     }
+
+    [System.Serializable]
+    public class BattleEvent : UnityEvent<Pokemon, Pokemon> { }
+
     public class PokemonBattleManager : Singleton<PokemonBattleManager>
     {
         private Tool.PokemonBattleEventSystem _eventSystem;
@@ -19,14 +24,19 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public PokemonBattleUIManager _uiManager;
         public PokemonBattleItemManager _itemManager;
 
-        public Pokemon _myPokemon { get; private set; }
-        public Pokemon _enemyPokemon { get; private set; }
+        public Pokemon _myPokemon;
+        public Pokemon _enemyPokemon;
 
         public BattleState _state { get; private set; }
 
-        public string[] nextScripts = new string[3];
+        public List<string> _textList = new List<string>();
 
-        public bool _isGameOver { get { return _myPokemon.Info._health <= 0 || _enemyPokemon.Info._health <= 0; }}
+        public bool _isGameOver { get { return _myPokemon.Health <= 0 || _enemyPokemon.Health <= 0; }}
+
+        public static void AddNextText(string nextText)
+        {
+            PokemonBattleManager.Instance._textList.Add(nextText);
+        }
 
         private void Start()
         {
@@ -47,27 +57,44 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             // 전투 시작(테스트용)
             var pokemonManager = GetComponent<PokemonManager>();
 
-            PokemonInfo playerPokemonInfo = pokemonManager._pokemonList[pokemonManager._pokemonList.FindIndex
-                ((element) => { return element._key == "C++"; })]._info;
-            PokemonInfo enemyPokemonInfo = pokemonManager._pokemonList[pokemonManager._pokemonList.FindIndex
-                ((element) => { return element._key == "OldCom"; })]._info;
-
-            StartBattle(_myPokemon, _enemyPokemon);
+            StartBattle("C++", "OldCom");
         }
 
-        public void StartBattle(Pokemon myPokemon, Pokemon enemyPokemon)
+        public void StartBattle(string myPokemonName, string enemyPokemonName)
         {
-            _myPokemon = myPokemon;
-            _enemyPokemon = enemyPokemon;
+            PokemonInfo myInfo, enemyInfo;
+
+            if (!PokemonManager.GetPokemonInfo(myPokemonName, out myInfo))
+                return;
+
+            if (!PokemonManager.GetPokemonInfo(enemyPokemonName, out enemyInfo))
+                return;
+
+            _myPokemon.SetInfo(myInfo);
+            _enemyPokemon.SetInfo(enemyInfo);
 
             _state = BattleState.Start;
 
-            nextScripts = new string[3];
+            _uiManager._mainUI.UpdateEnemyPokemonNameText(_enemyPokemon.Info._name);
+            _uiManager._mainUI.UpdateEnemyHpUI(_enemyPokemon.Health, _enemyPokemon.Health, false);
+            _uiManager._mainUI.UpdateEnemyLevelText(10);
+
+            _uiManager._mainUI.UpdatePlayerPokemonNameText(_myPokemon.Info._name);
+            _uiManager._mainUI.UpdatePlayerHpUI(_myPokemon.Health, _myPokemon.Health, false);
+            _uiManager._mainUI.UpdatePlayerExpUI(0f, 100f, false);
+            _uiManager._mainUI.UpdatePlayerLevelText(10);
+
+            _uiManager._mainUI.SetActiveEnemyPokemonUI(true);
+            _uiManager._mainUI.SetActivePlayerPokemonUI(true);
+
+            _textList = new List<string>();
 
             Debug.Log("배틀 시작!");
 
             _uiManager.gameObject.SetActive(true);
-            _uiManager._bottomUI._skill.SetPokemon(myPokemon);
+            _uiManager._bottomUI._skill.Init();
+            _uiManager._bottomUI._skill.SetPokemon(_myPokemon);
+            _uiManager._bottomUI._skill.UpdateText();
 
             SelectAction();
         }
@@ -134,8 +161,10 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         {
             for (int i = 0; i < 2; i++)
             {
-                float previousPlayerHealth = _myPokemon.Info._health;
-                float previousEnemyHealth = _enemyPokemon.Info._health;
+                float previousPlayerHealth = _myPokemon.Health;
+                float previousEnemyHealth = _enemyPokemon.Health;
+
+                _textList.Clear();
 
                 if (i == 0)
                     playerEvent.Invoke(_myPokemon, _enemyPokemon);
@@ -143,13 +172,21 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                     enemyEvent.Invoke(_enemyPokemon, _myPokemon);
 
                 // 대사 1(예정)(일단 전체 출력)
-                Debug.Log((i == 0 ? "플레이어" : "적") + " 턴 : " + nextScripts);
 
-                if (_myPokemon.Info._health != previousPlayerHealth)
-                    _uiManager._mainUI.UpdatePlayerHpUI(_myPokemon.Info._health, 100f, true);
+#if UNITY_EDITOR
+                Debug.Log((i == 0 ? "플레이어" : "적") + " 턴 : ");
 
-                if (_enemyPokemon.Info._health != previousEnemyHealth)
-                    _uiManager._mainUI.UpdateEnemyHpUI(_enemyPokemon.Info._health, 100f, true);
+                for (int j = 0; j < _textList.Count; j++)
+                {
+                    Debug.Log(_textList[j]);
+                }
+#endif
+
+                if (_myPokemon.Health != previousPlayerHealth)
+                    _uiManager._mainUI.UpdatePlayerHpUI(_myPokemon.Health, _myPokemon.MaxHealth, true);
+
+                if (_enemyPokemon.Health != previousEnemyHealth)
+                    _uiManager._mainUI.UpdateEnemyHpUI(_enemyPokemon.Health, _enemyPokemon.MaxHealth, true);
 
                 yield return null;
 
@@ -179,7 +216,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         {
             _state = BattleState.End;
             
-            if (_myPokemon.Info._health > 0f)
+            if (_myPokemon.Health > 0f)
             {
                 Debug.Log("승리!");
             }

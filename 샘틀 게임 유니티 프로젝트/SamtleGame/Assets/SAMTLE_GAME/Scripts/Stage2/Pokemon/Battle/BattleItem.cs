@@ -77,46 +77,34 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         }
 
         // 전 부회장의 3신기
-        public static void TheTrinity(Pokemon myPokemon, Pokemon enemyPokemon)
+        public void TheTrinity(Pokemon myPokemon, Pokemon enemyPokemon)
         {
-            string[] dialog = PokemonBattleManager.Instance.nextScripts;
+            string dialog;
             // 확률에 따라 플레이어의 체력이 1/3이 되거나 적의 체력이 1/3이 되거나 아무 일도 일어나지 않는다.
-            int nextEffect = Random.Range(1, 4);
+            // int nextEffect = Random.Range(1, 4);
+            // 임시로 1로 지정했음!
+            int nextEffect = 1;
+            float damage;
 
-            float currentHealth;
-            float damage = 100f / 3f;
-
-            dialog = new string[2];
-            FirstScript(out dialog[0]);
+            FirstScript(out dialog);
+            PokemonBattleManager.AddNextText(dialog);
 
             switch (nextEffect)
             {
                 case 1:
-                    currentHealth = myPokemon.Info._health;
-                    currentHealth -= damage;
+                    damage = myPokemon.MaxHealth / 3f;
+                    myPokemon.Health -= damage;
 
-                    if (currentHealth < 0f)
-                        currentHealth = 0f;
-
-                    myPokemon.Info._health = currentHealth;
-
-                    dialog[1] = "제 1신기로 인해 " + myPokemon.Info._name +
-                        "가 피해를 입었다...";
+                    PokemonBattleManager.AddNextText("제 1신기로 인해 " + myPokemon.Info._name + "가 피해를 입었다...");
                     break;
                 case 2:
-                    currentHealth = enemyPokemon.Info._health;
-                    currentHealth -= damage;
+                    damage = enemyPokemon.MaxHealth / 3f;
+                    enemyPokemon.Health -= damage;
 
-                    if (currentHealth < 0f)
-                        currentHealth = 0f;
-
-                    enemyPokemon.Info._health = currentHealth;
-
-                    dialog[1] = "제 2신기로 인해 " + enemyPokemon.Info._name +
-                        "가 피해를 입었다!";
+                    PokemonBattleManager.AddNextText("제 2신기로 인해 " + enemyPokemon.Info._name + "가 피해를 입었다!");
                     break;
                 case 3:
-                    dialog[1] = "제 3신기로 인해 분위기가 스산해졌다...";
+                    PokemonBattleManager.AddNextText("제 3신기로 인해 분위기가 스산해졌다...");
                     break;
             }
         }

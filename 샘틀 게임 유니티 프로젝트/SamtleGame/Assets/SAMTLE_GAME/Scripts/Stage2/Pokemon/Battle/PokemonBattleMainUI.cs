@@ -247,6 +247,12 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 }
                 if (text != null) text.text = (int)currentValue + "/" + (int)slider.maxValue;
 
+                if (currentValue <= 0f)
+                {
+                    newValue = 0f;
+                    break;
+                }
+
                 yield return null;
             }
 
@@ -269,11 +275,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             var colors = slider.colors;
 
             if (valueRatio > 0.5f)
-                colors.normalColor = Color.green;
+                colors.disabledColor = Color.green;
             else if (valueRatio > 0.2f)
-                colors.normalColor = Color.yellow;
+                colors.disabledColor = Color.yellow;
             else
-                colors.normalColor = Color.red;
+                colors.disabledColor = Color.red;
 
             slider.colors = colors;
         }
