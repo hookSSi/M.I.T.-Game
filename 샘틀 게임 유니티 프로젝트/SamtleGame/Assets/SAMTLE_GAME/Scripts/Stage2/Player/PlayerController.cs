@@ -47,7 +47,7 @@ namespace MIT.SamtleGame.Stage2
         public float _jumpPower = 30f;
 
         [Header("웨이포인트")]
-        public Queue<Transform> _wayPoints = new Queue<Transform>();
+        public Queue<WayPoint> _wayPoints = new Queue<WayPoint>();
 
         [Header("충돌되는 태그")]
         public Tag[] _obstacles;
@@ -123,6 +123,7 @@ namespace MIT.SamtleGame.Stage2
             {
                 if(obj.collider.tag == "Npc")
                 {
+                    /// if readyToTalk
                     Npc npc = obj.collider.GetComponent<Npc>();
                     Debug.LogFormat("Npc({0})와 대화 시작", npc._id);
                     npc.SetDirection(_currentDir * -1);
@@ -172,7 +173,7 @@ namespace MIT.SamtleGame.Stage2
         #endregion
 
         #region 웨이포인트 이동
-        public void AddWayPoint(List<Transform> wayPoints)
+        public void AddWayPoint(List<WayPoint> wayPoints)
         {
             foreach(var wayPoint in wayPoints)
             {
@@ -195,18 +196,21 @@ namespace MIT.SamtleGame.Stage2
 
             while(_wayPoints.Count > 0 && !_isControllable)
             {
-                Transform wayPoint = _wayPoints.Peek();
+                WayPoint wayPoint = _wayPoints.Peek();
+                Transform wayPointTransform = wayPoint.transform;
 
-                Direction dir = Maths.Vector2ToDirection(wayPoint.position - transform.position);
+                Direction dir = Maths.Vector2ToDirection(wayPointTransform.position - transform.position);
                 _currentDir = Maths.DirectionToVector2(dir);
                 
                 /// 웨이포인트로 이동
                 float walkAmount = _walkSize / 2;
-                while( Vector2.Distance(transform.position, wayPoint.position) > walkAmount && !_isControllable)
+                while( Vector2.Distance(transform.position, wayPointTransform.position) > walkAmount && !_isControllable)
                 {
                     yield return StartCoroutine(MoveRoutine(false));
                 }
-
+                
+                _currentDir = Maths.DirectionToVector2(wayPoint._dir);
+                yield return wayPoint.Trigger(this);
                 _wayPoints.Dequeue();
             }
 

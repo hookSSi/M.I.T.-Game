@@ -16,7 +16,18 @@ public class NodeGenerateButton : Editor
         GrandFather generator = (GrandFather)target;
         if(GUILayout.Button("웨이포인트 생성", GUILayout.Width(120), GUILayout.Height(30)))
         {
-            generator.GenerateNodes();
+            generator.GenerateWayPoint();
+        }
+        
+        GUILayout.FlexibleSpace();
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.FlexibleSpace();
+
+        if(GUILayout.Button("플레이어를 위한 웨이포인트 생성", GUILayout.Width(240), GUILayout.Height(30)))
+        {
+            generator.GenerateWayPointForPlayer();
         }
         
         GUILayout.FlexibleSpace();

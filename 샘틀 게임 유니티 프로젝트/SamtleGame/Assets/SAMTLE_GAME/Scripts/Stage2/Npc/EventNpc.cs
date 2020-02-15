@@ -21,13 +21,13 @@ namespace MIT.SamtleGame.Stage2.NPC
     {
         public bool _isWaiting = true;
 
-        [Header("플레이어 감지 범위")]
+        [Header("플레이어 감지 범위"), Space(20)]
         public float _detectRange; // 발견 범위
         public string _detectSound; // 발견했을 때 사운드
         public GameObject _reactMark; // 발견했을 때 표시
         public Transform _reactMarkDest; // 느낌표 목표 위치
 
-        [Header("감지된 플레이어")]
+        [Header("감지된 플레이어"), Space(20)]
         [SerializeField]
         protected PlayerController _detectedPlayer;
 

@@ -40,11 +40,11 @@ namespace MIT.SamtleGame.Stage2.NPC
         public float _walkTime = 0.1f;
         public Tag[] _obstacles;
 
-        [Header("NPC 웨이포인트")]
+        [Header("NPC 웨이포인트"), Space(20)]
         [SerializeField]
-        public Transform _nodeStorage;
-        public GameObject _nodePrefab;
-        public List<Transform> _wayPoints = new List<Transform>();
+        public GameObject _wayPointPrefab;
+        public Transform _wayPointStorage;
+        public List<WayPoint> _wayPoints = new List<WayPoint>();
         [ColorUsage(false)]
         public Color _wayPointsGizmoColor = Color.yellow;
 
@@ -52,7 +52,7 @@ namespace MIT.SamtleGame.Stage2.NPC
         protected virtual void Initialization() 
         {
             _talkEvent._id = _id;
-            DialogueManager.AddNpc(this);
+            GameManager.Instance.AddNpc(this);
             _animator = GetComponent<Animator>();
 
             DataManager.JsonFileSave(_textPages, Application.dataPath + "/Json", this.gameObject.name);
@@ -110,17 +110,21 @@ namespace MIT.SamtleGame.Stage2.NPC
         #region  웨이포인트 이동
         protected virtual IEnumerator WayPointsMoveRoutine()
         {
-            foreach(var dest in _wayPoints)
+            foreach(var wayPoint in _wayPoints)
             {
-                Direction dir = Maths.Vector2ToDirection(dest.position - transform.position);
+
+                Direction dir = Maths.Vector2ToDirection(wayPoint.transform.position - transform.position);
                 _currentDir = Maths.DirectionToVector2(dir);
 
                 /// 웨이포인트로 이동
-                float walkAmount = _walkSize;
-                while( Vector2.Distance(transform.position, dest.position) > walkAmount )
+                float walkAmount = _walkSize / 2;
+                while( Vector2.Distance(transform.position, wayPoint.transform.position) > walkAmount )
                 {
                     yield return StartCoroutine(MoveRoutine(_currentDir));
                 }
+                
+                _currentDir = Maths.DirectionToVector2(wayPoint._dir);
+                yield return wayPoint.Trigger(this);
             }
 
             yield break;
@@ -134,8 +138,14 @@ namespace MIT.SamtleGame.Stage2.NPC
         }
         #endregion
 
+        public void ChangeTextPage(List<DialoguePage> textPage)
+        {
+            //DataManager.JsonFileSave(_textPages, "Json", textPage[0]._text);
+            _textPages = textPage;
+        }
+
         #region  스크립트 사용 편의성 관련
-        public void GenerateNodes()
+        public void GenerateWayPoint()
         {
             for(var i = _wayPoints.Count - 1; i > -1; i--)
             {
@@ -145,13 +155,13 @@ namespace MIT.SamtleGame.Stage2.NPC
                     _wayPoints[i].name = string.Format("노드 - {0}", i + 1);
             }
 
-            var newNode = Instantiate(_nodePrefab);
-            newNode.transform.SetParent(_nodeStorage);
-            newNode.transform.localPosition = _wayPoints[_wayPoints.Count - 1].localPosition;
-            newNode.transform.localRotation = Quaternion.identity;
-            _wayPoints.Add(newNode.transform);
+            var newWayPoint = Instantiate(_wayPointPrefab);
+            newWayPoint.transform.SetParent(_wayPointStorage);
+            newWayPoint.transform.localPosition = _wayPoints[_wayPoints.Count - 1].transform.localPosition;
+            newWayPoint.transform.localRotation = Quaternion.identity;
+            _wayPoints.Add(newWayPoint.GetComponent<WayPoint>());
 
-            newNode.name = string.Format("노드 - {0}", _wayPoints.Count);
+            newWayPoint.name = string.Format("노드 - {0}", _wayPoints.Count);
         }
 
         protected virtual void OnDrawGizmosSelected() 
@@ -164,8 +174,8 @@ namespace MIT.SamtleGame.Stage2.NPC
             var prevNode = this.transform;
             foreach(var node in _wayPoints)
             {
-                Gizmos.DrawLine(prevNode.position, node.position);
-                prevNode = node;
+                Gizmos.DrawLine(prevNode.position, node.transform.position);
+                prevNode = node.transform;
             }
         }
         #endregion

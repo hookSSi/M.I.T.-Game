@@ -25,7 +25,7 @@ namespace MIT.SamtleGame.Tools
         {
             string jsonData = JsonUtility.ToJson(obj);
 
-            FileStream stream = new FileStream(string.Format("{0}/{1}.json", filePath, fileName), FileMode.Create);
+            FileStream stream = new FileStream(string.Format("{0}/{1}.json", filePath, fileName), FileMode.CreateNew);
             byte[] data = Encoding.UTF8.GetBytes(jsonData);
             stream.Write(data, 0, data.Length);
             stream.Close();
@@ -34,7 +34,7 @@ namespace MIT.SamtleGame.Tools
         {
             string jsonData = JsonUtility.ToJson(new Serialization<T>(obj));
 
-            FileStream stream = new FileStream(string.Format("{0}/{1}.json", filePath, fileName), FileMode.Create);
+            FileStream stream = new FileStream(string.Format("{0}/{1}.json", filePath, fileName), FileMode.CreateNew);
             byte[] data = Encoding.UTF8.GetBytes(jsonData);
             stream.Write(data, 0, data.Length);
             stream.Close();

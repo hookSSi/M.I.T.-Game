@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4049918091295042916}
-  - component: {fileID: 8056963716094833999}
+  - component: {fileID: -1247874961501132942}
   m_Layer: 0
-  m_Name: Node
+  m_Name: WayPointForNpc
   m_TagString: WayPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8056963716094833999
+--- !u!114 &-1247874961501132942
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,8 +40,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4518819405550349199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d2fe0b43fef4c14ab52394d98bed008, type: 3}
+  m_Script: {fileID: 11500000, guid: 5087894a792bb3944bf7db5ea07f7748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _gizmoColor: {r: 0, g: 0, b: 1, a: 1}
   _gizmoRadius: 0.1
+  _type: 0
+  _textPages: []
+  _dir: 0

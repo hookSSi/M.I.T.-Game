@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using MIT.SamtleGame.Tools;
+using MIT.SamtleGame.DesignPattern;
 using MIT.SamtleGame.Stage2.NPC;
 using MIT.SamtleGame.Stage2;
 using TMPro;
@@ -43,11 +44,10 @@ public struct DialogueEvent
     }
 }
 
-public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
+public class DialogueManager : Singleton<DialogueManager>, EventListener<DialogueEvent>
 {
-    private static Dictionary<int, Npc> _npcs = new Dictionary<int, Npc>();
-    private static DialogueBox _curretDialogue;
-    private static GameObject _currentDialogueUI; /// 현재 UI 객체
+    private DialogueBox _curretDialogue;
+    private GameObject _currentDialogueUI; /// 현재 UI 객체
 
     [Header("현재 대화 UI Prefab")]
     public GameObject _dialogueUIPrefab;
@@ -58,9 +58,11 @@ public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
     [Header("대화 끝날시 플레이어 컨트롤 여부")]
     public bool _isControllable;
 
+    public bool _isEnd = true; // 대화가 종료된 상태인지?
+
     private void DialogueUpdate(int id, string sound, DialogueStatus status, bool isControllable)
     {
-        if(!_npcs.ContainsKey(id))
+        if(!GameManager.Instance._npcs.ContainsKey(id))
         {
             return;
         }
@@ -106,7 +108,8 @@ public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
     #region  대화창 시작
     protected virtual void StartDialogue(int id, string sound)
     {
-        _currentNpc = _npcs[id];
+        _isEnd = false;
+        _currentNpc = GameManager.Instance._npcs[id];
         
         if(_dialogueUIPrefab != _currentNpc._dialogueUIPrefab)
         {
@@ -125,19 +128,12 @@ public class DialogueManager : MonoBehaviour, EventListener<DialogueEvent>
     {
         if(_currentDialogueUI != null)
         {
+            _isEnd = true;
             _currentDialogueUI.SetActive(false);
             PlayerControllerEvent.Trigger(_isControllable);
         }
     }
     #endregion
-
-    public static void AddNpc(Npc npc)
-    {
-        if(!_npcs.ContainsKey(npc._id))
-        {
-            _npcs.Add(npc._id, npc);
-        }
-    }
 
     public virtual void OnEvent(DialogueEvent dialogueEvent)
     {

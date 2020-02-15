@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Profiling;
+using UnityEngine.Tilemaps;
 
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace MIT.SamtleGame.Tools
         private void Start() {
             this.DoProfile(typeof(Sprite));
             this.DoProfile(typeof(Collider2D));
+            this.DoProfile(typeof(TilemapCollider2D));
         }
 
         public void DoProfile(System.Type type)
@@ -40,11 +42,10 @@ namespace MIT.SamtleGame.Tools
                     sb.Append(memTexture/1024);
                     sb.Append("KB");
                     sb.Append("\n");
-
                 }
             }
 
-            Debug.Log("Texture2DInspect:"+sb.ToString());
+            Debug.Log("Inspect: "+sb.ToString());
         }
     }
 }
