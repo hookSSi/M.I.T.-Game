@@ -22,6 +22,7 @@ public struct DialoguePage
 public class DialogueBox : MonoBehaviour
 {
 	protected TMP_Text _textComponent;
+	[SerializeField]
 	protected int _currentPage = 0;
 	protected int _id;
 	protected float _delayDuration = 0.33f;
@@ -42,6 +43,7 @@ public class DialogueBox : MonoBehaviour
 	{
 		if(_textComponent == null)
 			_textComponent = gameObject.GetComponent<TMP_Text>();
+
 		_textComponent.text = _textPages[_currentPage]._text;
 		_delayDuration = _textPages[_currentPage]._delayDuration;
 		_duration = _textPages[_currentPage]._duration;

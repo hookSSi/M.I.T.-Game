@@ -14,7 +14,7 @@ namespace MIT.SamtleGame.Tools
         public EventType _type;
         public Direction _dir;
         public List<DialoguePage> _textPages;
-        public int _id = 1;
+        public int _id = -1;
 
         public virtual Coroutine Trigger(MonoBehaviour mono)
         {
@@ -34,6 +34,7 @@ namespace MIT.SamtleGame.Tools
 
         protected virtual IEnumerator Talk()
         {
+            /// id가 존재하는 걸로 Player가 접근하려고 하면 버그일어남
             if(DialogueManager.Instance._isEnd)
             {
                 Debug.Log("대화");

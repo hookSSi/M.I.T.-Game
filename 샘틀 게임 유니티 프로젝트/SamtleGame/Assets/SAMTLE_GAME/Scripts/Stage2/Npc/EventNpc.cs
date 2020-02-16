@@ -100,7 +100,7 @@ namespace MIT.SamtleGame.Stage2.NPC
             yield break;
         }
 
-        protected virtual IEnumerator WaitUntillTalkEnd()
+        protected virtual IEnumerator WaitUntillTalkEnd(float duration = 1f)
         {
             NpcDialogueBox dialogueBox = (NpcDialogueBox)FindObjectOfType(typeof(NpcDialogueBox));
 
@@ -109,6 +109,18 @@ namespace MIT.SamtleGame.Stage2.NPC
                 yield return null;
             }
 
+            yield return new WaitForSeconds(duration);
+            yield break;
+        }
+
+        protected virtual void PokemonBattle()
+        {
+            Debug.Log("포켓몬 배틀!");
+        }
+
+        protected virtual IEnumerator WaitUntillBattleEnd(float duration = 1f)
+        {
+            yield return new WaitForSeconds(duration);
             yield break;
         }
 
