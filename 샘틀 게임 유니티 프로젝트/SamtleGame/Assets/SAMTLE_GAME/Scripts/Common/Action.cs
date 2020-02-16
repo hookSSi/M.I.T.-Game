@@ -10,7 +10,7 @@ namespace MIT.SamtleGame.Tools
     public enum Direction
     {
         UP,
-        DONW,
+        DOWN,
         RIGHT,
         LEFT,
         NONE

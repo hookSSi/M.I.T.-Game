@@ -14,9 +14,11 @@ namespace MIT.SamtleGame.Stage2.NPC
     public class GrandFather : EventNpc
     {
         [Header("플레이어를 위한 웨이포인트"), Space(20)]
-        public List<WayPoint> _wayPointForPlayer;
+        public List<WayPoint> _wayPointsForPlayer;
         public GameObject _wayPointForPlayerPrefab;
         public Transform _wayPointForPlayerStorage;
+        [ColorUsage(false)]
+        public Color _wayPointsForPlayerGizmoColor = Color.yellow;
 
         protected override void Update() 
         {
@@ -46,7 +48,7 @@ namespace MIT.SamtleGame.Stage2.NPC
         protected override IEnumerator WayPointsMoveRoutine()
         {
             /// 플레이어에게 웨이 포인트 전달
-            _detectedPlayer.AddWayPoint(_wayPointForPlayer);
+            _detectedPlayer.AddWayPoint(_wayPointsForPlayer);
             _detectedPlayer.WayPointMove();
 
             var prevWalkSize = _walkSize;
@@ -82,21 +84,37 @@ namespace MIT.SamtleGame.Stage2.NPC
         #region  스크립트 사용 편의성
         public void GenerateWayPointForPlayer()
         {
-            for(var i = _wayPointForPlayer.Count - 1; i > -1; i--)
+            for(var i = _wayPointsForPlayer.Count - 1; i > -1; i--)
             {
-                if (_wayPointForPlayer[i] == null)
-                    _wayPointForPlayer.RemoveAt(i);
+                if (_wayPointsForPlayer[i] == null)
+                    _wayPointsForPlayer.RemoveAt(i);
                 else
-                    _wayPointForPlayer[i].name = string.Format("WayPoint - {0}", i + 1);
+                    _wayPointsForPlayer[i].name = string.Format("WayPoint - {0}", i + 1);
             }
 
             var newWayPoint = Instantiate(_wayPointForPlayerPrefab);
             newWayPoint.transform.SetParent(_wayPointForPlayerStorage);
-            newWayPoint.transform.localPosition = _wayPointForPlayer[_wayPointForPlayer.Count - 1].transform.localPosition;
+            if(_wayPointsForPlayer.Count > 0)
+                newWayPoint.transform.localPosition = _wayPointsForPlayer[_wayPointsForPlayer.Count - 1].transform.localPosition;
+            else
+                newWayPoint.transform.localPosition = Vector3.zero;
             newWayPoint.transform.localRotation = Quaternion.identity;
-            _wayPointForPlayer.Add(newWayPoint.GetComponent<WayPoint>());
+            _wayPointsForPlayer.Add(newWayPoint.GetComponent<WayPoint>());
 
-            newWayPoint.name = string.Format("WayPoint - {0}", _wayPointForPlayer.Count);
+            newWayPoint.name = string.Format("WayPoint - {0}", _wayPointsForPlayer.Count);
+        }
+
+        protected override void OnDrawGizmosSelected() 
+        {
+            base.OnDrawGizmosSelected();
+
+            Gizmos.color = _wayPointsForPlayerGizmoColor;
+            var prevNode = this.transform;
+            foreach(var node in _wayPointsForPlayer)
+            {
+                Gizmos.DrawLine(prevNode.position, node.transform.position);
+                prevNode = node.transform;
+            }
         }
         #endregion
     }

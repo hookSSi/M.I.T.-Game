@@ -18,6 +18,7 @@ namespace MIT.SamtleGame.Tools
 
         public virtual Coroutine Trigger(MonoBehaviour mono)
         {
+            PassInfo();
             switch(_type)
             {
                 case EventType.Talk:
@@ -39,8 +40,6 @@ namespace MIT.SamtleGame.Tools
                 if(GameManager.Instance._npcs.ContainsKey(_id))
                 {
                     Npc npc = GameManager.Instance._npcs[_id];
-                    npc.ChangeTextPage(_textPages);
-
                     npc.Talk(false);
                 }
                 else
@@ -67,6 +66,20 @@ namespace MIT.SamtleGame.Tools
             }
 
             yield break;
+        }
+
+        protected virtual void PassInfo()
+        {
+            SetNpcTextPages();
+        }
+
+        protected void SetNpcTextPages()
+        {
+            if(GameManager.Instance._npcs.ContainsKey(_id))
+            {
+                Npc npc = GameManager.Instance._npcs[_id];
+                npc.ChangeTextPage(_textPages);
+            }
         }
     }
 }

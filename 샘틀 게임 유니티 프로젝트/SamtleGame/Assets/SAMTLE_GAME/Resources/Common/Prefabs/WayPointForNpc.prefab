@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gizmoColor: {r: 0, g: 0, b: 1, a: 1}
   _gizmoRadius: 0.1
-  _type: 0
-  _textPages: []
+  _type: 2
   _dir: 0
+  _textPages: []
+  _id: 1

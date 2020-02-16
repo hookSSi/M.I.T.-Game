@@ -428,8 +428,8 @@ MonoBehaviour:
   - _text: "\uC2E0\uC785\uC774\uAD6C\uB098!"
     _delayDuration: 0.1
     _duration: 0.1
-  - _text: "\uC88B\uC544 \uB0B4\uAC00 \uC870\uAE08\uB9CC \uD798\uC744 \uB0B4\uC5B4
-      \uC774 \uD559\uAD50\uB97C \uC18C\uAC1C\uD574\uC8FC\uC9C0"
+  - _text: "\uC88B\uC544 \uC774 \uB299\uC740\uC774\uAC00 \uC870\uAE08\uB9CC \uD798\uC744
+      \uB0B4\uC5B4 \uC774 \uD559\uAD50\uB97C \uC18C\uAC1C\uD574\uC8FC\uC9C0"
     _delayDuration: 0.1
     _duration: 0.1
   _talkSound: test
@@ -446,7 +446,7 @@ MonoBehaviour:
   _obstacles:
   - _flag: 0
   - _flag: 2
-  _wayPointPrefab: {fileID: 4518819405550349199, guid: 3efcee2b16e56d6429eda6b68fdb44fe,
+  _wayPointPrefab: {fileID: 4518819405550349199, guid: cb4b088d90af0b144bfd3b72a42c7fc4,
     type: 3}
   _wayPointStorage: {fileID: 913207122814405723}
   _wayPoints:
@@ -475,7 +475,7 @@ MonoBehaviour:
   _reactMark: {fileID: 547110061555326530}
   _reactMarkDest: {fileID: 547110061545667597}
   _detectedPlayer: {fileID: 0}
-  _wayPointForPlayer:
+  _wayPointsForPlayer:
   - {fileID: 1946758255240683506}
   - {fileID: 4083866150719482221}
   - {fileID: 8443534992781288025}
@@ -494,6 +494,7 @@ MonoBehaviour:
   _wayPointForPlayerPrefab: {fileID: 4518819405550349199, guid: 3efcee2b16e56d6429eda6b68fdb44fe,
     type: 3}
   _wayPointForPlayerStorage: {fileID: 913207122814405723}
+  _wayPointsForPlayerGizmoColor: {r: 0.96921957, g: 0.015686274, b: 1, a: 1}
 --- !u!1 &547110061545667596
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,8 +706,15 @@ MonoBehaviour:
       \uAD50\uC7AC\uB97C \uAD6C\uD558\uB294 \uC11C\uC810!"
     _delayDuration: 0.1
     _duration: 0.1
-  - _text: "\uD559\uC2DD\uC5D0 \uB108\uBB34 \uC2E4\uB9DD\uD558\uC9C0\uB9D0\uB3C4\uB85D
+  - _text: "\uD559\uC2DD\uC5D0 \uB108\uBB34 \uC2E4\uB9DD\uD558\uC9C0 \uB9D0\uB3C4\uB85D
       \uD574... \uC2DC\uBB34\uB8E9..."
+    _delayDuration: 0.1
+    _duration: 0.1
+  - _text: "\uB0B4\uAC00 \uC18C\uAC1C\uD574\uC904 \uC218 \uC788\uB294 \uAC74 \uC5EC\uAE30\uAE4C\uC9C0\uC57C"
+    _delayDuration: 0.1
+    _duration: 0.1
+  - _text: "\uB098\uC911\uC5D0 \uC778\uC5F0\uC774 \uB41C\uB2E4\uBA74 \uB2E4\uC2DC
+      \uB9CC\uB098!"
     _delayDuration: 0.1
     _duration: 0.1
   _id: 1
@@ -1641,11 +1649,11 @@ MonoBehaviour:
   _type: 0
   _dir: 0
   _textPages:
-  - _text: "\uD06C\uACE0 \uBA4B\uC9C4 \uC774 \uD770\uAC74\uBB3C\uC740 50\uD638\uAD00\uC774\uC57C"
+  - _text: "\uD06C\uACE0 \uBA4B\uC9C4 \uC774 \uD770 \uAC74\uBB3C\uC740 50\uD638\uAD00\uC774\uC57C"
     _delayDuration: 0.1
     _duration: 0.1
-  - _text: "\uC218\uC5C5\uC744 \uBC1B\uAC8C\uB420 \uAC74\uBB3C\uC774\uB77C\uAD6C!
-      \uB450\uADFC\uB450\uADFC\uAC70\uB9AC\uC9C0!"
+  - _text: "\uC218\uC5C5\uC744 \uBC1B\uAC8C \uB420 \uAC74\uBB3C\uC774\uB77C\uACE0!
+      \uB450\uADFC\uAC70\uB9AC\uC9C0!"
     _delayDuration: 0.1
     _duration: 0.1
   - _text: "\uD559\uACFC\uC0AC\uBB34\uC2E4\uC740 5\uCE35\uC774\uC57C!"
@@ -1700,15 +1708,15 @@ MonoBehaviour:
   _type: 0
   _dir: 2
   _textPages:
-  - _text: "\uC5EC\uAE30\uB294 55\uD638\uAD00 \uAC74\uBB3C\uC774\uC57C"
+  - _text: "\uC5EC\uAE30\uB294 51\uD638\uAD00 \uAC74\uBB3C\uC774\uC57C."
     _delayDuration: 0.1
     _duration: 0.1
-  - _text: "\uC6B0\uB9AC \uCEF4\uD4E8\uD130\uACF5\uD559\uACFC\uC758 \uACFC\uB3D9\uC544\uB9AC\uAC00
+  - _text: "\uC6B0\uB9AC \uCEF4\uD4E8\uD130\uACF5\uD559\uACFC\uC758 \uB3D9\uC544\uB9AC\uAC00
       \uC788\uB294 \uAC74\uBB3C\uC774\uC9C0"
     _delayDuration: 0.1
     _duration: 0.1
   - _text: "\uB098\uB97C \uB9CC\uB4E0 MIT \uB3D9\uC544\uB9AC\uBC29\uB3C4 \uC5EC\uAE30\uC5D0
-      \uC788\uC5B4!"
+      \uC788\uC5B4"
     _delayDuration: 0.1
     _duration: 0.1
   _id: 1
@@ -2095,8 +2103,14 @@ MonoBehaviour:
   _gizmoRadius: 0.1
   _type: 2
   _dir: 0
-  _textPages: []
-  _id: 0
+  _textPages:
+  - _text: "\uB0B4 \uCE5C\uAD6C\uB4E4\uC740 \uBAA8\uB450 \uC8FD\uAC70\uB098 \uC878\uC5C5\uD588\uC5B4."
+    _delayDuration: 0.1
+    _duration: 0.1
+  - _text: 
+    _delayDuration: 0.1
+    _duration: 0.1
+  _id: 1
 --- !u!1 &8408152863427506057
 GameObject:
   m_ObjectHideFlags: 0

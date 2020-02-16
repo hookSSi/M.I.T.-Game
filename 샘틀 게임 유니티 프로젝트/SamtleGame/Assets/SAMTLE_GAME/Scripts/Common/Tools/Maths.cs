@@ -59,7 +59,7 @@ namespace MIT.SamtleGame.Tools
                 if(vertical > 0)
                     result = Direction.UP;
                 else
-                    result = Direction.DONW;
+                    result = Direction.DOWN;
             }
             else
             {
@@ -86,7 +86,7 @@ namespace MIT.SamtleGame.Tools
                 case Direction.UP:
                     result = Vector2.up;
                     break;
-                case Direction.DONW:
+                case Direction.DOWN:
                     result = Vector2.down;
                     break;
                 case Direction.RIGHT:

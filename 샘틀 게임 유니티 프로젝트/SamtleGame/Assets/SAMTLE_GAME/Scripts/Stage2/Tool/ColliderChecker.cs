@@ -84,5 +84,24 @@ namespace MIT.SamtleGame.Stage2.Tools
 
             return checkedColliders;
         }
+
+        public static List<Collider2D> GetColliders(Vector2 origin, Vector2 dest, Tag[] tags)
+        {
+            RaycastHit2D[] hitted = Physics2D.LinecastAll(origin, dest);
+            List<Collider2D> checkedColliders = new List<Collider2D>();
+            
+            foreach(var tag in tags)
+            {
+                foreach(var obj in hitted)
+                {
+                    if(obj.collider.tag == tag.GetTag())
+                    {
+                        checkedColliders.Add(obj.collider);
+                    }
+                }
+            }
+
+            return checkedColliders;
+        }
     }
 }

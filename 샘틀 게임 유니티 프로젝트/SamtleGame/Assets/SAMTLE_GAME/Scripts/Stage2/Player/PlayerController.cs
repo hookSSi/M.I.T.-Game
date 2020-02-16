@@ -170,6 +170,11 @@ namespace MIT.SamtleGame.Stage2
                 yield return new WaitForSeconds(_walkTime);
             }
         }
+
+        public void SetDirection(Direction dir)
+        {
+            _currentDir = Maths.DirectionToVector2(dir);
+        }
         #endregion
 
         #region 웨이포인트 이동
@@ -248,7 +253,7 @@ namespace MIT.SamtleGame.Stage2
                 case Direction.UP:
                     _currentDir = Vector2.up;
                     break;
-                case Direction.DONW:
+                case Direction.DOWN:
                     _currentDir = Vector2.down;
                     break;
                 case Direction.RIGHT:

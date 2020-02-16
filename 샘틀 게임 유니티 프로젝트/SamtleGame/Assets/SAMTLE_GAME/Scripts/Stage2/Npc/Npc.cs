@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 using MIT.SamtleGame.Stage2.Tools;
@@ -55,7 +56,7 @@ namespace MIT.SamtleGame.Stage2.NPC
             GameManager.Instance.AddNpc(this);
             _animator = GetComponent<Animator>();
 
-            DataManager.JsonFileSave(_textPages, Application.dataPath + "/Json", this.gameObject.name);
+            DataManager.JsonFileSave(_textPages, Application.dataPath + "/SAMTLE_GAME/Json", this.gameObject.name);
         }
         #endregion
 
@@ -140,8 +141,8 @@ namespace MIT.SamtleGame.Stage2.NPC
 
         public void ChangeTextPage(List<DialoguePage> textPage)
         {
-            //DataManager.JsonFileSave(_textPages, "Json", textPage[0]._text);
             _textPages = textPage;
+            DataManager.JsonFileSave(_textPages, Application.dataPath + "/SAMTLE_GAME/Json", this.gameObject.name, FileMode.Append);
         }
 
         #region  스크립트 사용 편의성 관련
@@ -157,7 +158,11 @@ namespace MIT.SamtleGame.Stage2.NPC
 
             var newWayPoint = Instantiate(_wayPointPrefab);
             newWayPoint.transform.SetParent(_wayPointStorage);
-            newWayPoint.transform.localPosition = _wayPoints[_wayPoints.Count - 1].transform.localPosition;
+            /// 이미 있는 마지막 인덱스 웨이포인트 위치에 생성
+            if(_wayPoints.Count > 0)
+                newWayPoint.transform.localPosition = _wayPoints[_wayPoints.Count - 1].transform.localPosition;
+            else
+                newWayPoint.transform.localPosition = Vector3.zero;
             newWayPoint.transform.localRotation = Quaternion.identity;
             _wayPoints.Add(newWayPoint.GetComponent<WayPoint>());
 

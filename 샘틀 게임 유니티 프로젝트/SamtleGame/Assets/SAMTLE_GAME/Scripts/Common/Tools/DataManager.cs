@@ -21,20 +21,20 @@ namespace MIT.SamtleGame.Tools
 
     public class DataManager
     {
-        public static void JsonFileSave(object obj, string filePath, string fileName)
+        public static void JsonFileSave(object obj, string filePath, string fileName, FileMode mode = FileMode.Create)
         {
             string jsonData = JsonUtility.ToJson(obj);
 
-            FileStream stream = new FileStream(string.Format("{0}/{1}.json", filePath, fileName), FileMode.CreateNew);
+            FileStream stream = new FileStream(string.Format("{0}/{1}.json", filePath, fileName), mode);
             byte[] data = Encoding.UTF8.GetBytes(jsonData);
             stream.Write(data, 0, data.Length);
             stream.Close();
         }
-        public static void JsonFileSave<T>(List<T> obj, string filePath, string fileName)
+        public static void JsonFileSave<T>(List<T> obj, string filePath, string fileName, FileMode mode = FileMode.Create)
         {
             string jsonData = JsonUtility.ToJson(new Serialization<T>(obj));
 
-            FileStream stream = new FileStream(string.Format("{0}/{1}.json", filePath, fileName), FileMode.CreateNew);
+            FileStream stream = new FileStream(string.Format("{0}/{1}.json", filePath, fileName), mode);
             byte[] data = Encoding.UTF8.GetBytes(jsonData);
             stream.Write(data, 0, data.Length);
             stream.Close();

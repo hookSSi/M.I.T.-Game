@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4049918091295042916}
   - component: {fileID: 2178805836953204831}
   m_Layer: 0
-  m_Name: WayPoint
+  m_Name: WayPointForPlayer
   m_TagString: WayPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,15 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gizmoColor: {r: 0, g: 1, b: 0.19160795, a: 1}
   _gizmoRadius: 0.3
-  _type: 0
-  _textPages:
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
+  _type: 2
   _dir: 0
+  _textPages: []
+  _id: 1
