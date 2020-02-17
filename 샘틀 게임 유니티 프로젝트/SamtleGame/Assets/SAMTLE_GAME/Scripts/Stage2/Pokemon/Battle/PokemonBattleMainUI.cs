@@ -93,6 +93,31 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             SetHealthColor(_enemyHpSlider, 100f, 100f);
         }
 
+        public void UpdateValue(Pokemon playerPokemon, Pokemon enemyPokemon, int playerLevel, int enemyLevel, float playerExperience, float maxExperience)
+        {
+            // Initialize
+            _isEnemyHpAnimating = false;
+            _isPlayerHpAnimating = false;
+            _isPlayerExpAnimating = false;
+
+            _state = UIState.Battle;
+
+            UpdateEnemyPokemonNameText(enemyPokemon.Info._name);
+            UpdateEnemyHpUI(enemyPokemon.Health, enemyPokemon.Health, false);
+            UpdateEnemyLevelText(enemyLevel);
+
+            UpdatePlayerPokemonNameText(playerPokemon.Info._name);
+            UpdatePlayerHpUI(playerPokemon.Health, playerPokemon.Health, false);
+            UpdatePlayerExpUI(playerExperience, maxExperience, false);
+            UpdatePlayerLevelText(playerLevel);
+
+            SetActiveEnemyPokemonUI(true);
+            SetActivePlayerPokemonUI(true);
+
+            SetHealthColor(_playerHpSlider, 100f, 100f);
+            SetHealthColor(_enemyHpSlider, 100f, 100f);
+        }
+
         // 게임 UI 변경
         public void UpdateMainUI(UIState newState)
         {
@@ -139,6 +164,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             if (!useAnimation)
             {
                 _enemyHpSlider.value = newEnemyHp;
+                SetHealthColor(_enemyHpSlider, newEnemyHp, enemyMaxHp);
                 return;
             }
 
@@ -149,7 +175,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             Action<bool> SetFlag = (bool flag) => { _isEnemyHpAnimating = flag; };
 
-            StartCoroutine(SliderTextAnimation(SetFlag, newEnemyHp, hpChangeSpeed, _enemyHpSlider));
+            StartCoroutine(SliderTextAnimation(SetFlag, previousHp, newEnemyHp, hpChangeSpeed, _enemyHpSlider));
         }
 
         public void UpdateEnemyLevelText(int enemyLevel)
@@ -180,6 +206,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             {
                 _playerHpText.text = newPlayerHp + "/" + playerMaxHp;
                 _playerHpSlider.value = newPlayerHp;
+                SetHealthColor(_playerHpSlider, newPlayerHp, playerMaxHp);
                 return;
             }
 
@@ -190,7 +217,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             Action<bool> SetFlag = (bool flag) => { _isPlayerHpAnimating = flag; };
 
-            StartCoroutine(SliderTextAnimation(SetFlag, newPlayerHp, hpChangeSpeed, _playerHpSlider, _playerHpText));
+            StartCoroutine(SliderTextAnimation(SetFlag, previousHp, newPlayerHp, hpChangeSpeed, _playerHpSlider, _playerHpText));
         }
 
         public void UpdatePlayerLevelText(int playerLevel)
@@ -217,14 +244,13 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             Action<bool> SetFlag = (bool flag) => { _isPlayerExpAnimating = flag; };
 
-            StartCoroutine(SliderTextAnimation(SetFlag, newPlayerExp, expChangeSpeed, _playerExpSlider));
+            StartCoroutine(SliderTextAnimation(SetFlag, previousExp, newPlayerExp, expChangeSpeed, _playerExpSlider));
         }
 
 
         // 텍스트, 슬라이더 Animation을 제어하는 함수.
-        private IEnumerator SliderTextAnimation(Action<bool> SetBool, float newValue, float changeSpeed, Slider slider = null, Text text = null)
+        private IEnumerator SliderTextAnimation(Action<bool> SetBool, float previousValue, float newValue, float changeSpeed, Slider slider = null, Text text = null)
         {
-            float previousValue = _enemyHpSlider.value;
             float currentValue = previousValue;
 
             SetBool(true);

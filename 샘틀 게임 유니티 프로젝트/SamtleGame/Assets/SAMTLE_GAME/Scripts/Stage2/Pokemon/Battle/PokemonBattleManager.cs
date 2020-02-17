@@ -75,17 +75,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             _state = BattleState.Start;
 
-            _uiManager._mainUI.UpdateEnemyPokemonNameText(_enemyPokemon.Info._name);
-            _uiManager._mainUI.UpdateEnemyHpUI(_enemyPokemon.Health, _enemyPokemon.Health, false);
-            _uiManager._mainUI.UpdateEnemyLevelText(10);
-
-            _uiManager._mainUI.UpdatePlayerPokemonNameText(_myPokemon.Info._name);
-            _uiManager._mainUI.UpdatePlayerHpUI(_myPokemon.Health, _myPokemon.Health, false);
-            _uiManager._mainUI.UpdatePlayerExpUI(0f, 100f, false);
-            _uiManager._mainUI.UpdatePlayerLevelText(10);
-
-            _uiManager._mainUI.SetActiveEnemyPokemonUI(true);
-            _uiManager._mainUI.SetActivePlayerPokemonUI(true);
+            _uiManager._mainUI.UpdateValue(_myPokemon, _enemyPokemon, 10, 10, 0f, 100f);
 
             _textList = new List<string>();
 
