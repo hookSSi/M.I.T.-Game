@@ -2018,6 +2018,7 @@ MonoBehaviour:
     type: 3}
   _dummyItem: {fileID: 5550154322386498635}
   _itemList: []
+  _previousItemName: 
 --- !u!1 &2121570094979605675
 GameObject:
   m_ObjectHideFlags: 0
@@ -3097,6 +3098,9 @@ GameObject:
   - component: {fileID: 4917301245897720652}
   - component: {fileID: 4917301245897720653}
   - component: {fileID: 4917301245897720642}
+  - component: {fileID: 1250845340}
+  - component: {fileID: 1250845341}
+  - component: {fileID: 1250845342}
   m_Layer: 0
   m_Name: Pokemon Battle UI
   m_TagString: Untagged
@@ -3186,6 +3190,202 @@ MonoBehaviour:
   _dialog: {fileID: 4917301247051426604}
   _actionUI: {fileID: 4917301246608765677}
   _skillUI: {fileID: 4917301245896702348}
+--- !u!114 &1250845340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917301245897720640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c898603c45cc64cb169ac91ce24ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1250845341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917301245897720640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f195c73890ae6fb4993654116184ac1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _list:
+  - _key: C++
+    _info:
+      _frontImage: {fileID: 0}
+      _backImage: {fileID: 0}
+      _cryingSound: {fileID: 0}
+      _name: C++
+      _health: 100
+      _skills:
+      - _name: "\uD280\uC5B4\uC624\uB974\uAE30"
+        _count: 20
+        _currentCount: 0
+        _battleEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1250845340}
+              m_MethodName: Splash
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+      - _name: "\uADF9\uD55C\uC758 \uCD5C\uC801\uD654"
+        _count: 10
+        _currentCount: 0
+        _battleEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1250845340}
+              m_MethodName: OptimalizingOfLimitation
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+  - _key: Python
+    _info:
+      _frontImage: {fileID: 0}
+      _backImage: {fileID: 0}
+      _cryingSound: {fileID: 0}
+      _name: "\uD30C\uC774\uC36C"
+      _health: 100
+      _skills:
+      - _name: "\uD280\uC5B4\uC624\uB974\uAE30"
+        _count: 20
+        _currentCount: 0
+        _battleEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1250845340}
+              m_MethodName: Splash
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+      - _name: "\uC774\uC9C0 \uD22C \uC720\uC988"
+        _count: 15
+        _currentCount: 0
+        _battleEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1250845340}
+              m_MethodName: EasyToUse
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+  - _key: Java
+    _info:
+      _frontImage: {fileID: 0}
+      _backImage: {fileID: 0}
+      _cryingSound: {fileID: 0}
+      _name: Java
+      _health: 100
+      _skills:
+      - _name: "\uD280\uC5B4\uC624\uB974\uAE30"
+        _count: 20
+        _currentCount: 0
+        _battleEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1250845340}
+              m_MethodName: Splash
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+      - _name: "Java\uB97C Java"
+        _count: 5
+        _currentCount: 0
+        _battleEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1250845340}
+              m_MethodName: GrabTheJava
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+  - _key: OldCom
+    _info:
+      _frontImage: {fileID: 0}
+      _backImage: {fileID: 0}
+      _cryingSound: {fileID: 0}
+      _name: "\uC624\uB798\uB41C \uB3D9\uBC29\uCEF4"
+      _health: 100
+      _skills:
+      - _name: "\uB3CC\uB3CC\uB3CC"
+        _count: 20
+        _currentCount: 0
+        _battleEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1250845340}
+              m_MethodName: StoneStoneStone
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+  - _key: "\uB5BC\uAEC4\uB8E9"
+    _info:
+      _frontImage: {fileID: 0}
+      _backImage: {fileID: 0}
+      _cryingSound: {fileID: 0}
+      _name: "\uBBFC\uC9C0\uC758 \uACE0\uBA10\uBBF8"
+      _health: 10000
+      _skills: []
+--- !u!114 &1250845342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917301245897720640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c898603c45cc64cb169ac91ce24ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4917301245951647405
 GameObject:
   m_ObjectHideFlags: 0

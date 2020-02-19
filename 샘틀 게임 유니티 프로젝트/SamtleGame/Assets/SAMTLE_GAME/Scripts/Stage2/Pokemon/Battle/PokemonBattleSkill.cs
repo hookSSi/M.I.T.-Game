@@ -75,7 +75,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 return;
 
             if (_skillPpText != null)
-                _skillPpText.text = _playerPokemon.Info._skills[indexOfSkill]._count + "/   20";
+                _skillPpText.text = _playerPokemon.Info._skills[indexOfSkill]._currentCount +
+                    "/   " + _playerPokemon.Info._skills[indexOfSkill]._count;
         }
 
     }

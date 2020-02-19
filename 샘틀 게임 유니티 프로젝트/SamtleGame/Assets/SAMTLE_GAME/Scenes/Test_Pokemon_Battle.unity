@@ -120,12 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &127995623 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5205493011082196560, guid: 487c3d8b94b2f52449e7550a2dc4161c,
-    type: 3}
-  m_PrefabInstance: {fileID: 4917301245617319877}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &185193755
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,9 +199,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9398a647c90987646add82cc6d2fb77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firstActionSelection: {fileID: 468124338}
-  _firstItemSelection: {fileID: 127995623}
-  _firstSkillSelection: {fileID: 739488104}
+  _firstActionObject: {fileID: 468124338}
+  _firstItemObject: {fileID: 0}
+  _firstSkillObject: {fileID: 739488104}
 --- !u!224 &298511494 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4917301245897720643, guid: 487c3d8b94b2f52449e7550a2dc4161c,
@@ -345,7 +339,6 @@ GameObject:
   - component: {fileID: 1233944185}
   - component: {fileID: 1233944184}
   - component: {fileID: 1233944183}
-  - component: {fileID: 1233944182}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -353,20 +346,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1233944182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233944181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e71ade5a22790e4d9fd48c18dcdf44b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dialogueUIPrefab: {fileID: 0}
-  _currentNpc: {fileID: 0}
 --- !u!114 &1233944183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,8 +551,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2077277600}
   - component: {fileID: 2077277599}
-  - component: {fileID: 2077277601}
-  - component: {fileID: 2077277602}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -612,103 +589,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2077277601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077277598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f195c73890ae6fb4993654116184ac1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _list:
-  - _key: C++
-    _info:
-      _frontImage: {fileID: 0}
-      _backImage: {fileID: 0}
-      _cryingSound: {fileID: 0}
-      _name: C++
-      _health: 100
-      _skills:
-      - _name: "\uD280\uC5B4\uC624\uB974\uAE30"
-        _count: 10
-        _battleEvent:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 2077277602}
-              m_MethodName: Splash
-              m_Mode: 0
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-  - _key: Python
-    _info:
-      _frontImage: {fileID: 0}
-      _backImage: {fileID: 0}
-      _cryingSound: {fileID: 0}
-      _name: Python
-      _health: 100
-      _skills: []
-  - _key: Java
-    _info:
-      _frontImage: {fileID: 0}
-      _backImage: {fileID: 0}
-      _cryingSound: {fileID: 0}
-      _name: Java
-      _health: 100
-      _skills: []
-  - _key: OldCom
-    _info:
-      _frontImage: {fileID: 0}
-      _backImage: {fileID: 0}
-      _cryingSound: {fileID: 0}
-      _name: "\uC624\uB798\uB41C \uB3D9\uBC29\uCEF4"
-      _health: 100
-      _skills:
-      - _name: "\uD280\uC5B4\uC624\uB974\uAE30 \uC5F4\uD654\uD310"
-        _count: 10
-        _battleEvent:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 2077277602}
-              m_MethodName: Splash
-              m_Mode: 0
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-  - _key: "\uB5BC\uAEC4\uB8E9"
-    _info:
-      _frontImage: {fileID: 0}
-      _backImage: {fileID: 0}
-      _cryingSound: {fileID: 0}
-      _name: "\uBBFC\uC9C0\uC758 \uACE0\uBA10\uBBF8"
-      _health: 10000
-      _skills: []
---- !u!114 &2077277602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077277598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8c898603c45cc64cb169ac91ce24ef0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4917301245617319877
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         [SerializeField] private BattleItem _dummyItem;
         [SerializeField] private List<BattleItem> _itemList = new List<BattleItem>();
 
-        public string _previousItemName { get; private set; }
+        [HideInInspector] public string _previousItemName = "";
 
         private void Awake()
         {
@@ -21,14 +21,13 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             // 아이템 추가
             var item = new Items();
-            AddItem("전 부회장의 3신기", "기묘한 옛것의 기운이 느껴지는 물건이다...", 5, 
-                BattleItem.ItemType.Consume, item.TheTrinity);
+            //AddItem("전 부회장의 3신기", "기묘한 옛것의 기운이 느껴지는 물건이다...", 5, 
+              //  BattleItem.ItemType.Consume, item.TheTrinity);
+        }
 
-            AddItem("전 부회장의 3신기의 사본A", "복사본 1", 1,
-                BattleItem.ItemType.Consume, item.TheTrinity);
-
-            AddItem("전 부회장의 3신기의 사본B", "복사본 2", 7, 
-                BattleItem.ItemType.Consume, item.TheTrinity);
+        private void OnEnable()
+        {
+            SetFirstItem();
         }
 
         public void SetFirstItem()
@@ -112,7 +111,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 Debug.Log("오류가 발생했습니다 : " + error.Message);
             }
         }
-        
+
         public void RemoveItem(int index)
         {
             /*  사소한 문제
@@ -121,19 +120,12 @@ namespace MIT.SamtleGame.Stage2.Pokemon
              *  => 유니티 상에 성능 저하가 심각함.
              *  (개선 필요)
              */
-            if (_itemList.Count <= index)
-            {
-                var item = _itemList[index];
+            var item = _itemList[index];
 
-                _itemList.RemoveAt(index);
-                Destroy(item.gameObject);
+            _itemList.RemoveAt(index);
+            Destroy(item.gameObject);
 
-                SetFirstItem();
-            }
-            else
-            {
-                Debug.Log("경고 : 조회할 수 없는 인덱스의 아이템을 삭제하려 했습니다.(PokemonBattleItemManager)");
-            }
+            SetFirstItem();
         }
     }
 }

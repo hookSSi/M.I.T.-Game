@@ -10,7 +10,10 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         [Tooltip("기술명")]
         public string _name;
         [Tooltip("남은 갯수")]
-        public string _count;
+        public int _count;
+        [HideInInspector]
+        public int _currentCount;
+        [Tooltip("스킬 이벤트")]
         public BattleEvent _battleEvent;
     }
     [System.Serializable]
@@ -51,6 +54,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             {
                 _health = value;
                 if (_health < 0f) _health = 0f;
+                if (_health > MaxHealth) _health = MaxHealth;
             }
         }
         
@@ -81,6 +85,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             _info = newInfo;
             Health = MaxHealth;
+
+            for (int i = 0; i < newInfo._skills.Length; i++)
+                _info._skills[i]._currentCount = newInfo._skills[i]._count;
         }
     }
 }

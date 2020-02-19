@@ -156,6 +156,12 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 _enemyPokemonName.text = newEnemyPokemonName;
         }
 
+        // 애니메이션으로 할지 그냥 이미지 업뎃만 할지...
+        public void UpdatePokemonImage()
+        {
+            
+        }
+
         public void UpdateEnemyHpUI(float newEnemyHp, float enemyMaxHp, bool useAnimation)
         {
             _enemyHpSlider.minValue = 0;

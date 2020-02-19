@@ -72,8 +72,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
     {
         private static void FirstScript(out string firstDialog)
         {
-            var battleManager = PokemonBattleManager.Instance;
-            firstDialog =  "새내기는 " + battleManager._itemManager._previousItemName + "를(을) 사용했다!";
+            firstDialog =  "새내기는 " 
+                + PokemonBattleManager.Instance._itemManager._previousItemName + "를(을) 사용했다!";
         }
 
         // 전 부회장의 3신기
@@ -81,9 +81,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         {
             string dialog;
             // 확률에 따라 플레이어의 체력이 1/3이 되거나 적의 체력이 1/3이 되거나 아무 일도 일어나지 않는다.
-            // int nextEffect = Random.Range(1, 4);
-            // 임시로 1로 지정했음!
-            int nextEffect = 1;
+            int nextEffect = Random.Range(1, 4);
             float damage;
 
             FirstScript(out dialog);
@@ -92,19 +90,19 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             switch (nextEffect)
             {
                 case 1:
-                    damage = myPokemon.MaxHealth / 3f;
-                    myPokemon.Health -= damage;
-
-                    PokemonBattleManager.AddNextText("제 1신기로 인해 " + myPokemon.Info._name + "가 피해를 입었다...");
-                    break;
-                case 2:
-                    damage = enemyPokemon.MaxHealth / 3f;
+                    damage = enemyPokemon.MaxHealth / 3f + 0.1f;
                     enemyPokemon.Health -= damage;
 
-                    PokemonBattleManager.AddNextText("제 2신기로 인해 " + enemyPokemon.Info._name + "가 피해를 입었다!");
+                    PokemonBattleManager.AddNextText("제 1신기 폭풍을 부르는 선풍기로 인해 " + enemyPokemon.Info._name + "이(가) 피해를 입었다!");
+                    break;
+                case 2:
+                    damage = myPokemon.MaxHealth / 3f + 0.1f;
+                    myPokemon.Health -= damage;
+
+                    PokemonBattleManager.AddNextText("제 2신기 음성 인식 되는 플라즈마볼이 잘못 작동해 " + myPokemon.Info._name + "이(가) 반동을 입었다...");
                     break;
                 case 3:
-                    PokemonBattleManager.AddNextText("제 3신기로 인해 분위기가 스산해졌다...");
+                    PokemonBattleManager.AddNextText("제 3신기 워터 컨트리뷰터로 인해 물바다가 되었다...");
                     break;
             }
         }

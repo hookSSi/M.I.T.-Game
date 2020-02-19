@@ -32,5 +32,18 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 return false;
             }
         }
+
+        public static Skill DefaultSkill()
+        {
+            Skill defaultSkill = new Skill
+            {
+                _name = "뇌정지",
+                _count = 999
+            };
+            defaultSkill._battleEvent = new BattleEvent();
+            defaultSkill._battleEvent.AddListener(Instance.GetComponent<SkillClass>().StopThinking);
+
+            return defaultSkill;
+        }
     }
 }

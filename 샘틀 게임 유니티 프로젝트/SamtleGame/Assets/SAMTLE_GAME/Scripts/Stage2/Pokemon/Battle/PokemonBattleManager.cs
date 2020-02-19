@@ -29,13 +29,13 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         public BattleState _state { get; private set; }
 
-        public List<string> _textList = new List<string>();
+        [HideInInspector] public List<string> _textList = new List<string>();
 
         public bool _isGameOver { get { return _myPokemon.Health <= 0 || _enemyPokemon.Health <= 0; }}
 
         public static void AddNextText(string nextText)
         {
-            PokemonBattleManager.Instance._textList.Add(nextText);
+            Instance._textList.Add(nextText);
         }
 
         private void Start()
@@ -79,7 +79,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             _textList = new List<string>();
 
-            Debug.Log("배틀 시작!");
+            // Debug.Log("배틀 시작!");
 
             _uiManager.gameObject.SetActive(true);
             _uiManager._bottomUI._skill.Init();
@@ -96,7 +96,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _uiManager._mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Battle);
             _uiManager._bottomUI.UpdateActionUI();
 
-            _itemManager.SetFirstItem();
             _eventSystem.InitializeUINavigation(BattleState.SelectAction);
         }
 
@@ -105,7 +104,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _state = BattleState.SelectSkill;
 
             // UI Update
-            Debug.Log("스킬 선택하기...");
+            // Debug.Log("스킬 선택하기...");
 
             _uiManager._bottomUI.UpdateSkillUI();
 
@@ -117,7 +116,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _state = BattleState.SelectItem;
 
             // UI Update
-            Debug.Log("아이템 선택하기...");
+            // Debug.Log("아이템 선택하기...");
 
             _uiManager._mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Bag);
             _uiManager._bottomUI.UpdateDialog();
@@ -131,6 +130,10 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _state = BattleState.Act;
 
             Skill playerSkill = _myPokemon?.UseSkill(indexOfSkill);
+            if (playerSkill._currentCount <= 0)
+                playerSkill = PokemonManager.DefaultSkill();
+
+            playerSkill._currentCount--;
 
             _uiManager._bottomUI.UpdateDialog();
 
@@ -205,13 +208,17 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         private IEnumerator EndBattle()
         {
             _state = BattleState.End;
-            
+            _textList.Clear();
+
             if (_myPokemon.Health > 0f)
             {
+                AddNextText("신난다! " + _enemyPokemon.Info._name + "과의 과제에서 이겼다!");
                 Debug.Log("승리!");
             }
             else
             {
+                AddNextText(_myPokemon.Info._name + "가 최후의 오류를 내뿜었다...");
+                AddNextText("새내기는 눈앞이 깜깜해졌다!");
                 Debug.Log("패배...");
             }
 
@@ -231,7 +238,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         // 도주(아무 기능 없음)
         public void Escape()
         {
-            Debug.Log("[도망치기]안돼! 이번 학기 학점을 이렇게 버릴 수 없어!");
+            _textList.Clear();
+            AddNextText("안돼! 이번 학기 학점을 이렇게 버릴 수 없어!");
 
             _uiManager._bottomUI.UpdateDialog();
 
@@ -246,7 +254,16 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         private Skill NextEnemySkill()
         {
             int enemySkillLength = _enemyPokemon.Info._skills.Length;
-            return _enemyPokemon.UseSkill(Random.Range(0, enemySkillLength));
+
+            Skill enemySkill = _enemyPokemon.UseSkill(Random.Range(0, enemySkillLength));
+
+            if (enemySkill._currentCount <= 0)
+                enemySkill = PokemonManager.DefaultSkill();
+
+            // PokemonManager.Instance._previousSkillName = enemySkill._name;
+            enemySkill._currentCount--;
+
+            return enemySkill;
         }
     }
 }

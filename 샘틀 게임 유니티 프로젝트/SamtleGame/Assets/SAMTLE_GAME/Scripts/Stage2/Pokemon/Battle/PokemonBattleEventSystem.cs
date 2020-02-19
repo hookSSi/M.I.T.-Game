@@ -14,9 +14,9 @@ namespace MIT.SamtleGame.Stage2.Tool
         
         private GameObject _selected;
 
-        [SerializeField] private GameObject _firstActionSelection;
-        [SerializeField] private GameObject _firstItemSelection;
-        [SerializeField] private GameObject _firstSkillSelection;
+        [SerializeField] private GameObject _firstActionObject;
+        [SerializeField] private GameObject _firstItemObject;
+        [SerializeField] private GameObject _firstSkillObject;
 
         private void Start()
         {
@@ -48,17 +48,17 @@ namespace MIT.SamtleGame.Stage2.Tool
             switch (currentState)
             {
                 case BattleState.SelectAction:
-                    if (_firstActionSelection)
-                        _eventSystem.SetSelectedGameObject(_firstActionSelection);
+                    if (_firstActionObject)
+                        _eventSystem.SetSelectedGameObject(_firstActionObject);
                     break;
                 case BattleState.SelectItem:
                     // 선택할 수 있는 아이템이 
-                    yield return new WaitUntil(() => _firstItemSelection);
-                    _eventSystem.SetSelectedGameObject(_firstItemSelection);
+                    yield return new WaitUntil(() => _firstItemObject);
+                    _eventSystem.SetSelectedGameObject(_firstItemObject);
                     break;
                 case BattleState.SelectSkill:
-                    if (_firstSkillSelection)
-                        _eventSystem.SetSelectedGameObject(_firstSkillSelection);
+                    if (_firstSkillObject)
+                        _eventSystem.SetSelectedGameObject(_firstSkillObject);
                     break;
             }
         }
@@ -67,13 +67,13 @@ namespace MIT.SamtleGame.Stage2.Tool
         public void SetIndexObject(GameObject firstActionObject = null, GameObject firstItemObject = null, GameObject firstSkillObject = null)
         {
             if (firstActionObject != null)
-                _firstActionSelection = firstActionObject;
+                _firstActionObject = firstActionObject;
 
             if (firstItemObject != null)
-                _firstItemSelection = firstItemObject;
+                _firstItemObject = firstItemObject;
 
             if (firstSkillObject != null)
-                _firstSkillSelection = firstSkillObject;
+                _firstSkillObject = firstSkillObject;
         }
     }
 }
