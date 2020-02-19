@@ -26,7 +26,7 @@ namespace MIT.SamtleGame.Stage1
 
 	public struct ClearGameEvent
 	{
-		public static PlayGameEvent _event;
+		public static ClearGameEvent _event;
 		public static void Trigger()
 		{
 			EventManager.TriggerEvent(_event);
@@ -92,19 +92,23 @@ namespace MIT.SamtleGame.Stage1
         }
 		public virtual void OnEvent(ClearGameEvent clearGameEvent)
 		{
+			Debug.Log("game clear!!");
 			_player.transform.GetComponent<PlayerAnimController>().StartToGoToStair();
+			Pause();
 		}
 
         private void OnEnable() 
         {
             this.EventStartListening<PlayGameEvent>();
-            this.EventStartListening<PasueGameEvent>();
-        }
+			this.EventStartListening<PasueGameEvent>();
+			this.EventStartListening<ClearGameEvent>();
+		}
 
         private void OnDisable() 
         {
             this.EventStopListening<PlayGameEvent>();
             this.EventStopListening<PasueGameEvent>();
-        }
+			this.EventStopListening<ClearGameEvent>();
+		}
     }
 }

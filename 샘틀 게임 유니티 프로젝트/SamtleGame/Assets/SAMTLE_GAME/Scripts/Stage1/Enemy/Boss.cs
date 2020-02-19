@@ -128,6 +128,7 @@ namespace MIT.SamtleGame.Stage1
             Destroy(this.gameObject);
             GameManager._totalEnemyCount -= 1;
 			ClearGameEvent.Trigger();
+			Debug.Log("Call Game clear");
             //LoadingSceneManager.LoadScene("공대관");
         }
     }
