@@ -13,12 +13,14 @@ public class PlayerAnimController : MonoBehaviour
 		anim = GetComponent<Animator>();
 	}
 
-	public void StartToGoToStair(Transform stair)
+	public void StartToGoToStair(Transform stair = null)
 	{
-		this.stair = stair;
-		anim.SetTrigger("GoToStair");
-		// something other?
+		if(stair != null)
+			this.stair = stair;
 
+		anim.SetTrigger("GoToStair");
+		//중력과 콜라이더로 인한 이동을 막기위해 y축이동을 막았습니다.
+		GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
 	}
 
 	public void GoToStair(float distance)
