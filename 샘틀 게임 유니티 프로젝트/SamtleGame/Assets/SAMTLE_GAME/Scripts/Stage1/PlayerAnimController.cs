@@ -22,8 +22,6 @@ public class PlayerAnimController : MonoBehaviour
 			this.stair = stair;
 
 		anim.SetTrigger("GoToStair");
-		//중력과 콜라이더로 인한 이동을 막기위해 y축이동을 막았습니다.
-		GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
 		//스프라이트 반전 방지
 		this.gameObject.GetComponent<SpriteRenderer>().transform.rotation = Quaternion.Euler(0, 180, 0);
 	}
@@ -38,6 +36,8 @@ public class PlayerAnimController : MonoBehaviour
 		if (before * after <= 0)
 		{
 			transform.position = new Vector3(stair.position.x, transform.position.y,transform.position.z);
+			//중력과 콜라이더로 인한 이동을 막기위해 y축이동을 막았습니다.
+			GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
 			anim.SetTrigger("GoDown");
 		}
 		if (beforeCamera * afterCamera <= 0)
