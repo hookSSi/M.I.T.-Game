@@ -11,6 +11,7 @@ TagManager:
   - Npc
   - Interactable
   - WayPoint
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -48,6 +49,12 @@ TagManager:
   - name: Enemy
     uniqueID: 2970400111
     locked: 0
+  - name: Ground
+    uniqueID: 1014161997
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UpperThanPlayer
+    uniqueID: 153653787
     locked: 0

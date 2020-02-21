@@ -15,16 +15,25 @@ namespace MIT.SamtleGame.Stage1
         }
     }
 
-    public struct PlayGameEvent
-    {
-        public static PlayGameEvent _event;
-        public static void Trigger()
-        {
-            EventManager.TriggerEvent(_event);
-        }
-    }
+	public struct PlayGameEvent
+	{
+		public static PlayGameEvent _event;
+		public static void Trigger()
+		{
+			EventManager.TriggerEvent(_event);
+		}
+	}
 
-    public class GameManager : MonoBehaviour, EventListener<PlayGameEvent>, EventListener<PasueGameEvent>
+	public struct ClearGameEvent
+	{
+		public static ClearGameEvent _event;
+		public static void Trigger()
+		{
+			EventManager.TriggerEvent(_event);
+		}
+	}
+
+	public class GameManager : MonoBehaviour, EventListener<PlayGameEvent>, EventListener<PasueGameEvent>, EventListener<ClearGameEvent>
     {
         public static int _totalEnemyCount = 0;
         public static bool _isPlayable = false;
@@ -81,17 +90,25 @@ namespace MIT.SamtleGame.Stage1
         {
             Pause();
         }
+		public virtual void OnEvent(ClearGameEvent clearGameEvent)
+		{
+			Debug.Log("game clear!!");
+			_player.transform.GetComponent<PlayerAnimController>().StartToGoToStair();
+			Pause();
+		}
 
         private void OnEnable() 
         {
             this.EventStartListening<PlayGameEvent>();
-            this.EventStartListening<PasueGameEvent>();
-        }
+			this.EventStartListening<PasueGameEvent>();
+			this.EventStartListening<ClearGameEvent>();
+		}
 
         private void OnDisable() 
         {
             this.EventStopListening<PlayGameEvent>();
             this.EventStopListening<PasueGameEvent>();
-        }
+			this.EventStopListening<ClearGameEvent>();
+		}
     }
 }
