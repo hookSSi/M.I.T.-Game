@@ -9,10 +9,11 @@ namespace MIT.SamtleGame.Stage2.Tool
     public class PokemonBattleEventSystem : MonoBehaviour
     {
         private PokemonBattleManager _battleManager;
-
         private EventSystem _eventSystem;
-        
         private GameObject _selected;
+        private AudioSource _audio;
+
+        [SerializeField] private AudioClip _submitClip;
 
         [SerializeField] private GameObject _firstActionObject;
         [SerializeField] private GameObject _firstItemObject;
@@ -22,6 +23,8 @@ namespace MIT.SamtleGame.Stage2.Tool
         {
             _battleManager = PokemonBattleManager.Instance;
             _eventSystem = EventSystem.current;
+
+            _audio = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -29,6 +32,9 @@ namespace MIT.SamtleGame.Stage2.Tool
             // 선택지 중 하나가 반드시 선택되도록 고정한다
             if (_battleManager != null && _battleManager._state != BattleState.None)
             {
+                if (_eventSystem.currentSelectedGameObject != null && (Input.GetButtonDown("Submit") || Input.GetButtonDown("Cancel")))
+                    _audio.PlayOneShot(_submitClip);
+
                 if (_eventSystem.currentSelectedGameObject != null && _eventSystem.currentSelectedGameObject != _selected)
                     _selected = _eventSystem.currentSelectedGameObject;
                 else if (_selected != null && _eventSystem.currentSelectedGameObject == null)
@@ -40,11 +46,6 @@ namespace MIT.SamtleGame.Stage2.Tool
         // (전투 메뉴, 기술 메뉴, 가방 메뉴 등에 들어갈 때마다 실행, 처음 선택될 오브젝트를 설정함)
         public void InitializeUINavigation(BattleState currentState)
         {
-            StartCoroutine("InitializeFunction", currentState);
-        }
-
-        private IEnumerator InitializeFunction(BattleState currentState)
-        {
             switch (currentState)
             {
                 case BattleState.SelectAction:
@@ -52,8 +53,6 @@ namespace MIT.SamtleGame.Stage2.Tool
                         _eventSystem.SetSelectedGameObject(_firstActionObject);
                     break;
                 case BattleState.SelectItem:
-                    // 선택할 수 있는 아이템이 
-                    yield return new WaitUntil(() => _firstItemObject);
                     _eventSystem.SetSelectedGameObject(_firstItemObject);
                     break;
                 case BattleState.SelectSkill:

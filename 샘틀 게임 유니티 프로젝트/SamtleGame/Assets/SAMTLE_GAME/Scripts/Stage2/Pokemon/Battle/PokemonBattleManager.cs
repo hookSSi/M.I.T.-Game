@@ -86,6 +86,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _uiManager._bottomUI._skill.SetPokemon(_myPokemon);
             _uiManager._bottomUI._skill.UpdateText();
 
+            // _uiManager._mainUI.UpdatePlayerImage(true);
+            // _uiManager._mainUI.UpdateEnemyImage(true);
+
             SelectAction();
         }
 

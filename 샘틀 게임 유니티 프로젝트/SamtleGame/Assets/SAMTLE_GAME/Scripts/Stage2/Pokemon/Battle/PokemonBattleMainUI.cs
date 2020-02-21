@@ -150,16 +150,20 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 _enemyPokemonUI.SetActive(isvisible);
         }
 
+        public void UpdateEnemyImage(bool isvisible)
+        {
+            Pokemon enemyPokemon = PokemonBattleManager.Instance._enemyPokemon;
+            Image image = enemyPokemon.GetComponent<Image>();
+
+            enemyPokemon.gameObject.SetActive(isvisible);
+
+            image.sprite = enemyPokemon.Info._frontImage;
+        }
+
         public void UpdateEnemyPokemonNameText(string newEnemyPokemonName)
         {
             if (_enemyPokemonName != null)
                 _enemyPokemonName.text = newEnemyPokemonName;
-        }
-
-        // 애니메이션으로 할지 그냥 이미지 업뎃만 할지...
-        public void UpdatePokemonImage()
-        {
-            
         }
 
         public void UpdateEnemyHpUI(float newEnemyHp, float enemyMaxHp, bool useAnimation)
@@ -195,6 +199,16 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         {
             if (_playerPokemonUI != null)
                 _playerPokemonUI.SetActive(isvisible);
+        }
+
+        public void UpdatePlayerImage(bool isvisible)
+        {
+            Pokemon playerPokemon = PokemonBattleManager.Instance._myPokemon;
+            Image image = playerPokemon.GetComponent<Image>();
+
+            playerPokemon.gameObject.SetActive(isvisible);
+
+            image.sprite = playerPokemon.Info._backImage;
         }
 
         public void UpdatePlayerPokemonNameText(string newPlayerPokemonName)
