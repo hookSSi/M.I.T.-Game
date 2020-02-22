@@ -55,14 +55,14 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _eventSystem = FindObjectOfType<Tool.PokemonBattleEventSystem>();
 
             // 전투 시작(테스트용)
-            var pokemonManager = GetComponent<PokemonManager>();
-
             StartBattle("C++", "OldCom");
         }
 
         public void StartBattle(string myPokemonName, string enemyPokemonName)
         {
             PokemonInfo myInfo, enemyInfo;
+
+            _uiManager.gameObject.SetActive(true);
 
             if (!PokemonManager.GetPokemonInfo(myPokemonName, out myInfo))
                 return;
@@ -75,19 +75,20 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             _state = BattleState.Start;
 
+            _uiManager._mainUI.UpdatePlayerImage(false);
+            _uiManager._mainUI.UpdateEnemyImage(false);
             _uiManager._mainUI.UpdateValue(_myPokemon, _enemyPokemon, 10, 10, 0f, 100f);
 
             _textList = new List<string>();
 
-            // Debug.Log("배틀 시작!");
-
-            _uiManager.gameObject.SetActive(true);
             _uiManager._bottomUI._skill.Init();
             _uiManager._bottomUI._skill.SetPokemon(_myPokemon);
             _uiManager._bottomUI._skill.UpdateText();
 
-            // _uiManager._mainUI.UpdatePlayerImage(true);
-            // _uiManager._mainUI.UpdateEnemyImage(true);
+            // 대사 나올 곳
+
+            _uiManager._mainUI.UpdatePlayerImage(true);
+            _uiManager._mainUI.UpdateEnemyImage(true);
 
             SelectAction();
         }
@@ -107,8 +108,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _state = BattleState.SelectSkill;
 
             // UI Update
-            // Debug.Log("스킬 선택하기...");
-
             _uiManager._bottomUI.UpdateSkillUI();
 
             _eventSystem.InitializeUINavigation(BattleState.SelectSkill);
@@ -119,12 +118,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _state = BattleState.SelectItem;
 
             // UI Update
-            // Debug.Log("아이템 선택하기...");
-
             _uiManager._mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Bag);
             _uiManager._bottomUI.UpdateDialog();
             
-            // 처음 탐색할 아이템을 할당하는 PokemonBattleItemManager.Initialize가 필요함
             _eventSystem.InitializeUINavigation(BattleState.SelectItem);
         }
 
@@ -213,6 +209,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _state = BattleState.End;
             _textList.Clear();
 
+            if (_myPokemon.Health <= 0f) _uiManager._mainUI.UpdatePlayerImage(false);
+            if (_enemyPokemon.Health <= 0f) _uiManager._mainUI.UpdateEnemyImage(false);
+
             if (_myPokemon.Health > 0f)
             {
                 AddNextText("신난다! " + _enemyPokemon.Info._name + "과의 과제에서 이겼다!");
@@ -226,6 +225,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             }
 
             yield return null;
+
+            _uiManager.gameObject.SetActive(false);
         }
 
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace MIT.SamtleGame.Stage2.Pokemon
 {
@@ -13,11 +14,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         private Text[] _skillTexts;
         private Selectable[] _selectable;
         private Pokemon _playerPokemon;
-
-        private void Start()
-        {
-            Init();
-        }
 
         public void Init()
         {
@@ -32,6 +28,19 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                         _skillTexts[i] = _skills[i].GetComponentInChildren<Text>();
 
                     _selectable[i] = _skills[i].GetComponent<Selectable>();
+
+                    EventTrigger trigger = _skills[i].GetComponent<EventTrigger>();
+                    int index = i;
+
+                    EventTrigger.Entry entrySubmit = new EventTrigger.Entry();
+                    entrySubmit.eventID = EventTriggerType.Submit;
+                    entrySubmit.callback.AddListener((data) => { PokemonBattleManager.Instance.UseSkill(index); });
+                    trigger.triggers.Add(entrySubmit);
+
+                    EventTrigger.Entry entryCancel = new EventTrigger.Entry();
+                    entryCancel.eventID = EventTriggerType.Cancel;
+                    entryCancel.callback.AddListener((data) => { PokemonBattleManager.Instance.SelectAction(); });
+                    trigger.triggers.Add(entryCancel);
                 }
                 
             }
@@ -79,5 +88,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                     "/   " + _playerPokemon.Info._skills[indexOfSkill]._count;
         }
 
+        public GameObject GetFirstObject()
+        {
+            return _skills[0];
+        }
     }
 }

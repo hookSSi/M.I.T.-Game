@@ -18,11 +18,24 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         private void Awake()
         {
             _itemList = new List<BattleItem>();
+            Init();
 
             // 아이템 추가
             var item = new Items();
-            //AddItem("전 부회장의 3신기", "기묘한 옛것의 기운이 느껴지는 물건이다...", 5, 
-              //  BattleItem.ItemType.Consume, item.TheTrinity);
+
+            AddItem("전 부회장의 3신기", "기묘한 옛것의 기운이 느껴지는 물건이다...", 5, 
+                BattleItem.ItemType.Consume, item.TheTrinity);
+        }
+
+        private void Init()
+        {
+            // _dummyItem Setting
+            EventTrigger trigger = _dummyItem.GetComponent<EventTrigger>();
+
+            EventTrigger.Entry entryCancel = new EventTrigger.Entry();
+            entryCancel.eventID = EventTriggerType.Cancel;
+            entryCancel.callback.AddListener((data) => { PokemonBattleManager.Instance.SelectAction(); });
+            trigger.triggers.Add(entryCancel);
         }
 
         private void OnEnable()
@@ -62,6 +75,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 PokemonBattleManager.Instance.UseItem(usingItem._itemEvent);
 
                 _itemList[index].SetCount(-1);
+                _itemList[index].UpdateText();
 
                 if (usingItem._itemCount <= 0)
                 {

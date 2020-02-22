@@ -19,12 +19,28 @@ namespace MIT.SamtleGame.Stage2.Tool
         [SerializeField] private GameObject _firstItemObject;
         [SerializeField] private GameObject _firstSkillObject;
 
-        private void Start()
+        private void Awake()
         {
             _battleManager = PokemonBattleManager.Instance;
             _eventSystem = EventSystem.current;
 
             _audio = GetComponent<AudioSource>();
+            if (_audio == null)
+            {
+                _audio = gameObject.AddComponent<AudioSource>();
+            }
+
+            if (_firstActionObject == null)
+            {
+                var actionUI = FindObjectOfType<PokemonBattleAction>();
+                SetIndexObject(firstActionObject: actionUI.GetFirstObject());
+            }
+
+            if (_firstSkillObject == null)
+            {
+                var skillUI = FindObjectOfType<PokemonBattleSkill>();
+                SetIndexObject(firstSkillObject: skillUI.GetFirstObject());
+            }
         }
 
         private void Update()

@@ -155,9 +155,10 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             Pokemon enemyPokemon = PokemonBattleManager.Instance._enemyPokemon;
             Image image = enemyPokemon.GetComponent<Image>();
 
-            enemyPokemon.gameObject.SetActive(isvisible);
+            if (enemyPokemon.Info._frontImage)
+                image.sprite = enemyPokemon.Info._frontImage;
 
-            image.sprite = enemyPokemon.Info._frontImage;
+            enemyPokemon.gameObject.SetActive(isvisible);
         }
 
         public void UpdateEnemyPokemonNameText(string newEnemyPokemonName)
@@ -206,9 +207,10 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             Pokemon playerPokemon = PokemonBattleManager.Instance._myPokemon;
             Image image = playerPokemon.GetComponent<Image>();
 
-            playerPokemon.gameObject.SetActive(isvisible);
+            if (playerPokemon.Info._backImage)
+                image.sprite = playerPokemon.Info._backImage;
 
-            image.sprite = playerPokemon.Info._backImage;
+            playerPokemon.gameObject.SetActive(isvisible);
         }
 
         public void UpdatePlayerPokemonNameText(string newPlayerPokemonName)
