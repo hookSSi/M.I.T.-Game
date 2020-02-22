@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using MIT.SamtleGame.Stage2.Tools;
+using MIT.SamtleGame.Stage2.Pokemon;
 using MIT.SamtleGame.Tools;
 
 namespace MIT.SamtleGame.Stage2.NPC
@@ -115,9 +116,10 @@ namespace MIT.SamtleGame.Stage2.NPC
             yield break;
         }
 
-        protected virtual void PokemonBattle()
+        protected virtual void PokemonBattle(string myPokemon, string otherPokemon)
         {
             Debug.Log("포켓몬 배틀!");
+            PokemonBattleManager.Instance.StartBattle(myPokemon, otherPokemon);
         }
 
         protected virtual IEnumerator WaitUntillBattleEnd(float duration = 1f)

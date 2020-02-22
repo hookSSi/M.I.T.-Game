@@ -32,12 +32,8 @@ public struct DialogueEvent
     }
 
     static DialogueEvent _event;
-<<<<<<< HEAD
 
     public static void Trigger(int id = 0, string sound = "", DialogueStatus status = DialogueStatus.Start, int index = 0, bool isControllable = true)
-=======
-    public static void Trigger(int id = 0, string sound = "", DialogueStatus status = DialogueStatus.Start, int index = 0)
->>>>>>> b9255c3c8c9c9b48b49101bb4f4c7ef9662d4fab
     {
         _event._id = id;
         _event._sound = sound;
@@ -92,7 +88,7 @@ public class DialogueManager : Singleton<DialogueManager>, EventListener<Dialogu
 
         /// UI 프리팹을 주 Canvas에 자식으로 붙이는 과정
         _currentDialogueUI = Instantiate(_dialogueUIPrefab, this.transform);
-        _currentDialogueUI.transform.parent = this.gameObject.transform;
+        _currentDialogueUI.transform.SetParent(this.gameObject.transform);
 
         _curretDialogue = _currentDialogueUI.GetComponentInChildren<DialogueBox>();
         _curretDialogue.Reset(id, textPages, 0, sound);

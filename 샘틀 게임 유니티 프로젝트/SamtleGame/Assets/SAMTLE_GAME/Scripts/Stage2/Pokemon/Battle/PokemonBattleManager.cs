@@ -53,9 +53,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             }
 
             _eventSystem = FindObjectOfType<Tool.PokemonBattleEventSystem>();
-
-            // 전투 시작(테스트용)
-            StartBattle("C++", "OldCom");
         }
 
         public void StartBattle(string myPokemonName, string enemyPokemonName)

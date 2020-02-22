@@ -25,7 +25,7 @@ namespace MIT.SamtleGame.Stage2.NPC
             Talk(false);
             yield return WaitUntillTalkEnd();
 
-            PokemonBattle();
+            PokemonBattle("C++", "OldCom");
             yield return WaitUntillBattleEnd();
 
             yield break;
