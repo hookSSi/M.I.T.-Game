@@ -45,6 +45,8 @@ namespace MIT.SamtleGame.Stage2
                     col.GetComponent<PlayerController>().SetDirection(_dir);
                     FadeOutEvent.Trigger(_fadeOutTime, _fadeOutTween);
                 }
+
+                _isActive = false;
             }
         }
 

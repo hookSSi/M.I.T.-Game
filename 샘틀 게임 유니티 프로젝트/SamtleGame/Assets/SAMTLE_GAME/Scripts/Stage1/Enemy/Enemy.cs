@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using TMPro;
 using MIT.SamtleGame.Stage1;
 
@@ -43,7 +42,7 @@ public class Enemy : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
             _attackRange.localPosition = new Vector3(_attackRange.localPosition.x * -1, _attackRange.localPosition.y, _attackRange.localPosition.z);
-        } 
+        }
     }
 
     private void Start()

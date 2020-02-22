@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using MIT.SamtleGame.Tools;
 
 namespace MIT.SamtleGame.Stage1

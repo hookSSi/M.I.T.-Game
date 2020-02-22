@@ -39,8 +39,10 @@ namespace MIT.SamtleGame.Stage2.NPC
                 _reactMark.SetActive(false);
         }
 
-        protected virtual void Update()
+        protected override void Update()
         {
+            base.Update();
+
             if(_isWaiting)
             {
                 if(DetectPlayer())

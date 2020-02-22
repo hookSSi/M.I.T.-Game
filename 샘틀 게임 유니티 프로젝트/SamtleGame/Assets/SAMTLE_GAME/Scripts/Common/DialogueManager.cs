@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using MIT.SamtleGame.Tools;
 using MIT.SamtleGame.DesignPattern;
 using MIT.SamtleGame.Stage2.NPC;
@@ -15,6 +14,7 @@ public struct DialogueEvent
 {
     public int _id;
     public int _index;
+
     public string _sound;
     public DialogueStatus _status;
 
@@ -32,8 +32,12 @@ public struct DialogueEvent
     }
 
     static DialogueEvent _event;
+<<<<<<< HEAD
 
     public static void Trigger(int id = 0, string sound = "", DialogueStatus status = DialogueStatus.Start, int index = 0, bool isControllable = true)
+=======
+    public static void Trigger(int id = 0, string sound = "", DialogueStatus status = DialogueStatus.Start, int index = 0)
+>>>>>>> b9255c3c8c9c9b48b49101bb4f4c7ef9662d4fab
     {
         _event._id = id;
         _event._sound = sound;

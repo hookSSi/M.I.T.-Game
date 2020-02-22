@@ -20,14 +20,6 @@ namespace MIT.SamtleGame.Stage2.NPC
         [ColorUsage(false)]
         public Color _wayPointsForPlayerGizmoColor = Color.yellow;
 
-        protected override void Update() 
-        {
-            base.Update();
-
-            _animator.SetFloat("Horizontal", _currentDir.x);
-            _animator.SetFloat("Vertical", _currentDir.y);
-        }
-
         protected override IEnumerator EventRoutine()
         {
             /// 플레이어에게 이동

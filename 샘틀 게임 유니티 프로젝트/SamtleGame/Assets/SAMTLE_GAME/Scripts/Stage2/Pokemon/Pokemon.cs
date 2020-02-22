@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Pokemon
+namespace MIT.SamtleGame.Stage2.Pokemon
 {
     [System.Serializable]
     public class Skill
@@ -10,7 +10,11 @@ namespace Pokemon
         [Tooltip("기술명")]
         public string _name;
         [Tooltip("남은 갯수")]
-        public string _count;
+        public int _count;
+        [HideInInspector]
+        public int _currentCount;
+        [Tooltip("스킬 이벤트")]
+        public BattleEvent _battleEvent;
     }
     [System.Serializable]
     public class PokemonInfo
@@ -37,6 +41,27 @@ namespace Pokemon
     {
         [SerializeField]
         private PokemonInfo _info;
+        public PokemonInfo Info { get => _info; }
+
+        private float _health;
+        public float Health
+        {
+            get
+            {
+                return _health;
+            }
+            set
+            {
+                _health = value;
+                if (_health < 0f) _health = 0f;
+                if (_health > MaxHealth) _health = MaxHealth;
+            }
+        }
+        
+        public float MaxHealth
+        {
+            get { return _info._health; }
+        }
 
         public Skill UseSkill(int n)
         {
@@ -51,6 +76,18 @@ namespace Pokemon
         public AudioClip Cry()
         {
             return _info._cryingSound;
+        }
+
+        public void SetInfo(PokemonInfo newInfo)
+        {
+            if (newInfo == null)
+                return;
+
+            _info = newInfo;
+            Health = MaxHealth;
+
+            for (int i = 0; i < newInfo._skills.Length; i++)
+                _info._skills[i]._currentCount = newInfo._skills[i]._count;
         }
     }
 }

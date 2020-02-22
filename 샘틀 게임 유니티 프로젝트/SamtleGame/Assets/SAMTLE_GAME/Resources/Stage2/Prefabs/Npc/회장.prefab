@@ -104,8 +104,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -7363413924607640347, guid: ca21c6b2d47ef484a808cbbe6daf1481,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 16e045a9decff3c469c4c7095e4205a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,7 +125,7 @@ Animator:
   m_GameObject: {fileID: 593013892819334817}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8daeb3028bdb2684ca4453cb0e962c03, type: 2}
+  m_Controller: {fileID: 9100000, guid: 978929bdcde478c4a9fe14d4f2c50924, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -152,7 +151,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 0.53333336, y: 0.53333336}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -190,7 +189,8 @@ MonoBehaviour:
     _sound: 
     _status: 0
     _isControllable: 0
-  _currentDir: {x: 1, y: 0}
+  _currentDir: {x: 0, y: -1}
+  _isWalk: 0
   _walkSize: 1
   _walkCount: 10
   _walkTime: 0.1

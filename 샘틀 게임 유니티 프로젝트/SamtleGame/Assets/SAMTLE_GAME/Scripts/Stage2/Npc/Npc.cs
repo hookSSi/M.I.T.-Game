@@ -36,6 +36,7 @@ namespace MIT.SamtleGame.Stage2.NPC
         protected Vector2 _currentDir;
 
         [Header("Npc 정보")]
+        public bool _isWalk = false;
         public float _walkSize = 1;
         public int _walkCount = 10;
         public float _walkTime = 0.1f;
@@ -65,6 +66,13 @@ namespace MIT.SamtleGame.Stage2.NPC
             Initialization();
         }
 
+        protected virtual void Update() 
+        {
+            _animator.SetFloat("Horizontal", _currentDir.x);
+            _animator.SetFloat("Vertical", _currentDir.y);
+            _animator.SetBool("IsWalk", _isWalk);
+        }
+
         public virtual void Talk(bool isControllable = true)
         {
             PlayerControllerEvent.Trigger(false);
@@ -79,6 +87,8 @@ namespace MIT.SamtleGame.Stage2.NPC
 
         protected virtual IEnumerator MoveRoutine(Vector2 dir, bool isBlock = false)
         {
+            _isWalk = true;
+
             if(isBlock)
             {
                 Vector2 origin = ((Vector2)transform.position);
@@ -86,6 +96,7 @@ namespace MIT.SamtleGame.Stage2.NPC
 
                 if(ColliderChecker.CheckColliders(dest, dest, _obstacles))
                 {
+                    _isWalk = false;
                     yield break;
                 }
             }
@@ -100,6 +111,7 @@ namespace MIT.SamtleGame.Stage2.NPC
                 if(_currentWalkCount == _walkCount)
                 {
                     _currentWalkCount = 0;
+                    _isWalk = false;
                     yield break;
                 }
 
@@ -113,7 +125,6 @@ namespace MIT.SamtleGame.Stage2.NPC
         {
             foreach(var wayPoint in _wayPoints)
             {
-
                 Direction dir = Maths.Vector2ToDirection(wayPoint.transform.position - transform.position);
                 _currentDir = Maths.DirectionToVector2(dir);
 
