@@ -354,9 +354,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -582,6 +582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1495556608}
   - component: {fileID: 1495556607}
+  - component: {fileID: 1495556609}
   - component: {fileID: 1495556606}
   m_Layer: 0
   m_Name: Player
@@ -644,3 +645,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1495556609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495556605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5a1dc3e2d491345a3823eb8c73d39f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCamera: {fileID: 754902970}
+  time: 1
+  _prevPos: {x: 0.5, y: 3.3, z: 1.5}
+  _prevRot: {x: 40, y: 54, z: 0}
