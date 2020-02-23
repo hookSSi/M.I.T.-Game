@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController3D : MonoBehaviour
 {
 	[Header("플레이어 시점 카메라")]
-	public Camera camera;
+	public Transform camera;
 
 	[Header("플레이어 세팅")]
 	public float sprintSpeed = 4f;
