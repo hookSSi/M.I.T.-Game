@@ -107,7 +107,7 @@ namespace MIT.SamtleGame.Stage2.NPC
         {
             NpcDialogueBox dialogueBox = (NpcDialogueBox)FindObjectOfType(typeof(NpcDialogueBox));
 
-            while(!dialogueBox._isEnd)
+            while(!DialogueManager.Instance._isEnd)
             {
                 yield return null;
             }

@@ -4432,7 +4432,7 @@ MonoBehaviour:
   _type: 2
   _dir: 0
   _textPages: []
-  _id: 1
+  _id: -1
 --- !u!1 &349544323
 GameObject:
   m_ObjectHideFlags: 0
@@ -9274,6 +9274,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "\uD68C\uC7A5"
+      objectReference: {fileID: 0}
+    - target: {fileID: 593013892819334819, guid: fd6a9dcfedd387644aafa2b007b64d5b,
+        type: 3}
+      propertyPath: _id
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd6a9dcfedd387644aafa2b007b64d5b, type: 3}
@@ -19675,7 +19680,7 @@ MonoBehaviour:
   _type: 2
   _dir: 0
   _textPages: []
-  _id: 1
+  _id: 2
 --- !u!1 &1161221217
 GameObject:
   m_ObjectHideFlags: 0
@@ -25130,8 +25135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e71ade5a22790e4d9fd48c18dcdf44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogueUIPrefab: {fileID: 0}
-  _currentNpc: {fileID: 0}
+  _currentDialogueUI: {fileID: 0}
+  _dialogueUIPrefab:
+  - {fileID: 6212165206363892877, guid: 7ae1cfb16a8e7ed4abc77abd4ae6f089, type: 3}
   _isControllable: 0
   _isEnd: 1
 --- !u!114 &1297559963
@@ -25263,7 +25269,7 @@ MonoBehaviour:
   _type: 2
   _dir: 0
   _textPages: []
-  _id: 1
+  _id: 2
 --- !u!1 &1413699256
 GameObject:
   m_ObjectHideFlags: 0
@@ -27168,19 +27174,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 2
-  _dialogueUIPrefab: {fileID: 6212165206363892877, guid: 7ae1cfb16a8e7ed4abc77abd4ae6f089,
-    type: 3}
+  _uiIndex: 0
   _textPages:
   - _text: "\uB108 \uC77C\uB2E8 \uB530\uB77C\uC640\uB77C"
     _delayDuration: 0.1
     _duration: 0.1
   _talkSound: test
-  _talkEvent:
-    _id: 2
-    _index: 0
-    _sound: 
-    _status: 0
-    _isControllable: 0
   _currentDir: {x: -1, y: 0}
   _isWalk: 0
   _walkSize: 1
@@ -27826,7 +27825,7 @@ MonoBehaviour:
   _type: 2
   _dir: 0
   _textPages: []
-  _id: 1
+  _id: 2
 --- !u!1 &1813308440
 GameObject:
   m_ObjectHideFlags: 0
@@ -28048,7 +28047,7 @@ MonoBehaviour:
   _type: 2
   _dir: 0
   _textPages: []
-  _id: 1
+  _id: 2
 --- !u!1 &1837465271
 GameObject:
   m_ObjectHideFlags: 0
@@ -29683,7 +29682,6 @@ GameObject:
   - component: {fileID: 4012388116614467}
   - component: {fileID: 8195094280116785375}
   - component: {fileID: 3664157344451112755}
-  - component: {fileID: 2113883505942996893}
   - component: {fileID: 1385826671140316}
   m_Layer: 0
   m_Name: Door_To51
@@ -33252,22 +33250,6 @@ TilemapCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318817763535953}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0.00001
---- !u!19719996 &2113883505942996893
-TilemapCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385826671140315}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}

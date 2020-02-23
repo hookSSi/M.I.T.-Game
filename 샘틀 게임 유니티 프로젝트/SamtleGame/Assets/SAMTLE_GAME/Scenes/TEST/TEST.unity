@@ -625,8 +625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e71ade5a22790e4d9fd48c18dcdf44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogueUIPrefab: {fileID: 0}
-  _currentNpc: {fileID: 0}
+  _dialogueUIPrefab:
+  - {fileID: 6212165206363892877, guid: 7ae1cfb16a8e7ed4abc77abd4ae6f089, type: 3}
   _isControllable: 0
   _isEnd: 1
 --- !u!114 &1222091254
@@ -1639,6 +1639,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "\uD68C\uC7A5"
+      objectReference: {fileID: 0}
+    - target: {fileID: 593013892819334819, guid: fd6a9dcfedd387644aafa2b007b64d5b,
+        type: 3}
+      propertyPath: _id
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7958486779908173741, guid: fd6a9dcfedd387644aafa2b007b64d5b,
         type: 3}

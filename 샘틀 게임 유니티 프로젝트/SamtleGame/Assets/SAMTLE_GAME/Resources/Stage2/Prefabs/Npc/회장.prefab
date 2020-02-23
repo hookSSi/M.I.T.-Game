@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73439293c70f8074580336580a7de1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 3
+  _id: 0
   _dialogueUIPrefab: {fileID: 6212165206363892877, guid: 7ae1cfb16a8e7ed4abc77abd4ae6f089,
     type: 3}
   _textPages:
@@ -183,12 +183,6 @@ MonoBehaviour:
     _delayDuration: 0.1
     _duration: 0.1
   _talkSound: 
-  _talkEvent:
-    _id: 0
-    _index: 0
-    _sound: 
-    _status: 0
-    _isControllable: 0
   _currentDir: {x: 0, y: -1}
   _isWalk: 0
   _walkSize: 1

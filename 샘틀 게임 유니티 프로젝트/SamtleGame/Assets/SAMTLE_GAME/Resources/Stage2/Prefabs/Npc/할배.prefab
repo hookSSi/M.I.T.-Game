@@ -144,17 +144,8 @@ MonoBehaviour:
   _gizmoRadius: 0.3
   _type: 2
   _dir: 0
-  _textPages:
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  _id: 0
+  _textPages: []
+  _id: -1
 --- !u!1 &169047486533307756
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,17 +193,8 @@ MonoBehaviour:
   _gizmoRadius: 0.3
   _type: 2
   _dir: 0
-  _textPages:
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  _id: 0
+  _textPages: []
+  _id: -1
 --- !u!1 &462027687753898454
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,17 +242,8 @@ MonoBehaviour:
   _gizmoRadius: 0.3
   _type: 2
   _dir: 0
-  _textPages:
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  _id: 0
+  _textPages: []
+  _id: -1
 --- !u!1 &547110061143846330
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +365,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.53333336, y: 0.53333336}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -413,9 +386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3588d73aee05e940bf146ca23056b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 1
-  _dialogueUIPrefab: {fileID: 6212165206363892877, guid: 7ae1cfb16a8e7ed4abc77abd4ae6f089,
-    type: 3}
+  _id: 0
+  _uiIndex: 0
   _textPages:
   - _text: "\uC5B4\uC774 \uC80A\uC740\uC774..."
     _delayDuration: 0.1
@@ -432,13 +404,8 @@ MonoBehaviour:
     _delayDuration: 0.1
     _duration: 0.1
   _talkSound: test
-  _talkEvent:
-    _id: 1
-    _index: 0
-    _sound: 
-    _status: 0
-    _isControllable: 0
   _currentDir: {x: 0, y: -1}
+  _isWalk: 0
   _walkSize: 1
   _walkCount: 10
   _walkTime: 0.1
@@ -716,7 +683,7 @@ MonoBehaviour:
       \uB9CC\uB098!"
     _delayDuration: 0.1
     _duration: 0.1
-  _id: 1
+  _id: 0
 --- !u!1 &1327908419481106177
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,17 +780,8 @@ MonoBehaviour:
   _gizmoRadius: 0.3
   _type: 2
   _dir: 0
-  _textPages:
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  _id: 0
+  _textPages: []
+  _id: -1
 --- !u!1 &1385391916419053091
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,17 +829,8 @@ MonoBehaviour:
   _gizmoRadius: 0.3
   _type: 2
   _dir: 0
-  _textPages:
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  _id: 0
+  _textPages: []
+  _id: -1
 --- !u!1 &1653443230971348425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1027,17 +976,8 @@ MonoBehaviour:
   _gizmoRadius: 0.3
   _type: 2
   _dir: 0
-  _textPages:
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  _id: 0
+  _textPages: []
+  _id: -1
 --- !u!1 &2631361371343115323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,7 +1071,7 @@ MonoBehaviour:
   _type: 0
   _dir: 2
   _textPages: []
-  _id: 0
+  _id: -1
 --- !u!1 &2861577236583770163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,17 +1119,8 @@ MonoBehaviour:
   _gizmoRadius: 0.3
   _type: 2
   _dir: 0
-  _textPages:
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  _id: 0
+  _textPages: []
+  _id: -1
 --- !u!1 &3061769691772983328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,17 +1168,8 @@ MonoBehaviour:
   _gizmoRadius: 0.3
   _type: 2
   _dir: 0
-  _textPages:
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  _id: 0
+  _textPages: []
+  _id: -1
 --- !u!1 &3258095806805921982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,7 +1316,7 @@ MonoBehaviour:
   _type: 0
   _dir: 0
   _textPages: []
-  _id: 0
+  _id: -1
 --- !u!1 &4894465493084149498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,17 +1462,8 @@ MonoBehaviour:
   _gizmoRadius: 0.3
   _type: 2
   _dir: 0
-  _textPages:
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  _id: 0
+  _textPages: []
+  _id: -1
 --- !u!1 &5692034833483990851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,7 +1571,7 @@ MonoBehaviour:
   - _text: "\uD559\uACFC\uC0AC\uBB34\uC2E4\uC740 5\uCE35\uC774\uC57C!"
     _delayDuration: 0.1
     _duration: 0.1
-  _id: 1
+  _id: 0
 --- !u!1 &5848118403966734689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1718,7 +1631,7 @@ MonoBehaviour:
       \uC788\uC5B4"
     _delayDuration: 0.1
     _duration: 0.1
-  _id: 1
+  _id: 0
 --- !u!1 &6097292848507141260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,7 +1680,7 @@ MonoBehaviour:
   _type: 0
   _dir: 0
   _textPages: []
-  _id: 0
+  _id: -1
 --- !u!1 &6200645094072042924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,17 +1908,8 @@ MonoBehaviour:
   _gizmoRadius: 0.3
   _type: 2
   _dir: 0
-  _textPages:
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  _id: 0
+  _textPages: []
+  _id: -1
 --- !u!1 &7995768021098093098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2109,7 +2013,7 @@ MonoBehaviour:
   - _text: 
     _delayDuration: 0.1
     _duration: 0.1
-  _id: 1
+  _id: 0
 --- !u!1 &8408152863427506057
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,17 +2061,8 @@ MonoBehaviour:
   _gizmoRadius: 0.3
   _type: 2
   _dir: 0
-  _textPages:
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  _id: 0
+  _textPages: []
+  _id: -1
 --- !u!1 &9083177227516231923
 GameObject:
   m_ObjectHideFlags: 0
@@ -2215,14 +2110,5 @@ MonoBehaviour:
   _gizmoRadius: 0.3
   _type: 2
   _dir: 0
-  _textPages:
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  - _text: 
-    _delayDuration: 0
-    _duration: 0
-  _id: 0
+  _textPages: []
+  _id: -1
