@@ -15,13 +15,18 @@ namespace MIT.SamtleGame.Tools
         public Direction _dir;
         public List<DialoguePage> _textPages;
         public int _id = -1;
-
+        
+        public void Init(int id)
+        {
+            _id = id;
+        }
+        
         public virtual Coroutine Trigger(MonoBehaviour mono)
         {
-            PassInfo();
             switch(_type)
             {
                 case EventType.Talk:
+                    PassInfo();
                     return mono.StartCoroutine(Talk());
                 case EventType.Fight:
                     return mono.StartCoroutine(Fight());
@@ -37,7 +42,6 @@ namespace MIT.SamtleGame.Tools
             /// id가 존재하는 걸로 Player가 접근하려고 하면 버그일어남
             if(DialogueManager.Instance._isEnd)
             {
-                Debug.Log("대화");
                 if(GameManager.Instance._npcs.ContainsKey(_id))
                 {
                     Npc npc = GameManager.Instance._npcs[_id];
@@ -45,7 +49,7 @@ namespace MIT.SamtleGame.Tools
                 }
                 else
                 {
-                    Debug.Log("키가 없습니다.");
+                    Debug.Log("Key error");
                 }
             }
 
@@ -80,6 +84,10 @@ namespace MIT.SamtleGame.Tools
             {
                 Npc npc = GameManager.Instance._npcs[_id];
                 npc.ChangeTextPage(_textPages);
+            }
+            else
+            {
+                Debug.Log("key error");
             }
         }
     }

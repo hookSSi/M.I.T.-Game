@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 namespace MIT.SamtleGame.Stage2
 {
-    public class NpcDialogueBox : DialogueBox
+    public class BattleDialogueBox : DialogueBox
     {
-        // 대화 넘김 기다림
-        public GameObject _blinker;
-
         protected override void Initialization()
         {
             base.Initialization();
@@ -33,12 +31,10 @@ namespace MIT.SamtleGame.Stage2
             }
         }
 
-        public virtual IEnumerator WaitUntilInput()
+        public virtual IEnumerator WaitUntilInput(float delay = 1f)
         {
-            while(!Input.GetKeyDown(KeyCode.E))
-            {
-                yield return null;
-            }
+            /// 지정한 시간만큼 기다리고 자동으로 넘김
+            yield return new WaitForSeconds(delay);
 
             Debug.LogFormat("{0} 다음 페이지", _currentPage);
             NextPage();

@@ -32,5 +32,27 @@ public class NodeGenerateButton : Editor
         
         GUILayout.FlexibleSpace();
         EditorGUILayout.EndHorizontal();
+        
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.FlexibleSpace();
+
+        if(GUILayout.Button("웨이포인트 id 초기화", GUILayout.Width(240), GUILayout.Height(30)))
+        {
+            generator.InitWayPoint();
+        }
+        
+        GUILayout.FlexibleSpace();
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.FlexibleSpace();
+
+        if(GUILayout.Button("플레이어 웨이포인트 id 초기화", GUILayout.Width(240), GUILayout.Height(30)))
+        {
+            generator.InitWayPointForPlayer();
+        }
+        
+        GUILayout.FlexibleSpace();
+        EditorGUILayout.EndHorizontal();
     }
 }

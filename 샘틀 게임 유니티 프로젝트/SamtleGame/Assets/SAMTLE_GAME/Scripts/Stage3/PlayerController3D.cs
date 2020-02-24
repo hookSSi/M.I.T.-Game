@@ -24,6 +24,8 @@ public class PlayerController3D : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 		playerSpeed = walkSpeed;
 		// anim = GetComponent<Animator>();
 		rigidBody = GetComponent<Rigidbody>();

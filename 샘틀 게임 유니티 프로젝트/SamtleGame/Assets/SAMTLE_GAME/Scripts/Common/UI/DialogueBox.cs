@@ -24,9 +24,9 @@ public class DialogueBox : MonoBehaviour
 	protected TMP_Text _textComponent;
 	[SerializeField]
 	protected int _currentPage = 0;
-	protected int _id;
 	protected float _delayDuration = 0.33f;
 	protected float _duration = 0.33f;
+	protected int _id;
 
 	[Header("텍스트")]
 	public List<DialoguePage> _textPages;

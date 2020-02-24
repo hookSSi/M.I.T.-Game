@@ -20,16 +20,11 @@ namespace MIT.SamtleGame.Stage2.NPC
         public int _id = 0;
 
         [Header("대사 UI 프리팹")]
-        public GameObject _dialogueUIPrefab;
+        public int _uiIndex = 0;
 
         [Header("대사")]
         public List<DialoguePage> _textPages;
         public string _talkSound;
-
-        [Header("Event")]
-        [SerializeField]
-        private DialogueEvent _talkEvent;
-
 
         [Header("현재 Npc 방향")]
         [SerializeField]
@@ -53,7 +48,6 @@ namespace MIT.SamtleGame.Stage2.NPC
         #region 초기화
         protected virtual void Initialization() 
         {
-            _talkEvent._id = _id;
             GameManager.Instance.AddNpc(this);
             _animator = GetComponent<Animator>();
 
@@ -75,8 +69,9 @@ namespace MIT.SamtleGame.Stage2.NPC
 
         public virtual void Talk(bool isControllable = true)
         {
+            Debug.Log("대화 시작");
             PlayerControllerEvent.Trigger(false);
-            DialogueEvent.Trigger(_talkEvent._id, _talkSound, DialogueStatus.Start, 0, isControllable);  
+            DialogueEvent.Trigger(_uiIndex, _textPages, 0, _talkSound, DialogueStatus.Start, isControllable);  
         }
 
         #region  이동처리
@@ -178,6 +173,14 @@ namespace MIT.SamtleGame.Stage2.NPC
             _wayPoints.Add(newWayPoint.GetComponent<WayPoint>());
 
             newWayPoint.name = string.Format("노드 - {0}", _wayPoints.Count);
+        }
+
+        public void InitWayPoint()
+        {
+            for(var i = _wayPoints.Count - 1; i > -1; i--)
+            {
+                _wayPoints[i].Init(_id);
+            }
         }
 
         protected virtual void OnDrawGizmosSelected() 

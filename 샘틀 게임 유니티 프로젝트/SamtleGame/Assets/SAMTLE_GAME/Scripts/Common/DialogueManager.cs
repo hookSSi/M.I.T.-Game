@@ -14,6 +14,7 @@ public struct DialogueEvent
 {
     public int _id;
     public int _index;
+    public List<DialoguePage> _textPages;
 
     public string _sound;
     public DialogueStatus _status;
@@ -22,22 +23,24 @@ public struct DialogueEvent
     /// status가 Start인 경우에만 체크
     public bool _isControllable; 
     
-    public DialogueEvent(int id = 0, string sound = "", DialogueStatus status = DialogueStatus.Start, int index = 0, bool isControllable = true)
+    public DialogueEvent(int id, List<DialoguePage> textPages, int index, string sound = "", DialogueStatus status = DialogueStatus.Start, bool isControllable = true)
     {
         _id = id;
-        _sound = sound;
         _index = index;
+        _textPages = textPages;
+        _sound = sound;
         _status = status;
         _isControllable = isControllable;
     }
 
     static DialogueEvent _event;
 
-    public static void Trigger(int id = 0, string sound = "", DialogueStatus status = DialogueStatus.Start, int index = 0, bool isControllable = true)
+    public static void Trigger(int id, List<DialoguePage> textPages, int index, string sound = "", DialogueStatus status = DialogueStatus.Start, bool isControllable = true)
     {
         _event._id = id;
-        _event._sound = sound;
+        _event._textPages = textPages;
         _event._index = index;
+        _event._sound = sound;
         _event._status = status;
         _event._isControllable = isControllable;
         EventManager.TriggerEvent(_event);
@@ -47,30 +50,23 @@ public struct DialogueEvent
 public class DialogueManager : Singleton<DialogueManager>, EventListener<DialogueEvent>
 {
     private DialogueBox _curretDialogue;
-    private GameObject _currentDialogueUI; /// 현재 UI 객체
 
     [Header("현재 대화 UI Prefab")]
-    public GameObject _dialogueUIPrefab;
+    public GameObject _currentDialogueUI; /// 현재 UI 객체
+    public GameObject[] _dialogueUIPrefab;
 
-    [Header("현재 대화중인 NPC")]
-    public Npc _currentNpc;
 
     [Header("대화 끝날시 플레이어 컨트롤 여부")]
     public bool _isControllable;
 
     public bool _isEnd = true; // 대화가 종료된 상태인지?
 
-    private void DialogueUpdate(int id, string sound, DialogueStatus status, bool isControllable)
+    private void DialogueUpdate(int id, List<DialoguePage> textPages, string sound, DialogueStatus status, bool isControllable)
     {
-        if(!GameManager.Instance._npcs.ContainsKey(id))
-        {
-            return;
-        }
-
         switch(status)
         {
             case DialogueStatus.Start:
-                StartDialogue(id, sound);
+                StartDialogue(id, textPages, sound);
                 _isControllable = isControllable;
                 break;
             case DialogueStatus.End:
@@ -87,7 +83,7 @@ public class DialogueManager : Singleton<DialogueManager>, EventListener<Dialogu
             Destroy(_currentDialogueUI);
 
         /// UI 프리팹을 주 Canvas에 자식으로 붙이는 과정
-        _currentDialogueUI = Instantiate(_dialogueUIPrefab, this.transform);
+        _currentDialogueUI = Instantiate(_dialogueUIPrefab[id], this.transform);
         _currentDialogueUI.transform.SetParent(this.gameObject.transform);
 
         _curretDialogue = _currentDialogueUI.GetComponentInChildren<DialogueBox>();
@@ -106,20 +102,10 @@ public class DialogueManager : Singleton<DialogueManager>, EventListener<Dialogu
     #endregion
 
     #region  대화창 시작
-    protected virtual void StartDialogue(int id, string sound)
+    protected virtual void StartDialogue(int id, List<DialoguePage> textPages, string sound)
     {
         _isEnd = false;
-        _currentNpc = GameManager.Instance._npcs[id];
-        
-        if(_dialogueUIPrefab != _currentNpc._dialogueUIPrefab)
-        {
-            _dialogueUIPrefab = _currentNpc._dialogueUIPrefab;
-            CreateDialogueUI(id, _currentNpc._textPages, sound);
-        }
-        else
-        {
-            ResetDialogue(id, _currentNpc._textPages, sound);
-        }
+        CreateDialogueUI(id, textPages, sound);
     }
     #endregion
 
@@ -137,7 +123,7 @@ public class DialogueManager : Singleton<DialogueManager>, EventListener<Dialogu
 
     public virtual void OnEvent(DialogueEvent dialogueEvent)
     {
-        DialogueUpdate(dialogueEvent._id, dialogueEvent._sound, dialogueEvent._status, dialogueEvent._isControllable);
+        DialogueUpdate(dialogueEvent._id, dialogueEvent._textPages, dialogueEvent._sound, dialogueEvent._status, dialogueEvent._isControllable);
     }
 
     private void OnEnable() 

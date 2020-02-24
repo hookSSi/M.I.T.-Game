@@ -96,6 +96,14 @@ namespace MIT.SamtleGame.Stage2.NPC
             newWayPoint.name = string.Format("WayPoint - {0}", _wayPointsForPlayer.Count);
         }
 
+        public void InitWayPointForPlayer()
+        {
+            for(var i = _wayPointsForPlayer.Count - 1; i > -1; i--)
+            {
+                _wayPointsForPlayer[i].Init(-1);
+            }
+        }
+
         protected override void OnDrawGizmosSelected() 
         {
             base.OnDrawGizmosSelected();
