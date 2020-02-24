@@ -2004,13 +2004,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gizmoColor: {r: 0, g: 0, b: 1, a: 1}
   _gizmoRadius: 0.1
-  _type: 2
+  _type: 3
   _dir: 0
   _textPages:
   - _text: "\uB0B4 \uCE5C\uAD6C\uB4E4\uC740 \uBAA8\uB450 \uC8FD\uAC70\uB098 \uC878\uC5C5\uD588\uC5B4."
-    _delayDuration: 0.1
-    _duration: 0.1
-  - _text: 
     _delayDuration: 0.1
     _duration: 0.1
   _id: 0

@@ -7,7 +7,7 @@ using MIT.SamtleGame.Stage2.NPC;
 
 namespace MIT.SamtleGame.Tools
 {
-    public enum EventType { Talk, Fight, None }
+    public enum EventType { Talk, Fight, None, PassInfo }
 
     public class WayPoint : Node
     {
@@ -30,6 +30,9 @@ namespace MIT.SamtleGame.Tools
                     return mono.StartCoroutine(Talk());
                 case EventType.Fight:
                     return mono.StartCoroutine(Fight());
+                case EventType.PassInfo:
+                    PassInfo();
+                    break;
                 case EventType.None:
                     break;
             }

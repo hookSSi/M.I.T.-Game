@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MIT.SamtleGame
+namespace MIT.SamtleGame.Stage2.Pokemon
 {
 	public class Grass : MonoBehaviour
 	{

@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MIT.SamtleGame
+namespace MIT.SamtleGame.Stage2.Pokemon
 {
+	/*
+	*	@desc 잔디 클래스
+	*/
 	public class Bush : MonoBehaviour
 	{
 		public bool isWorking = true;
@@ -20,9 +23,15 @@ namespace MIT.SamtleGame
 			// Debug.Log(tmp);
 			if (tmp < encounterChance + (count/10f) * encounterChance )
 			{
-				Debug.Log("발동!!");
+				Battle();
 				count = 0;
 			}
+		}
+
+		public void Battle()
+		{
+			PlayerControllerEvent.Trigger(false);
+			PokemonBattleManager.Instance.StartBattle("C++", "떼껄룩");
 		}
 	}
 }
