@@ -6,13 +6,15 @@ public class PlayerController3D : MonoBehaviour
 {
 	[Header("플레이어 시점 카메라")]
 	public Transform camera;
-
+	public FocusingObjectCameraController focusingCamera;
 	[Header("플레이어 세팅")]
 	public float sprintSpeed = 4f;
 	public float walkSpeed = 2f;
 	public float mouseSensitivity = 2f;
-	[Header("디버깅")]
+	[Header("플레이어 상태")]
 	public bool canMove = true;
+	public bool isFocusing = false;
+	[Header("디버깅")]
 	public float playerSpeed;
 	[SerializeField] private float yRot = 0f;
 	[SerializeField] private float xRot = 0f;
@@ -29,6 +31,10 @@ public class PlayerController3D : MonoBehaviour
 		playerSpeed = walkSpeed;
 		// anim = GetComponent<Animator>();
 		rigidBody = GetComponent<Rigidbody>();
+		yRot = transform.eulerAngles.y;
+		xRot = transform.eulerAngles.x;
+		canMove = true;
+		isFocusing = false;
 	}
 
 	// Update is called once per frame
@@ -39,6 +45,19 @@ public class PlayerController3D : MonoBehaviour
 			Rotate();
 			Move();
 			// SprintCheck();
+		}
+
+
+		if (Input.GetKeyDown(KeyCode.E) && !isFocusing)
+		{
+			if(GetComponent<PlayerInteractive>().watchingObj != null)
+			{
+				FocusObject();
+			}
+		}
+		if (isFocusing && Input.GetKeyDown(KeyCode.R))
+		{
+			FocusOut();
 		}
 		// anim.SetBool("isMoving", isMoving);
 		// anim.SetBool("isSprinting", isSprinting);
@@ -80,5 +99,22 @@ public class PlayerController3D : MonoBehaviour
 			playerSpeed = walkSpeed;
 			isSprinting = false;
 		}
+	}
+	public void FocusObject()
+	{
+		canMove = false;
+		isFocusing = true;
+		GetComponent<PlayerInteractive>().enabled = false;
+		Transform obj = GetComponent<PlayerInteractive>().watchingObj;
+		//this has to be fixed
+		focusingCamera.FocusIn(obj.GetChild(0).position, obj);
+		//
+	}
+	public void FocusOut()
+	{
+		canMove = true;
+		isFocusing = false;
+		GetComponent<PlayerInteractive>().enabled = true;
+		focusingCamera.FocusOut();
 	}
 }
