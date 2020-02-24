@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using MIT.SamtleGame.Tools;
+
 public class PlayerAnimController : MonoBehaviour
 {
 	public Transform stair;
@@ -10,6 +12,7 @@ public class PlayerAnimController : MonoBehaviour
 	public Cinemachine.CinemachineVirtualCamera cinemachine;
 
 	private Animator anim;
+	private float _delay = 0f;
 
 	private void Start()
 	{
@@ -46,6 +49,12 @@ public class PlayerAnimController : MonoBehaviour
 			cinemachine.transform.position = new Vector3(cameraPoint.position.x, cinemachine.transform.position.y, cinemachine.transform.position.z);
 		}
 
+		_delay += Time.deltaTime;
+		if(_delay > 3f && _delay > 0)
+		{
+			LoadingSceneManager.LoadScene("공대관", "LoadingScreen");
+			_delay = -1;
+		}
 	}
 
 	public void ForcedMove(string xyz)

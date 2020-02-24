@@ -452,7 +452,7 @@ MonoBehaviour:
   _doingState: 0
   _attackRange: {fileID: 3244297771818867006}
   _attackSize: {x: 0.8, y: 0.3}
-  _damage: 0.1
+  _damage: 10
   _score: 100
   _enemySpeed: 5
   _hittedEffect: {fileID: 9047182929800484097, guid: f99414e0206f5594699d5a3749e23759,

@@ -272,6 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3774c1899f79fc64d83240627aea314c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentPage: 0
   _textPages:
   - _text: "\uC190\uB2D8, \uBB34\uC784\uC2B9\uCC28\uB294 \uCCA0\uB3C4\uC0AC\uC5C5\uBC95\uC5D0
       \uC758\uD558\uC5EC"
@@ -637,7 +638,7 @@ MonoBehaviour:
   _doingState: 0
   _attackRange: {fileID: 1060458266047445224}
   _attackSize: {x: 0.4, y: 1}
-  _damage: 0.1
+  _damage: 20
   _score: 2000
   _enemySpeed: 10
   _hittedEffect: {fileID: 9047182929800484097, guid: f99414e0206f5594699d5a3749e23759,
