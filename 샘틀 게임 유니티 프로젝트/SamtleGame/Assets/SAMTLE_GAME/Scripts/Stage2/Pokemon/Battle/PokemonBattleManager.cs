@@ -19,13 +19,17 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
     public class PokemonBattleManager : Singleton<PokemonBattleManager>
     {
-        private Tool.PokemonBattleEventSystem _eventSystem;
-
         public PokemonBattleUIManager _uiManager;
         public PokemonBattleItemManager _itemManager;
-
         public Pokemon _myPokemon;
         public Pokemon _enemyPokemon;
+
+        private Tool.PokemonBattleEventSystem _eventSystem;
+
+        [Header("배틀 테스트용 인자")]
+        [SerializeField] private string _testMyPokemon;
+        [SerializeField] private string _testEnemyPokemon;
+        [SerializeField] private bool _isTest = false;
 
         public BattleState _state { get; private set; }
 
@@ -53,11 +57,18 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             }
 
             _eventSystem = FindObjectOfType<Tool.PokemonBattleEventSystem>();
+
+#if UNITY_EDITOR
+            if (_isTest)
+                StartBattle(_testMyPokemon, _testEnemyPokemon);
+#endif
         }
 
         public void StartBattle(string myPokemonName, string enemyPokemonName)
         {
             PokemonInfo myInfo, enemyInfo;
+
+            PlayerControllerEvent.Trigger(false);
 
             _uiManager.gameObject.SetActive(true);
 
@@ -222,6 +233,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             }
 
             yield return null;
+
+            PlayerControllerEvent.Trigger(true);
 
             _uiManager.gameObject.SetActive(false);
         }
