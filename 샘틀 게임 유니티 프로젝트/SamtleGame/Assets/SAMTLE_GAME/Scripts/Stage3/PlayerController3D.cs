@@ -7,7 +7,8 @@ namespace MIT.SamtleGame.Stage3
 	public class PlayerController3D : MonoBehaviour
 	{
 		// private Animator anim;
-		private Rigidbody rigidBody;
+		private Rigidbody _rigidBody;
+		[SerializeField] private Animator _anim;
 		[SerializeField] private float _yRot = 0f;
 		[SerializeField] private float _xRot = 0f;
 		[SerializeField] private bool _isMoving = false;
@@ -34,8 +35,7 @@ namespace MIT.SamtleGame.Stage3
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
 			_playerSpeed = _walkSpeed;
-			// anim = GetComponent<Animator>();
-			rigidBody = GetComponent<Rigidbody>();
+			_rigidBody = GetComponent<Rigidbody>();
 			_yRot = transform.eulerAngles.y;
 			_xRot = transform.eulerAngles.x;
 			_canMove = true;
@@ -46,8 +46,6 @@ namespace MIT.SamtleGame.Stage3
 		void Update()
 		{
 			HandleInput();
-			// anim.SetBool("isMoving", isMoving);
-			// anim.SetBool("isSprinting", isSprinting);
 		}
 
 		public void HandleInput()
@@ -60,6 +58,9 @@ namespace MIT.SamtleGame.Stage3
 					_currentDir.x = Input.GetAxisRaw("Horizontal");
 					_currentDir.y = Input.GetAxisRaw("Vertical");
 					Move(_currentDir);
+
+					_anim.SetFloat("Horizontal", _currentDir.x);
+					_anim.SetFloat("Vertical", _currentDir.y);
 					// SprintCheck();
 				}
 
@@ -87,8 +88,8 @@ namespace MIT.SamtleGame.Stage3
 		}
 		private void Move(Vector2 dir)
 		{
-			rigidBody.velocity += transform.right * dir.x * _playerSpeed;
-			rigidBody.velocity += transform.forward * dir.y * _playerSpeed;
+			_rigidBody.velocity += transform.right * dir.x * _playerSpeed;
+			_rigidBody.velocity += transform.forward * dir.y * _playerSpeed;
 		}
 		private void SprintCheck()
 		{
@@ -111,6 +112,7 @@ namespace MIT.SamtleGame.Stage3
 			Transform obj = GetComponent<PlayerInteractive>().watchingObj;
 			//this has to be fixed
 			_focusingCamera.FocusIn(obj.GetChild(0).position, obj);
+			obj.GetComponent<Interactive>().Action();
 			//
 		}
 		public void FocusOut()

@@ -308,18 +308,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ef754cc4d2e3d409e07a7be9907ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1346979189}
-  focusingCamera: {fileID: 1868393809}
-  sprintSpeed: 4
-  walkSpeed: 2
-  mouseSensitivity: 2
-  canMove: 1
-  isFocusing: 0
-  playerSpeed: 0
-  yRot: 0
-  xRot: 0
-  isMoving: 0
-  isSprinting: 0
+  _anim: {fileID: 0}
+  _yRot: 0
+  _xRot: 0
+  _isMoving: 0
+  _isSprinting: 0
+  _camera: {fileID: 0}
+  _focusingCamera: {fileID: 0}
+  _sprintSpeed: 4
+  _walkSpeed: 2
+  _mouseSensitivity: 2
+  _canMove: 1
+  _isFocusing: 0
+  _isControllable: 1
+  _playerSpeed: 0
 --- !u!4 &374875166
 Transform:
   m_ObjectHideFlags: 0
@@ -474,6 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c9e96bb4b2ac64cb096603ea938953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _focusObj: {fileID: 0}
 --- !u!1 &718823788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,6 +1021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c9e96bb4b2ac64cb096603ea938953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _focusObj: {fileID: 0}
 --- !u!65 &1781314375
 BoxCollider:
   m_ObjectHideFlags: 0
