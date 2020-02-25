@@ -2,55 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInteractive : MonoBehaviour
+namespace MIT.SamtleGame.Stage3
 {
-	public Transform watchingObj = null;
+	public class PlayerInteractive : MonoBehaviour
+	{
+		public Transform watchingObj = null;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-		watchingObj = null;
-	}
-
-    // Update is called once per frame
-    void Update()
-    {
-		Transform hit = HitCheckt();
-		if(hit != watchingObj)
+		// Start is called before the first frame update
+		void Start()
 		{
-			if(watchingObj != null)
-			{
-				watchingObj.GetComponent<Interact>().Leave();
-			}
+			watchingObj = null;
+		}
 
-			watchingObj = hit;
-
-			if (hit != null)
+		// Update is called once per frame
+		void Update()
+		{
+			Transform hit = HitCheckt();
+			if(hit != watchingObj)
 			{
-				hit.GetComponent<Interact>().Watched();
+				if(watchingObj != null)
+				{
+					watchingObj.GetComponent<Interactive>().Leave();
+				}
+
+				watchingObj = hit;
+
+				if (hit != null)
+				{
+					hit.GetComponent<Interactive>().Watched();
+				}
 			}
 		}
-	}
-	private Transform HitCheckt()
-	{
-		RaycastHit hit;
+		private Transform HitCheckt()
+		{
+			RaycastHit hit;
 
-		Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity);
-		if (hit.transform != null && hit.transform.tag == "Interactable")
-		{
-			return hit.transform;
+			Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity);
+			if (hit.transform != null && hit.transform.tag == "Interactable")
+			{
+				return hit.transform;
+			}
+			return null;
 		}
-		return null;
-	}
-	private void OnEnable()
-	{
-		watchingObj = null;
-	}
-	private void OnDisable()
-	{
-		if (watchingObj != null)
+		private void OnEnable()
 		{
-			watchingObj.GetComponent<Interact>().Leave();
+			watchingObj = null;
+		}
+		private void OnDisable()
+		{
+			if (watchingObj != null)
+			{
+				watchingObj.GetComponent<Interactive>().Leave();
+			}
 		}
 	}
 }
+

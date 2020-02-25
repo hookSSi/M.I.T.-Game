@@ -2,119 +2,123 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController3D : MonoBehaviour
+namespace MIT.SamtleGame.Stage3
 {
-	[Header("플레이어 시점 카메라")]
-	public Transform camera;
-	public FocusingObjectCameraController focusingCamera;
-	[Header("플레이어 세팅")]
-	public float sprintSpeed = 4f;
-	public float walkSpeed = 2f;
-	public float mouseSensitivity = 2f;
-	[Header("플레이어 상태")]
-	public bool canMove = true;
-	public bool isFocusing = false;
-	[Header("디버깅")]
-	public float playerSpeed;
-	[SerializeField] private float yRot = 0f;
-	[SerializeField] private float xRot = 0f;
-	[SerializeField] private bool isMoving = false;
-	[SerializeField] private bool isSprinting = false;
-
-	// private Animator anim;
-	private Rigidbody rigidBody;
-	// Use this for initialization
-	void Start()
+	public class PlayerController3D : MonoBehaviour
 	{
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
-		playerSpeed = walkSpeed;
-		// anim = GetComponent<Animator>();
-		rigidBody = GetComponent<Rigidbody>();
-		yRot = transform.eulerAngles.y;
-		xRot = transform.eulerAngles.x;
-		canMove = true;
-		isFocusing = false;
-	}
+		// private Animator anim;
+		private Rigidbody rigidBody;
+		[SerializeField] private float _yRot = 0f;
+		[SerializeField] private float _xRot = 0f;
+		[SerializeField] private bool _isMoving = false;
+		[SerializeField] private bool _isSprinting = false;
+		private Vector2 _currentDir = new Vector2();
 
-	// Update is called once per frame
-	void Update()
-	{
-		if (canMove)
+		[Header("플레이어 시점 카메라")]
+		public Transform _camera;
+		public FocusingObjectCameraController _focusingCamera;
+		[Header("플레이어 세팅")]
+		public float _sprintSpeed = 4f;
+		public float _walkSpeed = 2f;
+		public float _mouseSensitivity = 2f;
+		[Header("플레이어 상태")]
+		public bool _canMove = true;
+		public bool _isFocusing = false;
+		public bool _isControllable = true;
+		[Header("디버깅")]
+		public float _playerSpeed;
+
+
+		void Start()
 		{
-			Rotate();
-			Move();
-			// SprintCheck();
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
+			_playerSpeed = _walkSpeed;
+			// anim = GetComponent<Animator>();
+			rigidBody = GetComponent<Rigidbody>();
+			_yRot = transform.eulerAngles.y;
+			_xRot = transform.eulerAngles.x;
+			_canMove = true;
+			_isFocusing = false;
 		}
 
-
-		if (Input.GetKeyDown(KeyCode.E) && !isFocusing)
+		// Update is called once per frame
+		void Update()
 		{
-			if(GetComponent<PlayerInteractive>().watchingObj != null)
+			HandleInput();
+			// anim.SetBool("isMoving", isMoving);
+			// anim.SetBool("isSprinting", isSprinting);
+		}
+
+		public void HandleInput()
+		{
+			if(_isControllable)
 			{
-				FocusObject();
+				if (_canMove)
+				{
+					Rotate(Input.GetAxis("Mouse X") * _mouseSensitivity, Input.GetAxis("Mouse Y") * _mouseSensitivity);
+					_currentDir.x = Input.GetAxisRaw("Horizontal");
+					_currentDir.y = Input.GetAxisRaw("Vertical");
+					Move(_currentDir);
+					// SprintCheck();
+				}
+
+				if (Input.GetKeyDown(KeyCode.E) && !_isFocusing)
+				{
+					if(GetComponent<PlayerInteractive>().watchingObj != null)
+					{
+						FocusObject();
+					}
+				}
+				else if (_isFocusing && Input.GetKeyDown(KeyCode.E))
+				{
+					FocusOut();
+				}
 			}
 		}
-		if (isFocusing && Input.GetKeyDown(KeyCode.R))
-		{
-			FocusOut();
-		}
-		// anim.SetBool("isMoving", isMoving);
-		// anim.SetBool("isSprinting", isSprinting);
-	}
-	private void Rotate()
-	{
-		yRot += Input.GetAxis("Mouse X") * mouseSensitivity;
-		transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, yRot, transform.localEulerAngles.z);
-		xRot -= Input.GetAxis("Mouse Y") * mouseSensitivity;
-		xRot = Mathf.Clamp(xRot, -90, 90);
-		camera.transform.localEulerAngles = new Vector3(xRot, camera.transform.localEulerAngles.y, camera.transform.localEulerAngles.z);
-	}
-	private void Move()
-	{
-		isMoving = false;
 
-		if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
+		private void Rotate(float xRot, float yRot)
 		{
-			// transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * playerSpeed);
-			rigidBody.velocity += transform.right * Input.GetAxisRaw("Horizontal") * playerSpeed;
-			isMoving = true;
+			_yRot += xRot;
+			transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, _yRot, transform.localEulerAngles.z);
+			_xRot -= yRot;
+			_xRot = Mathf.Clamp(_xRot, -90, 90);
+			_camera.transform.localEulerAngles = new Vector3(_xRot, _camera.transform.localEulerAngles.y, _camera.transform.localEulerAngles.z);
 		}
-		if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
+		private void Move(Vector2 dir)
 		{
-			// transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * playerSpeed);
-			rigidBody.velocity += transform.forward * Input.GetAxisRaw("Vertical") * playerSpeed;
-			isMoving = true;
+			rigidBody.velocity += transform.right * dir.x * _playerSpeed;
+			rigidBody.velocity += transform.forward * dir.y * _playerSpeed;
 		}
-	}
-	private void SprintCheck()
-	{
-		if (Input.GetAxisRaw("Sprint") > 0f)
+		private void SprintCheck()
 		{
-			playerSpeed = sprintSpeed;
-			isSprinting = true;
+			if (Input.GetAxisRaw("Sprint") > 0f)
+			{
+				_playerSpeed = _sprintSpeed;
+				_isSprinting = true;
+			}
+			else if (Input.GetAxisRaw("Sprint") < 1f)
+			{
+				_playerSpeed = _walkSpeed;
+				_isSprinting = false;
+			}
 		}
-		else if (Input.GetAxisRaw("Sprint") < 1f)
+		public void FocusObject()
 		{
-			playerSpeed = walkSpeed;
-			isSprinting = false;
+			_canMove = false;
+			_isFocusing = true;
+			GetComponent<PlayerInteractive>().enabled = false;
+			Transform obj = GetComponent<PlayerInteractive>().watchingObj;
+			//this has to be fixed
+			_focusingCamera.FocusIn(obj.GetChild(0).position, obj);
+			//
 		}
-	}
-	public void FocusObject()
-	{
-		canMove = false;
-		isFocusing = true;
-		GetComponent<PlayerInteractive>().enabled = false;
-		Transform obj = GetComponent<PlayerInteractive>().watchingObj;
-		//this has to be fixed
-		focusingCamera.FocusIn(obj.GetChild(0).position, obj);
-		//
-	}
-	public void FocusOut()
-	{
-		canMove = true;
-		isFocusing = false;
-		GetComponent<PlayerInteractive>().enabled = true;
-		focusingCamera.FocusOut();
+		public void FocusOut()
+		{
+			_canMove = true;
+			_isFocusing = false;
+			GetComponent<PlayerInteractive>().enabled = true;
+			_focusingCamera.FocusOut();
+		}
 	}
 }
