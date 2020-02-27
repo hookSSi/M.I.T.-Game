@@ -64,6 +64,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             _eventSystem = FindObjectOfType<Tool.PokemonBattleEventSystem>();
 
+            _uiManager.gameObject.SetActive(false);
+
 #if UNITY_EDITOR
             if (_isTest)
                 StartBattle(_testMyPokemon, _testEnemyPokemon);
