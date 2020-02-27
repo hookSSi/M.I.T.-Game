@@ -68,9 +68,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         // 전투 화면 표시
         [Header("[전투 화면]")]
         [SerializeField] private UIState _state;
-        [SerializeField] private GameObject _battleUI;
-        [SerializeField] private GameObject _bagUI;
-        [SerializeField] private GameObject _informationUI;
+        public GameObject _battleUI;
+        public GameObject _bagUI;
+        public GameObject _informationUI;
 
         private void Awake()
         {
@@ -99,8 +99,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _isEnemyHpAnimating = false;
             _isPlayerHpAnimating = false;
             _isPlayerExpAnimating = false;
-
-            _state = UIState.Battle;
 
             UpdateEnemyPokemonNameText(enemyPokemon.Info._name);
             UpdateEnemyHpUI(enemyPokemon.Health, enemyPokemon.Health, false);
@@ -153,7 +151,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public void UpdateEnemyImage(bool isvisible)
         {
             Pokemon enemyPokemon = PokemonBattleManager.Instance._enemyPokemon;
-            Image image = enemyPokemon.GetComponent<Image>();
+            Image image = enemyPokemon.GetComponentInChildren<Image>();
 
             if (enemyPokemon.Info._frontImage)
                 image.sprite = enemyPokemon.Info._frontImage;
@@ -205,7 +203,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public void UpdatePlayerImage(bool isvisible)
         {
             Pokemon playerPokemon = PokemonBattleManager.Instance._myPokemon;
-            Image image = playerPokemon.GetComponent<Image>();
+            Image image = playerPokemon.GetComponentInChildren<Image>();
 
             if (playerPokemon.Info._backImage)
                 image.sprite = playerPokemon.Info._backImage;

@@ -41,9 +41,14 @@ namespace MIT.SamtleGame.Stage2.Pokemon
     {
         [SerializeField]
         private PokemonInfo _info;
+        private float _health;
+
+        public enum StatusEffect { None, AttackDown }
+        public StatusEffect _status = StatusEffect.None;
+        public int _effectCount = 0;
+
         public PokemonInfo Info { get => _info; }
 
-        private float _health;
         public float Health
         {
             get

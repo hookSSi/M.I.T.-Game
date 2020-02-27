@@ -10,7 +10,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
     public enum BattleState
     {
         None, Start, Introduction,
-        SelectAction, SelectSkill, SelectItem,
+        SelectAction, SelectSkill, SelectItem, Information,
         Act, End
     }
 
@@ -23,6 +23,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public PokemonBattleItemManager _itemManager;
         public Pokemon _myPokemon;
         public Pokemon _enemyPokemon;
+        public string _textSound = "";
 
         private Tool.PokemonBattleEventSystem _eventSystem;
 
@@ -39,7 +40,12 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         public static void AddNextText(string nextText)
         {
-            Instance._textList.Add(nextText);
+            // Instance._uiManager._bottomUI._dialogBox.AddNextPage(nextText);
+        }
+
+        public static void ClearText()
+        {
+            // Instance._uiManager._bottomUI._dialogBox.Clear();
         }
 
         private void Start()
@@ -141,7 +147,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 playerSkill = PokemonManager.DefaultSkill();
 
             playerSkill._currentCount--;
-
             _uiManager._bottomUI.UpdateDialog();
 
             StartCoroutine(ActPhase(playerSkill._battleEvent, NextEnemySkill()._battleEvent));
@@ -159,19 +164,36 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         IEnumerator ActPhase(BattleEvent playerEvent, BattleEvent enemyEvent)
         {
+            // var waitNextInput = new WaitUntil
+                // (() => { return _uiManager._bottomUI._dialogBox._isPageEnded && Input.GetButtonDown("Interact"); });
+            var waitUIUpdating = new WaitWhile
+                (() => { return _uiManager._mainUI._isPlayerHpAnimating || _uiManager._mainUI._isEnemyHpAnimating; });
+
             for (int i = 0; i < 2; i++)
             {
                 float previousPlayerHealth = _myPokemon.Health;
                 float previousEnemyHealth = _enemyPokemon.Health;
 
-                _textList.Clear();
+                ClearText();
 
-                if (i == 0)
+                if (i == 0) // 아군의 턴
+                {
                     playerEvent.Invoke(_myPokemon, _enemyPokemon);
-                else
+                    // 상태 이상
+                    if (_myPokemon._effectCount > 0) _myPokemon._effectCount--;
+                    else _myPokemon._status = Pokemon.StatusEffect.None;
+                }
+                else // 적의 턴
+                {
                     enemyEvent.Invoke(_enemyPokemon, _myPokemon);
+                    // 상태 이상
+                    if (_enemyPokemon._effectCount > 0) _enemyPokemon._effectCount--;
+                    else _enemyPokemon._status = Pokemon.StatusEffect.None;
+                }
 
                 // 대사 1(예정)(일단 전체 출력)
+                // _uiManager._bottomUI._dialogBox.Talk("", DialogueStatus.Start);
+
 
 #if UNITY_EDITOR
                 Debug.Log((i == 0 ? "플레이어" : "적") + " 턴 : ");
@@ -190,10 +212,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
                 yield return null;
 
-                System.Func<bool> predicate =
-                    () => { return _uiManager._mainUI._isPlayerHpAnimating || _uiManager._mainUI._isEnemyHpAnimating; };
-
-                yield return new WaitWhile(predicate);
+                yield return waitUIUpdating;
 
                 // 대사 출력 2(예정)
 
@@ -246,7 +265,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             Debug.Log("포켓몬 정보 보기...");
 
             _uiManager._mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Information);
-            _uiManager._bottomUI.UpdateDialog();
+            _uiManager._bottomUI.UpdateInformation();
+            _eventSystem.InitializeUINavigation(BattleState.Information);
         }
 
         // 도주(아무 기능 없음)

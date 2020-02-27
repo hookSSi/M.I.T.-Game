@@ -36,10 +36,12 @@ namespace MIT.SamtleGame.Tools
                     return;
             }
 
-            Vector2 size = ((RectTransform)transform).rect.size;
+            float rectwidth = Mathf.Abs(((RectTransform)transform).rect.width);
+            float rectheight = Mathf.Abs(((RectTransform)transform).rect.height);
+            // Debug.Log("너비/높이 " + rectwidth + "/" + rectheight);
 
-            float width = size.x - _grid.padding.horizontal;
-            float height = size.y - _grid.padding.vertical;
+            float width = rectwidth - _grid.padding.horizontal;
+            float height = rectheight - _grid.padding.vertical;
 
             width = (width - _grid.spacing.x * (_column - 1)) / _column;
             height = (height - _grid.spacing.y * (_row - 1)) / _row;

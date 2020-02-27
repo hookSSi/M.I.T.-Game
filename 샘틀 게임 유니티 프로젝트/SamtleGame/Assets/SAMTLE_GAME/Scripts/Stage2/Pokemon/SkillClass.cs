@@ -33,6 +33,14 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             return true;
         }
 
+        private static float GetDamage(Pokemon myPokemon, Pokemon enemyPokemon, float damage)
+        {
+            if (myPokemon._status == Pokemon.StatusEffect.AttackDown)
+                damage *= 0.66f;
+
+            return damage;
+        }
+
         // 뇌정지(생각을 멈추었다) : 발버둥 같은 스킬
         public void StopThinking(Pokemon myPokemon, Pokemon enemyPokemon)
         {
@@ -80,10 +88,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public void OptimalizingOfLimitation(Pokemon myPokemon, Pokemon enemyPokemon)
         {
             string dialog;
-            float damage = enemyPokemon.MaxHealth * (0.1f + 0.2f * count++);
+            float damage = GetDamage(myPokemon, enemyPokemon, 10 + 20 * Mathf.Min(count, 3));
+            count++;
 
             enemyPokemon.Health -= damage;
-            myPokemon.Health += damage * 0.2f;
+            myPokemon.Health += damage * 0.1f;
 
             FirstScript(myPokemon, "극한의 최적화", out dialog);
             PokemonBattleManager.AddNextText(dialog);
@@ -98,7 +107,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public void EasyToUse(Pokemon myPokemon, Pokemon enemyPokemon)
         {
             string dialog;
-            enemyPokemon.Health -= enemyPokemon.MaxHealth * 0.3f;
+            float damage = GetDamage(myPokemon, enemyPokemon, 30f);
+            enemyPokemon.Health -= damage;
 
             FirstScript(myPokemon, "이지 투 유즈", out dialog);
             PokemonBattleManager.AddNextText(dialog);
@@ -110,11 +120,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public void GrabTheJava(Pokemon myPokemon, Pokemon enemyPokemon)
         {
             string dialog;
-            enemyPokemon.Health -= myPokemon.MaxHealth / 2f;
+            float damage = GetDamage(myPokemon, enemyPokemon, (enemyPokemon.MaxHealth + myPokemon.MaxHealth) * 0.2f);
+            enemyPokemon.Health -= damage;
 
             FirstScript(myPokemon, "Java를 Java", out dialog);
-            PokemonBattleManager.AddNextText(dialog);
-            PokemonBattleManager.AddNextText("'자바'를 자바라!");
+            PokemonBattleManager.AddNextText(dialog + " '자바'를 자바라!");
             PokemonBattleManager.AddNextText("서릿발이 날리기 시작했다...");
             if (enemyPokemon.Health <= 0f)
                 PokemonBattleManager.AddNextText(enemyPokemon.Info._name + "는(은) 죽음을 택하였다!");
@@ -147,11 +157,52 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         // Skills For 민지의 고양이
         // 심쿵사
-        
+        public void DeadByHeartPonding(Pokemon myPokemon, Pokemon enemyPokemon)
+        {
+            string dialog;
+            float damage = GetDamage(myPokemon, enemyPokemon, 34f);
+
+            enemyPokemon.Health -= damage;
+
+            FirstScript(myPokemon, "심쿵사", out dialog);
+            PokemonBattleManager.AddNextText(dialog + " " + myPokemon.Info._name + "는(은) 귀엽게 하악질을 한다.");
+            PokemonBattleManager.AddNextText("효과는 굉장했다! " + enemyPokemon.Info._name + "는(은) 정신을 차릴 수 없다!");
+        }
         // 집사 간택
+        public void BeChosen(Pokemon myPokemon, Pokemon enemyPokemon)
+        {
+            string dialog;
+            float damage = GetDamage(myPokemon, enemyPokemon, 20f);
+
+            enemyPokemon.Health -= damage;
+
+            FirstScript(myPokemon, "집사 간택", out dialog);
+            PokemonBattleManager.AddNextText(dialog);
+            PokemonBattleManager.AddNextText("새내기는 " + myPokemon.Info._name + "에게 간택당해 정신을 차릴 수 없다!");
+            PokemonBattleManager.AddNextText(enemyPokemon.Info._name + "이(가) 새내기를 한심하게 쳐다 본다...");
+        }
 
         // 터줏대감
+        public void MasterMeow(Pokemon myPokemon, Pokemon enemyPokemon)
+        {
+            string dialog;
 
-        // 손가락 흔들기
+            enemyPokemon._status = Pokemon.StatusEffect.AttackDown;
+            enemyPokemon._effectCount = 5;
+
+            FirstScript(myPokemon, "터줏대감", out dialog);
+            PokemonBattleManager.AddNextText(dialog);
+            PokemonBattleManager.AddNextText(enemyPokemon.Info._name + "이(가) 기가 눌렸다... 5턴간 위력이 감소했다.");
+        }
+
+        // 낮잠
+        public void SleepAfternoon(Pokemon myPokemon, Pokemon enemyPokemon)
+        {
+            string dialog;
+
+            FirstScript(myPokemon, "낮잠", out dialog);
+            PokemonBattleManager.AddNextText(dialog);
+            PokemonBattleManager.AddNextText(myPokemon.Info._name + "는 나른하게 " + enemyPokemon.Info._name + "을 쳐다보았다.");
+        }
     }
 }
