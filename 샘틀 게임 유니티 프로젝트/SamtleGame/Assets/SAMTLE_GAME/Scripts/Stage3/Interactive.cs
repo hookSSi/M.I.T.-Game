@@ -4,15 +4,17 @@ using UnityEngine;
 
 namespace MIT.SamtleGame.Stage3
 {	
+	[SelectionBase]
 	[RequireComponent(typeof(Outline))]
 	public class Interactive : MonoBehaviour
 	{
 		private Outline _outline;
 		public Transform _focusObj;
 
-		private void Start() 
+		protected virtual void Start() 
 		{
 			_outline = GetComponent<Outline>();
+			_outline.enabled = false;
 		}
 
 		public virtual void Response()
