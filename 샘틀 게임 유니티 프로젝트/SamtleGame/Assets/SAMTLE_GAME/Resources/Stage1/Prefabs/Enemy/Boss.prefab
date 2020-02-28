@@ -637,7 +637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doingState: 0
   _attackRange: {fileID: 1060458266047445224}
-  _attackSize: {x: 0.4, y: 1}
+  _attackSize: {x: 1, y: 1}
   _damage: 20
   _score: 2000
   _enemySpeed: 10
@@ -646,6 +646,9 @@ MonoBehaviour:
   _scoreText: {fileID: 4079624118945536688}
   _health: 100
   _dialogue: {fileID: 440833005}
+  _isAttacked: 0
+  _isBackstemping: 0
+  _isDefending: 0
   _delay: 0.4
   _defenseTime: 0.33
 --- !u!1 &8904453777393652354

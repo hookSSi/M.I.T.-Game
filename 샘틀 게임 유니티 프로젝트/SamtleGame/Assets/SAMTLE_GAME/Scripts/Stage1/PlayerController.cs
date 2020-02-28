@@ -160,7 +160,7 @@ namespace MIT.SamtleGame.Stage1
                 PlayerHittedEvent.Trigger(_playerInfo._currentHp);
                 _immuneCurrentTime = _immuneCollTime;
 
-                if(_playerInfo._currentHp == 0)
+                if(_playerInfo._currentHp < 0)
                 {
                     _isAlive = false;
                     Dead();

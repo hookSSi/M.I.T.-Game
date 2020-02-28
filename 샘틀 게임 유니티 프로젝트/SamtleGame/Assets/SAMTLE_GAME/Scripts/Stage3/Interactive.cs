@@ -5,16 +5,15 @@ using UnityEngine;
 namespace MIT.SamtleGame.Stage3
 {	
 	[SelectionBase]
-	[RequireComponent(typeof(Outline))]
 	public class Interactive : MonoBehaviour
 	{
-		private Outline _outline;
+		public Outline[] _outlines;
 		public Transform _focusObj;
 
 		protected virtual void Start() 
 		{
-			_outline = GetComponent<Outline>();
-			_outline.enabled = false;
+			_outlines = GetComponentsInChildren<Outline>();
+			Leave();
 		}
 
 		public virtual void Response()
@@ -29,18 +28,27 @@ namespace MIT.SamtleGame.Stage3
 
 		public void Watched()
 		{
-			_outline.enabled = true;
+			foreach(var outline in _outlines)
+			{
+				outline.enabled = true;
+			}
 		}
 
 		public void Leave()
 		{
-			_outline.enabled = false;
+			foreach(var outline in _outlines)
+			{
+				outline.enabled = false;
+			}
 		}
 
-		private void OnDrawGizmosSelected()
+		protected virtual void OnDrawGizmosSelected()
 		{
-			Gizmos.color = Color.red;
-			Gizmos.DrawLine(_focusObj.position, this.transform.position);
+			if(_focusObj != null)
+			{
+				Gizmos.color = Color.red;
+				Gizmos.DrawLine(_focusObj.position, this.transform.position);
+			}
 		}
 	}
 }

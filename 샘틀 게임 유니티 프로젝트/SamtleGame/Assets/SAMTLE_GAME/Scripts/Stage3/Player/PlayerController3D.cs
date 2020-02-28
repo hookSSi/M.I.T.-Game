@@ -39,8 +39,6 @@ namespace MIT.SamtleGame.Stage3
 			_rigidBody = GetComponent<Rigidbody>();
 			_yRot = transform.eulerAngles.y;
 			_xRot = transform.eulerAngles.x;
-			_canMove = true;
-			_isFocusing = false;
 		}
 
 		// Update is called once per frame
@@ -53,8 +51,8 @@ namespace MIT.SamtleGame.Stage3
 		{
 			if(_isControllable)
 			{
-
 				Rotate(Input.GetAxis("Mouse X") * _mouseSensitivity, Input.GetAxis("Mouse Y") * _mouseSensitivity);
+
 				if (_canMove)
 				{
 					_currentDir.x = Input.GetAxisRaw("Horizontal");
@@ -68,33 +66,45 @@ namespace MIT.SamtleGame.Stage3
 
 				if(_isSittingOn)
 				{
-					if(Input.GetKeyDown(KeyCode.U))
+					if(Input.GetKeyDown(KeyCode.E))
 					{
-						SitUpChair();
+						_anim.SetTrigger("SitUpChair");
+					}
+				}
+				else
+				{
+					if (Input.GetKeyDown(KeyCode.E) && !_isFocusing)
+					{
+						if(GetComponent<PlayerInteractive>()._watchingObj != null)
+						{
+							FocusObject();
+						}
+					}
+					else if (_isFocusing && Input.GetKeyDown(KeyCode.E))
+					{
+						FocusOut();
 					}
 				}
 
-				if (Input.GetKeyDown(KeyCode.E) && !_isFocusing)
-				{
-					if(GetComponent<PlayerInteractive>().watchingObj != null)
-					{
-						FocusObject();
-					}
-				}
-				else if (_isFocusing && Input.GetKeyDown(KeyCode.E))
-				{
-					FocusOut();
-				}
 			}
 		}
 
 		private void Rotate(float xRot, float yRot)
 		{
-			_yRot += xRot;
-			transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, _yRot, transform.localEulerAngles.z);
-			_xRot -= yRot;
-			_xRot = Mathf.Clamp(_xRot, -90, 90);
-			_camera.transform.localEulerAngles = new Vector3(_xRot, _camera.transform.localEulerAngles.y, _camera.transform.localEulerAngles.z);
+			if(_isSittingOn)
+			{
+				_xRot -= yRot;
+				_xRot = Mathf.Clamp(_xRot, -90, 90);
+				_camera.transform.localEulerAngles = new Vector3(_xRot, _camera.transform.localEulerAngles.y, _camera.transform.localEulerAngles.z);
+			}
+			else
+			{
+				_yRot += xRot;
+				transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, _yRot, transform.localEulerAngles.z);
+				_xRot -= yRot;
+				_xRot = Mathf.Clamp(_xRot, -90, 90);
+				_camera.transform.localEulerAngles = new Vector3(_xRot, _camera.transform.localEulerAngles.y, _camera.transform.localEulerAngles.z);
+			}
 		}
 		private void Move(Vector2 dir)
 		{
@@ -122,9 +132,9 @@ namespace MIT.SamtleGame.Stage3
 			_canMove = false;
 		}
 
-		public void SitUpChair()
+		public void SitUpChair(float rotation)
 		{
-			_anim.SetTrigger("SitUpChair");
+			_yRot = rotation;
 			_isSittingOn = false;
 			_canMove = true;
 			GetComponent<PlayerInteractive>().enabled = true;
@@ -135,15 +145,15 @@ namespace MIT.SamtleGame.Stage3
 			_canMove = false;
 			_isFocusing = true;
 			GetComponent<PlayerInteractive>().enabled = false;
-			Transform obj = GetComponent<PlayerInteractive>().watchingObj;
+			Transform obj = GetComponent<PlayerInteractive>()._watchingObj;
 			//this has to be fixed
-			Transform focusObj = obj.GetComponent<Interactive>()._focusObj;
+			Transform focusObj = GetComponent<PlayerInteractive>()._interactive._focusObj;
 			if(focusObj != null)
 			{
 				_focusingCamera.FocusIn(focusObj.transform.position, obj);
 			}
 
-			obj.GetComponent<Interactive>().Action();
+			GetComponent<PlayerInteractive>()._interactive.Action();
 			//
 		}
 		public void FocusOut()

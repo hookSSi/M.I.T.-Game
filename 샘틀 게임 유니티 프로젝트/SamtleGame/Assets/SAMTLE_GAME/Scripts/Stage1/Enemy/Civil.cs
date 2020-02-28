@@ -72,7 +72,7 @@ namespace MIT.SamtleGame.Stage1
             GameManager._totalEnemyCount -= 1;
         }
 
-        private void OnDrawGizmosSelected() 
+        protected override void OnDrawGizmosSelected() 
         {
             Gizmos.DrawCube(_attackRange.position, _attackSize);
         }

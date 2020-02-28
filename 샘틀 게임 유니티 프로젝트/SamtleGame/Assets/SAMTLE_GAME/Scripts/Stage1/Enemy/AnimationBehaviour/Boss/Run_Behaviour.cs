@@ -27,7 +27,7 @@ namespace MIT.SamtleGame.Stage1
             int rndNum = Random.Range(0, 100);
             int attackProbability = 1 / (_attackCount + 1) * 100;
 
-            if(_boss.IsPlayerClose())
+            if( _boss.IsPlayerClose() && !_boss._isDefending && !_boss._isBackstemping)
             {
                 if( _boss._delay <= _pastTime && rndNum <= attackProbability + 30 ) 
                 {

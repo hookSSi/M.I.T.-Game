@@ -1,52 +1,12 @@
 fileFormatVersion: 2
-guid: 4b97292a7793f4446939d5ae9a9064a3
+guid: 8942b38dd7a5e5a42b7c49b86653c455
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ch21_body
-    second: {fileID: 2100000, guid: e5c53a0eda38e4241934b88e9e7048e8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ch21_hair
-    second: {fileID: 2100000, guid: 39bcc663006d5e7479ad9c60eb75ff21, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch21_1001_Diffuse
-    second: {fileID: 2800000, guid: b549662cfc05c8441861dad1ee0715ce, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch21_1001_Glossiness
-    second: {fileID: 2800000, guid: 997e5f75e8c2eab4cbea299728ecc504, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch21_1001_Normal
-    second: {fileID: 2800000, guid: aebb501e70aec4e4b8a3a3fb356f56d0, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch21_1001_Specular
-    second: {fileID: 2800000, guid: b198f77f5ecad3e4c94d89bc986d41e0, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch21_1002_Diffuse
-    second: {fileID: 2800000, guid: 52d4da9e3e8569b4db230c68be7be804, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch21_1002_Normal
-    second: {fileID: 2800000, guid: da38494f13b6a1b43be2c172112b8a1a, type: 3}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -79,7 +39,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1

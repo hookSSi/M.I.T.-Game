@@ -6,53 +6,65 @@ namespace MIT.SamtleGame.Stage3
 {
 	public class PlayerInteractive : MonoBehaviour
 	{
-		public Transform watchingObj = null;
+		public Transform _watchingObj = null;
+		public Interactive _interactive = null;
 
 		// Start is called before the first frame update
 		void Start()
 		{
-			watchingObj = null;
+			_watchingObj = null;
 		}
 
 		// Update is called once per frame
 		void Update()
 		{
 			Transform hit = HitCheckt();
-			if(hit != watchingObj)
+			if( hit != null )
 			{
-				if(watchingObj != null)
+				if( hit.transform.tag == "Interactable" && hit != _watchingObj )
 				{
-					watchingObj.GetComponent<Interactive>().Leave();
+					if(_watchingObj != null)
+						_watchingObj.GetComponentInParent<Interactive>().Leave();
+					_watchingObj = hit;
+
+					_interactive = hit.GetComponentInParent<Interactive>();
+					_interactive.Watched();
 				}
-
-				watchingObj = hit;
-
-				if (hit != null)
+			}
+			else if( hit == null )
+			{
+				if( _watchingObj != null )
 				{
-					hit.GetComponent<Interactive>().Watched();
+					Interactive  interact = _watchingObj.GetComponentInParent<Interactive>();
+					if(interact != null)
+					{
+						interact.Leave();
+					}
+					else
+					{
+						Debug.Log("Interactive 스크립트가 없습니다.");
+					}
 				}
+				
+				_watchingObj = null;
+				_interactive = null;
 			}
 		}
 		private Transform HitCheckt()
 		{
 			RaycastHit hit;
-
 			Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity);
-			if (hit.transform != null && hit.transform.tag == "Interactable")
-			{
-				return hit.transform;
-			}
-			return null;
+			return hit.transform;
 		}
 		private void OnEnable()
 		{
-			watchingObj = null;
+			_watchingObj = null;
 		}
 		private void OnDisable()
 		{
-			if (watchingObj != null)
+			if (_watchingObj != null)
 			{
-				watchingObj.GetComponent<Interactive>().Leave();
+				_interactive.Leave();
 			}
 		}
 	}

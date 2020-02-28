@@ -81,6 +81,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3458187276893885926}
+  - component: {fileID: 1898851912}
   m_Layer: 0
   m_Name: Monitor
   m_TagString: Untagged
@@ -104,6 +105,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -179.757, z: 0}
+--- !u!114 &1898851912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3458187276893885921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ec1fbaa2468b94f8a33639a70abc16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlines: []
+  _focusObj: {fileID: 3458187276939825402}
+  _textPages: []
+  _text: {fileID: 3458187277861071567}
 --- !u!1 &3458187277123922096
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,16 +567,6 @@ PrefabInstance:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 8018657794244392535, guid: 5bdc7489daec16f448e4ea065d506da5,
-        type: 3}
-      propertyPath: _focusObj
-      value: 
-      objectReference: {fileID: 3458187276939825402}
-    - target: {fileID: 8018657794244392535, guid: 5bdc7489daec16f448e4ea065d506da5,
-        type: 3}
-      propertyPath: _text
-      value: 
-      objectReference: {fileID: 3458187277861071567}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bdc7489daec16f448e4ea065d506da5, type: 3}
 --- !u!4 &3458187277467903952 stripped

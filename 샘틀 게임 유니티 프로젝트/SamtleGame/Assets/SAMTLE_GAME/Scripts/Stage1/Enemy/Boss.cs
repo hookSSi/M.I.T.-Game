@@ -9,11 +9,13 @@ namespace MIT.SamtleGame.Stage1
     public class Boss : Enemy
     {
         private Animator _animator;
-        private bool _isDefending =  false;
 
         [Header("보스 상태 정보")]
         public int _health = 100;
         public DialogueBox _dialogue;
+        public bool _isAttacked = false;
+        public bool _isBackstemping = false;
+        public bool _isDefending =  false;
 
         [Header("보스 공격 정보")]
         public float _delay = 0.5f;
@@ -40,7 +42,6 @@ namespace MIT.SamtleGame.Stage1
                 return false;
         }
 
-
         public override void Move()
         {
             // 서있는 상태라면
@@ -60,15 +61,27 @@ namespace MIT.SamtleGame.Stage1
             PlayGameEvent.Trigger();
         }
 
-        public void Backstep()
+        public IEnumerator Backstep(float duration)
         {
-            transform.Translate(Vector2.left * _enemySpeed * Time.deltaTime);
+            _isBackstemping = true;
             Debug.Log("뒤로 이동");
+            float lapse = 0f;
+
+            while( duration < lapse )
+            {
+                transform.Translate(Vector2.left * _enemySpeed * Time.deltaTime);
+                lapse += Time.deltaTime;
+                yield return null;
+            }
+
+            _isBackstemping = false;
+            _isAttacked = false;
+            yield break;
         }
 
         public override void Attack()
         {
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(_attackRange.position, _attackSize, 0);
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(_attackRange.position, _attackSize, 0f);
 
             foreach(Collider2D collider in colliders)
             {
@@ -99,6 +112,8 @@ namespace MIT.SamtleGame.Stage1
         {
             if(_isAlive && !_isDefending)
             {
+                _isAttacked = true;
+                StartCoroutine(Backstep(1f));
                 _health -= 10;
                 BossHittedEvent.Trigger(_health);
                 
