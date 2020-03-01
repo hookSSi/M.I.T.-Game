@@ -21,9 +21,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
     {
         public PokemonBattleUIManager _uiManager;
         public PokemonBattleItemManager _itemManager;
+        public BattleDialogueController _dialogueController;
         public Pokemon _myPokemon;
         public Pokemon _enemyPokemon;
-        public string _textSound = "";
 
         private Tool.PokemonBattleEventSystem _eventSystem;
 
@@ -34,33 +34,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         public BattleState _state { get; private set; }
 
-        [HideInInspector] public List<string> _textList = new List<string>();
-
         public bool _isGameOver { get { return _myPokemon.Health <= 0 || _enemyPokemon.Health <= 0; }}
-
-        public static void AddNextText(string nextText)
-        {
-            // Instance._uiManager._bottomUI._dialogBox.AddNextPage(nextText);
-        }
-
-        public static void ClearText()
-        {
-            // Instance._uiManager._bottomUI._dialogBox.Clear();
-        }
 
         private void Start()
         {
             _state = BattleState.None;
-
-            if (_uiManager == null)
-            {
-                _uiManager = FindObjectOfType<PokemonBattleUIManager>();
-            }
-
-            if (_itemManager == null)
-            {
-                _itemManager = FindObjectOfType<PokemonBattleItemManager>();
-            }
 
             _eventSystem = FindObjectOfType<Tool.PokemonBattleEventSystem>();
 
@@ -94,8 +72,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _uiManager._mainUI.UpdatePlayerImage(false);
             _uiManager._mainUI.UpdateEnemyImage(false);
             _uiManager._mainUI.UpdateValue(_myPokemon, _enemyPokemon, 10, 10, 0f, 100f);
-
-            _textList = new List<string>();
 
             _uiManager._bottomUI._skill.Init();
             _uiManager._bottomUI._skill.SetPokemon(_myPokemon);
@@ -166,8 +142,12 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         IEnumerator ActPhase(BattleEvent playerEvent, BattleEvent enemyEvent)
         {
-            // var waitNextInput = new WaitUntil
-                // (() => { return _uiManager._bottomUI._dialogBox._isPageEnded && Input.GetButtonDown("Interact"); });
+            var waitDialogueUpdating = new WaitWhile
+                (() => { return _dialogueController._isEnd == false; });
+
+            var waitInputing = new WaitWhile
+                (() => { return !Input.GetButtonDown("Interact") && !Input.GetButtonDown("Submit"); });
+
             var waitUIUpdating = new WaitWhile
                 (() => { return _uiManager._mainUI._isPlayerHpAnimating || _uiManager._mainUI._isEnemyHpAnimating; });
 
@@ -176,7 +156,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 float previousPlayerHealth = _myPokemon.Health;
                 float previousEnemyHealth = _enemyPokemon.Health;
 
-                ClearText();
+                _dialogueController.ClearPages();
 
                 if (i == 0) // 아군의 턴
                 {
@@ -193,18 +173,10 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                     else _enemyPokemon._status = Pokemon.StatusEffect.None;
                 }
 
-                // 대사 1(예정)(일단 전체 출력)
-                // _uiManager._bottomUI._dialogBox.Talk("", DialogueStatus.Start);
-
-
-#if UNITY_EDITOR
-                Debug.Log((i == 0 ? "플레이어" : "적") + " 턴 : ");
-
-                for (int j = 0; j < _textList.Count; j++)
-                {
-                    Debug.Log(_textList[j]);
-                }
-#endif
+                // 대사 1(데미지 판정 이전)
+                _dialogueController.NextDialogue();
+                yield return waitDialogueUpdating;
+                /* 이곳에서 이펙트 재생 및 기다리기 */
 
                 if (_myPokemon.Health != previousPlayerHealth)
                     _uiManager._mainUI.UpdatePlayerHpUI(_myPokemon.Health, _myPokemon.MaxHealth, true);
@@ -212,11 +184,15 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 if (_enemyPokemon.Health != previousEnemyHealth)
                     _uiManager._mainUI.UpdateEnemyHpUI(_enemyPokemon.Health, _enemyPokemon.MaxHealth, true);
 
-                yield return null;
-
+                yield return 0.1f;
                 yield return waitUIUpdating;
 
-                // 대사 출력 2(예정)
+                // 대사 2(데미지 판정 이후)
+                _dialogueController.NextDialogue();
+                yield return waitDialogueUpdating;
+
+                yield return waitInputing;
+                _dialogueController.EndDialogue();
 
                 if (_isGameOver)
                     break;
@@ -236,20 +212,20 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         private IEnumerator EndBattle()
         {
             _state = BattleState.End;
-            _textList.Clear();
+            _dialogueController.ClearPages();
 
             if (_myPokemon.Health <= 0f) _uiManager._mainUI.UpdatePlayerImage(false);
             if (_enemyPokemon.Health <= 0f) _uiManager._mainUI.UpdateEnemyImage(false);
 
             if (_myPokemon.Health > 0f)
             {
-                AddNextText("신난다! " + _enemyPokemon.Info._name + "과의 과제에서 이겼다!");
+                _dialogueController.AddNextPage("신난다! " + _enemyPokemon.Info._name + "과의 과제에서 이겼다!");
                 Debug.Log("승리!");
             }
             else
             {
-                AddNextText(_myPokemon.Info._name + "가 최후의 오류를 내뿜었다...");
-                AddNextText("새내기는 눈앞이 깜깜해졌다!");
+                _dialogueController.AddNextPage(_myPokemon.Info._name + "가 최후의 오류를 내뿜었다...");
+                _dialogueController.AddNextPage("새내기는 눈앞이 깜깜해졌다!");
                 Debug.Log("패배...");
             }
 
@@ -274,8 +250,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         // 도주(아무 기능 없음)
         public void Escape()
         {
-            _textList.Clear();
-            AddNextText("안돼! 이번 학기 학점을 이렇게 버릴 수 없어!");
+            _dialogueController.ClearPages();
+            _dialogueController.AddNextPage("안돼! 이번 학기 학점을 이렇게 버릴 수 없어!");
 
             _uiManager._bottomUI.UpdateDialog();
 

@@ -6,11 +6,13 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 {
     public class SkillClass : MonoBehaviour
     {
-        private static int count = 0;
+        private static int _count = 0;
+        PokemonBattleManager _manager;
 
         private void Start()
         {
-            count = 0;
+            _count = 0;
+            _manager = PokemonBattleManager.Instance;
         }
 
         // 공용 기술
@@ -50,8 +52,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             enemyPokemon.Health -= enemyPokemon.MaxHealth * 0.1f;
 
             FirstScript(myPokemon, "뇌정지", out dialog);
-            PokemonBattleManager.AddNextText(dialog);
-            PokemonBattleManager.AddNextText(myPokemon.Info._name + "는(은) 생각을 포기하였다!");
+            _manager._dialogueController.AddNextPage(dialog, true);
+            _manager._dialogueController.AddNextPage(myPokemon.Info._name + "는(은) 생각을 포기하였다!", true);
         }
 
         // 튀어오르기 : 멍때리기류 갑
@@ -61,25 +63,25 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             float probability = Random.value;
 
             FirstScript(myPokemon, "튀어오르기", out dialog);
-            PokemonBattleManager.AddNextText(dialog);
+            _manager._dialogueController.AddNextPage(dialog, true);
 
             if (probability <= 0.05f)
             {
                 enemyPokemon.Health = 0f;
 
-                PokemonBattleManager.AddNextText("효과는 굉장했다!");
-                PokemonBattleManager.AddNextText("이게 왜 되지? 새내기는 혼란에 빠졌다!");
+                _manager._dialogueController.AddNextPage("효과는 굉장했다!");
+                _manager._dialogueController.AddNextPage("이게 왜 되지? 새내기는 혼란에 빠졌다!", true);
             }
             else if (probability <= 0.13f)
             {
                 myPokemon.Health -=  myPokemon.MaxHealth / 5f;
 
-                PokemonBattleManager.AddNextText(myPokemon.Info._name + "는(은) 무리한 코딩으로 인해 데미지를 입었다!");
-                PokemonBattleManager.AddNextText("새내기는 눈앞이 아득해질 것 같았다...");
+                _manager._dialogueController.AddNextPage(myPokemon.Info._name + "는(은) 무리한 코딩으로 인해 데미지를 입었다!");
+                _manager._dialogueController.AddNextPage("새내기는 눈앞이 아득해질 것 같았다...", true);
             }
             else
             {
-                PokemonBattleManager.AddNextText("그러나 아무것도 일어나지 않는다!");
+                _manager._dialogueController.AddNextPage("그러나 아무것도 일어나지 않는다!", true);
             }
         }
         
@@ -88,18 +90,18 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public void OptimalizingOfLimitation(Pokemon myPokemon, Pokemon enemyPokemon)
         {
             string dialog;
-            float damage = GetDamage(myPokemon, enemyPokemon, 10 + 20 * Mathf.Min(count, 3));
-            count++;
+            float damage = GetDamage(myPokemon, enemyPokemon, 10 + 20 * Mathf.Min(_count, 3));
+            _count++;
 
             enemyPokemon.Health -= damage;
             myPokemon.Health += damage * 0.1f;
 
             FirstScript(myPokemon, "극한의 최적화", out dialog);
-            PokemonBattleManager.AddNextText(dialog);
-            if (count == 1)
-                PokemonBattleManager.AddNextText("효과는 미미했다...");
-            if (count >= 3)
-                PokemonBattleManager.AddNextText("효과는 굉장했다!");
+            _manager._dialogueController.AddNextPage(dialog, true);
+            if (_count == 1)
+                _manager._dialogueController.AddNextPage("효과는 미미했다...", true);
+            if (_count >= 3)
+                _manager._dialogueController.AddNextPage("효과는 굉장했다!", true);
         }
 
         // Skills For Python
@@ -111,8 +113,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             enemyPokemon.Health -= damage;
 
             FirstScript(myPokemon, "이지 투 유즈", out dialog);
-            PokemonBattleManager.AddNextText(dialog);
-            PokemonBattleManager.AddNextText("심플 이즈 베스트!");
+            _manager._dialogueController.AddNextPage(dialog, true);
+            _manager._dialogueController.AddNextPage("심플 이즈 베스트!", true);
         }
 
         // Skills For Java
@@ -124,11 +126,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             enemyPokemon.Health -= damage;
 
             FirstScript(myPokemon, "Java를 Java", out dialog);
-            PokemonBattleManager.AddNextText(dialog + " '자바'를 자바라!");
-            PokemonBattleManager.AddNextText("서릿발이 날리기 시작했다...");
+            _manager._dialogueController.AddNextPage(dialog + " '자바'를 자바라!");
+            _manager._dialogueController.AddNextPage("서릿발이 날리기 시작했다...", true);
             if (enemyPokemon.Health <= 0f)
-                PokemonBattleManager.AddNextText(enemyPokemon.Info._name + "는(은) 죽음을 택하였다!");
-            PokemonBattleManager.AddNextText("효과는 굉장했다!");
+                _manager._dialogueController.AddNextPage(enemyPokemon.Info._name + "는(은) 죽음을 택하였다!");
+            _manager._dialogueController.AddNextPage("효과는 굉장했다!", true);
         }
 
         // Skills For 오래된 동방컴
@@ -141,16 +143,20 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             myPokemon.Health += rand * myPokemon.MaxHealth / 10f;
 
             FirstScript(myPokemon, "마지막 팬소리", out dialog);
-            PokemonBattleManager.AddNextText(dialog);
-            PokemonBattleManager.AddNextText("돌돌돌... " + myPokemon.Info._name + "는(은) 힘겹게 돌아가고 있다.");
+            _manager._dialogueController.AddNextPage(dialog, true);
 
             switch (rand)
             {
                 case -1:
-                    PokemonBattleManager.AddNextText(myPokemon.Info._name + "의 체력이 약간 감소하였다!");
+                    _manager._dialogueController.AddNextPage("돌돌돌... " + myPokemon.Info._name + "는(은) 힘겹게 돌아가고 있다.");
+                    _manager._dialogueController.AddNextPage(myPokemon.Info._name + "의 체력이 약간 감소하였다!", true);
+                    break;
+                case 0:
+                    _manager._dialogueController.AddNextPage("돌돌돌... " + myPokemon.Info._name + "는(은) 힘겹게 돌아가고 있다.", true);
                     break;
                 case 1:
-                    PokemonBattleManager.AddNextText(myPokemon.Info._name + "의 체력이 약간 회복하였다!");
+                    _manager._dialogueController.AddNextPage("돌돌돌... " + myPokemon.Info._name + "는(은) 힘겹게 돌아가고 있다.");
+                    _manager._dialogueController.AddNextPage(myPokemon.Info._name + "의 체력이 약간 회복하였다!", true);
                     break;
             }
         }
@@ -165,9 +171,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             enemyPokemon.Health -= damage;
 
             FirstScript(myPokemon, "심쿵사", out dialog);
-            PokemonBattleManager.AddNextText(dialog + " " + myPokemon.Info._name + "는(은) 귀엽게 하악질을 한다.");
-            PokemonBattleManager.AddNextText("효과는 굉장했다! " + enemyPokemon.Info._name + "는(은) 정신을 차릴 수 없다!");
+            _manager._dialogueController.AddNextPage(dialog);
+            _manager._dialogueController.AddNextPage (myPokemon.Info._name + "는(은) 귀엽게 하악질을 한다.", true);
+            _manager._dialogueController.AddNextPage("효과는 굉장했다! " + enemyPokemon.Info._name + "는(은) 정신을 차릴 수 없다!", true);
         }
+
         // 집사 간택
         public void BeChosen(Pokemon myPokemon, Pokemon enemyPokemon)
         {
@@ -177,9 +185,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             enemyPokemon.Health -= damage;
 
             FirstScript(myPokemon, "집사 간택", out dialog);
-            PokemonBattleManager.AddNextText(dialog);
-            PokemonBattleManager.AddNextText("새내기는 " + myPokemon.Info._name + "에게 간택당해 정신을 차릴 수 없다!");
-            PokemonBattleManager.AddNextText(enemyPokemon.Info._name + "이(가) 새내기를 한심하게 쳐다 본다...");
+            _manager._dialogueController.AddNextPage(dialog, true);
+            _manager._dialogueController.AddNextPage("새내기는 " + myPokemon.Info._name + "에게 간택당해 정신을 차릴 수 없다!");
+            _manager._dialogueController.AddNextPage(enemyPokemon.Info._name + "이(가) 새내기를 한심하게 쳐다 본다...", true);
         }
 
         // 터줏대감
@@ -191,8 +199,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             enemyPokemon._effectCount = 5;
 
             FirstScript(myPokemon, "터줏대감", out dialog);
-            PokemonBattleManager.AddNextText(dialog);
-            PokemonBattleManager.AddNextText(enemyPokemon.Info._name + "이(가) 기가 눌렸다... 5턴간 위력이 감소했다.");
+            _manager._dialogueController.AddNextPage(dialog, true);
+            _manager._dialogueController.AddNextPage(enemyPokemon.Info._name + "이(가) 기가 눌렸다... 5턴간 위력이 감소했다.", true);
         }
 
         // 낮잠
@@ -201,8 +209,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             string dialog;
 
             FirstScript(myPokemon, "낮잠", out dialog);
-            PokemonBattleManager.AddNextText(dialog);
-            PokemonBattleManager.AddNextText(myPokemon.Info._name + "는 나른하게 " + enemyPokemon.Info._name + "을 쳐다보았다.");
+            _manager._dialogueController.AddNextPage(dialog, true);
+            _manager._dialogueController.AddNextPage(myPokemon.Info._name + "는 나른하게 " + enemyPokemon.Info._name + "을 쳐다보았다.", true);
         }
     }
 }

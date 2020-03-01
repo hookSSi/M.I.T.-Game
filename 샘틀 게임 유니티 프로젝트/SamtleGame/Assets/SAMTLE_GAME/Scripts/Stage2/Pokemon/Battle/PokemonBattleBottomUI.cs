@@ -12,8 +12,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         public PokemonBattleSkill _skill { get; private set; }
 
-        public PokemonBattleDialogueBox _dialogBox;
-
         private void Awake()
         {
             _skill = _skillUI.GetComponent<PokemonBattleSkill>();

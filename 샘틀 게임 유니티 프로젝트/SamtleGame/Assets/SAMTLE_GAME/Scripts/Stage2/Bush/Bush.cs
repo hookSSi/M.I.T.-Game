@@ -31,7 +31,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 		public void Battle()
 		{
 			PlayerControllerEvent.Trigger(false);
-			PokemonBattleManager.Instance.StartBattle("C++", "떼껄룩");
+			PokemonBattleManager.Instance.StartBattle("C++", "고양이");
 		}
 	}
 }
