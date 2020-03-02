@@ -8,6 +8,7 @@ namespace MIT.SamtleGame.Stage3
 	{
 		public Transform _watchingObj = null;
 		public Interactive _interactive = null;
+		public float _range = 100;
 
 		// Start is called before the first frame update
 		void Start()
@@ -21,29 +22,29 @@ namespace MIT.SamtleGame.Stage3
 			Transform hit = HitCheckt();
 			if( hit != null )
 			{
-				if( hit.transform.tag == "Interactable" && hit != _watchingObj )
+				if( hit.transform.tag.Equals("Interactable" ) )
 				{
-					if(_watchingObj != null)
-						_watchingObj.GetComponentInParent<Interactive>().Leave();
-					_watchingObj = hit;
+					Interactive hitInteractive = hit.GetComponentInParent<Interactive>();
 
-					_interactive = hit.GetComponentInParent<Interactive>();
-					_interactive.Watched();
+					if( hitInteractive != _interactive )
+					{
+						if(_watchingObj != null)
+						{
+							_interactive.Leave();
+						}
+
+						_watchingObj = hit;
+						_interactive = hitInteractive;
+						_interactive.Watched();
+					}
 				}
 			}
-			else if( hit == null )
+			
+			if( hit == null || !hit.transform.tag.Equals("Interactable") )
 			{
-				if( _watchingObj != null )
+				if( _interactive != null )
 				{
-					Interactive  interact = _watchingObj.GetComponentInParent<Interactive>();
-					if(interact != null)
-					{
-						interact.Leave();
-					}
-					else
-					{
-						Debug.Log("Interactive 스크립트가 없습니다.");
-					}
+					_interactive.Leave();
 				}
 				
 				_watchingObj = null;
@@ -53,8 +54,13 @@ namespace MIT.SamtleGame.Stage3
 		private Transform HitCheckt()
 		{
 			RaycastHit hit;
-			Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity);
-			return hit.transform;
+
+			if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, _range))
+			{
+				return hit.transform;
+			}
+			else
+				return null;
 		}
 		private void OnEnable()
 		{
@@ -66,6 +72,11 @@ namespace MIT.SamtleGame.Stage3
 			{
 				_interactive.Leave();
 			}
+		}
+
+		private void OnDrawGizmos() {
+			Gizmos.color = Color.red;
+			Gizmos.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * _range);
 		}
 	}
 }

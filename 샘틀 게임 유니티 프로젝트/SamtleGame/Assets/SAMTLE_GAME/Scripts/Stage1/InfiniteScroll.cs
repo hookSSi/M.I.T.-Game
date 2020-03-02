@@ -63,6 +63,7 @@ public class InfiniteScroll : MonoBehaviour
                 if(GameManager._totalEnemyCount == 0)
                 {
                     PasueGameEvent.Trigger();
+                    BgmManager.Instance.Pause();
                     SpawnEvent.Trigger(Direction.Left, EnemyType.Boss);
 					_endPoint.position = _nextGenPos + endPointOffset;
 					_endPoint.gameObject.SetActive(true);

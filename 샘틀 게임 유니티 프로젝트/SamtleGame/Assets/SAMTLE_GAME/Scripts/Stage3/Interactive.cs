@@ -28,6 +28,7 @@ namespace MIT.SamtleGame.Stage3
 
 		public void Watched()
 		{
+			Debug.LogFormat("{0} 오브젝트 Outline - True", this.gameObject.name);
 			foreach(var outline in _outlines)
 			{
 				outline.enabled = true;
@@ -36,6 +37,7 @@ namespace MIT.SamtleGame.Stage3
 
 		public void Leave()
 		{
+			Debug.LogFormat("{0} 오브젝트 Outline - False", this.gameObject.name);
 			foreach(var outline in _outlines)
 			{
 				outline.enabled = false;

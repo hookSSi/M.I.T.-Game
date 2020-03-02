@@ -19,10 +19,11 @@ public class BgmManager : Singleton<BgmManager>
         _source = GetComponent<AudioSource>();
     }
 
-    public void Play(int _playTrack)
+    public void Play(int _playTrack, bool loop = false, float volume = 0.4f)
     {
-        _source.volume = 0.7f;
+        _source.volume = volume;
         _source.clip = _clips[_playTrack];
+        _source.loop = loop;
         _source.Play();
     }
 

@@ -71,13 +71,15 @@ namespace MIT.SamtleGame.Stage1
         private IEnumerator ReadyAndStartRoutine()
         {
             Pause();
+            BgmManager.Instance.Play(0);
             _readyText.SetActive(true);
-            yield return new WaitForSecondsRealtime(2.0f);
+            yield return new WaitForSecondsRealtime(3.0f);
             _startText.SetActive(true);
-            yield return new WaitForSecondsRealtime(2.0f);
+            yield return new WaitForSecondsRealtime(3.0f);
             _readyText.SetActive(false);
             _startText.SetActive(false);
             Play();
+            BgmManager.Instance.Play(1, true);
             yield return new WaitForSecondsRealtime(0.33f);
             SpawnerEvent.Trigger(SpawnerState.Play);
         }
@@ -93,6 +95,7 @@ namespace MIT.SamtleGame.Stage1
 		public virtual void OnEvent(ClearGameEvent clearGameEvent)
 		{
 			Debug.Log("game clear!!");
+            BgmManager.Instance.Play(3, true);
 			_player.transform.GetComponent<PlayerAnimController>().StartToGoToStair();
 			Pause();
 		}
