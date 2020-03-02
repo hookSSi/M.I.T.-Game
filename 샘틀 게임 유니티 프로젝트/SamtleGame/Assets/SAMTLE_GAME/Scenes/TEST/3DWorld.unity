@@ -145,7 +145,7 @@ PrefabInstance:
     - target: {fileID: 4444262773256957007, guid: 97fb7dc5303399a4db252b66ced637e6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.4149542
+      value: 1.83
       objectReference: {fileID: 0}
     - target: {fileID: 4444262773256957007, guid: 97fb7dc5303399a4db252b66ced637e6,
         type: 3}
@@ -155,17 +155,17 @@ PrefabInstance:
     - target: {fileID: 4444262773256957007, guid: 97fb7dc5303399a4db252b66ced637e6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0.85757154
       objectReference: {fileID: 0}
     - target: {fileID: 4444262773256957007, guid: 97fb7dc5303399a4db252b66ced637e6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4444262773256957007, guid: 97fb7dc5303399a4db252b66ced637e6,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: -0.5143648
       objectReference: {fileID: 0}
     - target: {fileID: 4444262773256957007, guid: 97fb7dc5303399a4db252b66ced637e6,
         type: 3}
@@ -180,7 +180,7 @@ PrefabInstance:
     - target: {fileID: 4444262773256957007, guid: 97fb7dc5303399a4db252b66ced637e6,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: -478.09
       objectReference: {fileID: 0}
     - target: {fileID: 4444262773256957007, guid: 97fb7dc5303399a4db252b66ced637e6,
         type: 3}
@@ -546,7 +546,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 772625807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36783112fb7cf6f44b00a05183bac2cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b40faa3faff8da489c2e16191a948c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2

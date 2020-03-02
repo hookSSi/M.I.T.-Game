@@ -7,11 +7,11 @@ public class NPCController : MonoBehaviour
 	public float speed;
 
 	[SerializeField]
-	private bool go;
+	protected bool go;
 
-	private bool _isworking;
-	private Rigidbody _rb;
-	private Animator _anim;
+	protected bool _isworking;
+	protected Rigidbody _rb;
+	protected Animator _anim;
 
     // Start is called before the first frame update
     void Start()
@@ -75,4 +75,5 @@ public class NPCController : MonoBehaviour
 		}
 		transform.eulerAngles = Vector3.up * angle;
 	}
+
 }
