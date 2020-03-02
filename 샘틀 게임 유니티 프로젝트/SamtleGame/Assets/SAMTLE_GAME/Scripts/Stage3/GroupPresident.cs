@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GroupPresident : NPCController
 {
+	public GameObject obj;
 	void Update()
 	{
 		if (go)
@@ -20,10 +21,20 @@ public class GroupPresident : NPCController
 		_anim.SetTrigger("LookAround");
 		yield return new WaitForSeconds(4f);
 		_anim.SetTrigger("PickingUP");
-		yield return new WaitForSeconds(5.4f);
+		yield return new WaitForSeconds(3f);
+		PickObject();
+		yield return new WaitForSeconds(2.4f);
 		Move(new Vector3(1.36f, 0f, 1.83f));
 
 		yield return new WaitUntil(() => !_isworking);
 		_anim.SetTrigger("Give");
+	}
+	void PickObject()
+	{
+		obj.SetActive(true);
+	}
+	void GiveObject()
+	{
+		obj.SetActive(false);
 	}
 }
