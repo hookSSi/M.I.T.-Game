@@ -1758,6 +1758,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 580505206, guid: 5a685e23b321cec40897e6c9ee9abb8b, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1525694668}
     - target: {fileID: 1946969740674649281, guid: 5a685e23b321cec40897e6c9ee9abb8b,
         type: 3}
       propertyPath: _player
