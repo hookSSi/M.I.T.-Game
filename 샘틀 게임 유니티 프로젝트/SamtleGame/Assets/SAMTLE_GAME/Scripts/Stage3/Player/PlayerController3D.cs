@@ -4,10 +4,12 @@ using UnityEngine;
 
 namespace MIT.SamtleGame.Stage3
 {
+	[RequireComponent(typeof(PlayerInteractive))]
 	public class PlayerController3D : MonoBehaviour
 	{
 		// private Animator anim;
 		private Rigidbody _rigidBody;
+		private PlayerInteractive _playerInteractive;
 		[SerializeField] private Animator _anim;
 		[SerializeField] private float _yRot = 0f;
 		[SerializeField] private float _xRot = 0f;
@@ -15,19 +17,22 @@ namespace MIT.SamtleGame.Stage3
 		[SerializeField] private bool _isSprinting = false;
 		private Vector2 _currentDir = new Vector2();
 
-		[Header("플레이어 시점 카메라")]
+		[Header("플레이어 시점 카메라"), Space(20)]
 		public Transform _camera;
-		public FocusingObjectCameraController _focusingCamera;
-		[Header("플레이어 세팅")]
+
+		[Header("플레이어 세팅"), Space(20)]
 		public float _sprintSpeed = 4f;
 		public float _walkSpeed = 2f;
 		public float _mouseSensitivity = 2f;
-		[Header("플레이어 상태")]
+
+		[Header("플레이어 상태"), Space(20)]
 		public bool _canMove = true;
+		public bool _canRotate = true;
 		public bool _isSittingOn = false;
 		public bool _isFocusing = false;
 		public bool _isControllable = true;
-		[Header("디버깅")]
+
+		[Header("디버깅"), Space(20)]
 		public float _playerSpeed;
 
 
@@ -36,12 +41,14 @@ namespace MIT.SamtleGame.Stage3
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
 			_playerSpeed = _walkSpeed;
+
 			_rigidBody = GetComponent<Rigidbody>();
+			_playerInteractive = GetComponent<PlayerInteractive>();
+
 			_yRot = transform.eulerAngles.y;
 			_xRot = transform.eulerAngles.x;
 		}
 
-		// Update is called once per frame
 		void Update()
 		{
 			HandleInput();
@@ -51,7 +58,8 @@ namespace MIT.SamtleGame.Stage3
 		{
 			if(_isControllable)
 			{
-				Rotate(Input.GetAxis("Mouse X") * _mouseSensitivity, Input.GetAxis("Mouse Y") * _mouseSensitivity);
+				if(_canRotate)
+					Rotate(Input.GetAxis("Mouse X") * _mouseSensitivity, Input.GetAxis("Mouse Y") * _mouseSensitivity);
 
 				if (_canMove)
 				{
@@ -77,7 +85,7 @@ namespace MIT.SamtleGame.Stage3
 					{
 						if(GetComponent<PlayerInteractive>()._watchingObj != null)
 						{
-							FocusObject();
+							Interact();
 						}
 					}
 					else if (_isFocusing && Input.GetKeyDown(KeyCode.E))
@@ -137,31 +145,40 @@ namespace MIT.SamtleGame.Stage3
 			_yRot = rotation;
 			_isSittingOn = false;
 			_canMove = true;
-			GetComponent<PlayerInteractive>().enabled = true;
+			_playerInteractive.enabled = true;
+		}
+		
+		public void SetMovable(bool canMove)
+		{
+			_canMove = canMove;
+			_canRotate = canMove;
 		}
 
-		public void FocusObject()
+		public void Interact()
 		{
-			_canMove = false;
 			_isFocusing = true;
-			GetComponent<PlayerInteractive>().enabled = false;
-			Transform obj = GetComponent<PlayerInteractive>()._watchingObj;
-			//this has to be fixed
-			Transform focusObj = GetComponent<PlayerInteractive>()._interactive._focusObj;
-			if(focusObj != null)
-			{
-				_focusingCamera.FocusIn(focusObj.transform.position, obj);
-			}
+			_playerInteractive.enabled = false;
 
-			GetComponent<PlayerInteractive>()._interactive.Action();
-			//
+			_playerInteractive._interactive.Action();
+		}
+
+		public void FocusIn()
+		{
+			_isFocusing = true;
+			_playerInteractive.enabled = false;
+
+			Transform obj = _playerInteractive._watchingObj;
+			Transform focusObj = _playerInteractive._interactive._focusObj;
+			
+			FocusingEvent.Trigger(FocusingType.FocusIn, focusObj.transform.position, obj);
 		}
 		public void FocusOut()
 		{
-			_canMove = true;
+			SetMovable(true);
 			_isFocusing = false;
-			GetComponent<PlayerInteractive>().enabled = true;
-			_focusingCamera.FocusOut();
+			_playerInteractive.enabled = true;
+
+			FocusingEvent.Trigger(FocusingType.FocustOut);
 		}
 	}
 }

@@ -41,7 +41,7 @@ public class Sound
     private AudioSource _source; //플레이어
 
     public string _name; //이름
-    public AudioClip _clip; //파일
+    public AudioClip[] _clip; //파일
     [Range(0, 1)]
     public float _volume;
     public bool _isLoop;
@@ -49,12 +49,17 @@ public class Sound
     public void SetSource(AudioSource _source)
     {
         this._source = _source;
-        this._source.clip = _clip;
+        this._source.clip = _clip[0];
         this._source.loop = _isLoop;
     }
 
     public void Play()
     {
+        if(_clip.Length > 1)
+        {
+            this._source.clip = _clip[Random.Range(0, _clip.Length)];
+        }
+        
         _source.Play();
     }
     public void Stop()

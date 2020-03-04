@@ -5125,7 +5125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sounds:
   - _name: "\uBC1C\uACAC"
-    _clip: {fileID: 8300000, guid: 788b950615d96fa4583a2ce686b2b0af, type: 3}
+    _clip:
+    - {fileID: 8300000, guid: 788b950615d96fa4583a2ce686b2b0af, type: 3}
     _volume: 0
     _isLoop: 0
 --- !u!1001 &584394100

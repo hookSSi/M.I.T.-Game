@@ -58,12 +58,8 @@ namespace MIT.SamtleGame.Stage3
 
                 yield return null;
             }
+
             yield break;
-        }
-
-        protected override void OnDrawGizmosSelected()
-        {
-
         }
     }
 }

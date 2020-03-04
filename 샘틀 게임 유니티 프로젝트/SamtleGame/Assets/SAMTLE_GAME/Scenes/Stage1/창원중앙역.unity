@@ -512,19 +512,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sounds:
   - _name: Typing
-    _clip: {fileID: 8300000, guid: 9934abe4037693a4fac6f980c8e22b0a, type: 3}
+    _clip:
+    - {fileID: 8300000, guid: 9934abe4037693a4fac6f980c8e22b0a, type: 3}
     _volume: 0.5
     _isLoop: 0
   - _name: "\uC8FC\uBA39"
-    _clip: {fileID: 8300000, guid: 3bb93a55889f3554e9af78e677fd9a82, type: 3}
+    _clip:
+    - {fileID: 8300000, guid: f1a9b9e874252f04cb1de2c9208e0f18, type: 3}
     _volume: 0.5
     _isLoop: 0
   - _name: "\uC810\uD504\uD0A5"
-    _clip: {fileID: 8300000, guid: f1a9b9e874252f04cb1de2c9208e0f18, type: 3}
+    _clip:
+    - {fileID: 8300000, guid: 3bb93a55889f3554e9af78e677fd9a82, type: 3}
     _volume: 0.5
     _isLoop: 0
   - _name: "\uD558\uB2E8"
-    _clip: {fileID: 8300000, guid: deeb2ddc66b0ae24bb6746b083025b7b, type: 3}
+    _clip:
+    - {fileID: 8300000, guid: deeb2ddc66b0ae24bb6746b083025b7b, type: 3}
     _volume: 0.5
     _isLoop: 0
 --- !u!114 &466100720

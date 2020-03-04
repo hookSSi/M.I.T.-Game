@@ -51,6 +51,7 @@ namespace MIT.SamtleGame.Stage3
 				_interactive = null;
 			}
 		}
+
 		private Transform HitCheckt()
 		{
 			RaycastHit hit;

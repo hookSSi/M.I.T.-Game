@@ -26,6 +26,11 @@ namespace MIT.SamtleGame.Stage3
 			
 		}
 
+		public virtual void ShowDescription()
+		{
+			
+		}
+
 		public void Watched()
 		{
 			Debug.LogFormat("{0} 오브젝트 Outline - True", this.gameObject.name);

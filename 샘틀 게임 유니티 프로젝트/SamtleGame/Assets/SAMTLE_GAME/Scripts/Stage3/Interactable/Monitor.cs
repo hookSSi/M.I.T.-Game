@@ -11,7 +11,12 @@ namespace MIT.SamtleGame.Stage3
 
         public override void Action()
         {
+            GameManager.Instance._player._controller.SetMovable(false);
+            GameManager.Instance._player._controller.FocusIn();
+
+            _text.Reset(0, _textPages, 0, "Typing");
             _text.PlayText();
+            GameManager.Instance.Programmer();
         }
     }
 }
