@@ -105,6 +105,7 @@ namespace MIT.SamtleGame.Stage2
                 if (visibleCount > textComponent.text.Length)
                 {
                     // Debug.LogFormat("{0} 페이지 대화가 끝났습니다.", _currentPage);
+                    Debug.Log("한 페이지 끗");
                     yield return StartCoroutine(WaitUntilInput());
                     yield return new WaitForSeconds(0.2f);
                 }

@@ -44,7 +44,7 @@ namespace MIT.SamtleGame.Stage2.Tool
             if (_battleManager != null && _battleManager._state != BattleState.None)
             {
                 if (_eventSystem.currentSelectedGameObject != null && (Input.GetButtonDown("Submit") || Input.GetButtonDown("Cancel")))
-                    _audio.PlayOneShot(_submitClip);
+                    
 
                 if (_eventSystem.currentSelectedGameObject != null && _eventSystem.currentSelectedGameObject != _selected)
                     _selected = _eventSystem.currentSelectedGameObject;

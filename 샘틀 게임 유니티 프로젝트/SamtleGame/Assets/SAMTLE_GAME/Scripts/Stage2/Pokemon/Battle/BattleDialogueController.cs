@@ -48,8 +48,7 @@ namespace MIT.SamtleGame.Stage2
 
         public void EndDialogue()
         {
-            if (DialogueManager.Instance._isEnd == false)
-                DialogueEvent.Trigger(_id, null, 0, _typingSound, DialogueStatus.End);
+            DialogueEvent.Trigger(_id, null, 0, _typingSound, DialogueStatus.End);
         }
     }
 }

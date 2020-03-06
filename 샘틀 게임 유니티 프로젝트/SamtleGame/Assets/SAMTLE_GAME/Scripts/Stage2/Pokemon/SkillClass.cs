@@ -67,7 +67,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             if (probability <= 0.05f)
             {
-                enemyPokemon.Health = 0f;
+                enemyPokemon.Health -= enemyPokemon.MaxHealth / 2f;
 
                 _manager._dialogueController.AddNextPage("효과는 굉장했다!");
                 _manager._dialogueController.AddNextPage("이게 왜 되지? 새내기는 혼란에 빠졌다!", true);
@@ -99,9 +99,10 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             FirstScript(myPokemon, "극한의 최적화", out dialog);
             _manager._dialogueController.AddNextPage(dialog, true);
             if (_count == 1)
-                _manager._dialogueController.AddNextPage("효과는 미미했다...", true);
+                _manager._dialogueController.AddNextPage("효과는 미미했다...");
             if (_count >= 3)
-                _manager._dialogueController.AddNextPage("효과는 굉장했다!", true);
+                _manager._dialogueController.AddNextPage("효과는 굉장했다!");
+            _manager._dialogueController.AddNextPage("해당 기술의 위력이 조금 강해졌다!", true);
         }
 
         // Skills For Python
@@ -166,7 +167,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public void DeadByHeartPonding(Pokemon myPokemon, Pokemon enemyPokemon)
         {
             string dialog;
-            float damage = GetDamage(myPokemon, enemyPokemon, 34f);
+            float damage = GetDamage(myPokemon, enemyPokemon, 30f);
 
             enemyPokemon.Health -= damage;
 

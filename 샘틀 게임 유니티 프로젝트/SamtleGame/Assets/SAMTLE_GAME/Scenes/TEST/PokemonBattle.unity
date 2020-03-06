@@ -313,31 +313,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1233944186}
     m_Modifications:
-    - target: {fileID: 854263635172515739, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263635172515739, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263635172515739, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263635172515739, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263635172515739, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 854263635503592692, guid: 502a60928e97ec643bbebb09aa485dc6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -447,96 +422,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Starting Pokemon
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263635503592693, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263635503592695, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: _testMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263635959939858, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636579819681, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636654254381, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636654254381, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636654254381, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636875339887, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636875339887, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636875339887, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636875339887, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636875339887, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263637034147908, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263637034147908, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263637034147908, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263637034147908, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263637034147908, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263637034147908, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.materialCount
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 502a60928e97ec643bbebb09aa485dc6, type: 3}
@@ -932,8 +817,8 @@ MonoBehaviour:
   _dialogueController: {fileID: 0}
   _myPokemon: {fileID: 829156951}
   _enemyPokemon: {fileID: 1762143250}
-  _testMyPokemon: Java
-  _testEnemyPokemon: "\uACE0\uC591\uC774"
+  _testMyPokemon: C
+  _testEnemyPokemon: "\uB3D9\uBC29\uCEF4"
   _isTest: 1
 --- !u!4 &2077277600
 Transform:
@@ -956,6 +841,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1233944186}
     m_Modifications:
+    - target: {fileID: 262074255, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 262074255, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 512831533, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 512831533, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840808404, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840808404, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4917301245897720640, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
       propertyPath: m_Name
@@ -1074,7 +983,7 @@ PrefabInstance:
     - target: {fileID: 4917301246608765678, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
       propertyPath: m_CellSize.y
-      value: 367.28995
+      value: 558.44495
       objectReference: {fileID: 0}
     - target: {fileID: 4917301247317719934, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
@@ -1084,7 +993,7 @@ PrefabInstance:
     - target: {fileID: 4917301247317719934, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
       propertyPath: m_CellSize.y
-      value: 236.40747
+      value: 331.97745
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}

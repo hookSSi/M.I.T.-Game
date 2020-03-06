@@ -8,13 +8,10 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 {
     public class PokemonBattleMainUI : MonoBehaviour
     {
-        /*
-         * 체력, 경험치 등을 갱신할 때 다른 창으로 넘어갈 수 없게 하기 위한 Flag
-         * 삭제 보류중
-         */
         [HideInInspector] public bool _isEnemyHpAnimating { get; private set; }
         [HideInInspector] public bool _isPlayerHpAnimating { get; private set; }
         [HideInInspector] public bool _isPlayerExpAnimating { get; private set; }
+        [HideInInspector] public bool _isIpsangMoving { get; private set; }
 
         // Main UI 표시 상태 : 배틀 화면, 가방 탐색 화면, 포켓몬 정보 확인 화면
         public enum UIState
@@ -40,28 +37,21 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         [SerializeField] private UpdateType _hpUpdateType = UpdateType.FixedTime;
         [SerializeField] private float _hpChangeTime = 0.8f;
         [SerializeField] private float _hpChangeSpeed = 0.5f; // (초당 차오르는 비율; 1f는 초당 100%)
-
         [SerializeField] private float _expChangeSpeed = 2f; // (초당 차오르는 비율)
 
         // 상대 : 이름, 레벨, 체력바
         [Header("- 적 포켓몬 UI")]
         [Tooltip("적의 포켓몬 UI창 오브젝트")]
         [SerializeField] private GameObject _enemyPokemonUI;
-
         [SerializeField] private Text _enemyPokemonName;
         [SerializeField] private Text _enemyLevelText;
-
         [SerializeField] private Slider _enemyHpSlider;
-
-        // 플레이어 : 이름, 레벨, 체력과 체력바, 경험치
         [Header("- 플레이어 포켓몬 UI")]
         [Tooltip("플레이어의 포켓몬 UI창 오브젝트")]
         [SerializeField] private GameObject _playerPokemonUI;
-
         [SerializeField] private Text _playerPokemonName;
         [SerializeField] private Text _playerHpText;
         [SerializeField] private Text _playerLevelText;
-
         [SerializeField] private Slider _playerHpSlider;
         [SerializeField] private Slider _playerExpSlider;
 
@@ -71,6 +61,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public GameObject _battleUI;
         public GameObject _bagUI;
         public GameObject _informationUI;
+
+        [Header("입학생 캐릭터")]
+        public RectTransform _ipsangTransform;
+        public RectTransform _ipsangDestination;
+        public float _ipsangSpeed;
 
         private void Awake()
         {
@@ -83,6 +78,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _isEnemyHpAnimating = false;
             _isPlayerHpAnimating = false;
             _isPlayerExpAnimating = false;
+            _isIpsangMoving = false;
 
             _state = UIState.Battle;
 
@@ -91,6 +87,33 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             SetHealthColor(_playerHpSlider, 100f, 100f);
             SetHealthColor(_enemyHpSlider, 100f, 100f);
+        }
+
+
+        public void MoveIpsangSide()
+        {
+            if (_ipsangTransform == null || _ipsangDestination == null)
+                return;
+
+            _isIpsangMoving = true;
+            StartCoroutine("MovePlayerSide");
+        }
+
+        private IEnumerator MovePlayerSide()
+        {
+            while (true)
+            {
+                Vector2 delta = _ipsangDestination.anchoredPosition - _ipsangTransform.anchoredPosition;
+                Vector2 direction = delta.normalized;
+                float speed = Mathf.Clamp(_ipsangSpeed * Time.deltaTime, 0f, delta.magnitude);
+                if (speed == 0f)
+                    break;
+
+                _ipsangTransform.anchoredPosition += direction * speed;
+                yield return null;
+            }
+
+            _isIpsangMoving = false;
         }
 
         public void UpdateValue(Pokemon playerPokemon, Pokemon enemyPokemon, int playerLevel, int enemyLevel, float playerExperience, float maxExperience)
@@ -289,7 +312,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
                     // Color Settings
                     if (slider == _enemyHpSlider || slider == _playerHpSlider)
-                        SetHealthColor(slider, currentValue, 100f);
+                        SetHealthColor(slider, currentValue, slider.maxValue);
                 }
                 if (text != null) text.text = (int)currentValue + "/" + (int)slider.maxValue;
 
@@ -308,7 +331,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
                 // Color Settings
                 if (slider == _enemyHpSlider || slider == _playerHpSlider)
-                    SetHealthColor(slider, currentValue, 100f);
+                    SetHealthColor(slider, currentValue, slider.maxValue);
             }
             if (text != null) text.text = (int)newValue + "/" + (int)slider.maxValue;
 
