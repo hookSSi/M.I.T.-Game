@@ -9,41 +9,41 @@ public class BgmManager : Singleton<BgmManager>
 {
     public AudioClip[] _clips; //bgms
 
-    private AudioSource _source;
+    private AudioSource _audio;
 
     private WaitForSeconds _waitTime = new WaitForSeconds(0.01f);
 
     protected override void Awake()
     {
         base.Awake();
-        _source = GetComponent<AudioSource>();
+        _audio = GetComponent<AudioSource>();
     }
 
     public void Play(int _playTrack, bool loop = false, float volume = 0.4f)
     {
-        _source.volume = volume;
-        _source.clip = _clips[_playTrack];
-        _source.loop = loop;
-        _source.Play();
+        _audio.volume = volume;
+        _audio.clip = _clips[_playTrack];
+        _audio.loop = loop;
+        _audio.Play();
     }
 
     public void Pause()
     {
-        _source.Pause();
+        _audio.Pause();
     }
     public void UnPause()
     {
-        _source.UnPause();
+        _audio.UnPause();
     }
 
     public void Stop()
     {
-        _source.Stop();
+        _audio.Stop();
     }
 
     public void SetVolume(float _volume)
     {
-        _source.volume = _volume;
+        _audio.volume = _volume;
     }
 
     public void FadeOutBgm()
@@ -55,7 +55,7 @@ public class BgmManager : Singleton<BgmManager>
     {
         for(float i = 0.7f ; i>=0f; i-=0.01f )
         {
-            _source.volume = i;
+            _audio.volume = i;
             yield return _waitTime;
         }
     }
@@ -69,8 +69,11 @@ public class BgmManager : Singleton<BgmManager>
     {
         for (float i = 0f; i <= 0.7f; i += 0.01f)
         {
-            _source.volume = i;
+            _audio.volume = i;
             yield return _waitTime;
         }
     }
+
+    public bool IsPlaying(){ return _audio.isPlaying; }
+    public AudioSource GetAudio(){ return _audio; }
 }

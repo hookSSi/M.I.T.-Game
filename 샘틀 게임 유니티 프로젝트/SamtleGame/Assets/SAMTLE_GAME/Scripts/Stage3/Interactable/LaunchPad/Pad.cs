@@ -6,20 +6,33 @@ using MIT.SamtleGame.Tools;
 
 public class Pad : MonoBehaviour
 {
-    public Color _color;
-
+    private bool isPressed = false;
+    public Color _color = Color.yellow;
+    
     public void Press()
     {
-
+        if(!isPressed)
+            StartCoroutine(LightOn(0.1f));
     }
 
-    public IEnumerator LightOn()
+    private IEnumerator LightOn(float delay)
     {
+        isPressed = true;
+        GetComponent<Renderer>().material.SetFloat("_factor", 0f);
+        GetComponent<Renderer>().material.SetColor("_targetColor", _color);
+        yield return new WaitForSeconds(delay);
+
+        GetComponent<Renderer>().material.SetFloat("_factor", 1f);
+        isPressed = false;
         yield break;
     }
 
     public void SetRandomColor()
     {
-
+        _color = new Color(
+            Random.Range(0f, 1f), 
+            Random.Range(0f, 1f), 
+            Random.Range(0f, 1f)
+            );
     }
 }
