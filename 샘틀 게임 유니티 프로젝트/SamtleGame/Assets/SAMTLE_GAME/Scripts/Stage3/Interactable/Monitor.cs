@@ -11,6 +11,7 @@ namespace MIT.SamtleGame.Stage3
 
         public override void Action()
         {
+            SoundEvent.Trigger("버튼");
             GameManager.Instance._player._controller.SetMovable(false);
             GameManager.Instance._player._controller.FocusIn();
 

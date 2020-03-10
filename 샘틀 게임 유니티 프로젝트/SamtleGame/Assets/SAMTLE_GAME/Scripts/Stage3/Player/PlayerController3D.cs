@@ -69,6 +69,11 @@ namespace MIT.SamtleGame.Stage3
 
 					_anim.SetFloat("Horizontal", _currentDir.x);
 					_anim.SetFloat("Vertical", _currentDir.y);
+
+					if(_currentDir.sqrMagnitude > 0)
+					{
+						SoundEvent.Trigger("걷는소리",SoundStatus.Play, false, 1f);
+					}
 					// SprintCheck();
 				}
 

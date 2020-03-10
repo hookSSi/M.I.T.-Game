@@ -48,17 +48,7 @@ public class FocusingObjectCameraController : MonoBehaviour, EventListener<Focus
 	{
 		_vc.Priority = 9;
 	}
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			if (_vc.Priority == 9)
-				FocusIn(_pos, _lookAt);
-			else
-				FocusOut();
-		}
-	}
-
+	
 	public virtual void OnEvent(FocusingEvent focusingEvent)
 	{
 		switch(focusingEvent._type)
