@@ -33,10 +33,10 @@ namespace MIT.SamtleGame.Stage2
 
             switch(info._name)
             {
-                case "C":
+                case "C++":
                     _lovesText.text = "좋아하는 것 : 새내기 괴롭히기";
                     _hatesText.text = "싫어하는 것 : 세미콜론 빠뜨리기";
-                    _traitsText.text = "특징 : 컴공과에 입학한 모든 새내기들이 한 번쯤은 거쳐가는 언어로, 진화형은 C++이다. " +
+                    _traitsText.text = "특징 : 컴공과에 입학한 모든 새내기들이 한 번쯤은 거쳐가는 언어로, C++의 진화형이다. " +
                         "뭐만 하면 오류를 뿜어대어 고학년도 싫어하는 듯하다.";
                     break;
                 case "Python":

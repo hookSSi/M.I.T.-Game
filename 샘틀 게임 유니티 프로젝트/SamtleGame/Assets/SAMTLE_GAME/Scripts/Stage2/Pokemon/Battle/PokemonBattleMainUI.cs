@@ -8,10 +8,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 {
     public class PokemonBattleMainUI : MonoBehaviour
     {
-        [HideInInspector] public bool _isEnemyHpAnimating { get; private set; }
-        [HideInInspector] public bool _isPlayerHpAnimating { get; private set; }
-        [HideInInspector] public bool _isPlayerExpAnimating { get; private set; }
-        [HideInInspector] public bool _isIpsangMoving { get; private set; }
+        public bool _isEnemyHpAnimating { get; private set; }
+        public bool _isPlayerHpAnimating { get; private set; }
+        public bool _isPlayerExpAnimating { get; private set; }
+        public bool _isIpsangMoving { get; private set; }
+        public bool _isPlayingHitEffect { get; private set; }
 
         // Main UI 표시 상태 : 배틀 화면, 가방 탐색 화면, 포켓몬 정보 확인 화면
         public enum UIState
@@ -171,7 +172,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 _enemyPokemonUI.SetActive(isvisible);
         }
 
-        public void UpdateEnemyImage(bool isvisible)
+        public void UpdateEnemyImage(bool isvisible, bool isAnimated = false)
         {
             Pokemon enemyPokemon = PokemonBattleManager.Instance._enemyPokemon;
             Image image = enemyPokemon.GetComponentInChildren<Image>();
@@ -179,7 +180,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             if (enemyPokemon.Info._frontImage)
                 image.sprite = enemyPokemon.Info._frontImage;
 
-            enemyPokemon.gameObject.SetActive(isvisible);
+            if (isAnimated == false) enemyPokemon.gameObject.SetActive(isvisible);
+            else if (isvisible) StartCoroutine(FadeInImage(image));
+            else StartCoroutine(FadeOutImage(image));
         }
 
         public void UpdateEnemyPokemonNameText(string newEnemyPokemonName)
@@ -216,6 +219,14 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 _enemyLevelText.text = enemyLevel.ToString();
         }
 
+        public void HitEnemy()
+        {
+            Image enemyPokemonImage = PokemonBattleManager.Instance._enemyPokemon.GetComponentInChildren<Image>();
+
+            _isPlayingHitEffect = true;
+            StartCoroutine(PlayHitEffect(enemyPokemonImage));
+        }
+
         // 플레이어 포켓몬 UI 업데이트
         public void SetActivePlayerPokemonUI(bool isvisible)
         {
@@ -223,7 +234,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 _playerPokemonUI.SetActive(isvisible);
         }
 
-        public void UpdatePlayerImage(bool isvisible)
+        public void UpdatePlayerImage(bool isvisible, bool isAnimated = false)
         {
             Pokemon playerPokemon = PokemonBattleManager.Instance._myPokemon;
             Image image = playerPokemon.GetComponentInChildren<Image>();
@@ -231,7 +242,13 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             if (playerPokemon.Info._backImage)
                 image.sprite = playerPokemon.Info._backImage;
 
-            playerPokemon.gameObject.SetActive(isvisible);
+            if (isAnimated == false) playerPokemon.gameObject.SetActive(isvisible);
+            else if (isvisible)
+            {
+                playerPokemon.gameObject.SetActive(true);
+                StartCoroutine(FadeInImage(image));
+            }
+            else StartCoroutine(FadeOutImage(image));
         }
 
         public void UpdatePlayerPokemonNameText(string newPlayerPokemonName)
@@ -290,6 +307,14 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             StartCoroutine(SliderTextAnimation(SetFlag, previousExp, newPlayerExp, expChangeSpeed, _playerExpSlider));
         }
 
+        public void HitPlayer()
+        {
+            Image playerPokemonImage = PokemonBattleManager.Instance._myPokemon.GetComponentInChildren<Image>();
+
+            _isPlayingHitEffect = true;
+            StartCoroutine(PlayHitEffect(playerPokemonImage));
+        }
+
 
         // 텍스트, 슬라이더 Animation을 제어하는 함수.
         private IEnumerator SliderTextAnimation(Action<bool> SetBool, float previousValue, float newValue, float changeSpeed, Slider slider = null, Text text = null)
@@ -344,13 +369,85 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             var colors = slider.colors;
 
             if (valueRatio > 0.5f)
-                colors.disabledColor = Color.green;
+                colors.disabledColor = new Color(0f, 0.688f, 0.11f);
             else if (valueRatio > 0.2f)
                 colors.disabledColor = Color.yellow;
             else
                 colors.disabledColor = Color.red;
 
             slider.colors = colors;
+        }
+
+        // 포켓몬 타격 이펙트
+        private IEnumerator PlayHitEffect(Image pokemonImage)
+        {
+            // 1번 : 붉게 깜빡임.
+            int flickNumber = 2;
+            float timeDelta = 0.2f;
+            Color hitColor = new Color(1f, 0.5f, 0.5f);
+
+            for (int i = 0; i < flickNumber; i++)
+            {
+                pokemonImage.color = hitColor;
+                yield return new WaitForSeconds(timeDelta);
+                pokemonImage.color = Color.white;
+                yield return new WaitForSeconds(timeDelta);
+            }
+
+            // 2번 : 붉어졌다가 서서히 회복
+            /*
+            float timeToRestore = 1f;
+            float restoreSpeed = 1f / timeToRestore;
+            Color hitColor = new Color(1f, 0.3f, 0.3f);
+            Color lastColor = Color.white;
+            Color deltaColor = lastColor - hitColor;
+            Color curColor;
+
+            pokemonImage.color = hitColor;
+            curColor = hitColor;
+            
+            while(lastColor != pokemonImage.color)
+            {
+                float r = Mathf.Clamp(curColor.r + deltaColor.r * restoreSpeed * Time.deltaTime, hitColor.r, lastColor.r);
+                float g = Mathf.Clamp(curColor.g + deltaColor.g * restoreSpeed * Time.deltaTime, hitColor.g, lastColor.g);
+                float b = Mathf.Clamp(curColor.b + deltaColor.b * restoreSpeed * Time.deltaTime, hitColor.b, lastColor.b);
+                curColor = new Color(r, g, b);
+
+                pokemonImage.color = curColor;
+                yield return null;
+            }
+            */
+        }
+
+        private IEnumerator FadeOutImage(Image image)
+        {
+            float fadeOutSpeed = 1f / 1.5f;
+            Color curColor = image.color;
+            
+            while(curColor.a > 0f)
+            {
+                curColor.a = Mathf.Clamp(curColor.a - fadeOutSpeed * Time.deltaTime, 0f, 1f);
+                image.color = curColor;
+                yield return null;
+            }
+            image.gameObject.SetActive(false);
+            image.color = Color.white;
+        }
+
+        private IEnumerator FadeInImage(Image image)
+        {
+            float fadeOutSpeed = 1f / 0.3f;
+            Color curColor = image.color;
+            curColor.a = 0f;
+            image.color = curColor;
+
+            while (curColor.a < 1f)
+            {
+                curColor.a = Mathf.Clamp(curColor.a + fadeOutSpeed * Time.deltaTime, 0f, 1f);
+                image.color = curColor;
+                yield return null;
+            }
+            image.color = Color.white;
         }
     }
 }

@@ -817,7 +817,7 @@ MonoBehaviour:
   _dialogueController: {fileID: 0}
   _myPokemon: {fileID: 829156951}
   _enemyPokemon: {fileID: 1762143250}
-  _testMyPokemon: C
+  _testMyPokemon: C++
   _testEnemyPokemon: "\uB3D9\uBC29\uCEF4"
   _isTest: 1
 --- !u!4 &2077277600
@@ -983,7 +983,7 @@ PrefabInstance:
     - target: {fileID: 4917301246608765678, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
       propertyPath: m_CellSize.y
-      value: 558.44495
+      value: 328.04495
       objectReference: {fileID: 0}
     - target: {fileID: 4917301247317719934, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
@@ -993,7 +993,7 @@ PrefabInstance:
     - target: {fileID: 4917301247317719934, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
       propertyPath: m_CellSize.y
-      value: 331.97745
+      value: 216.77747
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}

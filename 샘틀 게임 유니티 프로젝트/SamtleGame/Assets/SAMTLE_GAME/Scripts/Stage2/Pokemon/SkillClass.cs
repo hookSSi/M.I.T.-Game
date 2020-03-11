@@ -126,11 +126,13 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             float damage = GetDamage(myPokemon, enemyPokemon, (enemyPokemon.MaxHealth + myPokemon.MaxHealth) * 0.2f);
             enemyPokemon.Health -= damage;
 
+            _manager._uiManager._effect.SetAnim("Blizzard", true);
+
             FirstScript(myPokemon, "Java를 Java", out dialog);
             _manager._dialogueController.AddNextPage(dialog + " '자바'를 자바라!");
             _manager._dialogueController.AddNextPage("서릿발이 날리기 시작했다...", true);
             if (enemyPokemon.Health <= 0f)
-                _manager._dialogueController.AddNextPage(enemyPokemon.Info._name + "는(은) 죽음을 택하였다!");
+                _manager._dialogueController.AddNextPage(enemyPokemon.Info._name + "는(은) 드립을 참지 못하고 죽음을 택하였다!");
             _manager._dialogueController.AddNextPage("효과는 굉장했다!", true);
         }
 
@@ -171,6 +173,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             enemyPokemon.Health -= damage;
 
+            _manager._uiManager._effect.SetAnim("HeartAttack", true);
+
             FirstScript(myPokemon, "심쿵사", out dialog);
             _manager._dialogueController.AddNextPage(dialog);
             _manager._dialogueController.AddNextPage (myPokemon.Info._name + "는(은) 귀엽게 하악질을 한다.", true);
@@ -208,6 +212,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public void SleepAfternoon(Pokemon myPokemon, Pokemon enemyPokemon)
         {
             string dialog;
+
+            _manager._uiManager._effect.SetAnim("Sleep", false);
 
             FirstScript(myPokemon, "낮잠", out dialog);
             _manager._dialogueController.AddNextPage(dialog, true);

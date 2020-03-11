@@ -363,7 +363,7 @@ MonoBehaviour:
   _spotlight: {fileID: 854263636954550683}
   _text: {fileID: 854263637034147908}
   _pokemonName:
-  - C
+  - C++
   - Java
   - Python
   _choice: {fileID: 854263635360580536}

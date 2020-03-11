@@ -137,12 +137,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         public void RemoveItem(int index)
         {
-            /*  사소한 문제
-             *  아이템을 모두 사용하고 나면 아이템 오브젝트를 완전히 삭제해버린다.
-             *  => 새로 아이템을 추가하려면 오브젝트를 새로 생성해야 하는 문제점이 존재한다.
-             *  => 유니티 상에 성능 저하가 심각함.
-             *  (개선 필요)
-             */
             var item = _itemList[index];
 
             _itemList.RemoveAt(index);

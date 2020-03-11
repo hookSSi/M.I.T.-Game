@@ -105,7 +105,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _uiManager._mainUI.MoveIpsangSide();
             yield return new WaitWhile(() => _uiManager._mainUI._isIpsangMoving);
             // 소환 이펙트
-            _uiManager._mainUI.UpdatePlayerImage(true);
+            _uiManager._mainUI.UpdatePlayerImage(true, true);
             yield return _waitInputing;
             _dialogueController.EndDialogue();
 
@@ -172,12 +172,13 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         {
             for (int i = 0; i < 2; i++)
             {
+                bool isFriendlyTurn = i == 0;
                 float previousPlayerHealth = _myPokemon.Health;
                 float previousEnemyHealth = _enemyPokemon.Health;
 
                 _dialogueController.ClearPages();
 
-                if (i == 0) // 아군의 턴
+                if (isFriendlyTurn) // 아군의 턴
                 {
                     playerEvent.Invoke(_myPokemon, _enemyPokemon);
                     // 상태 이상
@@ -197,11 +198,22 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 yield return _waitDialogueUpdating;
                 /* 이곳에서 이펙트 재생 및 기다리기 */
 
+                _uiManager._effect.StartAnim(i);
+                yield return new WaitUntil(() => _uiManager._effect._isAnimating == false);
+
+                _uiManager._effect.ResetAnim();
+
                 if (_myPokemon.Health != previousPlayerHealth)
+                {
+                    if (_myPokemon.Health < previousPlayerHealth) _uiManager._mainUI.HitPlayer();
                     _uiManager._mainUI.UpdatePlayerHpUI(_myPokemon.Health, _myPokemon.MaxHealth, true);
+                }
 
                 if (_enemyPokemon.Health != previousEnemyHealth)
+                {
+                    if (_enemyPokemon.Health < previousEnemyHealth) _uiManager._mainUI.HitEnemy();
                     _uiManager._mainUI.UpdateEnemyHpUI(_enemyPokemon.Health, _enemyPokemon.MaxHealth, true);
+                }
 
                 yield return 0.1f;
                 yield return _waitUIUpdating;
@@ -231,12 +243,15 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _state = BattleState.End;
             _dialogueController.ClearPages();
 
-            if (_myPokemon.Health <= 0f) _uiManager._mainUI.UpdatePlayerImage(false);
-            if (_enemyPokemon.Health <= 0f) _uiManager._mainUI.UpdateEnemyImage(false);
+            if (_myPokemon.Health <= 0f) _uiManager._mainUI.UpdatePlayerImage(false, true);
+            if (_enemyPokemon.Health <= 0f) _uiManager._mainUI.UpdateEnemyImage(false, true);
 
             if (_myPokemon.Health > 0f)
             {
-                _dialogueController.AddNextPage("신난다! " + _enemyPokemon.Info._name + "과의 과제에서 이겼다!", true);
+                if (_enemyPokemon.Info._name != "민지의 고양이")
+                    _dialogueController.AddNextPage("신난다! " + _enemyPokemon.Info._name + "과의 과제에서 이겼다!", true);
+                else
+                    _dialogueController.AddNextPage("신난다! " + _enemyPokemon.Info._name + "에게서 승리했다!", true);
             }
             else
             {
@@ -300,7 +315,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             if (enemySkill._currentCount <= 0)
                 enemySkill = PokemonManager.DefaultSkill();
 
-            // PokemonManager.Instance._previousSkillName = enemySkill._name;
             enemySkill._currentCount--;
 
             return enemySkill;
