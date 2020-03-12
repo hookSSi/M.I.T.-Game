@@ -17,7 +17,9 @@ namespace MIT.SamtleGame.Stage3
             GameManager.Instance._player._controller.FocusIn();
 
             StartCoroutine(OpenNoteBook());
-        }
+
+			GameManager.Instance.Artist();
+		}
 
         IEnumerator OpenNoteBook()
         {
@@ -35,7 +37,7 @@ namespace MIT.SamtleGame.Stage3
 
             yield return new WaitForSeconds(1f);
             _cameraPaperEffect.enabled = true;
-            yield break;
+			yield break;
         }
     }
 }
