@@ -11,7 +11,6 @@ namespace MIT.SamtleGame.Stage3
 		public override void Action()
 		{
 			gp.GiveObject();
-			
 		}
 	}
 }
