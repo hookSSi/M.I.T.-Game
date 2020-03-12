@@ -15,7 +15,6 @@ namespace MIT.SamtleGame.Stage2.Tool
         [SerializeField] private GameObject _firstActionObject;
         [SerializeField] private GameObject _firstItemObject;
         [SerializeField] private GameObject _firstSkillObject;
-        public string _commitSound = "BattleCommit";
 
         private void Awake()
         {
@@ -34,11 +33,6 @@ namespace MIT.SamtleGame.Stage2.Tool
             // 선택지 중 하나가 반드시 선택되도록 고정한다
             if (_battleManager != null && _battleManager._state != BattleState.None)
             {
-                if (Input.GetButtonDown("Submit") || Input.GetButtonDown("Cancel"))
-                {
-                    SoundEvent.Trigger(_commitSound); // ? 경로가 안 맞아서 그런가?
-                }
-
                 if (_eventSystem.currentSelectedGameObject != null && _eventSystem.currentSelectedGameObject != _selected)
                     _selected = _eventSystem.currentSelectedGameObject;
                 else if (_selected != null && _eventSystem.currentSelectedGameObject == null)

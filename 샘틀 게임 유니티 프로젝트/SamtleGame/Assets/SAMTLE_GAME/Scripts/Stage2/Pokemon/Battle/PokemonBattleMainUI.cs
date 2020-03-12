@@ -68,6 +68,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public RectTransform _ipsangDestination;
         public float _ipsangSpeed;
 
+        [Header("페이드인/아웃용 블랙박스")]
+        public Image _blackBox;
+
         private void Awake()
         {
             Init();
@@ -181,8 +184,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 image.sprite = enemyPokemon.Info._frontImage;
 
             if (isAnimated == false) enemyPokemon.gameObject.SetActive(isvisible);
-            else if (isvisible) StartCoroutine(FadeInImage(image));
-            else StartCoroutine(FadeOutImage(image));
+            else if (isvisible) StartCoroutine(FadeInImage(image, 0.3f));
+            else StartCoroutine(FadeOutImage(image, 1f));
         }
 
         public void UpdateEnemyPokemonNameText(string newEnemyPokemonName)
@@ -246,9 +249,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             else if (isvisible)
             {
                 playerPokemon.gameObject.SetActive(true);
-                StartCoroutine(FadeInImage(image));
+                StartCoroutine(FadeInImage(image, 0.3f));
             }
-            else StartCoroutine(FadeOutImage(image));
+            else StartCoroutine(FadeOutImage(image, 1f));
         }
 
         public void UpdatePlayerPokemonNameText(string newPlayerPokemonName)
@@ -419,9 +422,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             */
         }
 
-        private IEnumerator FadeOutImage(Image image)
+        public IEnumerator FadeOutImage(Image image, float time)
         {
-            float fadeOutSpeed = 1f / 1.5f;
+            float fadeOutSpeed = 1f / time;
             Color curColor = image.color;
             
             while(curColor.a > 0f)
@@ -434,16 +437,16 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             image.color = Color.white;
         }
 
-        private IEnumerator FadeInImage(Image image)
+        public IEnumerator FadeInImage(Image image, float time)
         {
-            float fadeOutSpeed = 1f / 0.3f;
+            float fadeInSpeed = 1f / time;
             Color curColor = image.color;
             curColor.a = 0f;
             image.color = curColor;
 
             while (curColor.a < 1f)
             {
-                curColor.a = Mathf.Clamp(curColor.a + fadeOutSpeed * Time.deltaTime, 0f, 1f);
+                curColor.a = Mathf.Clamp(curColor.a + fadeInSpeed * Time.deltaTime, 0f, 1f);
                 image.color = curColor;
                 yield return null;
             }

@@ -24,11 +24,17 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public BattleDialogueController _dialogueController;
         public Pokemon _myPokemon;
         public Pokemon _enemyPokemon;
+        public string _hitSound = "Hit";
+        public string _commitSound = "BattleCommit";
+        public string _appearSound = "RetroVideoGameFx";
+        public int _battleTrack;
+        public int _victoryTrack;
 
         private Tool.PokemonBattleEventSystem _eventSystem;
         private WaitWhile _waitDialogueUpdating;
         private WaitWhile _waitInputing;
         private WaitWhile _waitUIUpdating;
+        private int _prevTrack;
 
         [Header("배틀 테스트용 인자")]
         [SerializeField] private string _testMyPokemon;
@@ -61,6 +67,15 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 #endif
         }
 
+        private void Update()
+        {
+            if (Input.GetButtonDown("Submit") || Input.GetButtonDown("Cancel"))
+            {
+                SoundEvent.Trigger(_commitSound, SoundStatus.Stop);
+                SoundEvent.Trigger(_commitSound);
+            }
+        }
+
         public void StartBattle(string myPokemonName, string enemyPokemonName)
         {
             PokemonInfo myInfo, enemyInfo;
@@ -89,6 +104,18 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _uiManager._bottomUI._skill.SetPokemon(_myPokemon);
             _uiManager._bottomUI._skill.UpdateText();
 
+            var bgmManager = BgmManager.Instance;
+            AudioClip currentMusic = bgmManager.GetComponent<AudioSource>().clip;
+            _prevTrack = -1;
+
+            for (int i = 0; i < bgmManager._clips.Length; i++)
+            {
+                if (bgmManager._clips[i] == currentMusic) { _prevTrack = i; break; }
+            }
+
+            BgmManager.Instance.Stop();
+            BgmManager.Instance.Play(_battleTrack);
+
             StartCoroutine("StartBattleCoroutine");
         }
 
@@ -107,6 +134,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             yield return new WaitWhile(() => _uiManager._mainUI._isIpsangMoving);
             // 소환 이펙트
             _uiManager._mainUI.UpdatePlayerImage(true, true);
+            SoundEvent.Trigger(_hitSound, SoundStatus.Stop);
+            SoundEvent.Trigger(_appearSound);
             yield return _waitInputing;
             _dialogueController.EndDialogue();
 
@@ -204,6 +233,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
                 _uiManager._effect.ResetAnim();
 
+                if (_myPokemon.Health != previousPlayerHealth || _enemyPokemon.Health != previousEnemyHealth)
+                {
+                    StartCoroutine("PlayHitSound");
+                }
+
                 if (_myPokemon.Health != previousPlayerHealth)
                 {
                     if (_myPokemon.Health < previousPlayerHealth) _uiManager._mainUI.HitPlayer();
@@ -244,6 +278,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _state = BattleState.End;
             _dialogueController.ClearPages();
 
+            BgmManager.Instance.Stop();
+            BgmManager.Instance.Play(_victoryTrack);
+
             if (_myPokemon.Health <= 0f) _uiManager._mainUI.UpdatePlayerImage(false, true);
             if (_enemyPokemon.Health <= 0f) _uiManager._mainUI.UpdateEnemyImage(false, true);
 
@@ -267,8 +304,18 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             _dialogueController.EndDialogue();
 
+            BgmManager.Instance.Stop();
+            if (_prevTrack != -1)
+                BgmManager.Instance.Play(_prevTrack);
+
+            StartCoroutine(_uiManager._mainUI.FadeInImage(_uiManager._mainUI._blackBox, 1f));
+
+            yield return new WaitForSeconds(1f);
+
             PlayerControllerEvent.Trigger(true);
             _uiManager.gameObject.SetActive(false);
+
+            // StartCoroutine(_uiManager._mainUI.FadeOutImage(_uiManager._mainUI._blackBox, 1f));
 
             _state = BattleState.None;
         }
@@ -285,10 +332,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         }
 
         // 도주(아무 기능 없음)
-        public void Escape()
-        {
-            StartCoroutine("EscapeCoroutine");
-        }
+        public void Escape() => StartCoroutine("EscapeCoroutine");
 
         private IEnumerator EscapeCoroutine()
         {
@@ -321,6 +365,16 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             enemySkill._currentCount--;
 
             return enemySkill;
+        }
+
+        private IEnumerator PlayHitSound()
+        {
+            SoundEvent.Trigger(_commitSound, SoundStatus.Stop);
+            SoundEvent.Trigger(_hitSound, SoundStatus.Play, false, 0.7f);
+            yield return new WaitForSeconds(0.3f);
+
+            SoundEvent.Trigger(_hitSound, SoundStatus.Stop);
+            SoundEvent.Trigger(_hitSound, SoundStatus.Play, false, 0.7f);
         }
     }
 }

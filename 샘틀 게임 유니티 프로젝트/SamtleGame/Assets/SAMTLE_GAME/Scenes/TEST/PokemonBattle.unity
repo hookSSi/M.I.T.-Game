@@ -202,7 +202,6 @@ MonoBehaviour:
   _firstActionObject: {fileID: 468124338}
   _firstItemObject: {fileID: 0}
   _firstSkillObject: {fileID: 739488104}
-  _commitSound: 
 --- !u!224 &298511494 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4917301245897720643, guid: 487c3d8b94b2f52449e7550a2dc4161c,
@@ -388,6 +387,67 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 391345808}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &906542201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 906542203}
+  - component: {fileID: 906542202}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &906542202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906542201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b27feba647567a46bd9303bf1175a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sounds:
+  - _name: Hit
+    _clip:
+    - {fileID: 8300000, guid: d404e3a4601caec4a9f46d4de80616db, type: 3}
+    - {fileID: 8300000, guid: f4d2ff669b9e44a45a72d47745a91902, type: 3}
+    - {fileID: 8300000, guid: b3ad213867f12f44b8dda0397352fcd9, type: 3}
+    _volume: 0.5
+    _isLoop: 0
+  - _name: BattleCommit
+    _clip:
+    - {fileID: 8300000, guid: 82e889f906bff204e8f94d2085681962, type: 3}
+    _volume: 0.5
+    _isLoop: 0
+  - _name: RetroVideoGameFx
+    _clip:
+    - {fileID: 8300000, guid: dbb8625245c3e6f48a1040e64623a2d6, type: 3}
+    _volume: 0.5
+    _isLoop: 0
+--- !u!4 &906542203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906542201}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 313.2941, y: 347.4362, z: -169.49911}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &908556797
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +788,149 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44c789d0c5e8d746880cc3b05d4c9cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1930959392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1930959395}
+  - component: {fileID: 1930959394}
+  - component: {fileID: 1930959393}
+  m_Layer: 0
+  m_Name: Bgm Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1930959393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930959392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30711ac7a52d89d44a0ee62f747fcd97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clips:
+  - {fileID: 8300000, guid: b619e566336d89f4f985a31580bbe9b5, type: 3}
+  - {fileID: 8300000, guid: 0b296cb8a6e1f1b48884d957728886e5, type: 3}
+--- !u!82 &1930959394
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930959392}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1930959395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930959392}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 313.2941, y: 347.4362, z: -169.49911}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2077277598
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,6 +965,11 @@ MonoBehaviour:
   _dialogueController: {fileID: 1201536037}
   _myPokemon: {fileID: 829156951}
   _enemyPokemon: {fileID: 1762143250}
+  _hitSound: Hit
+  _commitSound: BattleCommit
+  _appearSound: RetroVideoGameFx
+  _battleTrack: 0
+  _victoryTrack: 1
   _testMyPokemon: C++
   _testEnemyPokemon: "\uB3D9\uBC29\uCEF4"
   _isTest: 1
@@ -814,11 +1022,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pokemon Battle UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 4917301245897720640, guid: 487c3d8b94b2f52449e7550a2dc4161c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4917301245897720643, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
