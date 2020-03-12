@@ -22,7 +22,7 @@ public class GroupPresident : NPCController
 		//yield return new WaitUntil(() => !_isworking);
 
 		_anim.SetTrigger("LookAround");
-		yield return new WaitUntil(() => GameManager.Instance.AllDone());
+		yield return new WaitUntil(() => GameManager.Instance.AllDone() && !GameManager.Instance._player._controller._isFocusing);
 		_anim.SetTrigger("PickingUP");
 		yield return new WaitForSeconds(3f);
 		PickObject();
