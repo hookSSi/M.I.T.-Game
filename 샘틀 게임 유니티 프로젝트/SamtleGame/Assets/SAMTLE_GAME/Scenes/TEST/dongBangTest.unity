@@ -4242,7 +4242,7 @@ PrefabInstance:
     - target: {fileID: 7161641006804711271, guid: be0116db406575249bb7032e4130ed2b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be0116db406575249bb7032e4130ed2b, type: 3}
@@ -5167,7 +5167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clips:
-  - {fileID: 8300000, guid: 898edfe5eaaf4ae4c825203177fb2041, type: 3}
+  - {fileID: 8300000, guid: 9c9947aa244589c40b56b01c4e3b0eee, type: 3}
 --- !u!82 &2023223566
 AudioSource:
   m_ObjectHideFlags: 0

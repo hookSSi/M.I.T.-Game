@@ -8,8 +8,10 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 {
     public class PokemonBattleItemManager : MonoBehaviour
     {
+        public Items _items;
+        public Transform _contentObject;
+
         [SerializeField] private GameObject _itemPrefab;
-        
         [SerializeField] private BattleItem _dummyItem;
         [SerializeField] private List<BattleItem> _itemList = new List<BattleItem>();
 
@@ -21,10 +23,17 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             Init();
 
             // 아이템 추가
-            var item = new Items();
-
-            AddItem("전 부회장의 3신기", "기묘한 옛것의 기운이 느껴지는 물건이다...", 5, 
-                BattleItem.ItemType.Consume, item.TheTrinity);
+            AddItem("전 부회장의 3신기", "기묘한 '옛것'의 기운이 느껴지는 물건이다...", 5, 
+                BattleItem.ItemType.Etc, _items.TheTrinity);
+            AddItem("노사람즈스카이 확장팩", "디스 이즈 낫 게임...", 1,
+                BattleItem.ItemType.Consume, _items.NoHumansSky);
+            AddItem("마시면 큰일나요 보드카",
+                "위험한 꼬꼬마 새내기 여러분이 좋아할 만한 사악한 물건. 마시면 미래로의 시간여행을 경험할 수 있다.", 44,
+                BattleItem.ItemType.Consume, _items.DangerousVodka);
+            AddItem("MIT산 특제 보드게임", "대체 왜 이런 걸 준거지?", 7,
+                BattleItem.ItemType.Etc, _items.MITsBoardGame);
+            AddItem("몬스터볼", "야생의 포켓몬을 잡을 수 있는 몬스터볼이다.", 99,
+                BattleItem.ItemType.Pokeball, _items.Pokeball);
         }
 
         private void Init()
@@ -96,7 +105,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 return;
             }
 
-            GameObject newObject = Instantiate(_itemPrefab, transform);
+            GameObject newObject = Instantiate(_itemPrefab, _contentObject);
             BattleItem newItem = newObject.GetComponent<BattleItem>();
 
             BattleEvent newItemEvent = new BattleEvent();
@@ -128,12 +137,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         public void RemoveItem(int index)
         {
-            /*  사소한 문제
-             *  아이템을 모두 사용하고 나면 아이템 오브젝트를 완전히 삭제해버린다.
-             *  => 새로 아이템을 추가하려면 오브젝트를 새로 생성해야 하는 문제점이 존재한다.
-             *  => 유니티 상에 성능 저하가 심각함.
-             *  (개선 필요)
-             */
             var item = _itemList[index];
 
             _itemList.RemoveAt(index);

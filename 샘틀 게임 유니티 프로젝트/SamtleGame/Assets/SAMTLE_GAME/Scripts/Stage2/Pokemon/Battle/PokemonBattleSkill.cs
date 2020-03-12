@@ -37,6 +37,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                     entrySubmit.callback.AddListener((data) => { PokemonBattleManager.Instance.UseSkill(index); });
                     trigger.triggers.Add(entrySubmit);
 
+                    EventTrigger.Entry entrySelect = new EventTrigger.Entry();
+                    entrySelect.eventID = EventTriggerType.Select;
+                    entrySelect.callback.AddListener((data) => { UpdateSkill(index); });
+                    trigger.triggers.Add(entrySelect);
+
                     EventTrigger.Entry entryCancel = new EventTrigger.Entry();
                     entryCancel.eventID = EventTriggerType.Cancel;
                     entryCancel.callback.AddListener((data) => { PokemonBattleManager.Instance.SelectAction(); });
@@ -84,8 +89,12 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 return;
 
             if (_skillPpText != null)
-                _skillPpText.text = _playerPokemon.Info._skills[indexOfSkill]._currentCount +
-                    "/   " + _playerPokemon.Info._skills[indexOfSkill]._count;
+            {
+                int count = _playerPokemon.Info._skills[indexOfSkill]._currentCount;
+                int maxCount = _playerPokemon.Info._skills[indexOfSkill]._count;
+
+                _skillPpText.text = count + "/ " + maxCount;
+            }
         }
 
         public GameObject GetFirstObject()

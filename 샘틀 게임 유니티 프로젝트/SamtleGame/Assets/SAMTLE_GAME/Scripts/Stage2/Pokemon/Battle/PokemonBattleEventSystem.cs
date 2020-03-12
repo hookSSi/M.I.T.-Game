@@ -15,6 +15,7 @@ namespace MIT.SamtleGame.Stage2.Tool
 
         [SerializeField] private AudioClip _submitClip;
 
+        private GameObject _informationObject;
         [SerializeField] private GameObject _firstActionObject;
         [SerializeField] private GameObject _firstItemObject;
         [SerializeField] private GameObject _firstSkillObject;
@@ -30,16 +31,10 @@ namespace MIT.SamtleGame.Stage2.Tool
                 _audio = gameObject.AddComponent<AudioSource>();
             }
 
-            if (_firstActionObject == null)
+            if (_informationObject == null)
             {
-                var actionUI = FindObjectOfType<PokemonBattleAction>();
-                SetIndexObject(firstActionObject: actionUI.GetFirstObject());
-            }
-
-            if (_firstSkillObject == null)
-            {
-                var skillUI = FindObjectOfType<PokemonBattleSkill>();
-                SetIndexObject(firstSkillObject: skillUI.GetFirstObject());
+                var informationUI = PokemonBattleManager.Instance._uiManager._mainUI._informationUI;
+                _informationObject = informationUI;
             }
         }
 
@@ -49,7 +44,7 @@ namespace MIT.SamtleGame.Stage2.Tool
             if (_battleManager != null && _battleManager._state != BattleState.None)
             {
                 if (_eventSystem.currentSelectedGameObject != null && (Input.GetButtonDown("Submit") || Input.GetButtonDown("Cancel")))
-                    _audio.PlayOneShot(_submitClip);
+                    
 
                 if (_eventSystem.currentSelectedGameObject != null && _eventSystem.currentSelectedGameObject != _selected)
                     _selected = _eventSystem.currentSelectedGameObject;
@@ -74,6 +69,10 @@ namespace MIT.SamtleGame.Stage2.Tool
                 case BattleState.SelectSkill:
                     if (_firstSkillObject)
                         _eventSystem.SetSelectedGameObject(_firstSkillObject);
+                    break;
+                case BattleState.Information:
+                    if (_informationObject)
+                        _eventSystem.SetSelectedGameObject(_informationObject);
                     break;
             }
         }
