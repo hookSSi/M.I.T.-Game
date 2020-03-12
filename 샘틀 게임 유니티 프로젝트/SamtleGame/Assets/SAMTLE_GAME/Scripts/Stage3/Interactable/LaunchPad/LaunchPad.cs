@@ -34,6 +34,7 @@ namespace MIT.SamtleGame.Stage3
         private void PlayLaunchPad()
         {
             StartCoroutine(PadLightLoop());
+            _isActive = false;
         }
 
         IEnumerator PadLightLoop()

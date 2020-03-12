@@ -17,6 +17,8 @@ namespace MIT.SamtleGame.Stage3
 
             _text.Reset(0, _textPages, 0, "Typing");
             _text.PlayText();
+            
+            _isActive = false;
             GameManager.Instance.Programmer();
         }
     }

@@ -12,9 +12,19 @@ public struct DialoguePage
 	[Multiline(3)]
 	public string _text;
 	[Range(0, 100)]
-	public float _delayDuration; // 실행전 딜레이
+	public float _delay; // 실행전 딜레이
 	[Range(0, 100)]
 	public float _duration; // 실행후 지속시간
+
+	public static DialoguePage CreatePage(string text, float delay = 0.1f, float duration = 0.1f)
+	{
+		DialoguePage page = new DialoguePage();
+		page._text = text;
+		page._delay = delay;
+		page._duration = duration;
+
+		return page;
+	}
 }
 
 [RequireComponent(typeof(TMP_Text))]
@@ -46,7 +56,7 @@ public class DialogueBox : MonoBehaviour
 			_textComponent = gameObject.GetComponent<TMP_Text>();
 
 		_textComponent.text = _textPages[_currentPage]._text;
-		_delayDuration = _textPages[_currentPage]._delayDuration;
+		_delayDuration = _textPages[_currentPage]._delay;
 		_duration = _textPages[_currentPage]._duration;
 	}
 

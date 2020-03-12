@@ -74,6 +74,7 @@ namespace MIT.SamtleGame.Stage2.NPC
 
         protected virtual IEnumerator Response()
         {
+            BgmManager.Instance.Stop();
             SoundEvent.Trigger(_detectSound);
             Debug.Log("플레이어 감지됨");
             _reactMark.SetActive(true);
@@ -114,6 +115,11 @@ namespace MIT.SamtleGame.Stage2.NPC
 
             yield return new WaitForSeconds(duration);
             yield break;
+        }
+
+        protected void EventEndResponse()
+        {
+            BgmManager.Instance.Play(0);
         }
 
         protected virtual void PokemonBattle(string myPokemon, string otherPokemon)
