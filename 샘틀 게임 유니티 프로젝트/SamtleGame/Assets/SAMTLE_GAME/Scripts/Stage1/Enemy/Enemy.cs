@@ -114,4 +114,10 @@ public class Enemy : MonoBehaviour
         Destroy(this.gameObject);
         GameManager._totalEnemyCount -= 1;
     }
+
+    protected virtual void OnDrawGizmosSelected() 
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawCube(_attackRange.position, _attackSize);
+    }
 }

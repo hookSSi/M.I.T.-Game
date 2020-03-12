@@ -27,7 +27,6 @@ namespace MIT.SamtleGame.Intro
 			}
 			else
 			{
-				IntroEvent.Trigger();
 				_isPageEnd = true;
 				Debug.Log("페이지의 끝에 도달했습니다.");
 			}
@@ -63,7 +62,10 @@ namespace MIT.SamtleGame.Intro
 
 					if(_isPageEnd)
 					{
-						FadeOutEvent.Trigger(0);
+						FadeInEvent.Trigger(1);
+						yield return new WaitForSeconds(1f);
+						
+						IntroEvent.Trigger();
 						yield break;
 					}
 						

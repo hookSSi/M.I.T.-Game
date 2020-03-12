@@ -105,9 +105,21 @@ namespace MIT.SamtleGame.Stage1
             Transform attackRange = _idlePunchRange;
 
             if(_isCrouch)
+            {
                 attackRange = _crouchKickRange;
-            if(!_isGround)
+                SoundEvent.Trigger("하단");
+
+            }
+            else if(!_isGround)
+            {
                 attackRange = _jumpKickRange;
+                SoundEvent.Trigger("점프킥");
+            }
+            else
+            {
+                attackRange = _idlePunchRange;
+                SoundEvent.Trigger("주먹");
+            }
 
             Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(attackRange.position, _attackSize, 0);
 
@@ -118,9 +130,9 @@ namespace MIT.SamtleGame.Stage1
                     collider.GetComponent<Enemy>().Hitted(attackRange);
                 }
             }
+
             _playerAnimator.SetTrigger("Attack");
             _attackCurrentTime = _attackCollTime;
-            SoundEvent.Trigger("Typing");
         }
 
         protected override void Move()
@@ -160,7 +172,7 @@ namespace MIT.SamtleGame.Stage1
                 PlayerHittedEvent.Trigger(_playerInfo._currentHp);
                 _immuneCurrentTime = _immuneCollTime;
 
-                if(_playerInfo._currentHp == 0)
+                if(_playerInfo._currentHp < 0)
                 {
                     _isAlive = false;
                     Dead();

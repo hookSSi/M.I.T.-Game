@@ -136,6 +136,54 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _manager._dialogueController.AddNextPage("효과는 굉장했다!", true);
         }
 
+        /* 
+        *  Skills For 신입생
+        */
+
+        /// 쓰다듬기
+        public void TouchTouch(Pokemon myPokemon, Pokemon enemyPokemon)
+        {
+            string dialog;
+            float damage = GetDamage(myPokemon, enemyPokemon, 0);
+
+            enemyPokemon.Health -= damage;
+            myPokemon.Health -= damage * 0.1f;
+
+            FirstScript(myPokemon, "쓰담쓰담!", out dialog);
+            _manager._dialogueController.AddNextPage(dialog, true);
+            _manager._dialogueController.AddNextPage("고양이는 손길을 피했다...");
+            _manager._dialogueController.AddNextPage("밥을 줘야할거 같다!", true);
+        }
+
+        /// 밥주기
+        public void FeedACat(Pokemon myPokemon, Pokemon enemyPokemon)
+        {
+            string dialog;
+            float damage = GetDamage(myPokemon, enemyPokemon, 50);
+
+            enemyPokemon.Health -= damage;
+            myPokemon.Health += damage * 0.1f;
+
+            FirstScript(myPokemon, "쓰담쓰담!", out dialog);
+            _manager._dialogueController.AddNextPage(dialog, true);
+            _manager._dialogueController.AddNextPage("고양이가 먹는 모습을 보니...");
+            _manager._dialogueController.AddNextPage("맘이 편해진다.", true);
+        }
+
+        /// 소리지르기
+        public void Crying(Pokemon myPokemon, Pokemon enemyPokemon)
+        {
+            string dialog;
+            float damage = GetDamage(myPokemon, enemyPokemon, 299);
+
+            enemyPokemon.Health -= damage;
+
+            FirstScript(myPokemon, "으아ㅏ아아앙아아아!", out dialog);
+            _manager._dialogueController.AddNextPage(dialog, true);
+            _manager._dialogueController.AddNextPage("고양이는 기겁했다!", true);
+        }
+        
+
         // Skills For 오래된 동방컴
         // 돌돌돌
         public void StoneStoneStone(Pokemon myPokemon, Pokemon enemyPokemon)

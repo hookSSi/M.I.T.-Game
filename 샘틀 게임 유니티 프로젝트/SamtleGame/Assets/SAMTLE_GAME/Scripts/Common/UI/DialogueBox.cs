@@ -12,9 +12,19 @@ public struct DialoguePage
 	[Multiline(3)]
 	public string _text;
 	[Range(0, 100)]
-	public float _delayDuration; // 실행전 딜레이
+	public float _delay; // 실행전 딜레이
 	[Range(0, 100)]
 	public float _duration; // 실행후 지속시간
+
+	public static DialoguePage CreatePage(string text, float delay = 0.1f, float duration = 0.1f)
+	{
+		DialoguePage page = new DialoguePage();
+		page._text = text;
+		page._delay = delay;
+		page._duration = duration;
+
+		return page;
+	}
 }
 
 [RequireComponent(typeof(TMP_Text))]
@@ -27,6 +37,7 @@ public class DialogueBox : MonoBehaviour
 	protected float _delayDuration = 0.33f;
 	protected float _duration = 0.33f;
 	protected int _id;
+	protected Coroutine _currentRoutine = null; // 현재 재생중인 코루틴
 
 	[Header("텍스트")]
 	public List<DialoguePage> _textPages;
@@ -45,7 +56,7 @@ public class DialogueBox : MonoBehaviour
 			_textComponent = gameObject.GetComponent<TMP_Text>();
 
 		_textComponent.text = _textPages[_currentPage]._text;
-		_delayDuration = _textPages[_currentPage]._delayDuration;
+		_delayDuration = _textPages[_currentPage]._delay;
 		_duration = _textPages[_currentPage]._duration;
 	}
 
@@ -56,6 +67,10 @@ public class DialogueBox : MonoBehaviour
 		/// 스테이지1 보스 인트로 애니메이션 때문에 사용
 		if(_isStartFirst)
 			StartCoroutine(RevealCharacters(_textComponent));
+		else
+		{
+			_textComponent.maxVisibleCharacters = 0;
+		}
 	}
 
 	public virtual void Reset(int id, List<DialoguePage> textPages, int page = 0, string sound = "")
@@ -90,6 +105,13 @@ public class DialogueBox : MonoBehaviour
 	{
 		if(ch != ' ' && ch != '\n')
 			SoundEvent.Trigger(_typingSoundName);
+	}
+
+	public void PlayText()
+	{
+		if(_currentRoutine != null)
+			StopCoroutine(_currentRoutine);
+		_currentRoutine = StartCoroutine(RevealCharacters(_textComponent));
 	}
 
 	protected virtual IEnumerator RevealCharacters(TMP_Text textComponent)

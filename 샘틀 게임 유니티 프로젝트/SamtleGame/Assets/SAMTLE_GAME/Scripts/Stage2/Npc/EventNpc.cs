@@ -20,6 +20,8 @@ namespace MIT.SamtleGame.Stage2.NPC
     */
     public class EventNpc : Npc
     {
+        protected bool _isEventEnd = false; 
+
         public bool _isWaiting = true;
 
         [Header("플레이어 감지 범위"), Space(20)]
@@ -74,6 +76,7 @@ namespace MIT.SamtleGame.Stage2.NPC
 
         protected virtual IEnumerator Response()
         {
+            BgmManager.Instance.Stop();
             SoundEvent.Trigger(_detectSound);
             Debug.Log("플레이어 감지됨");
             _reactMark.SetActive(true);
@@ -116,13 +119,31 @@ namespace MIT.SamtleGame.Stage2.NPC
             yield break;
         }
 
-        protected virtual void PokemonBattle(string myPokemon, string otherPokemon)
+        protected void EventEndResponse()
         {
-            Debug.Log("포켓몬 배틀!");
-            PokemonBattleManager.Instance.StartBattle(myPokemon, otherPokemon);
+            BgmManager.Instance.Play(0);
+            _isEventEnd = true;
+
+            Debug.Log("이벤트 끝");
         }
 
-        protected virtual IEnumerator WaitUntillBattleEnd(float duration = 1f)
+        public void Delete()
+        {
+            StartCoroutine(DeleteRoutine());
+        }
+
+        protected IEnumerator DeleteRoutine()
+        {
+            while(!_isEventEnd)
+            {
+                yield return null;
+            }
+
+            this.gameObject.SetActive(false);
+            yield break;
+        }
+
+        protected virtual IEnumerator WaitUntilBattleEnd(float duration = 1f)
         {
             yield return new WaitForSeconds(duration);
             yield break;

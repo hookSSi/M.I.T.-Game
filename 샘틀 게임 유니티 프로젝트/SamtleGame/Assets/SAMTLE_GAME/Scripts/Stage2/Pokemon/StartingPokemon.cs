@@ -123,7 +123,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         {
             _isEnd = true;
 
-            _pokemonRegisterAction?.Invoke(_pokemonName[_currentIndex]);
+            _pokemonRegisterAction.Invoke(_pokemonName[_currentIndex]);
 
             gameObject.SetActive(false);
         }
@@ -189,11 +189,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             if (_text == null) return;
 
             if (index == 0)
-                _text.text = "불타입 포켓몬\nC++";
+                _text.text = "복잡한타입 포켓몬\nC++";
             else if (index == 1)
                 _text.text = "커피타입 포켓몬\nJava";
             else
-                _text.text = "물타입 포켓몬\nPython";
+                _text.text = "뱀타입 포켓몬\nPython";
         }
     }
 }

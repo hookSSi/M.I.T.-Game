@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/SAMTLE_GAME/Scenes/Intro.unity
+    path: Assets/SAMTLE_GAME/Scenes/Intro/Intro.unity
     guid: b804da3097c52034bb1d401d278270f2
   - enabled: 1
     path: Assets/SAMTLE_GAME/Scenes/LoadingScreen.unity
@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/SAMTLE_GAME/Scenes/Stage2/\uACF5\uB300\uAD00.unity"
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: "Assets/SAMTLE_GAME/Scenes/Stage3/\uB3D9\uBC29.unity"
+    guid: 477aede467f2e6e4b9cd10c689b0508f
   m_configObjects: {}

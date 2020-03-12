@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using MIT.SamtleGame.Stage2.Tools;
+using MIT.SamtleGame.Stage2.NPC;
 using MIT.SamtleGame.Tools;
 
 namespace MIT.SamtleGame.Stage2
@@ -15,7 +16,7 @@ namespace MIT.SamtleGame.Stage2
         public Direction _dir = Direction.NONE; // 목적지에서 대상의 바라보는 방향
         public bool _isActive = true;
         public string _sound = "";
-        public Tag _tag;
+        public Tag[] _tag;
         
         [Header("FadeInOut"), Space(20)]
         public float _fadeInTime = 0.1f;
@@ -32,18 +33,25 @@ namespace MIT.SamtleGame.Stage2
         {
             if(_isActive)
             {
-                List<Collider2D> cols = ColliderChecker.GetColliders(this.transform.position, this.transform.position, _tag.GetTag());
+                List<Collider2D> cols = ColliderChecker.GetColliders(this.transform.position, this.transform.position, _tag);
 
                 foreach(var col in cols)
                 {
-                    // 진입
-                    FadeInEvent.Trigger(_fadeInTime, _fadeInTween);
-                    SoundEvent.Trigger(_sound);
+                    if(col.tag == "Npc")
+                    {
+                        col.GetComponent<EventNpc>().Delete();
+                    }
+                    if(col.tag == "Player")
+                    {
+                        // 진입
+                        FadeInEvent.Trigger(_fadeInTime, _fadeInTween);
+                        SoundEvent.Trigger(_sound);
 
-                    // 진입후
-                    col.transform.position = _dest.transform.position;
-                    col.GetComponent<PlayerController>().SetDirection(_dir);
-                    FadeOutEvent.Trigger(_fadeOutTime, _fadeOutTween);
+                        // 진입후
+                        col.transform.position = _dest.transform.position;
+                        col.GetComponent<PlayerController>().SetDirection(_dir);
+                        FadeOutEvent.Trigger(_fadeOutTime, _fadeOutTween);
+                    }
                 }
             }
         }

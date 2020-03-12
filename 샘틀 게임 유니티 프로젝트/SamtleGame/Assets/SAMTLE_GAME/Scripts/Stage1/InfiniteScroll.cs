@@ -22,6 +22,7 @@ public class InfiniteScroll : MonoBehaviour
     [Header("다른 background 정보")]
     public Transform[] _background;
 	public Transform _endPoint;
+	public Vector3 endPointOffset;
     public float _backgroundWidth = 34;
 
     private void Initilization()
@@ -62,8 +63,9 @@ public class InfiniteScroll : MonoBehaviour
                 if(GameManager._totalEnemyCount == 0)
                 {
                     PasueGameEvent.Trigger();
+                    BgmManager.Instance.Pause();
                     SpawnEvent.Trigger(Direction.Left, EnemyType.Boss);
-					_endPoint.position = _nextGenPos;
+					_endPoint.position = _nextGenPos + endPointOffset;
 					_endPoint.gameObject.SetActive(true);
                     yield break;
                 }

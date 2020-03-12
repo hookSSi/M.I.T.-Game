@@ -21,6 +21,8 @@ public class IntroManager : MonoBehaviour, EventListener<IntroEvent>
     public GameObject _dialogueBox;
     public GameObject _introImage;
 
+    public LastImageAnim _lastImage;
+
     private void Start() 
     {
         StartCoroutine(WaitStartKey());
@@ -65,6 +67,8 @@ public class IntroManager : MonoBehaviour, EventListener<IntroEvent>
     /// 다음 Scene으로 넘어가기 전에 연출용
     private IEnumerator LoadNextSceneRoutine(float waitTime = 4f)
     {
+        yield return StartCoroutine(_lastImage.AnimImage());
+
         _title.SetActive(true);
         _dialogueBox.SetActive(false);
         _introImage.SetActive(false);
