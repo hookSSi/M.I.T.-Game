@@ -2123,13 +2123,15 @@ GameObject:
   - component: {fileID: 876046954}
   - component: {fileID: 876046953}
   - component: {fileID: 876046952}
+  - component: {fileID: 876046956}
+  - component: {fileID: 876046957}
   m_Layer: 0
   m_Name: Paper
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &876046952
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2138,8 +2140,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876046951}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2203,6 +2205,39 @@ Transform:
   m_Father: {fileID: 636357648}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 35.29, y: 0, z: 0}
+--- !u!114 &876046956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876046951}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &876046957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876046951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df58ae97589d701499a2952224f27e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlines: []
+  _focusObj: {fileID: 0}
+  gp: {fileID: 1726153844}
 --- !u!4 &912358148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2514597874606035778, guid: b04c617897568e445a4f91d484c4f1dd,
@@ -8371,6 +8406,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 355126688}
     m_Modifications:
+    - target: {fileID: 2213954940501579923, guid: 61f2dd569ca98cc4cb77194c3e66efb8,
+        type: 3}
+      propertyPath: outlineColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213954940501579923, guid: 61f2dd569ca98cc4cb77194c3e66efb8,
+        type: 3}
+      propertyPath: outlineColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213954940501579923, guid: 61f2dd569ca98cc4cb77194c3e66efb8,
+        type: 3}
+      propertyPath: outlineColor.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3538718933775875700, guid: 61f2dd569ca98cc4cb77194c3e66efb8,
         type: 3}
       propertyPath: m_LocalPosition.x

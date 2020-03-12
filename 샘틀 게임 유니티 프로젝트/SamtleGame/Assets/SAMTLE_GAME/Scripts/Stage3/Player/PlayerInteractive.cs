@@ -25,7 +25,11 @@ namespace MIT.SamtleGame.Stage3
 				if( hit.transform.tag.Equals("Interactable" ) )
 				{
 					Interactive hitInteractive = hit.GetComponentInParent<Interactive>();
-
+					if (hitInteractive == null)
+					{
+						hitInteractive = hit.GetComponentInChildren<Interactive>();
+					}
+					
 					if( hitInteractive != _interactive )
 					{
 						if(_watchingObj != null)
@@ -58,7 +62,7 @@ namespace MIT.SamtleGame.Stage3
 
 			if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, _range))
 			{
-				return hit.transform;
+				return hit.collider.transform;
 			}
 			else
 				return null;
