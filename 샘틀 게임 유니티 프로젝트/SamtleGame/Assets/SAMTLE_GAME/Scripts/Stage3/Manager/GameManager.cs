@@ -34,5 +34,9 @@ namespace MIT.SamtleGame.Stage3
             Debug.Log("뮤지션 상호작용");
             _musician = true;
         }
+		public bool AllDone()
+		{
+			return _programmer && _artist && _musician;
+		}
     }
 }
