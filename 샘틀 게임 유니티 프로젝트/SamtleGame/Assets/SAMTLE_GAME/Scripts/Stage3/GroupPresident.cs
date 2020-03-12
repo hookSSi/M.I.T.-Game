@@ -36,6 +36,8 @@ public class GroupPresident : NPCController
 		yield return new WaitUntil(() => !_isworking);
 
 		_anim.SetTrigger("Give");
+		yield return new WaitUntil(() => false); // some trigger
+		_anim.SetTrigger("EndGive");
 	}
 	void PickObject()
 	{
