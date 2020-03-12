@@ -9,6 +9,7 @@ namespace MIT.SamtleGame.Stage3
 	{
 		public Outline[] _outlines;
 		public Transform _focusObj;
+		public bool _isActive = true;
 
 		protected virtual void Start() 
 		{
@@ -34,9 +35,12 @@ namespace MIT.SamtleGame.Stage3
 		public void Watched()
 		{
 			//Debug.LogFormat("{0} 오브젝트 Outline - True", this.gameObject.name);
-			foreach(var outline in _outlines)
+			if(_isActive)
 			{
-				outline.enabled = true;
+				foreach(var outline in _outlines)
+				{
+					outline.enabled = true;
+				}
 			}
 		}
 

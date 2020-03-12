@@ -10,6 +10,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
     {
         public PokemonBattleMainUI _mainUI;
         public PokemonBattleBottomUI _bottomUI;
+        public PokemonBattleEffect _effect;
 
         private void Awake()
         {

@@ -8,5 +8,9 @@ namespace MIT.SamtleGame.Stage3
     {
         public GameObject _playerModel;
         public PlayerController3D _controller;
+
+        private void Update() {
+            _playerModel.transform.localPosition = Vector3.zero;
+        }
     }   
 }

@@ -161,10 +161,13 @@ namespace MIT.SamtleGame.Stage3
 
 		public void Interact()
 		{
-			_isFocusing = true;
-			_playerInteractive.enabled = false;
+			if(_playerInteractive._interactive._isActive)
+			{
+				_isFocusing = true;
+				_playerInteractive.enabled = false;
 
-			_playerInteractive._interactive.Action();
+				_playerInteractive._interactive.Action();
+			}
 		}
 
 		public void FocusIn()

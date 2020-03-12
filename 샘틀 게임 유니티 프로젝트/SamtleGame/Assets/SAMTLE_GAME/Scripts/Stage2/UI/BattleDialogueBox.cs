@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-
 namespace MIT.SamtleGame.Stage2
 {
     public class BattleDialogueBox : DialogueBox
     {
+        public BattleDialogueController _battleDialogueController;
+
         protected override void Initialization()
         {
             base.Initialization();
             DialogueManager.Instance._isEnd = false;
+
+            if (_battleDialogueController == null)
+                _battleDialogueController = Pokemon.PokemonBattleManager.Instance._dialogueController;
         }
 
         public override void NextPage()
         {
             _currentPage++;
 
-            if(_currentPage < _textPages.Count)
+            if (_currentPage < _textPages.Count)
             {
                 _textComponent.maxVisibleCharacters = 0;
                 _isNextPage = true;
@@ -26,17 +30,31 @@ namespace MIT.SamtleGame.Stage2
             }
             else
             {
-                Debug.Log("페이지의 끝에 도달했습니다.");
+                // Debug.Log("페이지의 끝에 도달했습니다.");
                 DialogueManager.Instance._isEnd = true;
             }
         }
 
-        public virtual IEnumerator WaitUntilInput(float delay = 1f)
+        public virtual IEnumerator WaitUntilInput()
         {
-            /// 지정한 시간만큼 기다리고 자동으로 넘김
-            yield return new WaitForSeconds(delay);
+            /*
+            while (!Input.GetButtonDown("Interact") && !Input.GetButtonDown("Submit"))
+                yield return null; 
+                */
 
-            Debug.LogFormat("{0} 다음 페이지", _currentPage);
+            if (_battleDialogueController.IsStoppingPoint[_currentPage])
+                _battleDialogueController._isEnd = true;
+
+            while (_battleDialogueController._isEnd)
+                yield return 0.05f;
+
+            // Debug.LogFormat("{0} 입력 기다림", _currentPage);
+
+            
+            while (!Input.GetButtonDown("Interact") && !Input.GetButtonDown("Submit"))
+                yield return null;
+
+            // Debug.LogFormat("{0} 다음 페이지", _currentPage);
             NextPage();
             yield break;
         }
@@ -57,7 +75,7 @@ namespace MIT.SamtleGame.Stage2
                 if (_isTextChanged)
                 {
                     totalVisibleCharacters = textInfo.characterCount; // Update visible character count.
-                    _isTextChanged = false; 
+                    _isTextChanged = false;
                 }
 
                 /// 다음 페이지 경우 관련 변수 초기화
@@ -67,12 +85,12 @@ namespace MIT.SamtleGame.Stage2
 
                     _isNextPage = false;
                     visibleCount = 0;
-                    
+
                     yield return new WaitForSeconds(_delayDuration);
                 }
 
                 /// 사운드 처리
-                if(0 < visibleCount && visibleCount < textComponent.text.Length)
+                if (0 < visibleCount && visibleCount < textComponent.text.Length)
                 {
                     char ch = textComponent.text[visibleCount - 1];
                     PlaySound(ch);
@@ -84,18 +102,18 @@ namespace MIT.SamtleGame.Stage2
                 visibleCount += 1;
 
                 /// 다음 페이지를 기다림
-                if(visibleCount > textComponent.text.Length)
+                if (visibleCount >= textComponent.text.Length)
                 {
-                    Debug.LogFormat("{0} 페이지 대화가 끝났습니다.", _currentPage);
-
+                    // Debug.LogFormat("{0} 페이지 대화가 끝났습니다.", _currentPage);
+                    Debug.Log("한 페이지 끗"); 
                     yield return StartCoroutine(WaitUntilInput());
-                    yield return new WaitForSeconds(0.33f);
+                    yield return new WaitForSeconds(0.2f);
                 }
             }
 
             /// 대화 끝
             DialogueEvent.Trigger(_id, null, 0, "", DialogueStatus.End);
-            yield return new WaitForSeconds(1f);
+            _battleDialogueController._isEnd = true;
             yield break;
         }
     }

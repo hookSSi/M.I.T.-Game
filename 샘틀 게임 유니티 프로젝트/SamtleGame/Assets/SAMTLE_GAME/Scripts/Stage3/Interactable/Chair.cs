@@ -12,6 +12,7 @@ namespace MIT.SamtleGame.Stage3
         public Player _player;
         public Transform _sitPos;
         public float _gap = 0.1f;
+        public float _speed = 0.1f;
 
         protected override void Start()
         {
@@ -42,7 +43,7 @@ namespace MIT.SamtleGame.Stage3
                 Quaternion rot = Quaternion.LookRotation(targetDir);
                 _player.transform.rotation = Quaternion.Slerp(_player.transform.rotation, rot, 0.05f);
 
-                Vector3 moveDir = Vector3.forward * 0.01f;
+                Vector3 moveDir = Vector3.forward * _speed;
                 _player.transform.Translate(moveDir);
                 // 각도를 곱해서 구한다. 귀찮으니 일단은 대충 처리
                 // _anim.SetFloat("Horizontal", moveDir * rot);

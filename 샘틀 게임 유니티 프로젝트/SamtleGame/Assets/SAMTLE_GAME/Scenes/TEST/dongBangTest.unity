@@ -293,6 +293,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9104590396088089476, guid: 67c41983a8687c048a9c349d08e05d9c,
+        type: 3}
+      propertyPath: _isFocusing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9104590396088089477, guid: 67c41983a8687c048a9c349d08e05d9c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4375,7 +4380,7 @@ PrefabInstance:
     - target: {fileID: 7161641006804711271, guid: be0116db406575249bb7032e4130ed2b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be0116db406575249bb7032e4130ed2b, type: 3}
@@ -5037,7 +5042,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014993707}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -35.95, y: 6.44, z: 11.365999}
+  m_LocalPosition: {x: -35.95, y: 5.48, z: 10.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 582887710}
@@ -5294,7 +5299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clips:
-  - {fileID: 8300000, guid: 898edfe5eaaf4ae4c825203177fb2041, type: 3}
+  - {fileID: 8300000, guid: 9c9947aa244589c40b56b01c4e3b0eee, type: 3}
 --- !u!82 &2023223566
 AudioSource:
   m_ObjectHideFlags: 0
