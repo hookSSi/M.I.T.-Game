@@ -11,25 +11,16 @@ namespace MIT.SamtleGame.Stage2.Tool
         private PokemonBattleManager _battleManager;
         private EventSystem _eventSystem;
         private GameObject _selected;
-        private AudioSource _audio;
-
-        [SerializeField] private AudioClip _submitClip;
-
         private GameObject _informationObject;
         [SerializeField] private GameObject _firstActionObject;
         [SerializeField] private GameObject _firstItemObject;
         [SerializeField] private GameObject _firstSkillObject;
+        public string _commitSound = "BattleCommit";
 
         private void Awake()
         {
             _battleManager = PokemonBattleManager.Instance;
             _eventSystem = EventSystem.current;
-
-            _audio = GetComponent<AudioSource>();
-            if (_audio == null)
-            {
-                _audio = gameObject.AddComponent<AudioSource>();
-            }
 
             if (_informationObject == null)
             {
@@ -43,7 +34,11 @@ namespace MIT.SamtleGame.Stage2.Tool
             // 선택지 중 하나가 반드시 선택되도록 고정한다
             if (_battleManager != null && _battleManager._state != BattleState.None)
             {
-                // if (_eventSystem.currentSelectedGameObject != null && (Input.GetButtonDown("Submit") || Input.GetButtonDown("Cancel")))
+                if (Input.GetButtonDown("Submit") || Input.GetButtonDown("Cancel"))
+                {
+                    SoundEvent.Trigger(_commitSound); // ? 경로가 안 맞아서 그런가?
+                }
+
                 if (_eventSystem.currentSelectedGameObject != null && _eventSystem.currentSelectedGameObject != _selected)
                     _selected = _eventSystem.currentSelectedGameObject;
                 else if (_selected != null && _eventSystem.currentSelectedGameObject == null)

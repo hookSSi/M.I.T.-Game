@@ -15,12 +15,6 @@ namespace MIT.SamtleGame.Stage2
 
         public List<bool> IsStoppingPoint { get { return _stopPoints; } }
 
-        private void Start()
-        {
-            if (Pokemon.PokemonBattleManager.Instance._dialogueController == null)
-                Pokemon.PokemonBattleManager.Instance._dialogueController = this;
-        }
-
         public void AddNextPage(string newText, bool isStopping = false)
         {
             DialoguePage newPage = new DialoguePage();

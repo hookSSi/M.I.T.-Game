@@ -423,6 +423,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Starting Pokemon
       objectReference: {fileID: 0}
+    - target: {fileID: 854263635503592693, guid: 502a60928e97ec643bbebb09aa485dc6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 854263635959939858, guid: 502a60928e97ec643bbebb09aa485dc6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 854263636579819681, guid: 502a60928e97ec643bbebb09aa485dc6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 854263636654254381, guid: 502a60928e97ec643bbebb09aa485dc6,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 854263636654254381, guid: 502a60928e97ec643bbebb09aa485dc6,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 854263636654254381, guid: 502a60928e97ec643bbebb09aa485dc6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 502a60928e97ec643bbebb09aa485dc6, type: 3}
 --- !u!1 &468124338 stripped
@@ -548,6 +578,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b763eb9cefade4f46932627811d9443d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1201536037 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 808307738, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4917301245617319877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d55e94386fe0d541ad197843368fd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1233944181
@@ -814,12 +856,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiManager: {fileID: 1920615998}
   _itemManager: {fileID: 1017398068}
-  _dialogueController: {fileID: 0}
+  _dialogueController: {fileID: 1201536037}
   _myPokemon: {fileID: 829156951}
   _enemyPokemon: {fileID: 1762143250}
   _testMyPokemon: C++
   _testEnemyPokemon: "\uB3D9\uBC29\uCEF4"
-  _isTest: 1
+  _isTest: 0
 --- !u!4 &2077277600
 Transform:
   m_ObjectHideFlags: 0
@@ -843,32 +885,37 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 262074255, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 262074255, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 512831533, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 512831533, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1840808404, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1840808404, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4917301245897720640, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
       propertyPath: m_Name
       value: Pokemon Battle UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301245897720640, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4917301245897720643, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
