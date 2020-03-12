@@ -7,7 +7,9 @@ namespace MIT.SamtleGame.Stage3
 	[RequireComponent(typeof(PlayerInteractive))]
 	public class PlayerController3D : MonoBehaviour
 	{
-		// private Animator anim;
+		public Transform obj;
+		public Transform lookObj;
+
 		private Rigidbody _rigidBody;
 		private PlayerInteractive _playerInteractive;
 		[SerializeField] private Animator _anim;
@@ -31,6 +33,7 @@ namespace MIT.SamtleGame.Stage3
 		public bool _isSittingOn = false;
 		public bool _isFocusing = false;
 		public bool _isControllable = true;
+		public bool _isIkActive = false;
 
 		[Header("디버깅"), Space(20)]
 		public float _playerSpeed;
@@ -170,6 +173,28 @@ namespace MIT.SamtleGame.Stage3
 			}
 		}
 
+		void OnAnimatorIK()
+		{
+
+			if(lookObj != null) {
+				_anim.SetLookAtWeight(1);
+				_anim.SetLookAtPosition(lookObj.position);
+			}   
+			if(_isIkActive)
+			{
+				_anim.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+				_anim.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
+				_anim.SetIKPosition(AvatarIKGoal.RightHand, obj.position);
+				_anim.SetIKRotation(AvatarIKGoal.RightHand, obj.rotation);
+			}
+			else
+			{
+				_anim.SetIKPositionWeight(AvatarIKGoal.RightHand, 0);
+				_anim.SetIKRotationWeight(AvatarIKGoal.RightHand, 0);
+				_anim.SetLookAtWeight(0);
+			}
+		}
+
 		public void FocusIn()
 		{
 			_isFocusing = true;
@@ -179,6 +204,7 @@ namespace MIT.SamtleGame.Stage3
 			Transform focusObj = _playerInteractive._interactive._focusObj;
 			
 			FocusingEvent.Trigger(FocusingType.FocusIn, focusObj.transform.position, obj);
+			_isIkActive = true;
 		}
 		public void FocusOut()
 		{
@@ -187,6 +213,7 @@ namespace MIT.SamtleGame.Stage3
 			_playerInteractive.enabled = true;
 
 			FocusingEvent.Trigger(FocusingType.FocustOut);
+			_isIkActive = false;
 		}
 	}
 }

@@ -75,7 +75,8 @@ namespace MIT.SamtleGame.Stage3
 			}
 		}
 
-		private void OnDrawGizmos() {
+		private void OnDrawGizmos() 
+		{
 			Gizmos.color = Color.red;
 			Gizmos.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * _range);
 		}

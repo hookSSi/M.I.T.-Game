@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using MIT.SamtleGame.Tools;
+using MIT.SamtleGame.Stage2.Pokemon;
 
 namespace MIT.SamtleGame.Stage2.NPC
 {
@@ -11,6 +12,8 @@ namespace MIT.SamtleGame.Stage2.NPC
     */
     public class ChairMan : EventNpc
     {
+        public StartingPokemon _pokemonSelector;
+
         protected override void Update()
         {
             base.Update();
@@ -27,8 +30,18 @@ namespace MIT.SamtleGame.Stage2.NPC
             Talk(false);
             yield return WaitUntillTalkEnd();
 
-            //PokemonBattle("C++", "동방컴");
-            //yield return WaitUntillBattleEnd();
+            string pokemon = "C++";
+            _pokemonSelector._pokemonRegisterAction.AddListener((data) => { pokemon = data; });
+            _pokemonSelector.StartSelecting();
+
+            while(!_pokemonSelector._isEnd)
+            {
+                yield return null;
+            }
+
+            PokemonBattleManager.Instance.StartBattle(pokemon, "동방컴");
+
+            yield return WaitUntilBattleEnd();
 
             List<DialoguePage> textPages = new List<DialoguePage>();
             textPages.Add(DialoguePage.CreatePage("코딩하느라 고생했어, 와! 정말 잘 만들었는걸"));

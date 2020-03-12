@@ -31,9 +31,9 @@ namespace MIT.SamtleGame.Stage2.NPC
 
             /// 웨이포인트 이동
             yield return StartCoroutine(WayPointsMoveRoutine());
-
+            
             PlayerControllerEvent.Trigger(true);
-            Debug.Log("이벤트 끝");
+            EventEndResponse();
             yield break;
         }
 
