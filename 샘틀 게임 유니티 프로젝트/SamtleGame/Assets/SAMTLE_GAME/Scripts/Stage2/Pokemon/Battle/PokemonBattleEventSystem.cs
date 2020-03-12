@@ -43,9 +43,7 @@ namespace MIT.SamtleGame.Stage2.Tool
             // 선택지 중 하나가 반드시 선택되도록 고정한다
             if (_battleManager != null && _battleManager._state != BattleState.None)
             {
-                if (_eventSystem.currentSelectedGameObject != null && (Input.GetButtonDown("Submit") || Input.GetButtonDown("Cancel")))
-                    
-
+                // if (_eventSystem.currentSelectedGameObject != null && (Input.GetButtonDown("Submit") || Input.GetButtonDown("Cancel")))
                 if (_eventSystem.currentSelectedGameObject != null && _eventSystem.currentSelectedGameObject != _selected)
                     _selected = _eventSystem.currentSelectedGameObject;
                 else if (_selected != null && _eventSystem.currentSelectedGameObject == null)
