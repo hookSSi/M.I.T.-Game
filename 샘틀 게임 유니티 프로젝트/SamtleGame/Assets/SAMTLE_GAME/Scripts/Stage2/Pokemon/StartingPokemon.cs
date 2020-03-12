@@ -189,11 +189,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             if (_text == null) return;
 
             if (index == 0)
-                _text.text = "불타입(빨간맛) 포켓몬\nC++";
+                _text.text = "불타입 포켓몬\nC++";
             else if (index == 1)
                 _text.text = "커피타입 포켓몬\nJava";
             else
-                _text.text = "뱀... 물타입 포켓몬\nPython";
+                _text.text = "물타입 포켓몬\nPython";
         }
     }
 }

@@ -17,9 +17,6 @@ namespace MIT.SamtleGame.Stage2
 
         private void Start()
         {
-            _textPages = new List<DialoguePage>();
-            _stopPoints = new List<bool>();
-
             if (Pokemon.PokemonBattleManager.Instance._dialogueController == null)
                 Pokemon.PokemonBattleManager.Instance._dialogueController = this;
         }
@@ -35,6 +32,9 @@ namespace MIT.SamtleGame.Stage2
 
         public void ClearPages()
         {
+            if (_textPages == null) _textPages = new List<DialoguePage>();
+            if (_stopPoints == null) _stopPoints = new List<bool>();
+
             _textPages.Clear();
             _stopPoints.Clear();
         }
