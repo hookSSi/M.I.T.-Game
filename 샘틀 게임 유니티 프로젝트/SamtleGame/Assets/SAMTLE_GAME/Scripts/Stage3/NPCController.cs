@@ -7,9 +7,7 @@ public class NPCController : MonoBehaviour
 	public float speed;
 
 	protected bool _isworking;
-	[SerializeField]
 	protected Rigidbody _rb;
-	[SerializeField]
 	protected Animator _anim;
 
     // Start is called before the first frame update

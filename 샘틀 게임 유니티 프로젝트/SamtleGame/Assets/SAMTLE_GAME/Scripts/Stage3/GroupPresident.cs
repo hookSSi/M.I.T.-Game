@@ -6,6 +6,7 @@ using MIT.SamtleGame.Stage3;
 public class GroupPresident : NPCController
 {
 	public GameObject obj;
+
 	void Start()
 	{
 		base.Start();
@@ -26,9 +27,14 @@ public class GroupPresident : NPCController
 		yield return new WaitForSeconds(3f);
 		PickObject();
 		yield return new WaitForSeconds(2.4f);
-		Move(GameManager.Instance._player.transform.position);
 
+		float dist = Vector3.Distance(transform.position, GameManager.Instance._player.transform.position);
+		float ratio = (dist - 4f) / dist;
+		ratio = ratio < 0.01f ? 0.01f : ratio;
+		Vector3 dest = Vector3.Lerp(transform.position, GameManager.Instance._player.transform.position, ratio);
+		Move(dest);
 		yield return new WaitUntil(() => !_isworking);
+
 		_anim.SetTrigger("Give");
 	}
 	void PickObject()
