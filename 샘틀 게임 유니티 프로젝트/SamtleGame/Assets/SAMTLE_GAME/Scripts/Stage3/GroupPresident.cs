@@ -24,24 +24,26 @@ public class GroupPresident : NPCController
 		_anim.SetTrigger("LookAround");
 		yield return new WaitUntil(() => GameManager.Instance.AllDone() && !GameManager.Instance._player._controller._isFocusing);
 		_anim.SetTrigger("PickingUP");
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(4f);
 		PickObject();
-		yield return new WaitForSeconds(2.4f);
+		yield return new WaitForSeconds(1.4f);
 
 		float dist = Vector3.Distance(transform.position, GameManager.Instance._player.transform.position);
-		float ratio = (dist - 4f) / dist;
+		float ratio = (dist - 4.5f) / dist;
 		ratio = ratio < 0.01f ? 0.01f : ratio;
 		Vector3 dest = Vector3.Lerp(transform.position, GameManager.Instance._player.transform.position, ratio);
 		Move(dest);
 		yield return new WaitUntil(() => !_isworking);
 
 		_anim.SetTrigger("Give");
+		yield return new WaitUntil(() => !obj.activeInHierarchy); // some trigger
+		_anim.SetTrigger("EndGive");
 	}
-	void PickObject()
+	public void PickObject()
 	{
 		obj.SetActive(true);
 	}
-	void GiveObject()
+	public void GiveObject()
 	{
 		obj.SetActive(false);
 	}
