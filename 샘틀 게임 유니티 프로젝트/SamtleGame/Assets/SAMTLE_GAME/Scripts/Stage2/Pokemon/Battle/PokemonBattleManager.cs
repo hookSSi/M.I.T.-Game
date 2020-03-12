@@ -37,6 +37,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         public BattleState _state { get; private set; }
 
+        public bool IsEnd() { return _state == BattleState.None; }
         public bool _isGameOver { get { return _myPokemon.Health <= 0 || _enemyPokemon.Health <= 0; }}
 
         private void Start()
@@ -268,6 +269,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             PlayerControllerEvent.Trigger(true);
             _uiManager.gameObject.SetActive(false);
+
+            _state = BattleState.None;
         }
 
 

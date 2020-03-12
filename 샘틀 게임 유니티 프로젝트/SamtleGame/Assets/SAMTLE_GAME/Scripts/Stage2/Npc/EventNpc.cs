@@ -143,9 +143,9 @@ namespace MIT.SamtleGame.Stage2.NPC
             yield break;
         }
 
-        protected virtual IEnumerator WaitUntilBattleEnd(float duration = 1f)
+        protected virtual IEnumerator WaitUntilBattleEnd()
         {
-            yield return new WaitForSeconds(duration);
+            yield return new WaitUntil(() => Pokemon.PokemonBattleManager.Instance.IsEnd());
             yield break;
         }
 

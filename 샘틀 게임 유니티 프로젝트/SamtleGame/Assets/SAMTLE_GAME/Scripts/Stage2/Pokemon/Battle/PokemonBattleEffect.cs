@@ -41,7 +41,6 @@ namespace MIT.SamtleGame.Stage2
                 _playerRect.anchoredPosition : _enemyRect.anchoredPosition;
 
             _rect.anchoredPosition += Vector2.down * 30f;
-            _rect.sizeDelta = new Vector2(300f, 300f);
 
             _isAnimating = true;
             StartCoroutine("AnimationCoroutine");
@@ -53,9 +52,12 @@ namespace MIT.SamtleGame.Stage2
             {
                 case "Blizzard":
                     _animator.SetTrigger("Blizzard");
+                    _rect.anchoredPosition += Vector2.up * 30f;
+                    _rect.sizeDelta = new Vector2(400f, 400f);
                     break;
                 case "HeartAttack":
                     _animator.SetTrigger("HeartAttack");
+                    _rect.sizeDelta = new Vector2(300f, 300f);
                     break;
                 case "Sleep":
                     _rect.anchoredPosition = _rect.anchoredPosition
