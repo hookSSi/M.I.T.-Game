@@ -6,30 +6,26 @@ public class NPCController : MonoBehaviour
 {
 	public float speed;
 
-	[SerializeField]
-	protected bool go;
-
 	protected bool _isworking;
+	[SerializeField]
 	protected Rigidbody _rb;
+	[SerializeField]
 	protected Animator _anim;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
 		_isworking = false;
 		_rb = GetComponent<Rigidbody>();
 		_anim = GetComponent<Animator>();
+		Debug.Log("call");
 
 	}
 
     // Update is called once per frame
     void Update()
     {
-        if(go)
-		{
-			go = false;
-			Move(new Vector3(2.91f, 0f, 5.84f));
-		}
+
     }
 	public void Move(Vector3 pos)
 	{

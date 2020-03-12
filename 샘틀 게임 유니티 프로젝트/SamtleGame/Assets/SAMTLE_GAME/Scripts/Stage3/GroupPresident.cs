@@ -1,30 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MIT.SamtleGame.Stage3;
 
 public class GroupPresident : NPCController
 {
 	public GameObject obj;
+	void Start()
+	{
+		base.Start();
+		StartCoroutine(Sequence());
+	}
 	void Update()
 	{
-		if (go)
-		{
-			go = false;
-			StartCoroutine(Sequence());
-		}
+		
 	}
     IEnumerator Sequence()
 	{
-		Move(new Vector3(2.91f, 0f, 5.84f));
+		//Move(new Vector3(-36.84f,0,-1.71f));
+		//yield return new WaitUntil(() => !_isworking);
 
-		yield return new WaitUntil(() => !_isworking);
 		_anim.SetTrigger("LookAround");
-		yield return new WaitForSeconds(4f);
+		yield return new WaitUntil(() => GameManager.Instance.AllDone());
 		_anim.SetTrigger("PickingUP");
 		yield return new WaitForSeconds(3f);
 		PickObject();
 		yield return new WaitForSeconds(2.4f);
-		Move(new Vector3(1.36f, 0f, 1.83f));
+		Move(GameManager.Instance._player.transform.position);
 
 		yield return new WaitUntil(() => !_isworking);
 		_anim.SetTrigger("Give");
