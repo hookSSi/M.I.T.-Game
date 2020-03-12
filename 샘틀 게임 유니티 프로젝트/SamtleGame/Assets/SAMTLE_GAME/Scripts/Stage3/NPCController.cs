@@ -16,8 +16,6 @@ public class NPCController : MonoBehaviour
 		_isworking = false;
 		_rb = GetComponent<Rigidbody>();
 		_anim = GetComponent<Animator>();
-		Debug.Log("call");
-
 	}
 
     // Update is called once per frame
