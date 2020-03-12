@@ -58,8 +58,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: -1324567185
-  m_SortingOrder: 10
+  m_SortingLayerID: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &424995939
 MonoBehaviour:
@@ -177,8 +177,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255615
-  m_fontColor: {r: 1, g: 1, b: 0, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.25
+  m_padding: 0
   m_canvasRenderer: {fileID: 1787206192}
   m_TextComponent: {fileID: 440833004}
   m_materialReferenceIndex: 2
@@ -501,7 +501,7 @@ Transform:
   m_GameObject: {fileID: 5269283424793601856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.8884935, y: -1.7518353, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children:
   - {fileID: 1060458266047445224}
   - {fileID: 424995937}
@@ -637,7 +637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doingState: 0
   _attackRange: {fileID: 1060458266047445224}
-  _attackSize: {x: 0.4, y: 1}
+  _attackSize: {x: 1, y: 1}
   _damage: 20
   _score: 2000
   _enemySpeed: 10
@@ -646,6 +646,9 @@ MonoBehaviour:
   _scoreText: {fileID: 4079624118945536688}
   _health: 100
   _dialogue: {fileID: 440833005}
+  _isAttacked: 0
+  _isBackstemping: 0
+  _isDefending: 0
   _delay: 0.4
   _defenseTime: 0.33
 --- !u!1 &8904453777393652354
