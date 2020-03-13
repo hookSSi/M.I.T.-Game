@@ -11,6 +11,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public PokemonBattleMainUI _mainUI;
         public PokemonBattleBottomUI _bottomUI;
         public PokemonBattleEffect _effect;
+        public SkillClass _skillClass;
 
         private void Awake()
         {
@@ -22,6 +23,20 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             if (!_bottomUI)
             {
                 _bottomUI = GetComponent<PokemonBattleBottomUI>();
+            }
+        }
+
+        public void SetActive(bool boolean)
+        {
+            if (boolean)
+            {
+                _mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Battle);
+                _bottomUI.UpdateDialog();
+            }
+            else
+            {
+                _mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.None);
+                _bottomUI.UpdateNone();
             }
         }
 

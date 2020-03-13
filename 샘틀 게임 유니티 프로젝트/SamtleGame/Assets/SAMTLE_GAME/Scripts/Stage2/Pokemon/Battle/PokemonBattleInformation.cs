@@ -53,6 +53,11 @@ namespace MIT.SamtleGame.Stage2
                     _traitsText.text = "특징 : C언어에 시달린 새내기를 한 번 더 괴롭히는 언어. " +
                         "그런데 익숙해지면 또 자바만 쓰게 된다고 하며, 한국에서 기이하게 많이 사용한다...";
                     break;
+                case "신입!신입!":
+                    _lovesText.text = "좋아하는 것 : 밤 샐 때까지 놀기";
+                    _hatesText.text = "싫어하는 것 : ???";
+                    _traitsText.text = "특징 : 환상종으로 그 무력은 무지막지하여 감히 선배들은 입도 뻥긋할 수 없는 무서운 존재이다... 진짜 믿는 사람은 없겠지?";
+                    break;
             }
         }
     }

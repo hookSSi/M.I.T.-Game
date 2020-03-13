@@ -60,20 +60,23 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 (() => { return !Input.GetButtonDown("Interact") && !Input.GetButtonDown("Submit"); });
             _waitUIUpdating = new WaitWhile
                 (() => { return _uiManager._mainUI._isPlayerHpAnimating || _uiManager._mainUI._isEnemyHpAnimating; });
-
-#if UNITY_EDITOR
-            if (_isTest)
-                StartBattle(_testMyPokemon, _testEnemyPokemon);
-#endif
         }
 
         private void Update()
         {
-            if (Input.GetButtonDown("Submit") || Input.GetButtonDown("Cancel"))
+            if (IsEnd() == false && (Input.GetButtonDown("Submit") || Input.GetButtonDown("Cancel")))
             {
                 SoundEvent.Trigger(_commitSound, SoundStatus.Stop);
                 SoundEvent.Trigger(_commitSound);
             }
+
+#if UNITY_EDITOR
+            if (_isTest)
+            {
+                _isTest = false;
+                StartBattle(_testMyPokemon, _testEnemyPokemon);
+            }
+#endif
         }
 
         public void StartBattle(string myPokemonName, string enemyPokemonName)
@@ -95,14 +98,17 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             _state = BattleState.Start;
 
+            _uiManager.SetActive(false);
+
+            _uiManager._mainUI.Init();
             _uiManager._mainUI.UpdatePlayerImage(false);
             _uiManager._mainUI.UpdateEnemyImage(false);
             _uiManager._mainUI.UpdateValue(_myPokemon, _enemyPokemon, 10, 10, 0f, 100f);
-            _uiManager._mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Battle);
-            _uiManager._bottomUI.UpdateDialog();
             _uiManager._bottomUI._skill.Init();
             _uiManager._bottomUI._skill.SetPokemon(_myPokemon);
             _uiManager._bottomUI._skill.UpdateText();
+
+            _uiManager._skillClass.Init();
 
             var bgmManager = BgmManager.Instance;
             AudioClip currentMusic = bgmManager.GetComponent<AudioSource>().clip;
@@ -114,24 +120,30 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             }
 
             BgmManager.Instance.Stop();
-            BgmManager.Instance.Play(_battleTrack);
+            BgmManager.Instance.Play(_battleTrack, true);
 
             StartCoroutine("StartBattleCoroutine");
         }
 
         private IEnumerator StartBattleCoroutine()
         {
-            // 대사 나올 곳
+            // 대사
             _dialogueController.ClearPages();
             _dialogueController.AddNextPage("야생의 " + _enemyPokemon.Info._name + "이(가) 나타났다!");
             _dialogueController.AddNextPage("가랏! " + _myPokemon.Info._name + "!", true);
 
+            StartCoroutine(_uiManager._mainUI.FadeInBattle(1.5f));
+            yield return new WaitForSeconds(1.5f);
+            _uiManager.SetActive(true);
+
             _uiManager._mainUI.UpdateEnemyImage(true);
             _dialogueController.NextDialogue();
             yield return _waitDialogueUpdating;
+
             // 새내기 이동
             _uiManager._mainUI.MoveIpsangSide();
             yield return new WaitWhile(() => _uiManager._mainUI._isIpsangMoving);
+
             // 소환 이펙트
             _uiManager._mainUI.UpdatePlayerImage(true, true);
             SoundEvent.Trigger(_hitSound, SoundStatus.Stop);
@@ -226,27 +238,29 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 // 대사 1(데미지 판정 이전)
                 _dialogueController.NextDialogue();
                 yield return _waitDialogueUpdating;
-                /* 이곳에서 이펙트 재생 및 기다리기 */
-
+                
                 _uiManager._effect.StartAnim(i);
                 yield return new WaitUntil(() => _uiManager._effect._isAnimating == false);
 
                 _uiManager._effect.ResetAnim();
 
-                if (_myPokemon.Health != previousPlayerHealth || _enemyPokemon.Health != previousEnemyHealth)
-                {
-                    StartCoroutine("PlayHitSound");
-                }
-
                 if (_myPokemon.Health != previousPlayerHealth)
                 {
-                    if (_myPokemon.Health < previousPlayerHealth) _uiManager._mainUI.HitPlayer();
+                    if (_myPokemon.Health < previousPlayerHealth)
+                    {
+                        _uiManager._mainUI.HitPlayer();
+                        StartCoroutine("PlayHitSound");
+                    }
                     _uiManager._mainUI.UpdatePlayerHpUI(_myPokemon.Health, _myPokemon.MaxHealth, true);
                 }
 
                 if (_enemyPokemon.Health != previousEnemyHealth)
                 {
-                    if (_enemyPokemon.Health < previousEnemyHealth) _uiManager._mainUI.HitEnemy();
+                    if (_enemyPokemon.Health < previousEnemyHealth)
+                    {
+                        _uiManager._mainUI.HitEnemy();
+                        StartCoroutine("PlayHitSound");
+                    }
                     _uiManager._mainUI.UpdateEnemyHpUI(_enemyPokemon.Health, _enemyPokemon.MaxHealth, true);
                 }
 
@@ -304,18 +318,19 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             _dialogueController.EndDialogue();
 
-            BgmManager.Instance.Stop();
-            if (_prevTrack != -1)
-                BgmManager.Instance.Play(_prevTrack);
+            StartCoroutine(_uiManager._mainUI.FadeInImage(_uiManager._mainUI._blackBox, 0.5f));
 
-            StartCoroutine(_uiManager._mainUI.FadeInImage(_uiManager._mainUI._blackBox, 1f));
-
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
 
             PlayerControllerEvent.Trigger(true);
-            _uiManager.gameObject.SetActive(false);
+            _uiManager.SetActive(false);
 
-            // StartCoroutine(_uiManager._mainUI.FadeOutImage(_uiManager._mainUI._blackBox, 1f));
+            StartCoroutine(_uiManager._mainUI.FadeOutImage(_uiManager._mainUI._blackBox, 0.5f));
+            yield return new WaitForSeconds(0.5f);
+
+            BgmManager.Instance.Stop();
+            if (_prevTrack != -1 && _prevTrack != _battleTrack && _prevTrack != _victoryTrack)
+                BgmManager.Instance.Play(_prevTrack);
 
             _state = BattleState.None;
         }

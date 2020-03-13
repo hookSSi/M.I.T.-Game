@@ -4628,117 +4628,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[0]._battleEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[1]._battleEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[2]._battleEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
       propertyPath: _list.Array.data[5]._info._skills.Array.data[3]._battleEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._key
-      value: "\uC2E0\uC785\uC0DD"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._frontImage
-      value: 
-      objectReference: {fileID: 21300000, guid: ca67760fda2a7cc4db36cc747c6f1a16,
-        type: 3}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._name
-      value: "\uC2E0\uC785!\uC2E0\uC785!"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[0]._name
-      value: "\uC4F0\uB2E4\uB4EC\uAE30"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[0]._count
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[0]._battleEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 155495415}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[0]._battleEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TouchTouch
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[0]._battleEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[0]._battleEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[1]._name
-      value: "\uBC25 \uC8FC\uAE30"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[1]._count
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[1]._battleEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 155495415}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[1]._battleEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FeedACat
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[1]._battleEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[1]._battleEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[2]._name
-      value: "\uC18C\uB9AC\uC9C0\uB974\uAE30"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[2]._count
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[2]._battleEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 155495415}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[2]._battleEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Crying
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[2]._battleEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._skills.Array.data[2]._battleEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
       propertyPath: _list.Array.data[5]._info._skills.Array.data[3]._name
@@ -4764,11 +4655,6 @@ PrefabInstance:
       propertyPath: _list.Array.data[5]._info._skills.Array.data[3]._battleEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _list.Array.data[5]._info._backImage
-      value: 
-      objectReference: {fileID: 21300000, guid: 14ae55a7aad124041940f19bbb799f50,
-        type: 3}
     - target: {fileID: 1840808404, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
@@ -4895,6 +4781,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301245897720653, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: _battleFaderImage
+      value: 
+      objectReference: {fileID: 1902419282}
+    - target: {fileID: 4917301245897720653, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: _battleFaderAnim
+      value: 
+      objectReference: {fileID: 1902419281}
+    - target: {fileID: 4917301246608765678, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_CellSize.x
+      value: 373.23502
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246608765678, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_CellSize.y
+      value: -16.845001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301247317719934, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_CellSize.x
+      value: 841.69995
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301247317719934, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_CellSize.y
+      value: 31.17749
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
@@ -5273,6 +5189,23 @@ MonoBehaviour:
   - _name: "\uBC1C\uACAC"
     _clip:
     - {fileID: 8300000, guid: 788b950615d96fa4583a2ce686b2b0af, type: 3}
+    _volume: 0
+    _isLoop: 0
+  - _name: "\uD655\uC778"
+    _clip:
+    - {fileID: 8300000, guid: 82e889f906bff204e8f94d2085681962, type: 3}
+    _volume: 0
+    _isLoop: 0
+  - _name: "\uB4F1\uC7A5"
+    _clip:
+    - {fileID: 8300000, guid: dbb8625245c3e6f48a1040e64623a2d6, type: 3}
+    _volume: 0
+    _isLoop: 0
+  - _name: "\uD53C\uACA9"
+    _clip:
+    - {fileID: 8300000, guid: d404e3a4601caec4a9f46d4de80616db, type: 3}
+    - {fileID: 8300000, guid: f4d2ff669b9e44a45a72d47745a91902, type: 3}
+    - {fileID: 8300000, guid: b3ad213867f12f44b8dda0397352fcd9, type: 3}
     _volume: 0
     _isLoop: 0
 --- !u!1001 &584394100
@@ -8923,11 +8856,11 @@ MonoBehaviour:
   _dialogueController: {fileID: 723531500}
   _myPokemon: {fileID: 385301804}
   _enemyPokemon: {fileID: 385301805}
-  _hitSound: Hit
-  _commitSound: BattleCommit
-  _appearSound: RetroVideoGameFx
-  _battleTrack: 0
-  _victoryTrack: 0
+  _hitSound: "\uD53C\uACA9"
+  _commitSound: "\uD655\uC778"
+  _appearSound: "\uB4F1\uC7A5"
+  _battleTrack: 1
+  _victoryTrack: 2
   _testMyPokemon: 
   _testEnemyPokemon: 
   _isTest: 0
@@ -19749,6 +19682,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _clips:
   - {fileID: 8300000, guid: 41ff7795a0fca894f8ff08bd26094c8e, type: 3}
+  - {fileID: 8300000, guid: b619e566336d89f4f985a31580bbe9b5, type: 3}
+  - {fileID: 8300000, guid: 0b296cb8a6e1f1b48884d957728886e5, type: 3}
 --- !u!82 &1123264489
 AudioSource:
   m_ObjectHideFlags: 0

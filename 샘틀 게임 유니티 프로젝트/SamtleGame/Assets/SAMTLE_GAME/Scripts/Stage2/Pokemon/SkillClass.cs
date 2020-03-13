@@ -9,14 +9,17 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         private static int _count = 0;
         PokemonBattleManager _manager;
 
-        private void Start()
+        public void Init()
         {
             _count = 0;
             _manager = PokemonBattleManager.Instance;
         }
 
-        // 공용 기술
-        // 스킬 시전 대사
+        /*
+         * 공용 기술
+         */
+
+        /// 스킬 시전 대사
         public static bool FirstScript(Pokemon pokemon, string skillName, out string firstDialog)
         {
             if (!pokemon)
@@ -43,7 +46,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             return damage;
         }
 
-        // 뇌정지(생각을 멈추었다) : 발버둥 같은 스킬
+        /// 뇌정지(생각을 멈추었다) : 발버둥 같은 스킬
         public void StopThinking(Pokemon myPokemon, Pokemon enemyPokemon)
         {
             string dialog;
@@ -56,7 +59,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _manager._dialogueController.AddNextPage(myPokemon.Info._name + "는(은) 생각을 포기하였다!", true);
         }
 
-        // 튀어오르기 : 멍때리기류 갑
+        /// 튀어오르기 : 멍때리기류 갑
         public void Splash(Pokemon myPokemon, Pokemon enemyPokemon)
         {
             string dialog;
@@ -70,14 +73,14 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 enemyPokemon.Health -= enemyPokemon.MaxHealth / 2f;
 
                 _manager._dialogueController.AddNextPage("효과는 굉장했다!");
-                _manager._dialogueController.AddNextPage("이게 왜 되지? 새내기는 혼란에 빠졌다!", true);
+                _manager._dialogueController.AddNextPage("이게 왜 되지? 신입생은 혼란에 빠졌다!", true);
             }
             else if (probability <= 0.13f)
             {
                 myPokemon.Health -=  myPokemon.MaxHealth / 5f;
 
                 _manager._dialogueController.AddNextPage(myPokemon.Info._name + "는(은) 무리한 코딩으로 인해 데미지를 입었다!");
-                _manager._dialogueController.AddNextPage("새내기는 눈앞이 아득해질 것 같았다...", true);
+                _manager._dialogueController.AddNextPage("신입생은 눈앞이 아득해질 것 같았다...", true);
             }
             else
             {
@@ -85,8 +88,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             }
         }
         
-        // Skills For C++
-        // 극한의 최적화
+        /*
+         * Skills For C++
+         */
+
+        /// 극한의 최적화
         public void OptimalizingOfLimitation(Pokemon myPokemon, Pokemon enemyPokemon)
         {
             string dialog;
@@ -105,8 +111,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _manager._dialogueController.AddNextPage("해당 기술의 위력이 조금 강해졌다!", true);
         }
 
-        // Skills For Python
-        // 이지 투 유즈
+        /*
+         * Skills For Python
+         */
+
+        /// 이지 투 유즈
         public void EasyToUse(Pokemon myPokemon, Pokemon enemyPokemon)
         {
             string dialog;
@@ -118,8 +127,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _manager._dialogueController.AddNextPage("심플 이즈 베스트!", true);
         }
 
-        // Skills For Java
-        // Java를 Java
+        /*
+         * Skills For Java
+         */
+
+        /// Java를 Java
         public void GrabTheJava(Pokemon myPokemon, Pokemon enemyPokemon)
         {
             string dialog;
@@ -184,8 +196,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         }
         
 
-        // Skills For 오래된 동방컴
-        // 돌돌돌
+        /*
+         * Skills For 오래된 동방컴
+         */
+
+        /// 돌돌돌
         public void StoneStoneStone(Pokemon myPokemon, Pokemon enemyPokemon)
         {
             // 그냥 돌돌돌... 도는 소리
@@ -212,8 +227,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             }
         }
 
-        // Skills For 민지의 고양이
-        // 심쿵사
+        /*
+         * Skills For 민지의 고양이
+         */
+
+        /// 심쿵사
         public void DeadByHeartPonding(Pokemon myPokemon, Pokemon enemyPokemon)
         {
             string dialog;
@@ -229,7 +247,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _manager._dialogueController.AddNextPage("효과는 굉장했다! " + enemyPokemon.Info._name + "는(은) 정신을 차릴 수 없다!", true);
         }
 
-        // 집사 간택
+        /// 집사 간택
         public void BeChosen(Pokemon myPokemon, Pokemon enemyPokemon)
         {
             string dialog;
@@ -239,11 +257,15 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             FirstScript(myPokemon, "집사 간택", out dialog);
             _manager._dialogueController.AddNextPage(dialog, true);
-            _manager._dialogueController.AddNextPage("새내기는 " + myPokemon.Info._name + "에게 간택당해 정신을 차릴 수 없다!");
-            _manager._dialogueController.AddNextPage(enemyPokemon.Info._name + "이(가) 새내기를 한심하게 쳐다 본다...", true);
+            _manager._dialogueController.AddNextPage("신입생은 " + myPokemon.Info._name + "에게 간택당해 정신을 차릴 수 없다!");
+
+            if (enemyPokemon.Info._name != "신입!신입!")
+                _manager._dialogueController.AddNextPage(enemyPokemon.Info._name + "이(가) 신입생을 한심하게 쳐다 본다...", true);
+            else
+                _manager._dialogueController.AddNextPage(enemyPokemon.Info._name + "은 행복사하기 직전이다...", true);
         }
 
-        // 터줏대감
+        /// 터줏대감
         public void MasterMeow(Pokemon myPokemon, Pokemon enemyPokemon)
         {
             string dialog;
@@ -256,7 +278,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _manager._dialogueController.AddNextPage(enemyPokemon.Info._name + "이(가) 기가 눌렸다... 5턴간 위력이 감소했다.", true);
         }
 
-        // 낮잠
+        /// 낮잠
         public void SleepAfternoon(Pokemon myPokemon, Pokemon enemyPokemon)
         {
             string dialog;

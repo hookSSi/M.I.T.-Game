@@ -339,7 +339,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -635,7 +635,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -902,6 +902,7 @@ RectTransform:
   - {fileID: 1762143249}
   - {fileID: 829156950}
   - {fileID: 1487918590}
+  - {fileID: 7628887317018661742}
   - {fileID: 1958762267}
   m_Father: {fileID: 7929806009172498306}
   m_RootOrder: 2
@@ -1240,7 +1241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &829156950
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1911,7 +1912,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1762143249
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2105,7 +2106,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -10.4}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2237,7 +2238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1958762267
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2250,7 +2251,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 728102656}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3923,7 +3924,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4917301245897720643
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3963,6 +3964,7 @@ MonoBehaviour:
   _mainUI: {fileID: 4917301245897720653}
   _bottomUI: {fileID: 4917301245897720642}
   _effect: {fileID: 747645832}
+  _skillClass: {fileID: 1250845340}
 --- !u!114 &4917301245897720653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3983,17 +3985,20 @@ MonoBehaviour:
   _enemyPokemonName: {fileID: 2049214947}
   _enemyLevelText: {fileID: 2079920126}
   _enemyHpSlider: {fileID: 632320938}
+  _enemyPokemonImage: {fileID: 1066212633}
   _playerPokemonUI: {fileID: 1816965369}
   _playerPokemonName: {fileID: 156493361}
   _playerHpText: {fileID: 1819239745}
   _playerLevelText: {fileID: 114500189}
   _playerHpSlider: {fileID: 751457758}
   _playerExpSlider: {fileID: 1363330473}
+  _playerPokemonImage: {fileID: 568990123}
   _state: 0
   _battleUI: {fileID: 4292488553473897157}
   _bagUI: {fileID: 5690288090701915012}
   _informationUI: {fileID: 8482402602948780092}
   _ipsangTransform: {fileID: 1487918590}
+  _ipsangStart: {fileID: 7628887317018661742}
   _ipsangDestination: {fileID: 1958762267}
   _ipsangSpeed: 1400
   _blackBox: {fileID: 3321079128432478862}
@@ -4255,6 +4260,65 @@ MonoBehaviour:
             m_Calls:
             - m_Target: {fileID: 1250845340}
               m_MethodName: SleepAfternoon
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+  - _key: "\uC2E0\uC785\uC0DD"
+    _info:
+      _frontImage: {fileID: 21300000, guid: 14ae55a7aad124041940f19bbb799f50, type: 3}
+      _backImage: {fileID: 21300000, guid: 14ae55a7aad124041940f19bbb799f50, type: 3}
+      _cryingSound: {fileID: 0}
+      _name: "\uC2E0\uC785!\uC2E0\uC785!"
+      _health: 100
+      _skills:
+      - _name: "\uC4F0\uB2E4\uB4EC\uAE30"
+        _count: 3
+        _currentCount: 0
+        _battleEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1250845340}
+              m_MethodName: TouchTouch
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+      - _name: "\uBC25 \uC8FC\uAE30"
+        _count: 20
+        _currentCount: 0
+        _battleEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1250845340}
+              m_MethodName: FeedACat
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+      - _name: "\uC18C\uB9AC\uC9C0\uB974\uAE30"
+        _count: 1
+        _currentCount: 0
+        _battleEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1250845340}
+              m_MethodName: Crying
               m_Mode: 0
               m_Arguments:
                 m_ObjectArgument: {fileID: 0}
@@ -5321,7 +5385,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 324.335, y: 315.955}
+  m_CellSize: {x: -34.190006, y: 247.15497}
   m_Spacing: {x: 52.43, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 2
@@ -6288,7 +6352,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 648.3, y: 95.2225}
+  m_CellSize: {x: -68.75, y: 60.82251}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 1
@@ -6490,6 +6554,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &5820536079413102787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7628887317018661742}
+  - component: {fileID: 529022193637499800}
+  m_Layer: 0
+  m_Name: Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7628887317018661742
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5820536079413102787}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 728102656}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -499.7, y: -131.28}
+  m_SizeDelta: {x: 393.4, y: 393.36}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &529022193637499800
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5820536079413102787}
+  m_CullTransparentMesh: 0
 --- !u!1 &6591039838682851029
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,11 +13,12 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public bool _isPlayerExpAnimating { get; private set; }
         public bool _isIpsangMoving { get; private set; }
         public bool _isPlayingHitEffect { get; private set; }
+        public bool _isFadingInBattle { get; private set; }
 
         // Main UI 표시 상태 : 배틀 화면, 가방 탐색 화면, 포켓몬 정보 확인 화면
         public enum UIState
         {
-            Battle, Bag, Information
+            None, Battle, Bag, Information
         }
 
         // Pokemon UI
@@ -47,6 +48,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         [SerializeField] private Text _enemyPokemonName;
         [SerializeField] private Text _enemyLevelText;
         [SerializeField] private Slider _enemyHpSlider;
+        [SerializeField] private Image _enemyPokemonImage;
         [Header("- 플레이어 포켓몬 UI")]
         [Tooltip("플레이어의 포켓몬 UI창 오브젝트")]
         [SerializeField] private GameObject _playerPokemonUI;
@@ -55,6 +57,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         [SerializeField] private Text _playerLevelText;
         [SerializeField] private Slider _playerHpSlider;
         [SerializeField] private Slider _playerExpSlider;
+        [SerializeField] private Image _playerPokemonImage;
 
         // 전투 화면 표시
         [Header("[전투 화면]")]
@@ -65,13 +68,16 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         [Header("입학생 캐릭터")]
         public RectTransform _ipsangTransform;
+        public RectTransform _ipsangStart;
         public RectTransform _ipsangDestination;
         public float _ipsangSpeed;
 
-        [Header("페이드인/아웃용 블랙박스")]
+        [Header("페이드용")]
         public Image _blackBox;
+        public Image _battleFaderImage;
+        public Animator _battleFaderAnim;
 
-        private void Awake()
+        private void OnEnable()
         {
             Init();
         }
@@ -86,17 +92,23 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             _state = UIState.Battle;
 
-            UpdatePlayerHpUI(100f, 100f, false);
-            UpdateEnemyHpUI(100f, 100f, false);
+            if (_ipsangStart)
+                _ipsangTransform.anchoredPosition = _ipsangStart.anchoredPosition;
 
-            SetHealthColor(_playerHpSlider, 100f, 100f);
-            SetHealthColor(_enemyHpSlider, 100f, 100f);
+            float playerHp = PokemonBattleManager.Instance._myPokemon != null ? PokemonBattleManager.Instance._myPokemon.Health : 100f;
+            float playerMaxHp = PokemonBattleManager.Instance._myPokemon != null ? PokemonBattleManager.Instance._myPokemon.MaxHealth : 100f;
+            float enemyHp = PokemonBattleManager.Instance._enemyPokemon != null ? PokemonBattleManager.Instance._enemyPokemon.Health : 100f;
+            float enemyMaxHp = PokemonBattleManager.Instance._enemyPokemon != null ? PokemonBattleManager.Instance._enemyPokemon.MaxHealth : 100f;
+
+            UpdatePlayerHpUI(playerHp, playerMaxHp, false);
+            UpdateEnemyHpUI(enemyHp, enemyMaxHp, false);
+            SetHealthColor(_playerHpSlider, playerHp, playerMaxHp);
+            SetHealthColor(_enemyHpSlider, enemyHp, enemyMaxHp);
         }
-
 
         public void MoveIpsangSide()
         {
-            if (_ipsangTransform == null || _ipsangDestination == null)
+            if (_ipsangTransform == null || _ipsangStart == null || _ipsangDestination == null)
                 return;
 
             _isIpsangMoving = true;
@@ -150,6 +162,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             switch(newState)
             {
+                case UIState.None:
+                    _battleUI.SetActive(false);
+                    _bagUI.SetActive(false);
+                    _informationUI.SetActive(false);
+                    break;
                 case UIState.Battle:
                     _battleUI.SetActive(true);
                     _bagUI.SetActive(false);
@@ -178,12 +195,12 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public void UpdateEnemyImage(bool isvisible, bool isAnimated = false)
         {
             Pokemon enemyPokemon = PokemonBattleManager.Instance._enemyPokemon;
-            Image image = enemyPokemon.GetComponentInChildren<Image>();
+            Image image = _enemyPokemonImage;
 
             if (enemyPokemon.Info._frontImage)
                 image.sprite = enemyPokemon.Info._frontImage;
 
-            if (isAnimated == false) enemyPokemon.gameObject.SetActive(isvisible);
+            if (isAnimated == false) image.gameObject.SetActive(isvisible);
             else if (isvisible) StartCoroutine(FadeInImage(image, 0.3f));
             else StartCoroutine(FadeOutImage(image, 1f));
         }
@@ -240,15 +257,14 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public void UpdatePlayerImage(bool isvisible, bool isAnimated = false)
         {
             Pokemon playerPokemon = PokemonBattleManager.Instance._myPokemon;
-            Image image = playerPokemon.GetComponentInChildren<Image>();
+            Image image = _playerPokemonImage;
 
             if (playerPokemon.Info._backImage)
                 image.sprite = playerPokemon.Info._backImage;
 
-            if (isAnimated == false) playerPokemon.gameObject.SetActive(isvisible);
+            if (isAnimated == false) image.gameObject.SetActive(isvisible);
             else if (isvisible)
             {
-                playerPokemon.gameObject.SetActive(true);
                 StartCoroutine(FadeInImage(image, 0.3f));
             }
             else StartCoroutine(FadeOutImage(image, 1f));
@@ -396,30 +412,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 pokemonImage.color = Color.white;
                 yield return new WaitForSeconds(timeDelta);
             }
-
-            // 2번 : 붉어졌다가 서서히 회복
-            /*
-            float timeToRestore = 1f;
-            float restoreSpeed = 1f / timeToRestore;
-            Color hitColor = new Color(1f, 0.3f, 0.3f);
-            Color lastColor = Color.white;
-            Color deltaColor = lastColor - hitColor;
-            Color curColor;
-
-            pokemonImage.color = hitColor;
-            curColor = hitColor;
-            
-            while(lastColor != pokemonImage.color)
-            {
-                float r = Mathf.Clamp(curColor.r + deltaColor.r * restoreSpeed * Time.deltaTime, hitColor.r, lastColor.r);
-                float g = Mathf.Clamp(curColor.g + deltaColor.g * restoreSpeed * Time.deltaTime, hitColor.g, lastColor.g);
-                float b = Mathf.Clamp(curColor.b + deltaColor.b * restoreSpeed * Time.deltaTime, hitColor.b, lastColor.b);
-                curColor = new Color(r, g, b);
-
-                pokemonImage.color = curColor;
-                yield return null;
-            }
-            */
         }
 
         public IEnumerator FadeOutImage(Image image, float time)
@@ -434,7 +426,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 yield return null;
             }
             image.gameObject.SetActive(false);
-            image.color = Color.white;
+            curColor.a = 1;
+            image.color = curColor;
         }
 
         public IEnumerator FadeInImage(Image image, float time)
@@ -444,13 +437,33 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             curColor.a = 0f;
             image.color = curColor;
 
+            image.gameObject.SetActive(true);
+
             while (curColor.a < 1f)
             {
                 curColor.a = Mathf.Clamp(curColor.a + fadeInSpeed * Time.deltaTime, 0f, 1f);
                 image.color = curColor;
                 yield return null;
             }
-            image.color = Color.white;
+        }
+
+        public IEnumerator FadeInBattle(float timeToFadeIn = 1.5f)
+        {
+            float timeToFadeOut = 0.5f;
+            Image image = _battleFaderImage;
+
+            _isFadingInBattle = true;
+
+            image.gameObject.SetActive(true);
+            _battleFaderAnim.SetTrigger("Fight");
+
+            yield return new WaitForSeconds(timeToFadeIn);
+
+            StartCoroutine(FadeOutImage(image, timeToFadeOut));
+
+            yield return new WaitForSeconds(timeToFadeOut);
+
+            _isFadingInBattle = false;
         }
     }
 }

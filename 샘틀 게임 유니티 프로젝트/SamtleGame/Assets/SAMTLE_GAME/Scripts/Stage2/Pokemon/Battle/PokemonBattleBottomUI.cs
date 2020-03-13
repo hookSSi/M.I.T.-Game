@@ -36,7 +36,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _actionUI.SetActive(false);
         }
 
-        // 여기서 대화 업데이트할 수 있게 만들면 좋겠음.
         public void UpdateDialog()
         {
             _dialogUI.SetActive(true);
@@ -44,7 +43,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _actionUI.SetActive(false);
         }
 
-        public void UpdateInformation()
+        public void UpdateInformation() => UpdateNone();
+
+        public void UpdateNone()
         {
             _dialogUI.SetActive(false);
             _skillUI.SetActive(false);

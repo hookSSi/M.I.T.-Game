@@ -16,7 +16,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         private static void FirstScript(out string firstDialog)
         {
-            firstDialog = "새내기는 "
+            firstDialog = "신입생은 "
                 + PokemonBattleManager.Instance._itemManager._previousItemName + "를(을) 사용했다!";
         }
 
@@ -73,7 +73,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             FirstScript(out dialog);
             _manager._dialogueController.AddNextPage(dialog, true);
             _manager._dialogueController.AddNextPage(myPokemon.Info._name +
-                "이(가) 게임을 구동하다가 타격을 입었다. 새내기가 이딴 것도 게임이냐며 화를 낸다...", true);
+                "이(가) 게임을 구동하다가 타격을 입었다. 신입생이 이딴 것도 게임이냐며 화를 낸다...", true);
         }
 
         // 마시면 큰일나는 보드카
