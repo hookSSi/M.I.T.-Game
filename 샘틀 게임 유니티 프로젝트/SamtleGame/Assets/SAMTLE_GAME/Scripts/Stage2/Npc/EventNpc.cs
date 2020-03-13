@@ -110,11 +110,7 @@ namespace MIT.SamtleGame.Stage2.NPC
         {
             NpcDialogueBox dialogueBox = (NpcDialogueBox)FindObjectOfType(typeof(NpcDialogueBox));
 
-            while(!DialogueManager.Instance._isEnd)
-            {
-                yield return null;
-            }
-
+            yield return new WaitUntil(() => {return DialogueManager.Instance._isEnd;});
             yield return new WaitForSeconds(duration);
             yield break;
         }
@@ -145,7 +141,7 @@ namespace MIT.SamtleGame.Stage2.NPC
 
         protected virtual IEnumerator WaitUntilBattleEnd()
         {
-            yield return new WaitUntil(() => Pokemon.PokemonBattleManager.Instance.IsEnd());
+            yield return new WaitUntil(() => { return Pokemon.PokemonBattleManager.Instance.IsEnd(); });
             yield break;
         }
 

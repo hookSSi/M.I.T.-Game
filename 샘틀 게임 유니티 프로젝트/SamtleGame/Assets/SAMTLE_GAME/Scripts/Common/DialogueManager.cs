@@ -91,16 +91,6 @@ public class DialogueManager : Singleton<DialogueManager>, EventListener<Dialogu
     }
     #endregion
 
-    #region  대화창 리셋
-    private void ResetDialogue(int id, List<DialoguePage> textPages, string sound)
-    {
-        Debug.LogFormat("{0} 대화창 초기화", id);
-        _currentDialogueUI.SetActive(true);
-        _curretDialogue = _currentDialogueUI.GetComponentInChildren<DialogueBox>();
-        _curretDialogue.Reset(id, textPages, 0, sound);
-    }
-    #endregion
-
     #region  대화창 시작
     protected virtual void StartDialogue(int id, List<DialoguePage> textPages, string sound)
     {

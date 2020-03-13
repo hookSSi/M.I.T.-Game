@@ -70,7 +70,7 @@ namespace MIT.SamtleGame.Stage2
         #region  입력처리
         protected virtual void HandleInput()
         {
-            if(_isControllable && !_isMoving)
+            if(_isControllable && !_isMoving && Pokemon.PokemonBattleManager.Instance.IsEnd())
             {
                 #region 이동 입력 처리
                 if (Input.GetKey(KeyCode.W))
@@ -125,7 +125,7 @@ namespace MIT.SamtleGame.Stage2
                 {
                     /// if readyToTalk
                     Npc npc = obj.collider.GetComponent<Npc>();
-                    Debug.LogFormat("Npc({0})와 대화 시작", npc._id);
+                    Debug.LogFormat("Npc({0})와 대화 시작", npc.transform.name);
                     npc.SetDirection(_currentDir * -1);
                     npc.Talk();
                 }

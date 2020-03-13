@@ -33,14 +33,9 @@ namespace MIT.SamtleGame.Stage2.NPC
             string pokemon = "C++";
             _pokemonSelector._pokemonRegisterAction.AddListener((data) => { pokemon = data; });
             _pokemonSelector.StartSelecting();
-
-            while(!_pokemonSelector._isEnd)
-            {
-                yield return null;
-            }
+            yield return WaitUntilSelectEnd();
 
             PokemonBattleManager.Instance.StartBattle(pokemon, "동방컴");
-
             yield return WaitUntilBattleEnd();
 
             List<DialoguePage> textPages = new List<DialoguePage>();
@@ -55,10 +50,10 @@ namespace MIT.SamtleGame.Stage2.NPC
             LoadingSceneManager.LoadScene("동방");
             yield break;
         }
-
-        void PokemonSelector()
+        protected virtual IEnumerator WaitUntilSelectEnd()
         {
-
+            yield return new WaitUntil(() => {return _pokemonSelector._isEnd;});
+            yield break;
         }
     }
 }
