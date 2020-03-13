@@ -49,14 +49,14 @@ namespace MIT.SamtleGame.Stage2.NPC
 
             _walkTime = 0f;
 
+            /// 웨이포인트로 이동
+            double walkAmount = _walkSize / 2;
             foreach(var wayPoint in _wayPoints)
             {
 
                 Direction dir = Maths.Vector2ToDirection(wayPoint.transform.position - transform.position);
                 _currentDir = Maths.DirectionToVector2(dir);
 
-                /// 웨이포인트로 이동
-                float walkAmount = _walkSize / 2;
                 while( Vector2.Distance(transform.position, wayPoint.transform.position) > walkAmount )
                 {
                     yield return StartCoroutine(MoveRoutine(_currentDir));

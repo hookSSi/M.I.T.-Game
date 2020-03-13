@@ -19,11 +19,6 @@ public class PlayerAnimController : MonoBehaviour
 		anim = GetComponent<Animator>();
 	}
 
-	private void Update() 
-	{
-		_delay += Time.deltaTime;
-	}
-
 	public void StartToGoToStair(Transform stair = null)
 	{
 		if(stair != null)
@@ -54,11 +49,20 @@ public class PlayerAnimController : MonoBehaviour
 			cinemachine.transform.position = new Vector3(cameraPoint.position.x, cinemachine.transform.position.y, cinemachine.transform.position.z);
 		}
 
+		StartCoroutine(NextStage());
+	}
+
+	IEnumerator NextStage()
+	{
 		_delay = 0;
-		if(_delay > 3f)
+		while(_delay < 15f)
 		{
-			LoadingSceneManager.LoadScene("공대관", "LoadingScreen");
+			_delay += Time.deltaTime;
+			yield return null;
 		}
+
+		LoadingSceneManager.LoadScene("공대관", "LoadingScreen");
+		yield break;
 	}
 
 	public void ForcedMove(string xyz)

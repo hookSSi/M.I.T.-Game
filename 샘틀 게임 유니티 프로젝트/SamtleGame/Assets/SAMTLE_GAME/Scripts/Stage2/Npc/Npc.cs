@@ -51,7 +51,7 @@ namespace MIT.SamtleGame.Stage2.NPC
             GameManager.Instance.AddNpc(this);
             _animator = GetComponent<Animator>();
 
-            DataManager.JsonFileSave(_textPages, Application.dataPath + "/SAMTLE_GAME/Json", this.gameObject.name);
+            //DataManager.JsonFileSave(_textPages, Application.dataPath + "/SAMTLE_GAME/Json", this.gameObject.name);
         }
         #endregion
 
@@ -148,7 +148,7 @@ namespace MIT.SamtleGame.Stage2.NPC
         public void ChangeTextPage(List<DialoguePage> textPage)
         {
             _textPages = textPage;
-            DataManager.JsonFileSave(_textPages, Application.dataPath + "/SAMTLE_GAME/Json", this.gameObject.name, FileMode.Append);
+            //DataManager.JsonFileSave(_textPages, Application.dataPath + "/SAMTLE_GAME/Json", this.gameObject.name, FileMode.Append);
         }
 
         #region  스크립트 사용 편의성 관련

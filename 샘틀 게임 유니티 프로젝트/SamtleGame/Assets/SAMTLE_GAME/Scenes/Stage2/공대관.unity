@@ -5282,6 +5282,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 383861637, guid: 6cdc17498de89644bac24e543b8058de, type: 3}
+      propertyPath: _textPages.Array.data[0]._text
+      value: "\uD06C\uACE0 \uBA4B\uC9C4 \uC774 \uD770 \uAC74\uBB3C\uC740 50\uD638\uAD00\uC774\uC57C"
+      objectReference: {fileID: 0}
     - target: {fileID: 1837419332420388039, guid: 6cdc17498de89644bac24e543b8058de,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8919,6 +8923,11 @@ MonoBehaviour:
   _dialogueController: {fileID: 723531500}
   _myPokemon: {fileID: 385301804}
   _enemyPokemon: {fileID: 385301805}
+  _hitSound: Hit
+  _commitSound: BattleCommit
+  _appearSound: RetroVideoGameFx
+  _battleTrack: 0
+  _victoryTrack: 0
   _testMyPokemon: 
   _testEnemyPokemon: 
   _isTest: 0
@@ -29209,7 +29218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9398a647c90987646add82cc6d2fb77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _submitClip: {fileID: 8300000, guid: 82e889f906bff204e8f94d2085681962, type: 3}
   _firstActionObject: {fileID: 385301807}
   _firstItemObject: {fileID: 0}
   _firstSkillObject: {fileID: 385301801}

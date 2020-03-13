@@ -11,7 +11,6 @@ TagManager:
   - Npc
   - Interactable
   - WayPoint
-  - NPC
   layers:
   - Default
   - TransparentFX

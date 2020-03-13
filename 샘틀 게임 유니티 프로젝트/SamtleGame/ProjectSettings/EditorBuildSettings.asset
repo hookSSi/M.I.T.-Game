@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/SAMTLE_GAME/Scenes/Stage3/\uB3D9\uBC29.unity"
     guid: 477aede467f2e6e4b9cd10c689b0508f
+  - enabled: 1
+    path: Assets/SAMTLE_GAME/Scenes/Outro.unity
+    guid: 00fd6eec932651a4a99f90b210142763
   m_configObjects: {}

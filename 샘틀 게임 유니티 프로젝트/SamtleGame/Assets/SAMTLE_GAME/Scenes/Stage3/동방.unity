@@ -358,6 +358,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9104590396088089480, guid: 67c41983a8687c048a9c349d08e05d9c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104590396088089481, guid: 67c41983a8687c048a9c349d08e05d9c,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104590396088089481, guid: 67c41983a8687c048a9c349d08e05d9c,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67c41983a8687c048a9c349d08e05d9c, type: 3}
 --- !u!1001 &44300236
@@ -2401,6 +2416,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 5905977939342263130, guid: 23db8cd204dd25e4393694ee84272db5,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5907789493559003496, guid: 23db8cd204dd25e4393694ee84272db5,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2799,6 +2819,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1826674275}
     m_Modifications:
+    - target: {fileID: 4447089584818886573, guid: e7883c5dce791ad478c628474a9499fe,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5662943913031811320, guid: e7883c5dce791ad478c628474a9499fe,
         type: 3}
       propertyPath: m_Name
@@ -6916,6 +6941,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 1123660368140433627, guid: e2d5bc58b22dec9438a141d9235649de,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1220464182718605071, guid: e2d5bc58b22dec9438a141d9235649de,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10198,6 +10228,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 5905977939342263130, guid: 23db8cd204dd25e4393694ee84272db5,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5907789493559003496, guid: 23db8cd204dd25e4393694ee84272db5,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10426,6 +10461,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1826674275}
     m_Modifications:
+    - target: {fileID: 4447089584818886573, guid: e7883c5dce791ad478c628474a9499fe,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5662943913031811320, guid: e7883c5dce791ad478c628474a9499fe,
         type: 3}
       propertyPath: m_Name
@@ -10599,6 +10639,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 4618703880551490623, guid: 57abd52c2d5d94d41922a9dca40a5b64,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8235118607983380225, guid: 57abd52c2d5d94d41922a9dca40a5b64,
         type: 3}
@@ -10789,6 +10834,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6113037091021212349, guid: 29f16d367d49e8e4a9e8b17135bf728a,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29f16d367d49e8e4a9e8b17135bf728a, type: 3}
@@ -11359,6 +11409,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172206528574931427, guid: 6c55683f42408ee4f8251ac829becf4d,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2225315103338229351, guid: 6c55683f42408ee4f8251ac829becf4d,
         type: 3}

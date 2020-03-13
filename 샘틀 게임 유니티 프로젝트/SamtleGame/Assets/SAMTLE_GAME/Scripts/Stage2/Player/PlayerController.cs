@@ -199,6 +199,8 @@ namespace MIT.SamtleGame.Stage2
 
             _walkTime = 0f;
 
+            /// 웨이포인트로 이동
+            double walkAmount = _walkSize / 2;
             while(_wayPoints.Count > 0 && !_isControllable)
             {
                 WayPoint wayPoint = _wayPoints.Peek();
@@ -207,8 +209,6 @@ namespace MIT.SamtleGame.Stage2
                 Direction dir = Maths.Vector2ToDirection(wayPointTransform.position - transform.position);
                 _currentDir = Maths.DirectionToVector2(dir);
                 
-                /// 웨이포인트로 이동
-                float walkAmount = _walkSize / 2;
                 while( Vector2.Distance(transform.position, wayPointTransform.position) > walkAmount && !_isControllable)
                 {
                     yield return StartCoroutine(MoveRoutine(false));
