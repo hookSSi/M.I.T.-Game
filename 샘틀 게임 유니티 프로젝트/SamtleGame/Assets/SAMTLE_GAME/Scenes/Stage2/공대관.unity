@@ -8934,7 +8934,7 @@ PrefabInstance:
     - target: {fileID: 4970011912563169699, guid: a4f2b702027f1f64f873a64b31c138ca,
         type: 3}
       propertyPath: _walkTime
-      value: 0.1
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 4970011912563169699, guid: a4f2b702027f1f64f873a64b31c138ca,
         type: 3}
@@ -27954,29 +27954,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 854263635172515739, guid: 502a60928e97ec643bbebb09aa485dc6,
         type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263635172515739, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263635172515739, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263635172515739, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263635172515739, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4891010741982775251, guid: fe63ba79593626448bbb6536133bb165,
+        type: 2}
     - target: {fileID: 854263635503592692, guid: 502a60928e97ec643bbebb09aa485dc6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28087,111 +28068,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Starting Pokemon
       objectReference: {fileID: 0}
-    - target: {fileID: 854263635503592693, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263635503592695, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: _pokemonRegisterAction.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263635503592695, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: _pokemonRegisterAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263635503592695, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: _pokemonRegisterAction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263635503592695, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: _testMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263635959939858, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636579819681, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636654254381, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636654254381, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636654254381, guid: 502a60928e97ec643bbebb09aa485dc6,
+    - target: {fileID: 854263636875339887, guid: 502a60928e97ec643bbebb09aa485dc6,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636875339887, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636875339887, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636875339887, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636875339887, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263636875339887, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -4891010741982775251, guid: fe63ba79593626448bbb6536133bb165,
+        type: 2}
     - target: {fileID: 854263637034147908, guid: 502a60928e97ec643bbebb09aa485dc6,
         type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263637034147908, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263637034147908, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263637034147908, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263637034147908, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 854263637034147908, guid: 502a60928e97ec643bbebb09aa485dc6,
-        type: 3}
-      propertyPath: m_textInfo.materialCount
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4891010741982775251, guid: fe63ba79593626448bbb6536133bb165,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 502a60928e97ec643bbebb09aa485dc6, type: 3}
 --- !u!1 &1806019203

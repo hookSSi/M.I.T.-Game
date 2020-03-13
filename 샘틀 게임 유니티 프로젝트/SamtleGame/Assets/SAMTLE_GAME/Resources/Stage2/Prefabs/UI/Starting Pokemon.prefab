@@ -66,9 +66,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC608\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fe63ba79593626448bbb6536133bb165, type: 2}
-  m_sharedMaterial: {fileID: -4891010741982775251, guid: fe63ba79593626448bbb6536133bb165,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b2f214bc22a738c49b370d95b37e5f03, type: 2}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -134,18 +133,18 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 854263635172515739}
-    characterCount: 2
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 1
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 854263635959939858}
@@ -321,7 +320,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &854263635503592692
 RectTransform:
   m_ObjectHideFlags: 0
@@ -766,7 +765,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854263635959939856}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -1292,7 +1291,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854263636579819687}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -1437,7 +1436,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854263636654254355}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -1905,9 +1904,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC544\uB2C8\uC624\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fe63ba79593626448bbb6536133bb165, type: 2}
-  m_sharedMaterial: {fileID: -4891010741982775251, guid: fe63ba79593626448bbb6536133bb165,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b2f214bc22a738c49b370d95b37e5f03, type: 2}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1973,18 +1971,18 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 854263636875339887}
-    characterCount: 4
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 1
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 854263636579819681}
@@ -2135,9 +2133,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uCEE4\uD53C\uD0C0\uC785 \uCEF4\uACF5\uBAAC\n\"\uC790\uBC14\""
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fe63ba79593626448bbb6536133bb165, type: 2}
-  m_sharedMaterial: {fileID: -4891010741982775251, guid: fe63ba79593626448bbb6536133bb165,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b2f214bc22a738c49b370d95b37e5f03, type: 2}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2203,18 +2200,18 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 854263637034147908}
-    characterCount: 13
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 2
-    pageCount: 1
-    materialCount: 2
+    lineCount: 0
+    pageCount: 0
+    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 854263636654254381}
