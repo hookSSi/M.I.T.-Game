@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 using MIT.SamtleGame.DesignPattern;
 
@@ -38,5 +39,14 @@ namespace MIT.SamtleGame.Stage3
 		{
 			return _programmer && _artist && _musician;
 		}
-    }
+		public void EndingTrigger()
+		{
+			StartCoroutine(Ending());
+		}
+		IEnumerator Ending()
+		{
+			yield return new WaitForSeconds(3.0f);
+			SceneManager.LoadScene("Outro");
+		}
+	}
 }

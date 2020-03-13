@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace MIT.SamtleGame.Stage3
 {
@@ -11,6 +12,7 @@ namespace MIT.SamtleGame.Stage3
 		public override void Action()
 		{
 			gp.GiveObject();
+			GameManager.Instance.EndingTrigger();
 		}
 	}
 }
