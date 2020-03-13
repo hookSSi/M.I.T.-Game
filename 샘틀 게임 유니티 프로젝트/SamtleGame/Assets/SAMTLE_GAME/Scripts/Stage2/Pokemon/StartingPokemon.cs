@@ -162,7 +162,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                     float currentSize = _startList[i].localScale.x;
 
                     currentSize = Mathf.SmoothDamp(currentSize, _targetSize[i], ref _currentSizeVelocity[i], _smoothTime);
-                    _startList[i].localScale = new Vector3(currentSize, currentSize);
+                    _startList[i].localScale = new Vector3(currentSize, currentSize, 1);
                 }
 
                 if (_startList[i] != null && _startList[i].anchoredPosition != (Vector2)_destination[i])

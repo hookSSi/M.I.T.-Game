@@ -34,7 +34,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
                     EventTrigger.Entry entrySubmit = new EventTrigger.Entry();
                     entrySubmit.eventID = EventTriggerType.Submit;
-                    entrySubmit.callback.AddListener((data) => { PokemonBattleManager.Instance.UseSkill(index); });
+                    entrySubmit.callback.AddListener((data) => { PokemonBattleManager.Instance.UseSkill(index);});
                     trigger.triggers.Add(entrySubmit);
 
                     EventTrigger.Entry entrySelect = new EventTrigger.Entry();
