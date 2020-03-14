@@ -38,13 +38,13 @@ namespace MIT.SamtleGame.Stage2
         protected int  _currentWalkCount = 0;
         [SerializeField]
         protected bool _isControllable = true;
-        protected bool _isMoving = false;
 
         [Header("플레이어 정보")]
         public float _walkSize = 1;
         public int _walkCount = 10;
         public float _walkTime = 0.1f;
         public float _jumpPower = 30f;
+        public bool _isMoving = false;
 
         [Header("웨이포인트")]
         public Queue<WayPoint> _wayPoints = new Queue<WayPoint>();

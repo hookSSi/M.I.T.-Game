@@ -1,12 +1,10 @@
-﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-Shader "Test/NewUnlitShader"
+﻿Shader "Test/NewUnlitShader"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _LightColor("Light Color", color) = (0, 0, 0, 0)
+        _SpecularMap("Specular Map", 2D) = "white" {}
     }
     SubShader
     {
@@ -54,11 +52,13 @@ Shader "Test/NewUnlitShader"
             }
 
             sampler2D _MainTex;
+            sampler2D _SpecularMap;
+            float3 _LightColor;
 
             float4 frag (v2f i) : SV_Target
             {
-                float4 c = tex2D(_MainTex, i.uv);
-                float3 diffuse = saturate(i.diffuse);
+                float4 albedo = tex2D(_MainTex, i.uv);
+                float3 diffuse = _LightColor * albedo * saturate(i.diffuse);
 
                 float3 reflection = normalize(i.reflection);
                 float3 viewDir = normalize(i.vertex.xyz - _WorldSpaceCameraPos);
@@ -68,10 +68,12 @@ Shader "Test/NewUnlitShader"
                 {
                     specular = saturate(dot(reflection, -viewDir));
                     specular = pow(specular, 20.0);
+                    float4 specularIntensity = tex2D(_SpecularMap, i.uv);
+                    specular *= specularIntensity.rgb * _LightColor;
                 }
-                float3 ambient = float3(0.1, 0.1, 0.1);
+                float3 ambient = float3(0.1, 0.1, 0.1) * albedo;
 
-                return float4(c.rgb * (diffuse + specular + ambient), c.a);
+                return float4(albedo.rgb * (diffuse + specular + ambient), albedo.a);
             }
             ENDCG
         }

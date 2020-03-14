@@ -368,6 +368,11 @@ PrefabInstance:
       propertyPath: _textPages.Array.data[6]._delay
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7545525110414661455, guid: 9f072800efe3b1849b11cccb0b16991f,
+        type: 3}
+      propertyPath: _textPages.Array.data[1]._delay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7880767692747750966, guid: 9f072800efe3b1849b11cccb0b16991f,
         type: 3}
       propertyPath: m_LocalPosition.x

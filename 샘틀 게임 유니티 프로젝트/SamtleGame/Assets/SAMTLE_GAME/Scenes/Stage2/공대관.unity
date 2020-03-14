@@ -5219,6 +5219,10 @@ PrefabInstance:
       propertyPath: _textPages.Array.data[0]._text
       value: "\uD06C\uACE0 \uBA4B\uC9C4 \uC774 \uD770 \uAC74\uBB3C\uC740 50\uD638\uAD00\uC774\uC57C"
       objectReference: {fileID: 0}
+    - target: {fileID: 1989289414, guid: 6cdc17498de89644bac24e543b8058de, type: 3}
+      propertyPath: _type
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1837419332420388039, guid: 6cdc17498de89644bac24e543b8058de,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30029,7 +30033,6 @@ GameObject:
   - component: {fileID: 8195094280116785375}
   - component: {fileID: 3664157344451112755}
   - component: {fileID: 1385826671140316}
-  - component: {fileID: 1385826671140317}
   m_Layer: 0
   m_Name: Door_To51
   m_TagString: Door
@@ -30060,18 +30063,6 @@ MonoBehaviour:
   _fadeInTween: 0
   _fadeOutTime: 0.1
   _fadeOutTween: 0
---- !u!114 &1385826671140317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385826671140315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87e3c3fe277015e49ad2e339c24f14d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1388551678695491
 GameObject:
   m_ObjectHideFlags: 0

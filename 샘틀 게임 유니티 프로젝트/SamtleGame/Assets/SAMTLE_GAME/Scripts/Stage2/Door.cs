@@ -19,9 +19,9 @@ namespace MIT.SamtleGame.Stage2
         public Tag[] _tag;
         
         [Header("FadeInOut"), Space(20)]
-        public float _fadeInTime = 0.1f;
+        public float _fadeInTime = 0.33f;
         public Tweens.TweenCurve _fadeInTween;
-        public float _fadeOutTime = 0.1f;
+        public float _fadeOutTime = 0.33f;
         public Tweens.TweenCurve _fadeOutTween;
 
         private void Update() 
@@ -43,17 +43,28 @@ namespace MIT.SamtleGame.Stage2
                     }
                     if(col.tag == "Player")
                     {
-                        // 진입
-                        FadeInEvent.Trigger(_fadeInTime, _fadeInTween);
-                        SoundEvent.Trigger(_sound);
-
-                        // 진입후
-                        col.transform.position = _dest.transform.position;
-                        col.GetComponent<PlayerController>().SetDirection(_dir);
-                        FadeOutEvent.Trigger(_fadeOutTime, _fadeOutTween);
+                        PlayerController player = col.GetComponent<PlayerController>();
+                        StartCoroutine(TeleportPlayer(player));
                     }
                 }
             }
+        }
+
+        IEnumerator TeleportPlayer(PlayerController player)
+        {
+            // 플레이어가 다 움직일때 까지 기다림
+            yield return new WaitWhile(() => player._isMoving);
+
+            // 진입
+            FadeInEvent.Trigger(_fadeInTime, _fadeInTween);
+            SoundEvent.Trigger(_sound);
+
+            // 진입후
+            player.transform.position = _dest.transform.position;
+            player.SetDirection(_dir);
+            FadeOutEvent.Trigger(_fadeOutTime, _fadeOutTween);
+
+            yield break;
         }
 
         protected void OnDrawGizmosSelected()
