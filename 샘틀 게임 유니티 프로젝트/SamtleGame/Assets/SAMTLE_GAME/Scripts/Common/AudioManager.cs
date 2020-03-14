@@ -57,13 +57,15 @@ public class Sound
     {
         if(!_source.isPlaying)
         {
-            if(_clip.Length > 1)
-            {
-                this._source.clip = _clip[Random.Range(0, _clip.Length)];
-            }
-            
-            _source.Play();
+            _source.Stop();
         }
+        
+        if(_clip.Length > 1)
+        {
+            this._source.clip = _clip[Random.Range(0, _clip.Length)];
+        }
+        
+        _source.Play();
     }
     public void Stop()
     {
