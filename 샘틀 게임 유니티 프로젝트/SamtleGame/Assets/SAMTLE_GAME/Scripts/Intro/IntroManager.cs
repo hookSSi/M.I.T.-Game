@@ -42,7 +42,7 @@ public class IntroManager : MonoBehaviour, EventListener<IntroEvent>
 
     private void LoadNextScene()
     {
-        BgmManager.Instance.Stop();
+        BgmManager.Instance.Pause();
         LoadingSceneManager.LoadScene("기차안");
     }
 

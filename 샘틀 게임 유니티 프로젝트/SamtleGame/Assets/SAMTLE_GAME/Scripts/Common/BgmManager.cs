@@ -19,7 +19,7 @@ public class BgmManager : Singleton<BgmManager>
         _audio = GetComponent<AudioSource>();
     }
 
-    public void Play(int _playTrack, bool loop = false, float volume = 0.4f)
+    public void Play(int _playTrack, bool loop = true, float volume = 0.4f)
     {
         _audio.volume = volume;
         _audio.clip = _clips[_playTrack];
@@ -31,6 +31,7 @@ public class BgmManager : Singleton<BgmManager>
     {
         _audio.Pause();
     }
+
     public void UnPause()
     {
         _audio.UnPause();

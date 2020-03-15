@@ -117,7 +117,6 @@ namespace MIT.SamtleGame.Stage2.NPC
 
         protected void EventEndResponse()
         {
-            BgmManager.Instance.Play(0);
             _isEventEnd = true;
 
             Debug.Log("이벤트 끝");

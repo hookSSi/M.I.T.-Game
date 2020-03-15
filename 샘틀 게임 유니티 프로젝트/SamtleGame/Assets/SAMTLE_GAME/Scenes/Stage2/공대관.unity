@@ -5217,7 +5217,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 383861637, guid: 6cdc17498de89644bac24e543b8058de, type: 3}
       propertyPath: _textPages.Array.data[0]._text
-      value: "\uD06C\uACE0 \uBA4B\uC9C4 \uC774 \uD770 \uAC74\uBB3C\uC740 50\uD638\uAD00\uC774\uC57C"
+      value: "\uD06C\uACE0 \uBA4B\uC9C4 \uC774 \uD770 \uAC74\uBB3C\uC740 55\uD638\uAD00\uC774\uC57C"
       objectReference: {fileID: 0}
     - target: {fileID: 1989289414, guid: 6cdc17498de89644bac24e543b8058de, type: 3}
       propertyPath: _type
@@ -19829,7 +19829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gizmoColor: {r: 0, g: 0, b: 1, a: 1}
   _gizmoRadius: 0.1
-  _type: 2
+  _type: 4
   _dir: 0
   _textPages: []
   _id: 2

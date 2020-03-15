@@ -119,7 +119,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 if (bgmManager._clips[i] == currentMusic) { _prevTrack = i; break; }
             }
 
-            BgmManager.Instance.Stop();
+            BgmManager.Instance.Pause();
             BgmManager.Instance.Play(_battleTrack, true);
 
             StartCoroutine("StartBattleCoroutine");
@@ -292,7 +292,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _state = BattleState.End;
             _dialogueController.ClearPages();
 
-            BgmManager.Instance.Stop();
+            BgmManager.Instance.Pause();
             BgmManager.Instance.Play(_victoryTrack);
 
             if (_myPokemon.Health <= 0f) _uiManager._mainUI.UpdatePlayerImage(false, true);
@@ -328,7 +328,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             StartCoroutine(_uiManager._mainUI.FadeOutImage(_uiManager._mainUI._blackBox, 0.5f));
             yield return new WaitForSeconds(0.5f);
 
-            BgmManager.Instance.Stop();
+            BgmManager.Instance.Pause();
             if (_prevTrack != -1 && _prevTrack != _battleTrack && _prevTrack != _victoryTrack)
                 BgmManager.Instance.Play(_prevTrack);
 
