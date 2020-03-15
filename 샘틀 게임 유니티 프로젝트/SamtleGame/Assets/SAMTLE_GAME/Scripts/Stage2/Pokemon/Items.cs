@@ -86,7 +86,10 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             FirstScript(out dialog);
             _manager._dialogueController.AddNextPage(dialog, true);
-            _manager._dialogueController.AddNextPage(myPokemon.Info._name + "는(은) 정신이 헤롱헤롱해졌다... 컴퓨터에서 알싸한 향이 난다. ");
+            if (enemyPokemon.Info._name != "신입!신입!")
+                _manager._dialogueController.AddNextPage(myPokemon.Info._name + "는(은) 정신이 헤롱헤롱해졌다... 컴퓨터에서 알싸한 향이 난다. ");
+            else
+                _manager._dialogueController.AddNextPage(myPokemon.Info._name + "는(은) 정신이 헤롱헤롱해졌다... 대사에서 알싸한 향이 난다. ");
             _manager._dialogueController.AddNextPage(myPokemon.Info._name + "의 다음 기술의 위력이 감소했다!", true);
         }
 
