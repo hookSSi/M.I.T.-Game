@@ -37,7 +37,8 @@ namespace MIT.SamtleGame.Stage3
 
             yield return new WaitForSeconds(1f);
             _cameraPaperEffect.enabled = true;
-
+            yield return new WaitForSeconds(10f);
+            _cameraPaperEffect.enabled = false;
 			yield break;
         }
     }

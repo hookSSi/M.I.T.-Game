@@ -39,7 +39,7 @@ namespace MIT.SamtleGame.Stage2.NPC
             yield return WaitUntilBattleEnd();
 
             List<DialoguePage> textPages = new List<DialoguePage>();
-            textPages.Add(DialoguePage.CreatePage("코딩하느라 고생했어, 와! 정말 잘 만들었는걸"));
+            textPages.Add(DialoguePage.CreatePage("코딩하느라 고생했어. 와! 정말 잘 만들었는걸"));
             textPages.Add(DialoguePage.CreatePage("잠시 의자에 앉아서 기다려줄래? 지원서를 찾아야해서"));
             textPages.Add(DialoguePage.CreatePage("뭐? 관심없다고? 에이 팅기지말고 기다려봐"));
             _textPages = textPages;

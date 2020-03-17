@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using MIT.SamtleGame.Tools;
+
 namespace MIT.SamtleGame.Stage1
 {
     public enum PlayerState { Idle = 0, Walk = 1, Jump = 2, Crouch = 3, Dead, Hitted }
@@ -183,6 +185,7 @@ namespace MIT.SamtleGame.Stage1
         private void Dead()
         {
             _playerAnimator.SetBool("Dead", true);
+            LoadingSceneManager.LoadScene("공대관");
         }
 
         protected override void OnDrawGizmosSelected()

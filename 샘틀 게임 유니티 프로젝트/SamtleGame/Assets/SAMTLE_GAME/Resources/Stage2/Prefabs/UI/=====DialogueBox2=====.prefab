@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC548\uB155\uD558\uC138\uC694 \uBB38\uC131\uD6C4\uC785\uB2C8\uB2E4.\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 40eb9a2a5bef17c4896b93b78a185357, type: 2}
-  m_sharedMaterial: {fileID: -3959466346440412802, guid: 40eb9a2a5bef17c4896b93b78a185357,
+  m_fontAsset: {fileID: 11400000, guid: b2f214bc22a738c49b370d95b37e5f03, type: 2}
+  m_sharedMaterial: {fileID: 5587310877171338274, guid: b2f214bc22a738c49b370d95b37e5f03,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -94,8 +94,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 108
+  m_fontSizeBase: 108
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b1d4173fbc9e8440b553cf032c43ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentPage: 0
   _textPages: []
   _typingDelay: 0.1
   _typingSoundName: 
@@ -178,7 +179,6 @@ MonoBehaviour:
   _isLoop: 1
   _isStartFirst: 0
   _blinker: {fileID: 0}
-  _isEnd: 0
 --- !u!1 &3511568495215991660
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,8 +242,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8435bcb8cd5f9a04aa547a2233974446, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 623d950820dfd4e4b9134722c92a8c9d, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 2192387576944359948}
   - component: {fileID: 4348199305364430100}
   m_Layer: 5
-  m_Name: =====DialogueBox=====
+  m_Name: =====DialogueBox2=====
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 7727585857173137407}
   - component: {fileID: 4072061840102674375}
   m_Layer: 5
-  m_Name: TMP SubMeshUI [LiberationSans SDF Material]
+  m_Name: TMP SubMeshUI [PokemonGSC New SDF Material + LiberationSans SDF Atlas]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -37,7 +37,7 @@ public class IntroManager : MonoBehaviour, EventListener<IntroEvent>
     private void StartBgm()
     {
         BgmManager.Instance.Play(0);
-        BgmManager.Instance.SetVolume(0.15f);
+        BgmManager.Instance.SetVolume(1f);
     }
 
     private void LoadNextScene()

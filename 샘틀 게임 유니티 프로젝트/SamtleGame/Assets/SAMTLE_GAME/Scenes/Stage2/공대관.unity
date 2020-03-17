@@ -5142,6 +5142,21 @@ PrefabInstance:
       propertyPath: _textPages.Array.data[0]._text
       value: "\uD06C\uACE0 \uBA4B\uC9C4 \uC774 \uD770 \uAC74\uBB3C\uC740 55\uD638\uAD00\uC774\uC57C"
       objectReference: {fileID: 0}
+    - target: {fileID: 383861637, guid: 6cdc17498de89644bac24e543b8058de, type: 3}
+      propertyPath: _textPages.Array.data[2]._text
+      value: "\uCEF4\uD4E8\uD130\uACF5\uD559\uACFC \uD559\uACFC\uC0AC\uBB34\uC2E4\uC740
+        5\uCE35\uC774\uC57C!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917915585, guid: 6cdc17498de89644bac24e543b8058de, type: 3}
+      propertyPath: _textPages.Array.data[0]._text
+      value: "\uB9DB\uC788\uB294 \uB0C4\uC0C8\uB97C \uD48D\uAE30\uB294 \uC2DD\uB2F9\uACFC
+        \uC11C\uC810\uC774 \uC788\uB294 \uC0AC\uB9BC!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917915585, guid: 6cdc17498de89644bac24e543b8058de, type: 3}
+      propertyPath: _textPages.Array.data[1]._text
+      value: "\uD559\uC2DD\uC5D0 \uB108\uBB34 \uC2E4\uB9DD\uD558\uC9C0 \uB9D0\uB3C4\uB85D
+        \uD574..."
+      objectReference: {fileID: 0}
     - target: {fileID: 1989289414, guid: 6cdc17498de89644bac24e543b8058de, type: 3}
       propertyPath: _type
       value: 4
@@ -27279,7 +27294,7 @@ MonoBehaviour:
   _isWalk: 0
   _walkSize: 1
   _walkCount: 10
-  _walkTime: 0.1
+  _walkTime: 0.025
   _obstacles:
   - _flag: 0
   - _flag: 2
@@ -29163,7 +29178,7 @@ GameObject:
   - component: {fileID: 2113883503132799881}
   m_Layer: 0
   m_Name: Right2_MIT
-  m_TagString: Interactable
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29361,7 +29376,7 @@ GameObject:
   - component: {fileID: 2113883506122560417}
   m_Layer: 0
   m_Name: Left2_MIT
-  m_TagString: Interactable
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29505,7 +29520,7 @@ GameObject:
   - component: {fileID: 2113883505335815189}
   m_Layer: 0
   m_Name: Right4_MIT
-  m_TagString: Interactable
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29631,7 +29646,7 @@ GameObject:
   - component: {fileID: 2113883507894749415}
   m_Layer: 0
   m_Name: Logo_MIT
-  m_TagString: Interactable
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29810,7 +29825,7 @@ GameObject:
   - component: {fileID: 2113883505837849821}
   m_Layer: 0
   m_Name: Left4_MIT
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29885,7 +29900,7 @@ GameObject:
   - component: {fileID: 2113883506715198371}
   m_Layer: 0
   m_Name: Left3_MIT
-  m_TagString: Interactable
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30000,7 +30015,7 @@ GameObject:
   - component: {fileID: 2113883508021816979}
   m_Layer: 0
   m_Name: Right3_MIT
-  m_TagString: Interactable
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30388,7 +30403,7 @@ GameObject:
   - component: {fileID: 2113883503405818445}
   m_Layer: 0
   m_Name: Piano_MIT
-  m_TagString: Interactable
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30407,7 +30422,7 @@ GameObject:
   - component: {fileID: 2113883506063464161}
   m_Layer: 0
   m_Name: Vive_MIT
-  m_TagString: Interactable
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30518,7 +30533,7 @@ GameObject:
   - component: {fileID: 2113883506372322427}
   m_Layer: 0
   m_Name: Bookshelf_MIT
-  m_TagString: Interactable
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30537,7 +30552,7 @@ GameObject:
   - component: {fileID: 2113883503268977915}
   m_Layer: 0
   m_Name: Left1_MIT
-  m_TagString: Interactable
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30700,7 +30715,7 @@ GameObject:
   - component: {fileID: 2113883505430264031}
   m_Layer: 0
   m_Name: Right1_MIT
-  m_TagString: Interactable
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30824,7 +30839,7 @@ GameObject:
   - component: {fileID: 4427805316306777}
   m_Layer: 0
   m_Name: Computers_MIT
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -73,22 +73,22 @@ namespace MIT.SamtleGame.Stage2
             if(_isControllable && !_isMoving && Pokemon.PokemonBattleManager.Instance.IsEnd())
             {
                 #region 이동 입력 처리
-                if (Input.GetKey(KeyCode.W))
+                if (Input.GetKey(KeyCode.UpArrow))
                 {
                     _currentDir = Vector2.up;
                     Move();
                 }
-                else if (Input.GetKey(KeyCode.A))
+                else if (Input.GetKey(KeyCode.LeftArrow))
                 {
                     _currentDir = Vector2.left;
                     Move();
                 }
-                else if (Input.GetKey(KeyCode.S))
+                else if (Input.GetKey(KeyCode.DownArrow))
                 {
                     _currentDir = Vector2.down;
                     Move();
                 }
-                else if (Input.GetKey(KeyCode.D))
+                else if (Input.GetKey(KeyCode.RightArrow))
                 {
                     _currentDir = Vector2.right;
                     Move();
