@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using MIT.SamtleGame.Tools;
+using MIT.SamtleGame.Attributes;
 
 namespace MIT.SamtleGame.Stage3
 {
@@ -10,7 +11,7 @@ namespace MIT.SamtleGame.Stage3
     public class LaunchPad : Interactive
     {
         [Header("런치패드 정보"), Space(20)]
-        public string _lunchPadBgm;
+        [GameBgm] public string _lunchPadBgm;
         public MusicAnalyzer _musicAnalyzer;
         public List<Pad> _pads = new List<Pad>();
         public Tweens.TweenCurve _curve;

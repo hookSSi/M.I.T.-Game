@@ -8,9 +8,9 @@ using MIT.SamtleGame.DesignPattern;
 public class BgmManager : Singleton<BgmManager>
 {
     private Dictionary<string, Sound> _soundDic = new Dictionary<string, Sound>();
-    [HideInInspector] public List<Sound> _sounds = new List<Sound>();
     private AudioSource _audio;
     private WaitForSeconds _waitTime = new WaitForSeconds(0.01f);
+    [HideInInspector] public List<Sound> _sounds = new List<Sound>();
 
     protected virtual void Initialization()
     {
@@ -27,15 +27,16 @@ public class BgmManager : Singleton<BgmManager>
         Initialization();
     }
 
-    public void Play(string trackName = "", bool loop = true, float volume = 0.4f)
+    public void Play(string trackName = "(None)", bool loop = true, float volume = 0.4f)
     {
-        _audio.volume = volume;
-        _audio.loop = loop;
-
         if(_soundDic.ContainsKey(trackName))
+        {
             _soundDic[trackName].Play(_audio);
+            _audio.volume = volume;
+            _audio.loop = loop;
+        }
         else
-            Debug.Log(trackName);
+            Debug.LogFormat("{0} 이름의 bgm을 재생할 수 없습니다.", trackName);
 
     }
 

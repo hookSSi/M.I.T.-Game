@@ -1431,6 +1431,26 @@ PrefabInstance:
       propertyPath: _clips.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8283807274140304233, guid: bddc2d4e72f5b6d41855c72ee4490254,
+        type: 3}
+      propertyPath: _sounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283807274140304233, guid: bddc2d4e72f5b6d41855c72ee4490254,
+        type: 3}
+      propertyPath: _sounds.Array.data[0]._clip.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283807274140304233, guid: bddc2d4e72f5b6d41855c72ee4490254,
+        type: 3}
+      propertyPath: _sounds.Array.data[0]._isFoldOut
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283807274140304233, guid: bddc2d4e72f5b6d41855c72ee4490254,
+        type: 3}
+      propertyPath: _sounds.Array.data[0]._name
+      value: "\uB7F0\uCE58\uD328\uB4DC bgm"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bddc2d4e72f5b6d41855c72ee4490254, type: 3}
 --- !u!4 &535808617
@@ -5154,6 +5174,7 @@ MonoBehaviour:
     - {fileID: 0}
     _volume: 0.5
     _isLoop: 0
+    _isFoldOut: 0
   - _name: "\uBB38\uC18C\uB9AC"
     _clip:
     - {fileID: 8300000, guid: 44d9c48e240808348bf219f5104068eb, type: 3}
@@ -5161,6 +5182,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: a54ffd5039b31d4438fd21b6a69f1f26, type: 3}
     _volume: 0.5
     _isLoop: 0
+    _isFoldOut: 0
 --- !u!212 &1908004246
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5957,8 +5979,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30711ac7a52d89d44a0ee62f747fcd97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clips:
-  - {fileID: 8300000, guid: 9c9947aa244589c40b56b01c4e3b0eee, type: 3}
+  _sounds:
+  - _name: "\uB7F0\uCE58\uD328\uB4DC bgm"
+    _clip:
+    - {fileID: 8300000, guid: 9c9947aa244589c40b56b01c4e3b0eee, type: 3}
+    _volume: 0
+    _isLoop: 0
+    _isFoldOut: 1
 --- !u!82 &2023223566
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8507,6 +8534,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _color.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347253524014536714, guid: 2e979ede88aaa7848a5bfa900bb1ba0f,
+        type: 3}
+      propertyPath: _lunchPadBgm
+      value: "\uB7F0\uCE58\uD328\uB4DC bgm"
       objectReference: {fileID: 0}
     - target: {fileID: 6367486841498682175, guid: 2e979ede88aaa7848a5bfa900bb1ba0f,
         type: 3}

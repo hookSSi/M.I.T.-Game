@@ -23,13 +23,6 @@ public class BgmManagerInspector : Editor
 
         _bgmList.drawElementCallback = DrawAudioElement;
 
-        _bgmList.onSelectCallback = (ReorderableList list) => 
-        {
-            var prefab = list.serializedProperty.GetArrayElementAtIndex(list.index).FindPropertyRelative("_clip2").objectReferenceValue as GameObject;
-            if(prefab)
-                EditorGUIUtility.PingObject(prefab.gameObject);
-        };
-
         _bgmList.onRemoveCallback = (ReorderableList list) => 
         {
             if(EditorUtility.DisplayDialog("경고!", "정말 이 BGM을 삭제하겠습니까?", "네", "아니요"))

@@ -215,6 +215,7 @@ MonoBehaviour:
   _dialogueBox: {fileID: 1751085726}
   _introImage: {fileID: 106076229}
   _lastImage: {fileID: 1588903592}
+  _introBgmTitle: Intro
 --- !u!82 &328963227
 AudioSource:
   m_ObjectHideFlags: 0
@@ -379,6 +380,11 @@ PrefabInstance:
       propertyPath: _textPages.Array.data[1]._delay
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7545525110414661455, guid: 9f072800efe3b1849b11cccb0b16991f,
+        type: 3}
+      propertyPath: _typingSfx
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7880767692747750966, guid: 9f072800efe3b1849b11cccb0b16991f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -488,12 +494,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 993155134}
+      objectReference: {fileID: 1269980740}
     - target: {fileID: 8268706378529114035, guid: 9f072800efe3b1849b11cccb0b16991f,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 993155134}
+      objectReference: {fileID: 1269980740}
     - target: {fileID: 8268706378529114035, guid: 9f072800efe3b1849b11cccb0b16991f,
         type: 3}
       propertyPath: m_padding
@@ -650,7 +656,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &993155134
+--- !u!21 &1269980740
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0

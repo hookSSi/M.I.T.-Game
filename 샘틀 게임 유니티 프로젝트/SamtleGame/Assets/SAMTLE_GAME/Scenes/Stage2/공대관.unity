@@ -5114,16 +5114,19 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 788b950615d96fa4583a2ce686b2b0af, type: 3}
     _volume: 0
     _isLoop: 0
+    _isFoldOut: 0
   - _name: "\uD655\uC778"
     _clip:
     - {fileID: 8300000, guid: 82e889f906bff204e8f94d2085681962, type: 3}
     _volume: 0
     _isLoop: 0
+    _isFoldOut: 0
   - _name: "\uB4F1\uC7A5"
     _clip:
     - {fileID: 8300000, guid: dbb8625245c3e6f48a1040e64623a2d6, type: 3}
     _volume: 0
     _isLoop: 0
+    _isFoldOut: 0
   - _name: "\uD53C\uACA9"
     _clip:
     - {fileID: 8300000, guid: d404e3a4601caec4a9f46d4de80616db, type: 3}
@@ -5131,6 +5134,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: b3ad213867f12f44b8dda0397352fcd9, type: 3}
     _volume: 0
     _isLoop: 0
+    _isFoldOut: 0
 --- !u!1001 &584394100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19622,10 +19626,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30711ac7a52d89d44a0ee62f747fcd97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clips:
-  - {fileID: 8300000, guid: 41ff7795a0fca894f8ff08bd26094c8e, type: 3}
-  - {fileID: 8300000, guid: b619e566336d89f4f985a31580bbe9b5, type: 3}
-  - {fileID: 8300000, guid: 0b296cb8a6e1f1b48884d957728886e5, type: 3}
+  _sounds:
+  - _name: BGM 0
+    _clip:
+    - {fileID: 8300000, guid: 41ff7795a0fca894f8ff08bd26094c8e, type: 3}
+    _volume: 0
+    _isLoop: 0
+    _isFoldOut: 1
 --- !u!82 &1123264489
 AudioSource:
   m_ObjectHideFlags: 0

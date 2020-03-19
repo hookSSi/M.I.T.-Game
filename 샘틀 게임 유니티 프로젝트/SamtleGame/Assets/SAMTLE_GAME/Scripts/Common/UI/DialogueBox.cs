@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 using TMPro;
 using MIT.SamtleGame.Tools;
+using MIT.SamtleGame.Attributes;
 
 /// string을 대체할 예정
 [System.Serializable]
@@ -42,9 +43,9 @@ public class DialogueBox : MonoBehaviour
 	[Header("텍스트")]
 	public List<DialoguePage> _textPages;
 
-	[Tooltip("텍스트 출력 효과")]
+	[Header("텍스트 출력 효과")]
 	public float _typingDelay;
-	public string _typingSoundName;
+	[GameAudio] public string _typingSfx;
     public bool _isTextChanged;
 	public bool _isNextPage = false;
 	public bool _isLoop = true;
@@ -77,7 +78,7 @@ public class DialogueBox : MonoBehaviour
     {
 		_id = id;
 		_currentPage = page;
-		_typingSoundName = sound;
+		_typingSfx = sound;
 		_textPages = textPages;
 		Initialization();
 		StartCoroutine(RevealCharacters(_textComponent));
@@ -104,7 +105,7 @@ public class DialogueBox : MonoBehaviour
 	protected virtual void PlaySound(char ch)
 	{
 		if(ch != ' ' && ch != '\n')
-			SoundEvent.Trigger(_typingSoundName);
+			SoundEvent.Trigger(_typingSfx);
 	}
 
 	public void PlayText()

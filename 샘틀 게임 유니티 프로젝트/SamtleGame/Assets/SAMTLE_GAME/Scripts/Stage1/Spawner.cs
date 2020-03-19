@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using MIT.SamtleGame.Tools;
 
+/// 스포너도 인스펙터 수정 필요
+
 namespace MIT.SamtleGame.Stage1
 {
     public enum EnemyType { Civil, Pegeon, Boss, None }

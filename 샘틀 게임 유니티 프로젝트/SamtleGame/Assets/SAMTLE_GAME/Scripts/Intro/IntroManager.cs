@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using MIT.SamtleGame.Tools;
+using MIT.SamtleGame.Attributes;
 
 public struct IntroEvent
 {
@@ -16,12 +17,15 @@ public struct IntroEvent
 
 public class IntroManager : MonoBehaviour, EventListener<IntroEvent>
 {
+
     public GameObject _title;
     public GameObject _subTitle;
     public GameObject _dialogueBox;
     public GameObject _introImage;
-
     public LastImageAnim _lastImage;
+    
+    [Header("인트로 BGM"), GameBgm]
+    public string _introBgmTitle;
 
     private void Start() 
     {
@@ -36,8 +40,7 @@ public class IntroManager : MonoBehaviour, EventListener<IntroEvent>
 
     private void StartBgm()
     {
-        BgmManager.Instance.Play("Intro");
-        BgmManager.Instance.SetVolume(1f);
+        BgmManager.Instance.Play(_introBgmTitle, true, 1f);
     }
 
     private void LoadNextScene()

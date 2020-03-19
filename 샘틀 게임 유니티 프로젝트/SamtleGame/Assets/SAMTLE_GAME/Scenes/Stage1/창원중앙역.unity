@@ -516,21 +516,25 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 9934abe4037693a4fac6f980c8e22b0a, type: 3}
     _volume: 0.5
     _isLoop: 0
+    _isFoldOut: 0
   - _name: "\uC8FC\uBA39"
     _clip:
     - {fileID: 8300000, guid: f1a9b9e874252f04cb1de2c9208e0f18, type: 3}
     _volume: 0.5
     _isLoop: 0
+    _isFoldOut: 0
   - _name: "\uC810\uD504\uD0A5"
     _clip:
     - {fileID: 8300000, guid: 3bb93a55889f3554e9af78e677fd9a82, type: 3}
     _volume: 0.5
     _isLoop: 0
+    _isFoldOut: 0
   - _name: "\uD558\uB2E8"
     _clip:
     - {fileID: 8300000, guid: deeb2ddc66b0ae24bb6746b083025b7b, type: 3}
     _volume: 0.5
     _isLoop: 0
+    _isFoldOut: 0
 --- !u!114 &466100720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,12 +547,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30711ac7a52d89d44a0ee62f747fcd97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clips:
-  - {fileID: 8300000, guid: 545bb20feee202a4e8915544a5b90997, type: 3}
-  - {fileID: 8300000, guid: a90780b0674fb5d4f846503f6d95089e, type: 3}
-  - {fileID: 8300000, guid: cdd351e100741124e834c8f5f78066c4, type: 3}
-  - {fileID: 8300000, guid: b7c17ac24d5ba7b41beec915d1005e3f, type: 3}
-  - {fileID: 8300000, guid: 673fce47fb6add04e89fbf76403170e1, type: 3}
+  _sounds:
+  - _name: Opening
+    _clip:
+    - {fileID: 8300000, guid: 545bb20feee202a4e8915544a5b90997, type: 3}
+    _volume: 0
+    _isLoop: 0
+    _isFoldOut: 1
+  - _name: Main
+    _clip:
+    - {fileID: 8300000, guid: a90780b0674fb5d4f846503f6d95089e, type: 3}
+    _volume: 0
+    _isLoop: 0
+    _isFoldOut: 1
+  - _name: Clear
+    _clip:
+    - {fileID: 8300000, guid: b7c17ac24d5ba7b41beec915d1005e3f, type: 3}
+    _volume: 0
+    _isLoop: 0
+    _isFoldOut: 1
 --- !u!4 &466100721
 Transform:
   m_ObjectHideFlags: 0
@@ -822,6 +839,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c19ae35c1c1c494593aabe92b5c3da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stage1Openingbgm: Opening
+  _stage1Mainbgm: Main
+  _stage1Clearbgm: Clear
   _player: {fileID: 362305551}
   _readyText: {fileID: 1925099987}
   _startText: {fileID: 899932262}
