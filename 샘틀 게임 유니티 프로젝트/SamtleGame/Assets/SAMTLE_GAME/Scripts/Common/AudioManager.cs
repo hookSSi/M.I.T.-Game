@@ -35,63 +35,14 @@ public struct SoundEvent
     }
 }
 
-[System.Serializable]
-public class Sound
-{
-    private AudioSource _source; //플레이어
-
-    public string _name; //이름
-    public AudioClip[] _clip; //파일
-    [Range(0, 1)]
-    public float _volume;
-    public bool _isLoop;
-
-    public void SetSource(AudioSource _source)
-    {
-        this._source = _source;
-        this._source.clip = _clip[0];
-        this._source.loop = _isLoop;
-    }
-
-    public void Play()
-    {
-        if(!_source.isPlaying)
-        {
-            _source.Stop();
-        }
-        
-        if(_clip.Length > 1)
-        {
-            this._source.clip = _clip[Random.Range(0, _clip.Length)];
-        }
-        
-        _source.Play();
-    }
-    public void Stop()
-    {
-        _source.Stop();
-    }
-    public void SetLoop(bool isLoop) //반복재생
-    {
-        _source.loop = isLoop;
-        _isLoop = isLoop;
-    }
-    public void SetVolume(float volume)
-    {
-        _source.volume = volume;
-        _volume = volume;
-    }
-}
-
 public class AudioManager : Singleton<AudioManager>, EventListener<SoundEvent>
 {
-    [SerializeField]
-    private Sound[] _sounds;
+    [HideInInspector] public List<Sound> _sounds = new List<Sound>();
     private Dictionary<string, Sound> _soundDic = new Dictionary<string, Sound>();
 
     protected virtual void Initialization()
     {
-        for ( int i = 0; i < _sounds.Length ; i++ )
+        for ( int i = 0; i < _sounds.Count; i++ )
         {
             GameObject soundObject = new GameObject("사운드 파일 이름 : " + i + "=" + _sounds[i]._name );
             _sounds[i].SetSource( soundObject.AddComponent<AudioSource>() );
@@ -103,11 +54,6 @@ public class AudioManager : Singleton<AudioManager>, EventListener<SoundEvent>
     void Start()
     {
         Initialization();
-    }
-
-	protected override void Awake()
-    {
-        base.Awake();
     }
 
     public void Play (string name)
@@ -160,5 +106,11 @@ public class AudioManager : Singleton<AudioManager>, EventListener<SoundEvent>
     private void OnDisable() 
     {
         this.EventStopListening<SoundEvent>();
+    }
+
+    public struct AudioCreationParams 
+    {
+        public string _audioName;
+        public string _path;
     }
 }

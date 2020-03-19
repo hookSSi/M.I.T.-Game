@@ -36,7 +36,7 @@ public class IntroManager : MonoBehaviour, EventListener<IntroEvent>
 
     private void StartBgm()
     {
-        BgmManager.Instance.Play(0);
+        BgmManager.Instance.Play("Intro");
         BgmManager.Instance.SetVolume(1f);
     }
 

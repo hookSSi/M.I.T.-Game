@@ -7,24 +7,36 @@ using MIT.SamtleGame.DesignPattern;
 [RequireComponent(typeof(AudioSource))]
 public class BgmManager : Singleton<BgmManager>
 {
-    public AudioClip[] _clips; //bgms
-
+    private Dictionary<string, Sound> _soundDic = new Dictionary<string, Sound>();
+    [HideInInspector] public List<Sound> _sounds = new List<Sound>();
     private AudioSource _audio;
-
     private WaitForSeconds _waitTime = new WaitForSeconds(0.01f);
 
-    protected override void Awake()
+    protected virtual void Initialization()
     {
-        base.Awake();
+        foreach(Sound sound in _sounds)
+        {
+            _soundDic[sound._name] = sound;
+        }
+
         _audio = GetComponent<AudioSource>();
     }
+    
+    void Start()
+    {
+        Initialization();
+    }
 
-    public void Play(int _playTrack, bool loop = true, float volume = 0.4f)
+    public void Play(string trackName = "", bool loop = true, float volume = 0.4f)
     {
         _audio.volume = volume;
-        _audio.clip = _clips[_playTrack];
         _audio.loop = loop;
-        _audio.Play();
+
+        if(_soundDic.ContainsKey(trackName))
+            _soundDic[trackName].Play(_audio);
+        else
+            Debug.Log(trackName);
+
     }
 
     public void Pause()
@@ -77,4 +89,10 @@ public class BgmManager : Singleton<BgmManager>
 
     public bool IsPlaying(){ return _audio.isPlaying; }
     public AudioSource GetAudio(){ return _audio; }
+
+    public struct BgmCreationParams 
+    {
+        public string _bgmName;
+        public string _path;
+    }
 }

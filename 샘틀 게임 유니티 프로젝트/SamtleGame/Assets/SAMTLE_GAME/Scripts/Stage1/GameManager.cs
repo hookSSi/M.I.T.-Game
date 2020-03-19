@@ -35,6 +35,10 @@ namespace MIT.SamtleGame.Stage1
 
 	public class GameManager : MonoBehaviour, EventListener<PlayGameEvent>, EventListener<PasueGameEvent>, EventListener<ClearGameEvent>
     {
+        public string _stage1bgm1;
+        public string _stage1bgm2;
+        public string _stage1bgm3;
+
         public static int _totalEnemyCount = 0;
         public static bool _isPlayable = false;
         public PlayerController _player;
@@ -71,7 +75,7 @@ namespace MIT.SamtleGame.Stage1
         private IEnumerator ReadyAndStartRoutine()
         {
             Pause();
-            BgmManager.Instance.Play(0);
+            BgmManager.Instance.Play(_stage1bgm1);
             _readyText.SetActive(true);
             yield return new WaitForSecondsRealtime(3.0f);
             _startText.SetActive(true);
@@ -79,7 +83,7 @@ namespace MIT.SamtleGame.Stage1
             _readyText.SetActive(false);
             _startText.SetActive(false);
             Play();
-            BgmManager.Instance.Play(1, true);
+            BgmManager.Instance.Play(_stage1bgm2, true);
             yield return new WaitForSecondsRealtime(0.33f);
             SpawnerEvent.Trigger(SpawnerState.Play);
         }
@@ -95,7 +99,7 @@ namespace MIT.SamtleGame.Stage1
 		public virtual void OnEvent(ClearGameEvent clearGameEvent)
 		{
 			Debug.Log("game clear!!");
-            BgmManager.Instance.Play(3, true);
+            BgmManager.Instance.Play(_stage1bgm3, true);
 			_player.transform.GetComponent<PlayerAnimController>().StartToGoToStair();
 			Pause();
 		}

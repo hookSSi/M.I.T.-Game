@@ -32,7 +32,7 @@ namespace MIT.SamtleGame.Tools
                     PassInfo();
                     break;
                 case EventType.PlayerControll:
-                    BgmManager.Instance.Play(0);
+                    BgmManager.Instance.Play();
                     PlayerControllerEvent.Trigger(true);
                     break;
                 case EventType.None:

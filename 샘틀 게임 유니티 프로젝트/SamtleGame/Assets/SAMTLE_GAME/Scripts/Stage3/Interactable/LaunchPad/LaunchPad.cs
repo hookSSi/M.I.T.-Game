@@ -10,6 +10,7 @@ namespace MIT.SamtleGame.Stage3
     public class LaunchPad : Interactive
     {
         [Header("런치패드 정보"), Space(20)]
+        public string _lunchPadBgm;
         public MusicAnalyzer _musicAnalyzer;
         public List<Pad> _pads = new List<Pad>();
         public Tweens.TweenCurve _curve;
@@ -39,7 +40,7 @@ namespace MIT.SamtleGame.Stage3
 
         IEnumerator PadLightLoop()
         {
-            BgmManager.Instance.Play(0, true);
+            BgmManager.Instance.Play(_lunchPadBgm, true);
             _musicAnalyzer.SetMusic(BgmManager.Instance.GetAudio());
 
             while(BgmManager.Instance.IsPlaying())

@@ -59,7 +59,7 @@ namespace MIT.SamtleGame.Stage1
             _enemySpeed = 3f;
             _animator.SetTrigger("StartCombat");
             PlayGameEvent.Trigger();
-            BgmManager.Instance.Play(1, true);
+            BgmManager.Instance.Play("CombatBgm", true);
         }
 
         public IEnumerator Backstep(float duration)
