@@ -13,9 +13,11 @@ public struct DialoguePage
 	[Multiline(3)]
 	public string _text;
 	[Range(0, 100)]
-	public float _delay; // 실행전 딜레이
+    [Tooltip("실행전 딜레이")]
+    public float _delay; // 실행전 딜레이
 	[Range(0, 100)]
-	public float _duration; // 실행후 지속시간
+    [Tooltip("실행후 지속시간")]
+    public float _duration; // 실행후 지속시간
 
 	public static DialoguePage CreatePage(string text, float delay = 0.1f, float duration = 0.1f)
 	{

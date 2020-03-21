@@ -74,19 +74,30 @@ public class AnimImage : MonoBehaviour, EventListener<ChangeImageEvent>
 
     private void ChangeImage(int targetIndex, int id)
     {
-        if( id != _id )
+        if (id != _id)
         {
-            return;            
+            return;
         }
 
-        if(targetIndex < 0)
+        if (targetIndex < 0)
             _currentSpriteIndex = _sprites.Length + targetIndex;
-        else if(targetIndex >= _sprites.Length)
+        else if (targetIndex >= _sprites.Length)
             _currentSpriteIndex = targetIndex % _sprites.Length;
         else
             _currentSpriteIndex = targetIndex;
 
         _image.sprite = _sprites[_currentSpriteIndex];
+    }
+
+    public void SpriteInitialize(int size)
+    {
+        _sprites = new Sprite[size];
+    }
+
+    public void AddNext(Sprite newSprite, int index)
+    {
+        if (index >= 0 && index < _sprites.Length)
+            _sprites[index] = newSprite;
     }
 
     public virtual void OnEvent(ChangeImageEvent changeImageEvent)
