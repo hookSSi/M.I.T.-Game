@@ -8,56 +8,64 @@ using System.Collections.Generic;
 [CustomEditor(typeof(BgmManager))]
 public class BgmManagerInspector : Editor
 {
-    private ReorderableList _bgmList;
-    private ReorderableList _currentSound;
+    protected ReorderableList _soundList;
+    protected ReorderableList _currentSound;
 
-    private readonly Dictionary<string, ReorderableList> _soundDict = new Dictionary<string, ReorderableList>();
+    protected readonly Dictionary<string, ReorderableList> _soundDict = new Dictionary<string, ReorderableList>();
 
     #region 초기화용 함수
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
-        _bgmList = new ReorderableList(serializedObject, serializedObject.FindProperty("_sounds"),
+        _soundList = new ReorderableList(serializedObject, serializedObject.FindProperty("_sounds"),
         true, true, true, true);
 
-        _bgmList.drawHeaderCallback = DrawBgmHeader;
+        _soundList.drawHeaderCallback = DrawHeader;
 
-        _bgmList.drawElementCallback = DrawAudioElement;
+        _soundList.drawElementCallback = DrawElement;
 
-        _bgmList.onRemoveCallback = (ReorderableList list) => 
+        _soundList.onRemoveCallback = Remove;
+
+        _soundList.onAddCallback = Add;
+
+        _soundList.elementHeightCallback = (index) =>
         {
-            if(EditorUtility.DisplayDialog("경고!", "정말 이 BGM을 삭제하겠습니까?", "네", "아니요"))
-            {
-                ReorderableList.defaultBehaviours.DoRemoveButton(list);
-            }       
-        };
-
-        _bgmList.onAddCallback = (ReorderableList list) => 
-        {
-            var index = list.serializedProperty.arraySize;
-            list.serializedProperty.arraySize++;
-            list.index = index;
-
-            var e = list.serializedProperty.GetArrayElementAtIndex(index);
-            e.FindPropertyRelative("_name").stringValue = string.Format("BGM {0}", index);
-        };
-
-        _bgmList.elementHeightCallback = (index) =>
-        {
-            return GetAudioHeight(_bgmList.serializedProperty.GetArrayElementAtIndex(index));
+            return GetHeight(_soundList.serializedProperty.GetArrayElementAtIndex(index));
         };
     }
     #endregion
     
     #region  Audio 인스펙터 라벨 제목
-    private void DrawBgmHeader(Rect rect)
+    protected virtual void DrawHeader(Rect rect)
     {
         EditorGUI.LabelField(rect, "Bgm");
     }
     #endregion
 
-    private void DrawAudioElement(Rect rect, int index, bool isActive, bool isFocused)
+    #region onRemoveCallback
+    protected virtual void Remove(ReorderableList list)
     {
-        var bgm = _bgmList.serializedProperty.GetArrayElementAtIndex(index);
+        if(EditorUtility.DisplayDialog("경고!", "정말 이 BGM을 삭제하겠습니까?", "네", "아니요"))
+        {
+            ReorderableList.defaultBehaviours.DoRemoveButton(list);
+        }    
+    }
+    #endregion
+
+    #region onAddCallback
+    protected virtual void Add(ReorderableList list)
+    {
+        var index = list.serializedProperty.arraySize;
+        list.serializedProperty.arraySize++;
+        list.index = index;
+
+        var e = list.serializedProperty.GetArrayElementAtIndex(index);
+        e.FindPropertyRelative("_name").stringValue = string.Format("BGM {0}", index);
+    }
+    #endregion
+
+    protected virtual void DrawElement(Rect rect, int index, bool isActive, bool isFocused)
+    {
+        var bgm = _soundList.serializedProperty.GetArrayElementAtIndex(index);
 
         var pos = new Rect(rect);
 
@@ -85,11 +93,13 @@ public class BgmManagerInspector : Editor
                         draggable = true,
 
                         drawHeaderCallback = DrawSoundHeader,
+
                         drawElementCallback = (soundRect, soundIndex, soundIsActive, soundIsFocused) => 
                         {
                             DrawSoundElement(_soundDict[soundDicKey], soundRect, soundIndex, soundIsActive, soundIsFocused);
                         },
-                        onAddDropdownCallback = SoundDropDownMenu
+                    
+                        onAddDropdownCallback = DropDownMenu
                     };
                     _soundDict[soundDicKey] = clipList;
                 }
@@ -100,7 +110,7 @@ public class BgmManagerInspector : Editor
         EditorGUI.indentLevel--;
     }
 
-    private float GetAudioHeight(SerializedProperty bgm)
+    protected virtual float GetHeight(SerializedProperty bgm)
     {
         var height = EditorGUIUtility.singleLineHeight;
 
@@ -118,7 +128,7 @@ public class BgmManagerInspector : Editor
     }
 
     #region 사운드 선택 드랍다운 메뉴
-    private void SoundDropDownMenu(Rect buttonRect, ReorderableList list)
+    protected virtual void DropDownMenu(Rect buttonRect, ReorderableList list)
     {
         var menu = new GenericMenu();
         _currentSound = list;
@@ -128,7 +138,7 @@ public class BgmManagerInspector : Editor
         {
             var path = AssetDatabase.GUIDToAssetPath(guid);
             menu.AddItem(new GUIContent("Intro/" + Path.GetFileNameWithoutExtension(path)),
-            false, clickHandler,
+            false, ClickHandler,
             new BgmManager.BgmCreationParams() { _bgmName = Path.GetFileNameWithoutExtension(path), _path = path }
             );
         }
@@ -137,7 +147,7 @@ public class BgmManagerInspector : Editor
         {
             var path = AssetDatabase.GUIDToAssetPath(guid);
             menu.AddItem(new GUIContent("Stage1/" + Path.GetFileNameWithoutExtension(path)),
-            false, clickHandler,
+            false, ClickHandler,
             new BgmManager.BgmCreationParams() { _bgmName = Path.GetFileNameWithoutExtension(path), _path = path }
             );
         }
@@ -146,7 +156,7 @@ public class BgmManagerInspector : Editor
         {
             var path = AssetDatabase.GUIDToAssetPath(guid);
             menu.AddItem(new GUIContent("Stage2/" + Path.GetFileNameWithoutExtension(path)),
-            false, clickHandler,
+            false, ClickHandler,
             new BgmManager.BgmCreationParams() { _bgmName = Path.GetFileNameWithoutExtension(path), _path = path }
             );
         }
@@ -155,7 +165,7 @@ public class BgmManagerInspector : Editor
         {
             var path = AssetDatabase.GUIDToAssetPath(guid);
             menu.AddItem(new GUIContent("Stage3/" + Path.GetFileNameWithoutExtension(path)),
-            false, clickHandler,
+            false, ClickHandler,
             new BgmManager.BgmCreationParams() { _bgmName = Path.GetFileNameWithoutExtension(path), _path = path }
             );
         }
@@ -164,7 +174,7 @@ public class BgmManagerInspector : Editor
         {
             var path = AssetDatabase.GUIDToAssetPath(guid);
             menu.AddItem(new GUIContent("Outro/" + Path.GetFileNameWithoutExtension(path)),
-            false, clickHandler,
+            false, ClickHandler,
             new BgmManager.BgmCreationParams() { _bgmName = Path.GetFileNameWithoutExtension(path), _path = path }
             );
         }
@@ -172,12 +182,12 @@ public class BgmManagerInspector : Editor
     }
     #endregion
 
-    private void DrawSoundHeader(Rect rect)
+    protected virtual void DrawSoundHeader(Rect rect)
     {
         EditorGUI.LabelField(rect, "사운드 파일");
     }
 
-    private void DrawSoundElement(ReorderableList list, Rect rect, int index, bool isActive, bool isFocused)
+    protected virtual void DrawSoundElement(ReorderableList list, Rect rect, int index, bool isActive, bool isFocused)
     {
         var element = list.serializedProperty.GetArrayElementAtIndex(index);
         rect.y += 2;
@@ -194,12 +204,12 @@ public class BgmManagerInspector : Editor
 
         serializedObject.Update();
 
-        _bgmList.DoLayoutList();
+        _soundList.DoLayoutList();
 
         serializedObject.ApplyModifiedProperties();
     }
 
-    private void clickHandler(object target) 
+    protected virtual void ClickHandler(object target) 
     {
         var data = (BgmManager.BgmCreationParams)target;
 

@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MIT.SamtleGame.Tools;
 
-/// 스포너도 인스펙터 수정 필요
+using MIT.SamtleGame.Tools;
+using NaughtyAttributes;
 
 namespace MIT.SamtleGame.Stage1
 {
@@ -68,32 +68,43 @@ namespace MIT.SamtleGame.Stage1
     public class Spawner : MonoBehaviour, EventListener<SpawnerEvent>, EventListener<SpawnEvent>
     {
         /// 스폰 타이밍을 정의한 애니메이터
-        public Animator _spawnAnimator;
+        private Animator _spawnAnimator;
+        
+        [BoxGroup("스폰될 적 프리팹 설정"), Header("시민")] 
+        public List<GameObject> _civil = new List<GameObject>();
+        [BoxGroup("스폰될 적 프리팹 설정"), Header("비둘기")] 
+        public List<GameObject> _pegeon = new List<GameObject>();
+        [BoxGroup("스폰될 적 프리팹 설정"), Header("보스")] 
+        public List<GameObject> _boss = new List<GameObject>();
 
-        [Header("스폰될 적 프리팹 설정")]
-        public GameObject[] _civil;
-        public GameObject[] _pegeon;
-        public GameObject[] _boss;
-
-        [Header("스폰 될 위치")]
+        [BoxGroup("스폰 될 위치 설정")] 
         public Transform _playerPos;
+        [BoxGroup("스폰 될 위치 설정")] 
         public Transform _right;
+        [BoxGroup("스폰 될 위치 설정")] 
         public Transform _left;
 
-        [Header("현재 스폰 정보")]
+        [BoxGroup("스폰 정보")] 
         public List<SpawnInfo> _spawnInfoList = new List<SpawnInfo>();
-        [SerializeField]
+
+        [ShowNonSerializedField]
         private EnemyType _currentSpawnType;
-        [SerializeField]
+        [ShowNonSerializedField]
         private Direction _currentSpawnDir;
 
         public void PauseSpawn()
         {
+            if(_spawnAnimator == null)
+                _spawnAnimator = GetComponent<Animator>();
+
             _spawnAnimator.enabled = false;
         }
 
         public void StartSpawn()
         {
+            if(_spawnAnimator == null)
+                _spawnAnimator = GetComponent<Animator>();
+
             _spawnAnimator.enabled = true;
             _spawnAnimator.Play("SpawnTest", -1, 0f);
         }
@@ -134,15 +145,15 @@ namespace MIT.SamtleGame.Stage1
             switch( type )
             {
                 case EnemyType.Civil:
-                    enemy = _civil[Random.Range(0, _civil.Length)];
+                    enemy = _civil[Random.Range(0, _civil.Count)];
                     Debug.Log("시민 나옴");
                     break;
                 case EnemyType.Pegeon:
-                    enemy = _pegeon[Random.Range(0, _pegeon.Length)];;
+                    enemy = _pegeon[Random.Range(0, _pegeon.Count)];;
                     Debug.Log("비둘기 나옴");
                     break;
                 case EnemyType.Boss:
-                    enemy = _boss[Random.Range(0, _boss.Length)];
+                    enemy = _boss[Random.Range(0, _boss.Count)];
                     break;
                 case EnemyType.None:
                     Debug.Log("아무것도 안나옴");
@@ -201,5 +212,11 @@ namespace MIT.SamtleGame.Stage1
             this.EventStopListening<SpawnerEvent>();
             this.EventStopListening<SpawnEvent>();
         }
+
+        public struct EnemyCreationParams
+        {
+            public string _path;
+        }
     }
+
 }
