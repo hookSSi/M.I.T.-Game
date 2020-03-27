@@ -18,7 +18,7 @@ namespace MIT.SamtleGame.Stage3
             // 플레이어 모델 방향 보정
             if (_controller._canMove)
             {
-                float yAngle = Mathf.SmoothDampAngle(_playerModel.transform.localRotation.eulerAngles.y, 0f, ref yVelocity, smooth);
+                float yAngle = Mathf.SmoothDampAngle(_playerModel.transform.localRotation.eulerAngles.y, 0f, ref _yVelocity, _smooth);
                 _playerModel.transform.localRotation = Quaternion.Euler(0, yAngle, 0);
             }
         }

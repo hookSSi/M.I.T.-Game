@@ -10,9 +10,6 @@ using MIT.SamtleGame.Intro;
 public class IntroManagerInspector : Editor
 {
     ReorderableList _list;
-    float _textHeight = EditorGUIUtility.singleLineHeight * 2f;
-    float _space = EditorGUIUtility.singleLineHeight * 0.3f;
-    float _labelx = 50f;
 
     public override void OnInspectorGUI()
     {
@@ -31,7 +28,7 @@ public class IntroManagerInspector : Editor
                 true, true, true, true);
 
         // 대화창 높이 조절
-        _list.elementHeight = EditorGUIUtility.singleLineHeight * 4.8f;
+        _list.elementHeight = EditorGUIUtility.singleLineHeight * 6.8f;
 
         // 레이블
         _list.drawHeaderCallback = (Rect rect) =>
@@ -50,6 +47,9 @@ public class IntroManagerInspector : Editor
     private void DrawElement(Rect rect, int index, bool isActive, bool isFocused)
     {
         var element = _list.serializedProperty.GetArrayElementAtIndex(index);
+        float _textHeight = EditorGUIUtility.singleLineHeight * 4f;
+        float _space = EditorGUIUtility.singleLineHeight * 0.3f;
+        float _labelx = 50f;
         float halfOfWidth = rect.width / 2f;
 
         rect.y += 3;
@@ -60,16 +60,13 @@ public class IntroManagerInspector : Editor
             "===" + (index + 1).ToString() + " 페이지===", EditorStyles.boldLabel);
 
         // Sprite
-        EditorGUI.LabelField(
-            new Rect(rect.x, rect.y + EditorGUIUtility.singleLineHeight, 90, EditorGUIUtility.singleLineHeight),
-            "그림", EditorStyles.wordWrappedLabel);
-        EditorGUI.PropertyField(
-            new Rect(rect.x, rect.y + EditorGUIUtility.singleLineHeight * 2, 90, EditorGUIUtility.singleLineHeight),
-            element.FindPropertyRelative("_sprite"), GUIContent.none);
+        EditorGUI.ObjectField(
+             new Rect(rect.x, rect.y + EditorGUIUtility.singleLineHeight, 90, _textHeight),
+            element.FindPropertyRelative("_sprite"), typeof(Sprite), GUIContent.none);
 
         // Text
         EditorGUI.PropertyField(
-            new Rect(rect.x + 90, rect.y + EditorGUIUtility.singleLineHeight, rect.width - 90, _textHeight),
+            new Rect(rect.x + 100, rect.y + EditorGUIUtility.singleLineHeight, rect.width - 100, _textHeight),
             element.FindPropertyRelative("_text"), GUIContent.none);
 
         // Delay and duration
@@ -77,13 +74,13 @@ public class IntroManagerInspector : Editor
             new Rect(rect.x, rect.y + _textHeight + _space + EditorGUIUtility.singleLineHeight, _labelx, EditorGUIUtility.singleLineHeight),
             "딜레이");
         EditorGUI.PropertyField(
-            new Rect(rect.x + _labelx, rect.y + _textHeight + _space + EditorGUIUtility.singleLineHeight, halfOfWidth - _labelx, EditorGUIUtility.singleLineHeight),
+            new Rect(rect.x + _labelx, rect.y + _textHeight + _space + EditorGUIUtility.singleLineHeight, halfOfWidth - _labelx - 10f, EditorGUIUtility.singleLineHeight),
             element.FindPropertyRelative("_delay"), GUIContent.none);
         EditorGUI.LabelField(
             new Rect(rect.x + halfOfWidth, rect.y + _textHeight + _space + EditorGUIUtility.singleLineHeight, _labelx, EditorGUIUtility.singleLineHeight),
             "지속시간");
         EditorGUI.PropertyField(
-            new Rect(rect.x + halfOfWidth + _labelx, rect.y + _textHeight + _space + EditorGUIUtility.singleLineHeight, halfOfWidth - _labelx, EditorGUIUtility.singleLineHeight),
+            new Rect(rect.x + halfOfWidth + _labelx, rect.y + _textHeight + _space + EditorGUIUtility.singleLineHeight, halfOfWidth - _labelx - 10f, EditorGUIUtility.singleLineHeight),
             element.FindPropertyRelative("_duration"), GUIContent.none);
     }
 
