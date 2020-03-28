@@ -8,8 +8,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 {
     public class PokemonBattleSkill : MonoBehaviour
     {
-        [SerializeField] private GameObject[] _skills = new GameObject[4];
-        [SerializeField] private Text _skillPpText;
+        public GameObject[] _skills = new GameObject[4];
+        public Text _skillPpText;
 
         private Text[] _skillTexts;
         private Selectable[] _selectable;

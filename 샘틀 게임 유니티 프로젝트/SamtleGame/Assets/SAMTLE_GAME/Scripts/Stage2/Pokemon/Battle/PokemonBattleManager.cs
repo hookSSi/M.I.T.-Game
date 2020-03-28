@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using MIT.SamtleGame.Tools;
+using MIT.SamtleGame.Attributes;
 
 
 namespace MIT.SamtleGame.Stage2.Pokemon
@@ -24,11 +26,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public BattleDialogueController _dialogueController;
         public Pokemon _myPokemon;
         public Pokemon _enemyPokemon;
-        public string _hitSound = "Hit";
-        public string _commitSound = "BattleCommit";
-        public string _appearSound = "RetroVideoGameFx";
-        public string _battleTrack;
-        public string _victoryTrack;
+        [GameAudio] public string _hitSound = "Hit";
+        [GameAudio] public string _commitSound = "BattleCommit";
+        [GameAudio] public string _appearSound = "RetroVideoGameFx";
+        [GameBgm] public string _battleTrack;
+        [GameBgm] public string _victoryTrack;
 
         private Tool.PokemonBattleEventSystem _eventSystem;
         private WaitWhile _waitDialogueUpdating;
@@ -37,9 +39,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         private string _prevTrack;
 
         [Header("배틀 테스트용 인자")]
+        [SerializeField] private bool _isTest = false;
         [SerializeField] private string _testMyPokemon;
         [SerializeField] private string _testEnemyPokemon;
-        [SerializeField] private bool _isTest = false;
 
         public BattleState _state { get; private set; }
 
@@ -110,15 +112,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             _uiManager._skillClass.Init();
 
-            var bgmManager = BgmManager.Instance;
-            AudioClip currentMusic = bgmManager.GetComponent<AudioSource>().clip;
-            _prevTrack = "Null";
-
-            // 고쳐주길 바람
-            // for (int i = 0; i < bgmManager._sounds.Count; i++)
-            // {
-            //     if (bgmManager._sounds[i]._clip2 == currentMusic) { _prevTrack = i; break; }
-            // }
+            _prevTrack = BgmManager.Instance.CurrentTrack;
 
             BgmManager.Instance.Pause();
             BgmManager.Instance.Play(_battleTrack, true);
@@ -330,7 +324,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             yield return new WaitForSeconds(0.5f);
 
             BgmManager.Instance.Pause();
-            if (_prevTrack != "Null" && _prevTrack != _battleTrack && _prevTrack != _victoryTrack)
+            if (_prevTrack != "(None)")
                 BgmManager.Instance.Play(_prevTrack);
 
             _state = BattleState.None;

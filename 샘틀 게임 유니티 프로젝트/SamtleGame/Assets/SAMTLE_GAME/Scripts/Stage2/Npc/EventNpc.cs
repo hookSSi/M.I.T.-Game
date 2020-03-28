@@ -76,7 +76,7 @@ namespace MIT.SamtleGame.Stage2.NPC
 
         protected virtual IEnumerator Response()
         {
-            BgmManager.Instance.Stop();
+            // BgmManager.Instance.Stop();
             SoundEvent.Trigger(_detectSound);
             Debug.Log("플레이어 감지됨");
             _reactMark.SetActive(true);

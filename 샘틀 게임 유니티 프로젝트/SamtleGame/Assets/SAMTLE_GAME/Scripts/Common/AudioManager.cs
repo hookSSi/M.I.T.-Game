@@ -51,7 +51,7 @@ public class AudioManager : Singleton<AudioManager>, EventListener<SoundEvent>
         }
     }
 
-    void Start()
+    void Awake()
     {
         Initialization();
     }
