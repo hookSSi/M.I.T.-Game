@@ -1,9 +1,8 @@
 ﻿using MIT.SamtleGame.DesignPattern;
 using System.Collections;
-using System.Collections.Generic;
+using System.Reflection; // 테스트용
 using UnityEngine;
 using UnityEngine.Events;
-using MIT.SamtleGame.Tools;
 using MIT.SamtleGame.Attributes;
 
 
@@ -17,7 +16,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
     }
 
     [System.Serializable]
-    public class BattleEvent : UnityEvent<Pokemon, Pokemon> { }
+    public delegate void BattleEvent(Pokemon myPokemon, Pokemon enemyPokemon);
 
     public class PokemonBattleManager : Singleton<PokemonBattleManager>
     {
@@ -192,7 +191,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _uiManager._mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Battle);
             _uiManager._bottomUI.UpdateDialog();
 
-            StartCoroutine(ActPhase(playerSkill._battleEvent, NextEnemySkill()._battleEvent));
+            StartCoroutine(ActPhase(playerSkill._event, NextEnemySkill()._event));
         }
 
         public void UseItem(BattleEvent battleEvent)
@@ -202,7 +201,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _uiManager._mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Battle);
             _uiManager._bottomUI.UpdateDialog();
 
-            StartCoroutine(ActPhase(battleEvent, NextEnemySkill()._battleEvent));
+            StartCoroutine(ActPhase(battleEvent, NextEnemySkill()._event));
         }
 
         IEnumerator ActPhase(BattleEvent playerEvent, BattleEvent enemyEvent)
@@ -217,14 +216,22 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
                 if (isFriendlyTurn) // 아군의 턴
                 {
-                    playerEvent.Invoke(_myPokemon, _enemyPokemon);
+                    // Debug.Log("스킬 : " + playerEvent.GetPersistentMethodName(0));
+                    // invoke 메서드가 Unity의 메서드와 C# 기본 메서드와 충돌을 일으킨다...
+                    /*
+                    System.Type tp = typeof(SkillClass);
+                    MethodInfo method = tp.GetMethod("OptimalizingOfLimitation");
+                    method.Invoke(_uiManager.GetComponent<SkillClass>(), new object[] { _myPokemon, _enemyPokemon });
+                    */
+                    // playerEvent.Invoke(_myPokemon, _enemyPokemon);
                     // 상태 이상
                     if (_myPokemon._effectCount > 0) _myPokemon._effectCount--;
                     else _myPokemon._status = Pokemon.StatusEffect.None;
                 }
                 else // 적의 턴
                 {
-                    enemyEvent.Invoke(_enemyPokemon, _myPokemon);
+                    // Debug.Log("스킬 : " + enemyEvent.GetPersistentMethodName(0));
+                    // enemyEvent.Invoke(_enemyPokemon, _myPokemon);
                     // 상태 이상
                     if (_enemyPokemon._effectCount > 0) _enemyPokemon._effectCount--;
                     else _enemyPokemon._status = Pokemon.StatusEffect.None;
@@ -365,7 +372,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         // 다음에 적이 사용할 스킬
         private Skill NextEnemySkill()
         {
-            int enemySkillLength = _enemyPokemon.Info._skills.Length;
+            int enemySkillLength = _enemyPokemon.Info._skills.Count;
 
             Skill enemySkill = _enemyPokemon.UseSkill(Random.Range(0, enemySkillLength));
 

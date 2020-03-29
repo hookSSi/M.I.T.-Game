@@ -5,24 +5,26 @@ using UnityEngine;
 namespace MIT.SamtleGame.Stage2.Pokemon
 {
     [System.Serializable]
-    public class PokemonDictionary
+    [RequireComponent(typeof(SkillClass))]
+    public class PokemonData
     {
-        public string _key;
         public PokemonInfo _info;
+        [HideInInspector]
+        public bool _isFoldOut = true;
     }
 
     [RequireComponent(typeof(SkillClass))]
     public class PokemonManager : DesignPattern.Singleton<PokemonManager>
     {
-        public List<PokemonDictionary> _list;
+        [HideInInspector]
+        public List<PokemonData> _pokemonList;
 
         public static bool GetPokemonInfo(string pokemonName, out PokemonInfo _outInfo)
         {
             try
             {
-                int index = Instance._list.FindIndex((dict) => { return dict._key == pokemonName; });
-
-                _outInfo = Instance._list[index]._info;
+                int index = Instance._pokemonList.FindIndex((dict) => { return dict._info._name == pokemonName; });
+                _outInfo = Instance._pokemonList[index]._info;
                 return true;
             }
             catch (ArgumentException e)
@@ -38,10 +40,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             Skill defaultSkill = new Skill
             {
                 _name = "뇌정지",
-                _count = 999
-            };
-            defaultSkill._battleEvent = new BattleEvent();
-            defaultSkill._battleEvent.AddListener(Instance.GetComponent<SkillClass>().StopThinking);
+                _count = 999,
+                _event = Instance.GetComponent<SkillClass>().StopThinking
+        };
 
             return defaultSkill;
         }

@@ -13,8 +13,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public int _count;
         [HideInInspector]
         public int _currentCount;
+        public string _eventName;
         [Tooltip("스킬 이벤트")]
-        public BattleEvent _battleEvent;
+        public BattleEvent _event;
     }
     [System.Serializable]
     public class PokemonInfo
@@ -33,7 +34,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         [Header("기술")]
         [SerializeField]
-        public Skill[] _skills;
+        public List<Skill> _skills;
 
     }
 
@@ -92,7 +93,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _info = newInfo;
             Health = MaxHealth;
 
-            for (int i = 0; i < newInfo._skills.Length; i++)
+            for (int i = 0; i < newInfo._skills.Count; i++)
                 _info._skills[i]._currentCount = newInfo._skills[i]._count;
         }
     }

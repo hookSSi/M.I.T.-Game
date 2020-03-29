@@ -22,6 +22,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         /// 스킬 시전 대사
         public static bool FirstScript(Pokemon pokemon, string skillName, out string firstDialog)
         {
+            Debug.Log("I play the FirstScript!");
+
             if (!pokemon)
             {
                 firstDialog = "";

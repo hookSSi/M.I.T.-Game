@@ -17,8 +17,10 @@ namespace MIT.SamtleGame.Stage2
 
         public void AddNextPage(string newText, bool isStopping = false)
         {
-            DialoguePage newPage = new DialoguePage();
-            newPage._text = newText;
+            DialoguePage newPage = new DialoguePage
+            {
+                _text = newText
+            };
 
             _textPages.Add(newPage);
             _stopPoints.Add(isStopping);
