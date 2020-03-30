@@ -1130,13 +1130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793ebca0fed7e314fb83d162a22e8379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _civil:
-  - {fileID: 5269283424793601856, guid: c1d2d8417e989024087b5e0189049bc4, type: 3}
-  - {fileID: 7679147356324202134, guid: 647b5912bfdcd8f45bc41683e96cf5ee, type: 3}
-  _pegeon:
-  - {fileID: 2395725843793262654, guid: 1b5e052c46eacd74aa40239b8b7b0a35, type: 3}
-  _boss:
-  - {fileID: 5269283424793601856, guid: cd5d03d6b9053b248836604a8bb4253e, type: 3}
   _playerPos: {fileID: 362305558}
   _right: {fileID: 889796384}
   _left: {fileID: 113645068}
@@ -1153,6 +1146,13 @@ MonoBehaviour:
     _spawnDir: 0
   - _spawnType: 0
     _spawnDir: 1
+  _civil:
+  - {fileID: 5269283424793601856, guid: c1d2d8417e989024087b5e0189049bc4, type: 3}
+  - {fileID: 7679147356324202134, guid: 647b5912bfdcd8f45bc41683e96cf5ee, type: 3}
+  _pegeon:
+  - {fileID: 2395725843793262654, guid: 1b5e052c46eacd74aa40239b8b7b0a35, type: 3}
+  _boss:
+  - {fileID: 5269283424793601856, guid: cd5d03d6b9053b248836604a8bb4253e, type: 3}
 --- !u!1 &1762652271
 GameObject:
   m_ObjectHideFlags: 0

@@ -70,12 +70,10 @@ namespace MIT.SamtleGame.Stage1
         /// 스폰 타이밍을 정의한 애니메이터
         private Animator _spawnAnimator;
         
-        [BoxGroup("스폰될 적 프리팹 설정"), Header("시민")] 
-        public List<GameObject> _civil = new List<GameObject>();
-        [BoxGroup("스폰될 적 프리팹 설정"), Header("비둘기")] 
-        public List<GameObject> _pegeon = new List<GameObject>();
-        [BoxGroup("스폰될 적 프리팹 설정"), Header("보스")] 
-        public List<GameObject> _boss = new List<GameObject>();
+        [ShowNonSerializedField]
+        private EnemyType _currentSpawnType;
+        [ShowNonSerializedField]
+        private Direction _currentSpawnDir;
 
         [BoxGroup("스폰 될 위치 설정")] 
         public Transform _playerPos;
@@ -84,13 +82,12 @@ namespace MIT.SamtleGame.Stage1
         [BoxGroup("스폰 될 위치 설정")] 
         public Transform _left;
 
-        [BoxGroup("스폰 정보")] 
+        [BoxGroup("스폰 정보"), ReorderableList] 
         public List<SpawnInfo> _spawnInfoList = new List<SpawnInfo>();
 
-        [ShowNonSerializedField]
-        private EnemyType _currentSpawnType;
-        [ShowNonSerializedField]
-        private Direction _currentSpawnDir;
+        [HideInInspector] public List<GameObject> _civil = new List<GameObject>();
+        [HideInInspector] public List<GameObject> _pegeon = new List<GameObject>();
+        [HideInInspector] public List<GameObject> _boss = new List<GameObject>();
 
         public void PauseSpawn()
         {
