@@ -9,6 +9,7 @@ using MIT.SamtleGame.Stage2.Pokemon;
 public class PokemonManagerInspector : Editor
 {
     private ReorderableList _list;
+    private ReorderableList _currentSkillList;
     private readonly Dictionary<string, ReorderableList> _skillDict = new Dictionary<string, ReorderableList>();
 
     private void OnEnable()
@@ -35,7 +36,7 @@ public class PokemonManagerInspector : Editor
                 list.index = index;
 
                 var e = list.serializedProperty.GetArrayElementAtIndex(index);
-                e.FindPropertyRelative("_info._name").stringValue = string.Format("No.{0} 포켓몬", index);
+                e.FindPropertyRelative("_info._name").stringValue = "새 포켓몬";
             },
         };
     }
@@ -57,7 +58,7 @@ public class PokemonManagerInspector : Editor
         float yElement;
         float labelWidth = 80f;
         float halfWidth = rect.width * 0.5f;
-        float halfFieldWidth = halfWidth - labelWidth - 18f;
+        float halfFieldWidth = halfWidth - labelWidth;
         float singleHeight = EditorGUIUtility.singleLineHeight;
         float ySpace = 3f;
 
@@ -70,7 +71,7 @@ public class PokemonManagerInspector : Editor
         EditorGUI.indentLevel++;
         {
             isFoldOut.boolValue = EditorGUI.Foldout(new Rect(rect.x, yElement, 10, singleHeight),
-                isFoldOut.boolValue, key != "" ? key : "(이름이 존재하지 않습니다)");
+                isFoldOut.boolValue, key != "" ? string.Format("No.{0, -3} {1}", index, key) : "(이름이 존재하지 않습니다)");
 
             yElement += singleHeight + ySpace;
 
@@ -139,8 +140,9 @@ public class PokemonManagerInspector : Editor
                         {
                             DrawSkills(_skillDict[key], innerRect, innerIndex, innerIsActive, innerIsFocused);
                         },
-                        elementHeight = singleHeight * 2.5f
+                        elementHeight = singleHeight * 9f
                     };
+
                     _skillDict[key] = skillList;
                 }
                 else
@@ -160,19 +162,21 @@ public class PokemonManagerInspector : Editor
         var element = list.serializedProperty.GetArrayElementAtIndex(index);
         float labelWidth = 70f;
         float halfWidth = rect.width * 0.5f;
-        float halfFieldWidth = halfWidth - labelWidth - 10f;
+        float halfFieldWidth = halfWidth - labelWidth;
         float singleHeight = EditorGUIUtility.singleLineHeight;
 
         rect.y += 2;
         EditorGUI.LabelField(new Rect(rect.x, rect.y, labelWidth, singleHeight), "스킬 이름", EditorStyles.boldLabel);
-        EditorGUI.PropertyField(new Rect(rect.x + labelWidth, rect.y, rect.width - labelWidth - 10f, singleHeight),
+        EditorGUI.PropertyField(new Rect(rect.x + labelWidth, rect.y, rect.width - labelWidth, singleHeight),
             element.FindPropertyRelative("_name"), GUIContent.none);
         EditorGUI.LabelField(new Rect(rect.x, rect.y + singleHeight, labelWidth, singleHeight), "사용 횟수", EditorStyles.boldLabel);
         EditorGUI.PropertyField(new Rect(rect.x + labelWidth, rect.y + singleHeight + 2f, halfFieldWidth, singleHeight),
             element.FindPropertyRelative("_count"), GUIContent.none);
-        EditorGUI.LabelField(new Rect(rect.x + halfWidth, rect.y + singleHeight, labelWidth, singleHeight), "이벤트", EditorStyles.boldLabel);
-        EditorGUI.PropertyField(new Rect(rect.x + halfWidth + labelWidth, rect.y + singleHeight + 2f, halfFieldWidth , singleHeight),
-            element.FindPropertyRelative("_eventName"), GUIContent.none);
+
+        // EditorGUI.LabelField(new Rect(rect.x + halfWidth, rect.y + singleHeight, labelWidth - 15, singleHeight), "이벤트", EditorStyles.boldLabel);
+        EditorGUI.LabelField(new Rect(rect.x, rect.y + singleHeight * 2f + 4f, rect.width, singleHeight), "이벤트");
+        EditorGUI.PropertyField(new Rect(rect.x, rect.y + singleHeight * 3f + 4f, rect.width - 45f, singleHeight),
+            element.FindPropertyRelative("_event"), GUIContent.none);
     }
 
     private float GetElementHeight(SerializedProperty element)
@@ -183,9 +187,9 @@ public class PokemonManagerInspector : Editor
 
         if (isFoldOut.boolValue)
         {
-            height += EditorGUIUtility.singleLineHeight * 10.5f;
+            height += EditorGUIUtility.singleLineHeight * 10.2f;
             var skills = element.FindPropertyRelative("_info._skills");
-            height += EditorGUIUtility.singleLineHeight * Mathf.Max(1, skills.arraySize) * 2.5f;
+            height += EditorGUIUtility.singleLineHeight * Mathf.Max(1, skills.arraySize) * 9f;
         }
 
         return height;

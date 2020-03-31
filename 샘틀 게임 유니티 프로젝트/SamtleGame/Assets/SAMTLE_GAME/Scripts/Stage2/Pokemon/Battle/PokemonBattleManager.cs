@@ -15,9 +15,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         Act, End
     }
 
-    [System.Serializable]
-    public delegate void BattleEvent(Pokemon myPokemon, Pokemon enemyPokemon);
-
     public class PokemonBattleManager : Singleton<PokemonBattleManager>
     {
         public PokemonBattleUIManager _uiManager;
@@ -124,7 +121,13 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             // 대사
             _dialogueController.ClearPages();
             _dialogueController.AddNextPage("야생의 " + _enemyPokemon.Info._name + "이(가) 나타났다!");
-            _dialogueController.AddNextPage("가랏! " + _myPokemon.Info._name + "!", true);
+            if (_myPokemon.Info._name != "신입생")
+                _dialogueController.AddNextPage("가랏! " + _myPokemon.Info._name + "!", true);
+            else
+            {
+                _dialogueController.AddNextPage("가랏! 신입생!");
+                _dialogueController.AddNextPage("신입! 신입!", true);
+            }
 
             StartCoroutine(_uiManager._mainUI.FadeInBattle(1.5f));
             yield return new WaitForSeconds(1.5f);
@@ -216,22 +219,14 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
                 if (isFriendlyTurn) // 아군의 턴
                 {
-                    // Debug.Log("스킬 : " + playerEvent.GetPersistentMethodName(0));
-                    // invoke 메서드가 Unity의 메서드와 C# 기본 메서드와 충돌을 일으킨다...
-                    /*
-                    System.Type tp = typeof(SkillClass);
-                    MethodInfo method = tp.GetMethod("OptimalizingOfLimitation");
-                    method.Invoke(_uiManager.GetComponent<SkillClass>(), new object[] { _myPokemon, _enemyPokemon });
-                    */
-                    // playerEvent.Invoke(_myPokemon, _enemyPokemon);
+                    playerEvent.Invoke(_myPokemon, _enemyPokemon);
                     // 상태 이상
                     if (_myPokemon._effectCount > 0) _myPokemon._effectCount--;
                     else _myPokemon._status = Pokemon.StatusEffect.None;
                 }
                 else // 적의 턴
                 {
-                    // Debug.Log("스킬 : " + enemyEvent.GetPersistentMethodName(0));
-                    // enemyEvent.Invoke(_enemyPokemon, _myPokemon);
+                    enemyEvent.Invoke(_enemyPokemon, _myPokemon);
                     // 상태 이상
                     if (_enemyPokemon._effectCount > 0) _enemyPokemon._effectCount--;
                     else _enemyPokemon._status = Pokemon.StatusEffect.None;
@@ -332,7 +327,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             BgmManager.Instance.Pause();
             if (_prevTrack != "(None)")
-                BgmManager.Instance.Play(_prevTrack);
+                BgmManager.Instance.Play(_prevTrack, false);
 
             _state = BattleState.None;
         }

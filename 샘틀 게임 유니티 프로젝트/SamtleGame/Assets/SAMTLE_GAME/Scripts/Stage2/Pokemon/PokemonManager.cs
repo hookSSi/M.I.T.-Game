@@ -40,11 +40,17 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             Skill defaultSkill = new Skill
             {
                 _name = "뇌정지",
-                _count = 999,
-                _event = Instance.GetComponent<SkillClass>().StopThinking
-        };
+                _count = 999
+            };
+            defaultSkill._event.AddListener(PokemonBattleManager.Instance._uiManager._skillClass.StopThinking);
 
             return defaultSkill;
+        }
+
+        public struct PokemonCreationParams
+        {
+            public string _eventName;
+            public string _path;
         }
     }
 }

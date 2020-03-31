@@ -4032,9 +4032,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f195c73890ae6fb4993654116184ac1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _list:
-  - _key: C++
-    _info:
+  _pokemonList:
+  - _info:
       _frontImage: {fileID: 21300000, guid: fa0f1d3cb332bc54da95762fce316c00, type: 3}
       _backImage: {fileID: 21300000, guid: 16707cb314fe97244ab6ba97742270b2, type: 3}
       _cryingSound: {fileID: 0}
@@ -4044,7 +4043,7 @@ MonoBehaviour:
       - _name: "\uD280\uC5B4\uC624\uB974\uAE30"
         _count: 20
         _currentCount: 0
-        _battleEvent:
+        _event:
           m_PersistentCalls:
             m_Calls:
             - m_Target: {fileID: 0}
@@ -4061,7 +4060,7 @@ MonoBehaviour:
       - _name: "\uADF9\uD55C\uC758 \uCD5C\uC801\uD654"
         _count: 10
         _currentCount: 0
-        _battleEvent:
+        _event:
           m_PersistentCalls:
             m_Calls:
             - m_Target: {fileID: 0}
@@ -4075,18 +4074,18 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
-  - _key: Python
-    _info:
+    _isFoldOut: 0
+  - _info:
       _frontImage: {fileID: 21300000, guid: 26ef3f3578ed807498ea2f275603cbc5, type: 3}
       _backImage: {fileID: 21300000, guid: 6916b3ed19becaa45b5145ddc0a25351, type: 3}
       _cryingSound: {fileID: 0}
-      _name: "\uD30C\uC774\uC36C"
+      _name: Python
       _health: 100
       _skills:
       - _name: "\uD280\uC5B4\uC624\uB974\uAE30"
         _count: 20
         _currentCount: 0
-        _battleEvent:
+        _event:
           m_PersistentCalls:
             m_Calls:
             - m_Target: {fileID: 0}
@@ -4100,10 +4099,10 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
-      - _name: "\uC774\uC9C0 \uD22C \uC720\uC988"
-        _count: 15
+      - _name: "\uC774\uAC70\uC644\uC804\uC26C\uC6CC\uC6A9^^"
+        _count: 10
         _currentCount: 0
-        _battleEvent:
+        _event:
           m_PersistentCalls:
             m_Calls:
             - m_Target: {fileID: 0}
@@ -4117,8 +4116,8 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
-  - _key: Java
-    _info:
+    _isFoldOut: 0
+  - _info:
       _frontImage: {fileID: 21300000, guid: 63563747557a7494dbf639f8d22862bd, type: 3}
       _backImage: {fileID: 21300000, guid: 3da71290f8637de418ae6ce683c40f1d, type: 3}
       _cryingSound: {fileID: 0}
@@ -4128,7 +4127,7 @@ MonoBehaviour:
       - _name: "\uD280\uC5B4\uC624\uB974\uAE30"
         _count: 20
         _currentCount: 0
-        _battleEvent:
+        _event:
           m_PersistentCalls:
             m_Calls:
             - m_Target: {fileID: 0}
@@ -4143,9 +4142,9 @@ MonoBehaviour:
                 m_BoolArgument: 0
               m_CallState: 2
       - _name: "Java\uB97C Java"
-        _count: 5
+        _count: 10
         _currentCount: 0
-        _battleEvent:
+        _event:
           m_PersistentCalls:
             m_Calls:
             - m_Target: {fileID: 0}
@@ -4159,8 +4158,8 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
-  - _key: "\uB3D9\uBC29\uCEF4"
-    _info:
+    _isFoldOut: 0
+  - _info:
       _frontImage: {fileID: 21300000, guid: a5caad210c497844d9f00ab76b057cf9, type: 3}
       _backImage: {fileID: 0}
       _cryingSound: {fileID: 0}
@@ -4170,11 +4169,11 @@ MonoBehaviour:
       - _name: "\uB3CC\uB3CC\uB3CC"
         _count: 20
         _currentCount: 0
-        _battleEvent:
+        _event:
           m_PersistentCalls:
             m_Calls:
             - m_Target: {fileID: 0}
-              m_MethodName: StoneStoneStone
+              m_MethodName: TripleStone
               m_Mode: 0
               m_Arguments:
                 m_ObjectArgument: {fileID: 0}
@@ -4184,94 +4183,18 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
-  - _key: "\uACE0\uC591\uC774"
-    _info:
-      _frontImage: {fileID: 21300000, guid: ca67760fda2a7cc4db36cc747c6f1a16, type: 3}
-      _backImage: {fileID: 0}
-      _cryingSound: {fileID: 0}
-      _name: "\uBBFC\uC9C0\uC758 \uACE0\uC591\uC774"
-      _health: 300
-      _skills:
-      - _name: "\uC2EC\uCFF5\uC0AC"
-        _count: 10
-        _currentCount: 0
-        _battleEvent:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 0}
-              m_MethodName: DeadByHeartPonding
-              m_Mode: 0
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-      - _name: "\uC9D1\uC0AC \uAC04\uD0DD"
-        _count: 20
-        _currentCount: 0
-        _battleEvent:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 0}
-              m_MethodName: BeChosen
-              m_Mode: 0
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-      - _name: "\uD130\uC90F\uB300\uAC10"
-        _count: 10
-        _currentCount: 0
-        _battleEvent:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 0}
-              m_MethodName: MasterMeow
-              m_Mode: 0
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-      - _name: "\uB0AE\uC7A0"
-        _count: 20
-        _currentCount: 0
-        _battleEvent:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 0}
-              m_MethodName: SleepAfternoon
-              m_Mode: 0
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-  - _key: "\uC2E0\uC785\uC0DD"
-    _info:
+    _isFoldOut: 0
+  - _info:
       _frontImage: {fileID: 21300000, guid: 14ae55a7aad124041940f19bbb799f50, type: 3}
       _backImage: {fileID: 21300000, guid: 14ae55a7aad124041940f19bbb799f50, type: 3}
       _cryingSound: {fileID: 0}
-      _name: "\uC2E0\uC785!\uC2E0\uC785!"
+      _name: "\uC2E0\uC785\uC0DD"
       _health: 100
       _skills:
       - _name: "\uC4F0\uB2E4\uB4EC\uAE30"
         _count: 3
         _currentCount: 0
-        _battleEvent:
+        _event:
           m_PersistentCalls:
             m_Calls:
             - m_Target: {fileID: 0}
@@ -4285,10 +4208,10 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
-      - _name: "\uBC25 \uC8FC\uAE30"
-        _count: 20
+      - _name: "\uBC25\uC8FC\uAE30"
+        _count: 10
         _currentCount: 0
-        _battleEvent:
+        _event:
           m_PersistentCalls:
             m_Calls:
             - m_Target: {fileID: 0}
@@ -4305,7 +4228,7 @@ MonoBehaviour:
       - _name: "\uC18C\uB9AC\uC9C0\uB974\uAE30"
         _count: 1
         _currentCount: 0
-        _battleEvent:
+        _event:
           m_PersistentCalls:
             m_Calls:
             - m_Target: {fileID: 0}
@@ -4319,6 +4242,83 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
+    _isFoldOut: 0
+  - _info:
+      _frontImage: {fileID: 21300000, guid: ca67760fda2a7cc4db36cc747c6f1a16, type: 3}
+      _backImage: {fileID: 21300000, guid: ca67760fda2a7cc4db36cc747c6f1a16, type: 3}
+      _cryingSound: {fileID: 0}
+      _name: "\uBBFC\uC9C0\uC758 \uACE0\uC591\uC774"
+      _health: 300
+      _skills:
+      - _name: "\uC2EC\uCFF5\uC0AC"
+        _count: 7
+        _currentCount: 0
+        _event:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 0}
+              m_MethodName: DeadByHeartPonding
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+      - _name: "\uC9D1\uC0AC \uAC04\uD0DD"
+        _count: 15
+        _currentCount: 0
+        _event:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 0}
+              m_MethodName: BeChosen
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+      - _name: "\uD130\uC90F\uB300\uAC10"
+        _count: 20
+        _currentCount: 0
+        _event:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 0}
+              m_MethodName: MasterMeow
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+      - _name: "\uB0AE\uC7A0"
+        _count: 20
+        _currentCount: 0
+        _event:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 0}
+              m_MethodName: SleepAfternoon
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    _isFoldOut: 0
 --- !u!114 &1250845342
 MonoBehaviour:
   m_ObjectHideFlags: 0

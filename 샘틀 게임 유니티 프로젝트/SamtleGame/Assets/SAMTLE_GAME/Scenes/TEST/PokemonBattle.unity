@@ -1078,8 +1078,8 @@ MonoBehaviour:
   _battleTrack: BGM 0
   _victoryTrack: BGM 1
   _isTest: 1
-  _testMyPokemon: C++
-  _testEnemyPokemon: "\uB3D9\uBC29\uCEF4"
+  _testMyPokemon: Python
+  _testEnemyPokemon: "\uC624\uB798\uB41C \uB3D9\uBC29\uCEF4"
 --- !u!4 &2077277600
 Transform:
   m_ObjectHideFlags: 0
@@ -1120,138 +1120,6 @@ PrefabInstance:
     - target: {fileID: 512831533, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[0]._info._skills.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[1]._info._skills.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[0]._info._frontImage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[1]._isFoldOut
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[0]._isFoldOut
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[0]._key
-      value: "0\uBC88 \uD3EC\uCF13\uBAAC"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[1]._key
-      value: "1\uBC88 \uD3EC\uCF13\uBAAC"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[1]._info._frontImage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[2]._key
-      value: "2\uBC88 \uD3EC\uCF13\uBAAC"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[2]._isFoldOut
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[0]._info._name
-      value: C++
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[1]._info._name
-      value: "No.3 \uD3EC\uCF13\uBAAC"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[2]._info._name
-      value: "No.3 \uD3EC\uCF13\uBAAC"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[0]._info._skills.Array.data[0]._count
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[0]._info._skills.Array.data[0]._name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[0]._info._skills.Array.data[1]._name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[0]._info._skills.Array.data[1]._count
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[0]._info._skills.Array.data[2]._name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[0]._info._skills.Array.data[2]._count
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[0]._info._skills.Array.data[3]._name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[0]._info._skills.Array.data[3]._count
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[1]._info._skills.Array.data[0]._name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[1]._info._skills.Array.data[0]._count
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[1]._info._skills.Array.data[1]._name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[1]._info._skills.Array.data[1]._count
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[1]._info._skills.Array.data[2]._name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[1]._info._skills.Array.data[2]._count
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[1]._info._skills.Array.data[3]._name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[1]._info._skills.Array.data[3]._count
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[0]._info._skills.Array.data[4]._name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[0]._info._skills.Array.data[4]._count
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250845341, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
-      propertyPath: _pokemonList.Array.data[3]._info._name
-      value: "No.3 \uD3EC\uCF13\uBAAC"
       objectReference: {fileID: 0}
     - target: {fileID: 1840808404, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1604,7 +1472,7 @@ PrefabInstance:
     - target: {fileID: 4917301246608765678, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
       propertyPath: m_CellSize.y
-      value: 322.045
+      value: -20.35498
       objectReference: {fileID: 0}
     - target: {fileID: 4917301246608765678, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
@@ -1654,7 +1522,7 @@ PrefabInstance:
     - target: {fileID: 4917301247317719934, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
       propertyPath: m_CellSize.y
-      value: 204.7775
+      value: 33.5775
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}

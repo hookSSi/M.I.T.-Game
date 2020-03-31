@@ -97,7 +97,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             }
         }
 
-        public void AddItem(string itemName, string itemCaption, int itemCount, BattleItem.ItemType itemType, BattleEvent itemEvent)
+        public void AddItem(string itemName, string itemCaption, int itemCount, BattleItem.ItemType itemType, UnityAction<Pokemon, Pokemon> itemAction)
         {
             if (_itemPrefab == null)
             {
@@ -108,7 +108,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             GameObject newObject = Instantiate(_itemPrefab, _contentObject);
             BattleItem newItem = newObject.GetComponent<BattleItem>();
 
-            BattleEvent newItemEvent = itemEvent;
+            BattleEvent newItemEvent = new BattleEvent();
+            newItemEvent.AddListener(itemAction);
 
             newItem.SetValues(itemName, itemCaption, itemCount, itemType, newItemEvent);
             newItem.UpdateText();
