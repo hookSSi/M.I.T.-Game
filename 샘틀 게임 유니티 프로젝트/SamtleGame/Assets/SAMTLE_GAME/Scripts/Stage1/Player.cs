@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using NaughtyAttributes;
+
 namespace MIT.SamtleGame.Stage1
 {
 
@@ -10,8 +12,7 @@ namespace MIT.SamtleGame.Stage1
         public PlayerController _controller;
         public static Vector3 _pos;
 
-        [Header("플레이어 정보")]
-        public int _maxHp = 100;
+        [BoxGroup("플레이어 정보"), ProgressBar("Health", 100, EColor.Red)]
         public int _currentHp = 100;
 
         private void Start() 

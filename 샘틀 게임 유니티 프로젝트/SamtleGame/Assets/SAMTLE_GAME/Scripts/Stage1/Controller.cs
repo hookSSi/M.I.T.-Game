@@ -2,29 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using NaughtyAttributes;
+
 namespace MIT.SamtleGame.Stage1
 {
     public class Controller : MonoBehaviour
     {
         /// 로직을 위한 변수들
-        [SerializeField]
-        protected PlayerState _state = PlayerState.Idle;
-        protected Animator _playerAnimator;
         protected Rigidbody2D _rigid;
         protected float _attackCurrentTime;
 
-        /// 애니메이션 관련 bool
+        /// 애니메이션 관련
+        protected Animator _playerAnimator;
         protected bool _isCrouch = false;
         protected bool _isGround = true;
+        [ShowNonSerializedField] 
+        protected PlayerState _state = PlayerState.Idle;
 
         /// 컨트롤 관련 변수들
+        [BoxGroup("Player 컨트롤 설정")] 
         public bool _isControllable = true;
+        [BoxGroup("Player 컨트롤 설정")] 
         public int _speed = 10;
+        [BoxGroup("Player 컨트롤 설정")] 
         public float _jumpPower = 1.0f;
+        [BoxGroup("Player 컨트롤 설정")] 
         public float _attackCollTime = 0.1f;
 
-        [Header("땅체크 콜라이더")]
+        [BoxGroup("Ground Check 콜라이더")] 
         public Transform _groundCheker;
+        [BoxGroup("Ground Check 콜라이더")] 
         public Vector2 _groundColSize;
 
         protected virtual void Initialization()
@@ -139,7 +146,8 @@ namespace MIT.SamtleGame.Stage1
         protected virtual void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawCube(_groundCheker.position, _groundColSize);
+            if(_groundCheker != null)
+                Gizmos.DrawCube(_groundCheker.position, _groundColSize);
         }
     }
 }
