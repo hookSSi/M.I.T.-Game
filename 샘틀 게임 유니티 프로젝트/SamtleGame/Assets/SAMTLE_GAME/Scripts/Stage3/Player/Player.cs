@@ -9,8 +9,18 @@ namespace MIT.SamtleGame.Stage3
         public GameObject _playerModel;
         public PlayerController3D _controller;
 
-        private void Update() {
+        public float _smooth = 0.3f;
+        private float _yVelocity = 0.0f;
+
+        private void LateUpdate() {
             _playerModel.transform.localPosition = Vector3.zero;
+
+            // 플레이어 모델 방향 보정
+            if (_controller._canMove)
+            {
+                float yAngle = Mathf.SmoothDampAngle(_playerModel.transform.localRotation.eulerAngles.y, 0f, ref _yVelocity, _smooth);
+                _playerModel.transform.localRotation = Quaternion.Euler(0, yAngle, 0);
+            }
         }
     }   
 }

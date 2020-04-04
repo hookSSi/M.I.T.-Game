@@ -22,6 +22,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         /// 스킬 시전 대사
         public static bool FirstScript(Pokemon pokemon, string skillName, out string firstDialog)
         {
+            Debug.Log("I play the FirstScript!");
+
             if (!pokemon)
             {
                 firstDialog = "";
@@ -122,7 +124,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             float damage = GetDamage(myPokemon, enemyPokemon, 30f);
             enemyPokemon.Health -= damage;
 
-            FirstScript(myPokemon, "이지 투 유즈", out dialog);
+            FirstScript(myPokemon, "이거완전쉬워용^^", out dialog);
             _manager._dialogueController.AddNextPage(dialog, true);
             _manager._dialogueController.AddNextPage("심플 이즈 베스트!", true);
         }
@@ -194,14 +196,14 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _manager._dialogueController.AddNextPage(dialog, true);
             _manager._dialogueController.AddNextPage("고양이는 기겁했다!", true);
         }
-        
+
 
         /*
          * Skills For 오래된 동방컴
          */
 
         /// 돌돌돌
-        public void StoneStoneStone(Pokemon myPokemon, Pokemon enemyPokemon)
+        public void TripleStone (Pokemon myPokemon, Pokemon enemyPokemon)
         {
             // 그냥 돌돌돌... 도는 소리
             string dialog;

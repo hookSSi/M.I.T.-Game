@@ -26,7 +26,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         // FixedTime : 일정한 시간을 두고 체력바가 변한다.
         // 체력이 많이 까지면 빠르게, 적게 까지면 천천히 변한다.(최신 포켓몬 소드실드 참고)
         // FixedSpeed : 체력바가 변하는 속도가 일정해진다.(구 포켓몬 골드 버전 참고)
-        private enum UpdateType
+        public enum UpdateType
         {
             FixedTime, FixedSpeed
         }
@@ -36,28 +36,28 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             "FixedTime : 일정한 시간을 두고 체력바가 변한다.\n" +
             "체력이 많이 까지면 빠르게, 적게 까지면 천천히 변한다.(최신 포켓몬 소드실드 참고)\n" +
             "FixedSpeed : 체력바가 변하는 속도가 일정해진다.(구 포켓몬 골드 버전 참고)")]
-        [SerializeField] private UpdateType _hpUpdateType = UpdateType.FixedTime;
-        [SerializeField] private float _hpChangeTime = 0.8f;
-        [SerializeField] private float _hpChangeSpeed = 0.5f; // (초당 차오르는 비율; 1f는 초당 100%)
-        [SerializeField] private float _expChangeSpeed = 2f; // (초당 차오르는 비율)
+        public UpdateType _hpUpdateType = UpdateType.FixedTime;
+        public float _hpChangeTime = 0.8f;
+        public float _hpChangeSpeed = 0.5f; // (초당 차오르는 비율; 1f는 초당 100%)
+        public float _expChangeSpeed = 2f; // (초당 차오르는 비율)
 
         // 상대 : 이름, 레벨, 체력바
         [Header("- 적 포켓몬 UI")]
         [Tooltip("적의 포켓몬 UI창 오브젝트")]
-        [SerializeField] private GameObject _enemyPokemonUI;
-        [SerializeField] private Text _enemyPokemonName;
-        [SerializeField] private Text _enemyLevelText;
-        [SerializeField] private Slider _enemyHpSlider;
-        [SerializeField] private Image _enemyPokemonImage;
+        public GameObject _enemyPokemonUI;
+        public Text _enemyPokemonName;
+        public Text _enemyLevelText;
+        public Slider _enemyHpSlider;
+        public Image _enemyPokemonImage;
         [Header("- 플레이어 포켓몬 UI")]
         [Tooltip("플레이어의 포켓몬 UI창 오브젝트")]
-        [SerializeField] private GameObject _playerPokemonUI;
-        [SerializeField] private Text _playerPokemonName;
-        [SerializeField] private Text _playerHpText;
-        [SerializeField] private Text _playerLevelText;
-        [SerializeField] private Slider _playerHpSlider;
-        [SerializeField] private Slider _playerExpSlider;
-        [SerializeField] private Image _playerPokemonImage;
+        public GameObject _playerPokemonUI;
+        public Text _playerPokemonName;
+        public Text _playerHpText;
+        public Text _playerLevelText;
+        public Slider _playerHpSlider;
+        public Slider _playerExpSlider;
+        public Image _playerPokemonImage;
 
         // 전투 화면 표시
         [Header("[전투 화면]")]

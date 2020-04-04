@@ -4595,10 +4595,47 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1297559966}
     m_Modifications:
+    - target: {fileID: 262074255, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 262074255, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 333865451, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
+      propertyPath: _row
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 512831533, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 512831533, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 808307738, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
+      propertyPath: _id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840808404, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840808404, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4917301245897720640, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
       propertyPath: m_Name
       value: Pokemon Battle UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301245897720640, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4917301245897720643, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
@@ -4715,25 +4752,155 @@ PrefabInstance:
       propertyPath: _battleFaderAnim
       value: 
       objectReference: {fileID: 1902419281}
+    - target: {fileID: 4917301245951647404, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301245951647404, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301245951647404, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 490.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301245951647404, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -66.13875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301245951647404, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 581.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301245951647404, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -27.722504
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246009209099, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246009209099, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246009209099, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 490.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246009209099, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -38.416245
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246009209099, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 581.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246009209099, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -27.722504
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246058520225, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246058520225, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246058520225, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 490.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246058520225, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 17.028809
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246058520225, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 581.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246058520225, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -27.722504
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246177473747, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246545693378, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246545693378, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246545693378, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 490.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246545693378, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10.693726
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246545693378, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 581.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301246545693378, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -27.722504
+      objectReference: {fileID: 0}
     - target: {fileID: 4917301246608765678, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
       propertyPath: m_CellSize.x
-      value: 373.23495
+      value: 348.23502
       objectReference: {fileID: 0}
     - target: {fileID: 4917301246608765678, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
       propertyPath: m_CellSize.y
-      value: 389.48495
+      value: 1031.3784
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917301247317719933, guid: 487c3d8b94b2f52449e7550a2dc4161c,
+        type: 3}
+      propertyPath: _row
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4917301247317719934, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
       propertyPath: m_CellSize.x
-      value: 841.69995
+      value: 796.69995
       objectReference: {fileID: 0}
     - target: {fileID: 4917301247317719934, guid: 487c3d8b94b2f52449e7550a2dc4161c,
         type: 3}
       propertyPath: m_CellSize.y
-      value: 247.49747
+      value: 559.4442
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 487c3d8b94b2f52449e7550a2dc4161c, type: 3}
@@ -5094,7 +5261,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1086516632}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &563880057
 MonoBehaviour:
@@ -8783,7 +8950,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1086516632}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &781404971
 MonoBehaviour:
@@ -8794,22 +8961,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 781404969}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0f6d1a6feb556741a0393850d783942, type: 3}
+  m_Script: {fileID: 11500000, guid: 78fd209d77a8b54409b31d36ae04fda7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiManager: {fileID: 385301806}
-  _itemManager: {fileID: 1980105670}
-  _dialogueController: {fileID: 723531500}
-  _myPokemon: {fileID: 385301804}
-  _enemyPokemon: {fileID: 385301805}
-  _hitSound: "\uD53C\uACA9"
-  _commitSound: "\uD655\uC778"
-  _appearSound: "\uB4F1\uC7A5"
-  _battleTrack: 1
-  _victoryTrack: 2
-  _testMyPokemon: 
-  _testEnemyPokemon: 
-  _isTest: 0
+  _stage2Bgm: Main BGM
 --- !u!1001 &957210316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9588,9 +9743,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 325960277}
+  - {fileID: 781404970}
   - {fileID: 563880056}
   - {fileID: 1123264487}
-  - {fileID: 781404970}
+  - {fileID: 1357374229}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19612,7 +19768,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1086516632}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1123264488
 MonoBehaviour:
@@ -19627,9 +19783,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sounds:
-  - _name: BGM 0
+  - _name: Main BGM
     _clip:
     - {fileID: 8300000, guid: 41ff7795a0fca894f8ff08bd26094c8e, type: 3}
+    _volume: 0
+    _isLoop: 0
+    _isFoldOut: 1
+  - _name: Adventure Begins
+    _clip:
+    - {fileID: 8300000, guid: 56d5a558336331a42a891f2f2d17086c, type: 3}
+    _volume: 0
+    _isLoop: 0
+    _isFoldOut: 1
+  - _name: Battle Track
+    _clip:
+    - {fileID: 8300000, guid: b619e566336d89f4f985a31580bbe9b5, type: 3}
+    _volume: 0
+    _isLoop: 0
+    _isFoldOut: 1
+  - _name: Victory Track
+    _clip:
+    - {fileID: 8300000, guid: 0b296cb8a6e1f1b48884d957728886e5, type: 3}
+    _volume: 0
+    _isLoop: 0
+    _isFoldOut: 1
+  - _name: Lose Track
+    _clip:
+    - {fileID: 8300000, guid: ee27011f7ed9bb7458aa0ce102b9b7ae, type: 3}
     _volume: 0
     _isLoop: 0
     _isFoldOut: 1
@@ -19643,7 +19823,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 41ff7795a0fca894f8ff08bd26094c8e, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -25320,6 +25500,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1357374228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1357374229}
+  - component: {fileID: 1357374230}
+  m_Layer: 0
+  m_Name: BattleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1357374229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357374228}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1086516632}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1357374230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357374228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f6d1a6feb556741a0393850d783942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiManager: {fileID: 385301806}
+  _itemManager: {fileID: 1980105670}
+  _dialogueController: {fileID: 723531500}
+  _myPokemon: {fileID: 385301804}
+  _enemyPokemon: {fileID: 385301805}
+  _hitSound: "\uD53C\uACA9"
+  _commitSound: "\uD655\uC778"
+  _appearSound: "\uB4F1\uC7A5"
+  _battleTrack: Battle Track
+  _victoryTrack: Victory Track
+  _loseTrack: Lose Track
+  _isTest: 0
+  _testMyPokemon: 
+  _testEnemyPokemon: 
 --- !u!1 &1378128956
 GameObject:
   m_ObjectHideFlags: 0
@@ -30001,6 +30238,7 @@ MonoBehaviour:
   _dir: 0
   _isActive: 1
   _sound: 
+  _newTrack: Adventure Begins
   _tag:
   - _flag: 0
   - _flag: 1
