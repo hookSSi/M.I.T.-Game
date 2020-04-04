@@ -5,6 +5,7 @@ using UnityEngine;
 using MIT.SamtleGame.Stage2.Tools;
 using MIT.SamtleGame.Stage2.NPC;
 using MIT.SamtleGame.Tools;
+using MIT.SamtleGame.Attributes;
 
 namespace MIT.SamtleGame.Stage2
 {    
@@ -15,7 +16,8 @@ namespace MIT.SamtleGame.Stage2
         public Transform _dest; // 목적지
         public Direction _dir = Direction.NONE; // 목적지에서 대상의 바라보는 방향
         public bool _isActive = true;
-        public string _sound = "";
+        [GameAudio] public string _sound;
+        [GameBgm] public string _newTrack;
         public Tag[] _tag;
         
         [Header("FadeInOut"), Space(20)]
@@ -63,6 +65,10 @@ namespace MIT.SamtleGame.Stage2
             player.transform.position = _dest.transform.position;
             player.SetDirection(_dir);
             FadeOutEvent.Trigger(_fadeOutTime, _fadeOutTween);
+
+            yield return new WaitForSeconds(_fadeInTime);
+
+            BgmManager.Instance.Play(_newTrack);
 
             yield break;
         }

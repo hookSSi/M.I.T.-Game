@@ -37,10 +37,11 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         public static Skill DefaultSkill()
         {
-            Skill defaultSkill = new Skill
+            Skill defaultSkill = new Skill()
             {
                 _name = "뇌정지",
-                _count = 999
+                _count = 999,
+                _event = new BattleEvent()
             };
             defaultSkill._event.AddListener(PokemonBattleManager.Instance._uiManager._skillClass.StopThinking);
 

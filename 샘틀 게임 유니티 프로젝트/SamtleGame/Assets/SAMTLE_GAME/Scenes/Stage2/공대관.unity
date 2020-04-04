@@ -19789,6 +19789,12 @@ MonoBehaviour:
     _volume: 0
     _isLoop: 0
     _isFoldOut: 1
+  - _name: Adventure Begins
+    _clip:
+    - {fileID: 8300000, guid: 56d5a558336331a42a891f2f2d17086c, type: 3}
+    _volume: 0
+    _isLoop: 0
+    _isFoldOut: 1
   - _name: Battle Track
     _clip:
     - {fileID: 8300000, guid: b619e566336d89f4f985a31580bbe9b5, type: 3}
@@ -19798,6 +19804,12 @@ MonoBehaviour:
   - _name: Victory Track
     _clip:
     - {fileID: 8300000, guid: 0b296cb8a6e1f1b48884d957728886e5, type: 3}
+    _volume: 0
+    _isLoop: 0
+    _isFoldOut: 1
+  - _name: Lose Track
+    _clip:
+    - {fileID: 8300000, guid: ee27011f7ed9bb7458aa0ce102b9b7ae, type: 3}
     _volume: 0
     _isLoop: 0
     _isFoldOut: 1
@@ -25541,6 +25553,7 @@ MonoBehaviour:
   _appearSound: "\uB4F1\uC7A5"
   _battleTrack: Battle Track
   _victoryTrack: Victory Track
+  _loseTrack: Lose Track
   _isTest: 0
   _testMyPokemon: 
   _testEnemyPokemon: 
@@ -30225,6 +30238,7 @@ MonoBehaviour:
   _dir: 0
   _isActive: 1
   _sound: 
+  _newTrack: Adventure Begins
   _tag:
   - _flag: 0
   - _flag: 1

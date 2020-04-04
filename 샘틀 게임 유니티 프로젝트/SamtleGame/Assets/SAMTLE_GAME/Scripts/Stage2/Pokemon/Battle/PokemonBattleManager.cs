@@ -27,6 +27,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         [GameAudio] public string _appearSound = "RetroVideoGameFx";
         [GameBgm] public string _battleTrack;
         [GameBgm] public string _victoryTrack;
+        [GameBgm] public string _loseTrack;
 
         private Tool.PokemonBattleEventSystem _eventSystem;
         private WaitWhile _waitDialogueUpdating;
@@ -110,7 +111,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             _prevTrack = BgmManager.Instance.CurrentTrack;
 
-            BgmManager.Instance.Pause();
             BgmManager.Instance.Play(_battleTrack, true);
 
             StartCoroutine("StartBattleCoroutine");
@@ -289,14 +289,13 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _state = BattleState.End;
             _dialogueController.ClearPages();
 
-            BgmManager.Instance.Pause();
-            BgmManager.Instance.Play(_victoryTrack);
-
             if (_myPokemon.Health <= 0f) _uiManager._mainUI.UpdatePlayerImage(false, true);
             if (_enemyPokemon.Health <= 0f) _uiManager._mainUI.UpdateEnemyImage(false, true);
 
             if (_myPokemon.Health > 0f)
             {
+                BgmManager.Instance.Play(_victoryTrack, false);
+
                 if (_enemyPokemon.Info._name != "민지의 고양이")
                     _dialogueController.AddNextPage("신난다! " + _enemyPokemon.Info._name + "과의 과제에서 이겼다!", true);
                 else
@@ -304,6 +303,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             }
             else
             {
+                BgmManager.Instance.Play(_loseTrack, true);
+
                 _dialogueController.AddNextPage(_myPokemon.Info._name + "가 최후의 오류를 내뿜었다...");
                 _dialogueController.AddNextPage("새내기는 눈앞이 깜깜해졌다!", true);
             }
