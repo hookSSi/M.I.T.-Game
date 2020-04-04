@@ -654,14 +654,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Material
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 136139196}
+=======
       objectReference: {fileID: 652465785}
 >>>>>>> origin/hook
     - target: {fileID: 8268706378529114035, guid: 9f072800efe3b1849b11cccb0b16991f,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 136139196}
+=======
       objectReference: {fileID: 652465785}
 >>>>>>> origin/hook
     - target: {fileID: 8268706378529114035, guid: 9f072800efe3b1849b11cccb0b16991f,
