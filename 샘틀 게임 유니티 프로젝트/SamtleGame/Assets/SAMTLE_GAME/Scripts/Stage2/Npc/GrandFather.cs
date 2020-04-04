@@ -32,7 +32,6 @@ namespace MIT.SamtleGame.Stage2.NPC
             /// 웨이포인트 이동
             yield return StartCoroutine(WayPointsMoveRoutine());
             
-            PlayerControllerEvent.Trigger(true);
             EventEndResponse();
             yield break;
         }
@@ -53,7 +52,6 @@ namespace MIT.SamtleGame.Stage2.NPC
             double walkAmount = _walkSize / 2;
             foreach(var wayPoint in _wayPoints)
             {
-
                 Direction dir = Maths.Vector2ToDirection(wayPoint.transform.position - transform.position);
                 _currentDir = Maths.DirectionToVector2(dir);
 
