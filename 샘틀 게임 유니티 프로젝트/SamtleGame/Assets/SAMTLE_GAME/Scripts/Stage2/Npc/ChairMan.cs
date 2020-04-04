@@ -35,7 +35,7 @@ namespace MIT.SamtleGame.Stage2.NPC
             _pokemonSelector.StartSelecting();
             yield return WaitUntilSelectEnd();
 
-            PokemonBattleManager.Instance.StartBattle(pokemon, "동방컴");
+            PokemonBattleManager.Instance.StartBattle(pokemon, "오래된 동방컴");
             yield return WaitUntilBattleEnd();
 
             List<DialoguePage> textPages = new List<DialoguePage>();

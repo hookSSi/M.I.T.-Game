@@ -1,9 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Reflection;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace MIT.SamtleGame.Stage2.Pokemon
 {
+    [System.Serializable]
+    // public delegate void BattleEvent(Pokemon myPokemon, Pokemon enemyPokemon);
+    public class BattleEvent : UnityEvent<Pokemon, Pokemon> { }
+
     [System.Serializable]
     public class Skill
     {
@@ -14,7 +20,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         [HideInInspector]
         public int _currentCount;
         [Tooltip("스킬 이벤트")]
-        public BattleEvent _battleEvent;
+        public BattleEvent _event;
     }
     [System.Serializable]
     public class PokemonInfo
@@ -33,8 +39,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
         [Header("기술")]
         [SerializeField]
-        public Skill[] _skills;
-
+        public List<Skill> _skills;
     }
 
     public class Pokemon : MonoBehaviour
@@ -92,8 +97,18 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _info = newInfo;
             Health = MaxHealth;
 
-            for (int i = 0; i < newInfo._skills.Length; i++)
+            for (int i = 0; i < newInfo._skills.Count; i++)
+            {
                 _info._skills[i]._currentCount = newInfo._skills[i]._count;
+
+                /// 스킬 이벤트 할당 과정
+                /// 버그로 인해서인지, 유니티 이벤트의 스킬이 할당되지 않을 때가 있다. 이를 해결하기 위한 코드
+                Type tp = typeof(SkillClass);
+                string methodName = newInfo._skills[i]._event.GetPersistentMethodName(0);
+                MethodInfo method = tp.GetMethod(methodName, BindingFlags.Public | BindingFlags.Instance);
+                Delegate d = Delegate.CreateDelegate(typeof(UnityAction<Pokemon, Pokemon>), PokemonBattleManager.Instance._uiManager._skillClass, method);
+                _info._skills[i]._event.AddListener((UnityAction<Pokemon, Pokemon>) d);
+            }
         }
     }
 }

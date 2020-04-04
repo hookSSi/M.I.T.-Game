@@ -10,7 +10,19 @@ public class BgmManager : Singleton<BgmManager>
     private Dictionary<string, Sound> _soundDic = new Dictionary<string, Sound>();
     private AudioSource _audio;
     private WaitForSeconds _waitTime = new WaitForSeconds(0.01f);
+    private string _currentTrack = "";
     [HideInInspector] public List<Sound> _sounds = new List<Sound>();
+
+    public string CurrentTrack
+    {
+        get
+        {
+            if (_currentTrack != "" && _soundDic.ContainsKey(_currentTrack))
+                return _currentTrack;
+            else
+                return "(None)";
+        }
+    }
 
     protected virtual void Initialization()
     {
@@ -22,7 +34,7 @@ public class BgmManager : Singleton<BgmManager>
         _audio = GetComponent<AudioSource>();
     }
     
-    void Start()
+    void Awake()
     {
         Initialization();
     }
@@ -34,10 +46,10 @@ public class BgmManager : Singleton<BgmManager>
             _soundDic[trackName].Play(_audio);
             _audio.volume = volume;
             _audio.loop = loop;
+            _currentTrack = trackName;
         }
         else
             Debug.LogFormat("{0} 이름의 bgm을 재생할 수 없습니다.", trackName);
-
     }
 
     public void Pause()
@@ -88,8 +100,8 @@ public class BgmManager : Singleton<BgmManager>
         }
     }
 
-    public bool IsPlaying(){ return _audio.isPlaying; }
-    public AudioSource GetAudio(){ return _audio; }
+    public bool IsPlaying() { return _audio.isPlaying; }
+    public AudioSource GetAudio() { return _audio; }
 
     public struct BgmCreationParams 
     {

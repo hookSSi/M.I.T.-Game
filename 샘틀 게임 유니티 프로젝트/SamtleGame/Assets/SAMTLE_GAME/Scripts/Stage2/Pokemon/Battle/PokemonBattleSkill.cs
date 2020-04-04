@@ -8,8 +8,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 {
     public class PokemonBattleSkill : MonoBehaviour
     {
-        [SerializeField] private GameObject[] _skills = new GameObject[4];
-        [SerializeField] private Text _skillPpText;
+        public GameObject[] _skills = new GameObject[4];
+        public Text _skillPpText;
 
         private Text[] _skillTexts;
         private Selectable[] _selectable;
@@ -66,7 +66,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
                 if (_skills[i])
                 {
                     // 해당하는 스킬이 존재할 때
-                    if (i < _playerPokemon.Info._skills.Length)
+                    if (i < _playerPokemon.Info._skills.Count)
                     {
                         _selectable[i].interactable = true;
                         _skillTexts[i].text = _playerPokemon.Info._skills[i]._name;
@@ -85,7 +85,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             if (_playerPokemon == null)
                 return;
 
-            if (indexOfSkill >= _playerPokemon.Info._skills.Length)
+            if (indexOfSkill >= _playerPokemon.Info._skills.Count)
                 return;
 
             if (_skillPpText != null)

@@ -8,8 +8,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 {
     public class PokemonBattleAction : MonoBehaviour
     {
-        [SerializeField] private GameObject[] _actions = new GameObject[4];
-        [SerializeField] private string[] _actionStrings = new string[4];
+        public GameObject[] _actions = new GameObject[4];
+        public string[] _actionStrings = new string[4];
 
         private Text[] _actionTexts = new Text[4];
 

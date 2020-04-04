@@ -1,8 +1,9 @@
 ﻿using MIT.SamtleGame.DesignPattern;
 using System.Collections;
-using System.Collections.Generic;
+using System.Reflection; // 테스트용
 using UnityEngine;
 using UnityEngine.Events;
+using MIT.SamtleGame.Attributes;
 
 
 namespace MIT.SamtleGame.Stage2.Pokemon
@@ -14,9 +15,6 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         Act, End
     }
 
-    [System.Serializable]
-    public class BattleEvent : UnityEvent<Pokemon, Pokemon> { }
-
     public class PokemonBattleManager : Singleton<PokemonBattleManager>
     {
         public PokemonBattleUIManager _uiManager;
@@ -24,11 +22,12 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         public BattleDialogueController _dialogueController;
         public Pokemon _myPokemon;
         public Pokemon _enemyPokemon;
-        public string _hitSound = "Hit";
-        public string _commitSound = "BattleCommit";
-        public string _appearSound = "RetroVideoGameFx";
-        public string _battleTrack;
-        public string _victoryTrack;
+        [GameAudio] public string _hitSound = "Hit";
+        [GameAudio] public string _commitSound = "BattleCommit";
+        [GameAudio] public string _appearSound = "RetroVideoGameFx";
+        [GameBgm] public string _battleTrack;
+        [GameBgm] public string _victoryTrack;
+        [GameBgm] public string _loseTrack;
 
         private Tool.PokemonBattleEventSystem _eventSystem;
         private WaitWhile _waitDialogueUpdating;
@@ -37,9 +36,9 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         private string _prevTrack;
 
         [Header("배틀 테스트용 인자")]
+        [SerializeField] private bool _isTest = false;
         [SerializeField] private string _testMyPokemon;
         [SerializeField] private string _testEnemyPokemon;
-        [SerializeField] private bool _isTest = false;
 
         public BattleState _state { get; private set; }
 
@@ -110,17 +109,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
 
             _uiManager._skillClass.Init();
 
-            var bgmManager = BgmManager.Instance;
-            AudioClip currentMusic = bgmManager.GetComponent<AudioSource>().clip;
-            _prevTrack = "Null";
+            _prevTrack = BgmManager.Instance.CurrentTrack;
 
-            // 고쳐주길 바람
-            // for (int i = 0; i < bgmManager._sounds.Count; i++)
-            // {
-            //     if (bgmManager._sounds[i]._clip2 == currentMusic) { _prevTrack = i; break; }
-            // }
-
-            BgmManager.Instance.Pause();
             BgmManager.Instance.Play(_battleTrack, true);
 
             StartCoroutine("StartBattleCoroutine");
@@ -131,7 +121,13 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             // 대사
             _dialogueController.ClearPages();
             _dialogueController.AddNextPage("야생의 " + _enemyPokemon.Info._name + "이(가) 나타났다!");
-            _dialogueController.AddNextPage("가랏! " + _myPokemon.Info._name + "!", true);
+            if (_myPokemon.Info._name != "신입생")
+                _dialogueController.AddNextPage("가랏! " + _myPokemon.Info._name + "!", true);
+            else
+            {
+                _dialogueController.AddNextPage("가랏! 신입생!");
+                _dialogueController.AddNextPage("신입! 신입!", true);
+            }
 
             StartCoroutine(_uiManager._mainUI.FadeInBattle(1.5f));
             yield return new WaitForSeconds(1.5f);
@@ -198,7 +194,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _uiManager._mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Battle);
             _uiManager._bottomUI.UpdateDialog();
 
-            StartCoroutine(ActPhase(playerSkill._battleEvent, NextEnemySkill()._battleEvent));
+            StartCoroutine(ActPhase(playerSkill._event, NextEnemySkill()._event));
         }
 
         public void UseItem(BattleEvent battleEvent)
@@ -208,7 +204,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _uiManager._mainUI.UpdateMainUI(PokemonBattleMainUI.UIState.Battle);
             _uiManager._bottomUI.UpdateDialog();
 
-            StartCoroutine(ActPhase(battleEvent, NextEnemySkill()._battleEvent));
+            StartCoroutine(ActPhase(battleEvent, NextEnemySkill()._event));
         }
 
         IEnumerator ActPhase(BattleEvent playerEvent, BattleEvent enemyEvent)
@@ -293,14 +289,13 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             _state = BattleState.End;
             _dialogueController.ClearPages();
 
-            BgmManager.Instance.Pause();
-            BgmManager.Instance.Play(_victoryTrack);
-
             if (_myPokemon.Health <= 0f) _uiManager._mainUI.UpdatePlayerImage(false, true);
             if (_enemyPokemon.Health <= 0f) _uiManager._mainUI.UpdateEnemyImage(false, true);
 
             if (_myPokemon.Health > 0f)
             {
+                BgmManager.Instance.Play(_victoryTrack, false);
+
                 if (_enemyPokemon.Info._name != "민지의 고양이")
                     _dialogueController.AddNextPage("신난다! " + _enemyPokemon.Info._name + "과의 과제에서 이겼다!", true);
                 else
@@ -308,6 +303,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             }
             else
             {
+                BgmManager.Instance.Play(_loseTrack, true);
+
                 _dialogueController.AddNextPage(_myPokemon.Info._name + "가 최후의 오류를 내뿜었다...");
                 _dialogueController.AddNextPage("새내기는 눈앞이 깜깜해졌다!", true);
             }
@@ -330,8 +327,8 @@ namespace MIT.SamtleGame.Stage2.Pokemon
             yield return new WaitForSeconds(0.5f);
 
             BgmManager.Instance.Pause();
-            if (_prevTrack != "Null" && _prevTrack != _battleTrack && _prevTrack != _victoryTrack)
-                BgmManager.Instance.Play(_prevTrack);
+            if (_prevTrack != "(None)")
+                BgmManager.Instance.Play(_prevTrack, false);
 
             _state = BattleState.None;
         }
@@ -371,7 +368,7 @@ namespace MIT.SamtleGame.Stage2.Pokemon
         // 다음에 적이 사용할 스킬
         private Skill NextEnemySkill()
         {
-            int enemySkillLength = _enemyPokemon.Info._skills.Length;
+            int enemySkillLength = _enemyPokemon.Info._skills.Count;
 
             Skill enemySkill = _enemyPokemon.UseSkill(Random.Range(0, enemySkillLength));
 
